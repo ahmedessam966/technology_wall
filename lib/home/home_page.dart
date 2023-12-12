@@ -31,6 +31,13 @@ class _HomePageState extends State<HomePage> {
     final provider = Provider.of<AppControllers>(context, listen: true);
     return PopScope(
       canPop: true,
+      onPopInvoked: (value) {
+        if (value) {
+          return;
+        } else {
+          Navigator.of(context).pop();
+        }
+      },
       child: ImprovedScrolling(
         scrollController: scroller,
         enableMMBScrolling: true,
