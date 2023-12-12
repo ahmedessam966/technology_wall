@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/home/mobile/mobile_home_body.dart';
 import 'package:technology_wall/home/tablet/tablet_home_body.dart';
 import 'package:technology_wall/home/web/web_home_body.dart';
 
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             physics: const RangeMaintainingScrollPhysics(),
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 40 : 80, vertical: 20),
                 child: sw >= 1440
                     ? const WebHeader()
                     : sw < 1440 && sw >= 768
@@ -51,7 +52,11 @@ class _HomePageState extends State<HomePage> {
                             sh: sh,
                             ar: ar,
                           )
-                        : const MobileHeader(),
+                        : MobileHeader(
+                            sw: sw,
+                            sh: sh,
+                            ar: ar,
+                          ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
@@ -63,7 +68,11 @@ class _HomePageState extends State<HomePage> {
                             sh: sh,
                             ar: ar,
                           )
-                        : const SizedBox(),
+                        : MobileHomeBody(
+                            sw: sw,
+                            sh: sh,
+                            ar: ar,
+                          ),
               ),
               sw >= 1440
                   ? const WebFooter()
@@ -73,7 +82,11 @@ class _HomePageState extends State<HomePage> {
                           sh: sh,
                           ar: ar,
                         )
-                      : const MobileFooter(),
+                      : MobileFooter(
+                          sw: sw,
+                          sh: sh,
+                          ar: ar,
+                        ),
             ],
           ),
         ),

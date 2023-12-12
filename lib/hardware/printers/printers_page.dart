@@ -66,7 +66,11 @@ class _PrintersPageState extends State<PrintersPage> {
                             sh: sh,
                             ar: ar,
                           )
-                        : const MobileHeader(),
+                        : MobileHeader(
+                            sw: sw,
+                            sh: sh,
+                            ar: ar,
+                          ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
@@ -84,7 +88,11 @@ class _PrintersPageState extends State<PrintersPage> {
                           sh: sh,
                           ar: ar,
                         )
-                      : const MobileFooter(),
+                      : MobileFooter(
+                          sw: sw,
+                          sh: sh,
+                          ar: ar,
+                        ),
             ],
           ),
         ),

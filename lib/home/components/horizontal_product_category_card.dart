@@ -7,40 +7,35 @@ class HorizontalProductCategoryCard extends StatelessWidget {
   final String category;
   final String description;
   final String imagePath;
+  final bool isMobile;
   final dynamic onPressed;
   const HorizontalProductCategoryCard(
       {super.key,
       required this.category,
       required this.description,
       required this.imagePath,
-      this.onPressed});
+      this.onPressed,
+      required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-        backgroundColor: const MaterialStatePropertyAll(Colors.white),
-        overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
-        shape: MaterialStatePropertyAll(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-              side: BorderSide(color: const Color(0xaaaaaeb6).withOpacity(1))),
-        ),
-        elevation: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.hovered)) {
-            return 2;
-          } else {
-            return 0;
-          }
-        }),
-      ),
+          padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+          backgroundColor: const MaterialStatePropertyAll(Colors.white),
+          overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
+          shape: MaterialStatePropertyAll(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+                side: BorderSide(color: const Color(0xaaaaaeb6).withOpacity(1))),
+          ),
+          elevation: const MaterialStatePropertyAll(2)),
       onPressed: onPressed,
       child: Flex(
         direction: Axis.horizontal,
         children: [
           Expanded(
-            flex: 1,
+            flex: isMobile ? 2 : 1,
             child: Image.network(
               imagePath,
               height: 80,
@@ -68,12 +63,16 @@ class HorizontalProductCategoryCard extends StatelessWidget {
               children: [
                 Text(
                   category,
-                  style: context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                  style: isMobile
+                      ? context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                      : context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                 ),
                 Text(
                   description,
                   overflow: TextOverflow.clip,
-                  style: context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                  style: isMobile
+                      ? context.bodySmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                      : context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                 ),
               ],
             ),
