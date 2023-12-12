@@ -50,8 +50,8 @@ class _PrintersPageState extends State<PrintersPage> {
         enableMMBScrolling: true,
         enableKeyboardScrolling: true,
         child: Scaffold(
-          key: sw < 1440 ? provider.nonWebScaffoldKey : null,
-          drawer: sw < 1440
+          key: sw < 1280 ? provider.nonWebScaffoldKey : null,
+          drawer: sw < 1280
               ? NonWebDrawer(
                   sw: sw,
                   sh: sh,
@@ -64,9 +64,9 @@ class _PrintersPageState extends State<PrintersPage> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                child: sw >= 1440
+                child: sw >= 1280
                     ? const WebHeader()
-                    : sw < 1440 && sw >= 768
+                    : sw < 1280 && sw >= 768
                         ? TabletHeader(
                             sw: sw,
                             sh: sh,
@@ -80,15 +80,15 @@ class _PrintersPageState extends State<PrintersPage> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                child: sw >= 1440
+                child: sw >= 1280
                     ? const WebHardwareBody()
-                    : sw < 1440 && sw >= 768
+                    : sw < 1280 && sw >= 768
                         ? const SizedBox()
                         : const SizedBox(),
               ),
-              sw >= 1440
+              sw >= 1280
                   ? const WebFooter()
-                  : sw < 1440 && sw >= 768
+                  : sw < 1280 && sw >= 768
                       ? TabletFooter(
                           sw: sw,
                           sh: sh,
