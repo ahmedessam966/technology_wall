@@ -8,7 +8,7 @@ class PrinterModel {
   final int stock;
   final String family;
   final String toner;
-  final int ppm;
+  final double ppm;
   final String type;
   final String utility;
   final String snapshot;

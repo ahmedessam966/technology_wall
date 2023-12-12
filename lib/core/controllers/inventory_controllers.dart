@@ -24,7 +24,6 @@ class InventoryControllers extends ChangeNotifier {
   }
 
   Future getPrinters() async {
-    _printersList.clear();
     try {
       final db = FirebaseFirestore.instance.collection('Printers');
       final snapshot = await db.get();

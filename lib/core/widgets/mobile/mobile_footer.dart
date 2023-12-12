@@ -181,7 +181,7 @@ class MobileFooter extends StatelessWidget {
           style: context.bodySmall?.copyWith(color: Colors.white54),
         ),
         Text(
-          'B422, Olaya District, Riyadh, Saudi Arabia',
+          'B233, Olaya District, Riyadh, Saudi Arabia',
           style: context.bodySmall?.copyWith(color: Colors.white54),
         ),
         SizedBox(

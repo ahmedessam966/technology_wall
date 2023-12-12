@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
               : themeConstants.darkTheme,
           initialRoute: '/home',
           routes: {
+            '/': (context) => const HomePage(),
             '/home': (context) => const HomePage(),
             '/about': (context) => const AboutPage(),
             '/about/accreditation': (context) => const AccreditationPage(),
@@ -64,7 +65,7 @@ class MyApp extends StatelessWidget {
             '/hardware/servers': (context) => const ServersPage(),
             '/hardware/switches': (context) => const SwitchesPage(),
             '/hardware/ups': (context) => const UPSPage(),
-            '/inventory': (context) => const InventoryPage(),
+            '/hardware': (context) => const InventoryPage(),
             '/login': (context) => const LoginPage(),
             '/request': (context) => const RequestsPage(),
             '/software': (context) => const SoftwarePage(),

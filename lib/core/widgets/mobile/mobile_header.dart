@@ -22,14 +22,20 @@ class MobileHeader extends StatelessWidget {
         children: [
           IconButton(
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              if (provider.nonWebScaffoldKey.currentState!.isDrawerOpen) {
+                provider.nonWebScaffoldKey.currentState?.closeDrawer();
+              } else {
+                provider.nonWebScaffoldKey.currentState?.openDrawer();
+              }
+            },
             icon: Icon(
               Icons.menu_rounded,
               color: const Color(0xaaf7f7f7).withOpacity(1),
             ),
           ),
-          Image.network(
-            'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flogo.png?alt=media&token=7e9379d8-ebbd-4797-b41d-43267a0be3ac',
+          Image.asset(
+            'assets/images/logo.png',
             width: sw * 0.2,
           ),
           IconButton(

@@ -8,7 +8,7 @@ import 'package:technology_wall/home/web/web_home_body.dart';
 import '../core/controllers/app_controllers.dart';
 import '../core/widgets/mobile/mobile_footer.dart';
 import '../core/widgets/mobile/mobile_header.dart';
-import '../core/widgets/non_web_drawer.dart';
+import '../core/widgets/mobile/non_web_drawer.dart';
 import '../core/widgets/tablet/tablet_footer.dart';
 import '../core/widgets/tablet/tablet_header.dart';
 import '../core/widgets/web/web_footer.dart';
@@ -44,13 +44,19 @@ class _HomePageState extends State<HomePage> {
         enableKeyboardScrolling: true,
         child: Scaffold(
           key: sw < 1440 ? provider.nonWebScaffoldKey : null,
-          drawer: sw < 1440 ? NonWebDrawer(width: sw) : null,
+          drawer: sw < 1440
+              ? NonWebDrawer(
+                  sw: sw,
+                  sh: sh,
+                  ar: ar,
+                )
+              : null,
           body: ListView(
             controller: scroller,
             physics: const RangeMaintainingScrollPhysics(),
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 40 : 80, vertical: 20),
+                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
                 child: sw >= 1440
                     ? const WebHeader()
                     : sw < 1440 && sw >= 768

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,8 +28,8 @@ class TabletFooter extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.network(
-                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flogo1.png?alt=media&token=3d7475f5-4344-428b-a28b-e2abc0d4998f',
+                      Image.asset(
+                        'assets/images/logo1.png',
                         height: sh * 0.2,
                       ),
                       SizedBox(
@@ -219,7 +218,7 @@ class TabletFooter extends StatelessWidget {
                               style: context.bodySmall?.copyWith(color: Colors.white54),
                             ),
                             Text(
-                              'B422, Olaya District, Riyadh, Saudi Arabia',
+                              'B233, Olaya District, Riyadh, Saudi Arabia',
                               style: context.bodySmall?.copyWith(color: Colors.white54),
                             ),
                           ],

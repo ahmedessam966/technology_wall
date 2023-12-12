@@ -19,8 +19,8 @@ class TabletHeader extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.network(
-            'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flogo1.png?alt=media&token=3d7475f5-4344-428b-a28b-e2abc0d4998f',
+          Image.asset(
+            'assets/images/logo1.png',
             width: sw * 0.1,
           ),
           const Spacer(),

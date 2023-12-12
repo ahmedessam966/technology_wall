@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/hardware/printers/components/printers_builder_widget.dart';
@@ -193,8 +194,39 @@ class WebHardwareBody extends StatelessWidget {
                   ),
                   Expanded(
                     child: provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
-                        ? const PrintersBuilderWidget()
+                        ? _buildDefaultPrinters()
                         : const RefinedPrintersBuilderWidget(),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: TextButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        overlayColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return Colors.transparent;
+                          } else {
+                            return Colors.grey.shade100;
+                          }
+                        }),
+                        shape: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
+                          } else {
+                            return null;
+                          }
+                        }),
+                      ),
+                      onPressed: () async {
+                        _buildDefaultPrinters();
+                      },
+                      child: Text(
+                        'Show More',
+                        style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -204,4 +236,8 @@ class WebHardwareBody extends StatelessWidget {
       );
     });
   }
+}
+
+Widget _buildDefaultPrinters() {
+  return const PrintersBuilderWidget();
 }
