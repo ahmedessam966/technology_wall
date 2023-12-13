@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/core/widgets/web/web_notebook_form.dart';
-import 'package:technology_wall/core/widgets/web/web_printer_order_form.dart';
+import 'package:technology_wall/hardware/notebooks/components/notebook_card_widget.dart';
 
 class NotebooksBuilderWidget extends StatelessWidget {
   const NotebooksBuilderWidget({super.key});
@@ -23,151 +21,42 @@ class NotebooksBuilderWidget extends StatelessWidget {
                 ),
               );
             } else {
-              return GridView.builder(
-                  physics: const RangeMaintainingScrollPhysics(),
-                  itemCount: provider.notebooksList.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
-                  itemBuilder: (context, index) {
-                    final notebook = provider.notebooksList[index];
-                    return Container(
-                      padding: const EdgeInsets.all(30),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.black87),
-                        color: Colors.white38,
-                      ),
-                      child: Flex(
-                        direction: Axis.vertical,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 10,
-                            child: Center(
-                              child: Image.network(
-                                notebook.snapshot,
-                                height: 150,
-                                width: 200,
-                              ),
-                            ),
+              if (provider.notebookSearchController.text.isEmpty) {
+                return GridView.builder(
+                    physics: const RangeMaintainingScrollPhysics(),
+                    itemCount: provider.notebooksList.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
+                    itemBuilder: (context, index) {
+                      final notebook = provider.notebooksList[index];
+                      return NotebookCardWidget(notebook: notebook);
+                    });
+              } else {
+                return FutureBuilder(
+                    future: provider.searchNotebooks(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: SpinKitCircle(
+                            color: AppTheme.darkest,
                           ),
-                          const Spacer(),
-                          Expanded(
-                            flex: 4,
-                            child: Center(
-                              child: Text(
-                                '${notebook.brand} ${notebook.model}',
-                                style: context.headlineSmall,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Center(
-                              child: Text(
-                                notebook.model,
-                                style: context.bodyMedium,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          Expanded(
-                            flex: 7,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '• Processor: ${notebook.processor}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                                Text(
-                                  '• Operating System: ${notebook.os}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                                Text(
-                                  '• Graphics: ${notebook.graphics}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                                Text(
-                                  '• Memory: ${notebook.memory}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                                Text(
-                                  '• Storage: ${notebook.storage}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                                Text(
-                                  '• Display: ${notebook.display}',
-                                  textAlign: TextAlign.justify,
-                                  style: context.bodySmall,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Spacer(),
-                          Expanded(
-                            flex: 2,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                ElevatedButton(
-                                  style: ButtonStyle(
-                                    elevation: const MaterialStatePropertyAll(0),
-                                    shape: MaterialStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(1),
-                                        side: const BorderSide(color: Colors.white70),
-                                      ),
-                                    ),
-                                    backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                      if (states.contains(MaterialState.hovered)) {
-                                        return const Color(0xaa7c9cc1).withOpacity(1);
-                                      } else {
-                                        return const Color(0xaa071923).withOpacity(1);
-                                      }
-                                    }),
-                                  ),
-                                  onPressed: () async {
-                                    await showAdaptiveDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return WebNotebookOrderForm(
-                                            item: notebook,
-                                          );
-                                        });
-                                  },
-                                  child: Text(
-                                    'Order Now',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
-                                  ),
-                                ),
-                                TextButton(
-                                  style: ButtonStyle(
-                                    shape: MaterialStatePropertyAll(
-                                      LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Full Specifications',
-                                    style: context.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
-                    );
-                  });
+                        );
+                      } else {
+                        return GridView.builder(
+                            physics: const RangeMaintainingScrollPhysics(),
+                            itemCount: snapshot.data?.length,
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                                childAspectRatio: 0.7),
+                            itemBuilder: (context, index) {
+                              final notebook = snapshot.data?[index];
+                              return NotebookCardWidget(notebook: notebook);
+                            });
+                      }
+                    });
+              }
             }
           });
     });
