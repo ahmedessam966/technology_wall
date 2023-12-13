@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:technology_wall/core/models/notebook_model.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
-import 'package:technology_wall/core/models/product_model.dart';
 
 class InventoryControllers extends ChangeNotifier {
   int _orderFormStep = 0;
@@ -10,10 +10,17 @@ class InventoryControllers extends ChangeNotifier {
   final List<PrinterModel> _printersList = [];
   List<PrinterModel> get printersList => _printersList;
 
+  final List<NotebookModel> _notebooksList = [];
+  List<NotebookModel> get notebooksList => _notebooksList;
+
   String? _printerFilterSelection;
   String? get printerFilterSelection => _printerFilterSelection;
 
+  String? _notebookFilterSelection;
+  String? get notebookFilterSelection => _notebookFilterSelection;
+
   DocumentSnapshot? _lastDocument;
+  DocumentSnapshot? _lastNBDocument;
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -29,6 +36,11 @@ class InventoryControllers extends ChangeNotifier {
 
   void setFilter(String? selection) {
     _printerFilterSelection = selection;
+    notifyListeners();
+  }
+
+  void setNBFilter(String? selection) {
+    _notebookFilterSelection = selection;
     notifyListeners();
   }
 
@@ -76,35 +88,56 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
-  Future<List> getBrandFilteredPrinters(String? brand) async {
-    final List<ProductModel> brandedPrinters = [];
+  Future<void> getNotebooks() async {
     try {
-      final db = FirebaseFirestore.instance.collection('Printers');
-      final snapshot = await db.where("Brand", isEqualTo: '$brand').get();
+      final db = FirebaseFirestore.instance.collection('Notebooks');
+      Query<Map<String, dynamic>> query = db.orderBy(FieldPath.documentId).limit(5);
+
+      if (_lastNBDocument != null) {
+        query = query.startAfterDocument(_lastNBDocument!);
+      }
+
+      final snapshot = await query.get();
+      if (_lastNBDocument == null) {
+        _notebooksList.clear();
+      }
+
       for (final element in snapshot.docs) {
-        final printer = ProductModel(
+        final notebook = NotebookModel(
             id: element.id,
             brand: element.data()['Brand'],
-            model: element.data()['Model'],
-            serial: element.data()['Serial Number'],
-            specs: element.data()['Description'],
-            price: element.data()['Selling Price'],
-            discounted: element.data()['Max Discounted Price'],
+            color: element.data()['Colors'],
             cost: element.data()['Cost'],
-            firstPath: element.data()['Snapshot']);
-        brandedPrinters.add(printer);
+            display: element.data()['Display'],
+            graphics: element.data()['Graphics'],
+            maxDiscounted: element.data()['Max Discounted Price'],
+            memory: element.data()['Memory'],
+            model: element.data()['Model'],
+            os: element.data()['Operating System'],
+            processor: element.data()['Processor'],
+            series: element.data()['Series'],
+            snapshot: element.data()['Snapshot'],
+            storage: element.data()['Storage'],
+            price: element.data()['Selling Price'],
+            warranty: element.data()['Warranty']);
+
+        if (!_notebooksList.any((p) => p.id == notebook.id)) {
+          _notebooksList.add(notebook);
+        }
+      }
+      if (snapshot.docs.isNotEmpty) {
+        _lastNBDocument = snapshot.docs.last;
       }
     } catch (e) {
       if (kDebugMode) {
         print("Error retrieving data: $e");
       }
     }
-    return brandedPrinters;
   }
 
-  Future<void> loadMoreItems() async {
+  Future<void> loadMoreItems(dynamic function) async {
     try {
-      await getPrinters();
+      await function;
     } catch (e) {
       if (kDebugMode) {
         print("Error retrieving data: $e");

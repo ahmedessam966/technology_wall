@@ -32,39 +32,6 @@ class AppControllers extends ChangeNotifier {
     notifyListeners();
   }
 
-  static String hindiNumeralConverter(String origin) {
-    final template = NumberFormat('hi_IN');
-    return template.format(origin);
-  }
-
-  // static Future<int> sendEmail(String name, String subject, String body, String email, String phone) async {
-  //   Map<String, dynamic> templateParams = {
-  //     'to_name': name,
-  //     'topic': subject,
-  //     'message': body,
-  //     'to_email': email,
-  //     'phone': phone
-  //   };
-
-  //   try {
-  //     await EmailJS.send(
-  //       'service_bgk8ypf',
-  //       'template_2dg6eft',
-  //       templateParams,
-  //       const Options(
-  //         publicKey: 'cuMpj4ocv-pxCqyvM',
-  //         privateKey: 'Zl4tblay6B7U9O51XwnZ7',
-  //       ),
-  //     );
-  //     return 200;
-  //   } catch (error) {
-  //     if (kDebugMode) {
-  //       print(error.toString());
-  //     }
-  //     return 400;
-  //   }
-  // }
-
   Future<List<String>> getClientThumbs() async {
     final List<String> thumbs = [];
     final db = FirebaseStorage.instance.ref('Clients');

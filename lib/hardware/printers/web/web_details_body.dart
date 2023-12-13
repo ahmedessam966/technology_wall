@@ -3,6 +3,8 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 
+import '../../../core/widgets/web/web_printer_order_form.dart';
+
 class WebPrinterDetailsBody extends StatelessWidget {
   final PrinterModel printer;
   const WebPrinterDetailsBody({super.key, required this.printer});
@@ -18,6 +20,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.only(bottom: 50),
             width: double.infinity,
             color: AppTheme.darkest,
             child: Center(
@@ -27,9 +30,17 @@ class WebPrinterDetailsBody extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100),
+            child: Text(
+              '${printer.brand} ${printer.model} Overview',
+              style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 50),
+            margin: const EdgeInsets.symmetric(vertical: 20),
             child: Flex(
               direction: Axis.horizontal,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,7 +68,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             height: 25,
                           ),
                           Text(
-                            'Print Speed: Up to ${printer.ppm}/minute',
+                            'Print Speed: Up to ${printer.ppm} pages/minute',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -89,12 +100,17 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Connectivity (Wi-Fi / LAN): ${printer.network}',
+                            'Connectivity (Wi-Fi/LAN): ${printer.network}',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
                           const Divider(
                             color: Colors.white30,
+                          ),
+                          Text(
+                            'Supported Toners: ${printer.toner}',
+                            style: context.bodyLarge?.copyWith(color: Colors.white54),
+                            overflow: TextOverflow.clip,
                           ),
                         ],
                       ),
@@ -107,6 +123,51 @@ class WebPrinterDetailsBody extends StatelessWidget {
                     printer.snapshot,
                     filterQuality: FilterQuality.high,
                     height: 400,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '${printer.price} SR (VAT Exclusive)',
+                  style: context.headlineSmall,
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    elevation: const MaterialStatePropertyAll(0),
+                    shape: MaterialStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(1),
+                        side: const BorderSide(color: Colors.white70),
+                      ),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith((states) {
+                      if (states.contains(MaterialState.hovered)) {
+                        return const Color(0xaa7c9cc1).withOpacity(1);
+                      } else {
+                        return const Color(0xaa071923).withOpacity(1);
+                      }
+                    }),
+                  ),
+                  onPressed: () async {
+                    await showAdaptiveDialog(
+                        context: context,
+                        builder: (context) {
+                          return WebOrderForm(
+                            item: printer,
+                          );
+                        });
+                  },
+                  child: Text(
+                    'Order Now',
+                    style: context.bodyMedium?.copyWith(color: Colors.white70),
                   ),
                 ),
               ],
