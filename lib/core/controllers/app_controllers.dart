@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AppControllers extends ChangeNotifier {
-  int _pageIndex = 0;
-  int get pageIndex => _pageIndex;
-
-  String _pageTitle = 'Home';
+  String _pageTitle = 'Technology Wall | Home';
   String get pageTitle => _pageTitle;
 
   bool _isHovered = false;
@@ -25,9 +22,8 @@ class AppControllers extends ChangeNotifier {
     }
   }
 
-  void changePage(int index, String page) {
-    _pageIndex = index;
-    _pageTitle = page;
+  void changePage(String page) async {
+    _pageTitle = 'Technology Wall | $page';
     notifyListeners();
   }
 

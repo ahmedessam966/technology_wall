@@ -28,7 +28,7 @@ class WebHeader extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'Hardware Products');
+                    provider.changePage('Hardware Products');
                   },
                   child: Text(
                     'Hardware',
@@ -37,7 +37,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'Software Products');
+                    provider.changePage('Software Products');
                   },
                   child: Text(
                     'Software',
@@ -46,7 +46,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'AMCs');
+                    provider.changePage('AMCs');
                   },
                   child: Text(
                     'AMCs',
@@ -55,7 +55,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'Networking');
+                    provider.changePage('Networking');
                   },
                   child: Text(
                     'Networking',
@@ -64,7 +64,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'SAP');
+                    provider.changePage('SAP');
                   },
                   child: Text(
                     'SAP Solutions',
@@ -73,7 +73,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'Services');
+                    provider.changePage('Services');
                   },
                   child: Text(
                     'Services',
@@ -82,7 +82,7 @@ class WebHeader extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.changePage(0, 'Contact Us');
+                    provider.changePage('Contact Us');
                   },
                   child: Text(
                     'Contact Us',

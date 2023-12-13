@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:technology_wall/core/controllers/app_controllers.dart';
 import 'package:technology_wall/home/components/customers_carousel.dart';
 import 'package:technology_wall/home/components/product_category_card.dart';
 
@@ -11,6 +13,7 @@ class WebHomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppControllers>(context, listen: false);
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,6 +196,7 @@ class WebHomeBody extends StatelessWidget {
                         flex: 4,
                         child: ProductCategoryCard(
                             onPressed: () {
+                              provider.changePage('Technology Wall | Printers');
                               Navigator.pushNamed(context, '/hardware/printers');
                             },
                             category: 'Printers',
@@ -206,6 +210,7 @@ class WebHomeBody extends StatelessWidget {
                         flex: 4,
                         child: ProductCategoryCard(
                             onPressed: () {
+                              provider.changePage('Technology Wall | Notebooks');
                               Navigator.pushNamed(context, '/hardware/notebooks');
                             },
                             category: 'Notebooks',
@@ -218,6 +223,7 @@ class WebHomeBody extends StatelessWidget {
                         flex: 4,
                         child: ProductCategoryCard(
                             onPressed: () {
+                              provider.changePage('Technology Wall | Servers');
                               Navigator.pushNamed(context, '/hardware/servers');
                             },
                             category: 'Servers',
@@ -231,6 +237,7 @@ class WebHomeBody extends StatelessWidget {
                         flex: 4,
                         child: ProductCategoryCard(
                             onPressed: () {
+                              provider.changePage('Technology Wall | Desktop PC');
                               Navigator.pushNamed(context, '/hardware/desktops');
                             },
                             category: 'Desktop PC',

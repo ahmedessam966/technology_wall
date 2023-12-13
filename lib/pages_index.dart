@@ -12,6 +12,7 @@ export 'hardware/scanners/scanners_page.dart';
 export 'hardware/servers/servers_page.dart';
 export 'hardware/switches/switches_page.dart';
 export 'hardware/ups/ups_page.dart';
+export 'hardware/printers/components/printer_details_page.dart';
 export 'home/home_page.dart';
 export 'hardware/inventory/inventory_page.dart';
 export 'login/login_page.dart';

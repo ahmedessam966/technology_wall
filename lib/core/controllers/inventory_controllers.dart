@@ -13,6 +13,15 @@ class InventoryControllers extends ChangeNotifier {
   String? _printerFilterSelection;
   String? get printerFilterSelection => _printerFilterSelection;
 
+  DocumentSnapshot? _lastDocument;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  void setLoading() {
+    _isLoading = !_isLoading;
+    notifyListeners();
+  }
+
   void changeFormStep(int index) {
     _orderFormStep = index;
     notifyListeners();
@@ -23,10 +32,19 @@ class InventoryControllers extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future getPrinters() async {
+  Future<void> getPrinters() async {
     try {
       final db = FirebaseFirestore.instance.collection('Printers');
-      final snapshot = await db.get();
+      Query<Map<String, dynamic>> query = db.orderBy(FieldPath.documentId).limit(5);
+
+      if (_lastDocument != null) {
+        query = query.startAfterDocument(_lastDocument!);
+      }
+
+      final snapshot = await query.get();
+      if (_lastDocument == null) {
+        _printersList.clear();
+      }
 
       for (final element in snapshot.docs) {
         final printer = PrinterModel(
@@ -44,7 +62,12 @@ class InventoryControllers extends ChangeNotifier {
             utility: element.data()['Utility'],
             snapshot: element.data()['Snapshot'],
             network: element.data()['Network']);
-        _printersList.add(printer);
+        if (!_printersList.any((p) => p.id == printer.id)) {
+          _printersList.add(printer);
+        }
+      }
+      if (snapshot.docs.isNotEmpty) {
+        _lastDocument = snapshot.docs.last;
       }
     } catch (e) {
       if (kDebugMode) {
@@ -77,5 +100,15 @@ class InventoryControllers extends ChangeNotifier {
       }
     }
     return brandedPrinters;
+  }
+
+  Future<void> loadMoreItems() async {
+    try {
+      await getPrinters();
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error retrieving data: $e");
+      }
+    }
   }
 }
