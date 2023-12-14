@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../controllers/app_controllers.dart';
+import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 class MobileHeader extends StatelessWidget {
   final double sw;
@@ -12,7 +9,6 @@ class MobileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return Semantics(
       header: true,
       container: true,
@@ -28,30 +24,27 @@ class MobileHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconButton(
-              padding: EdgeInsets.zero,
-              onPressed: () {
-                // if (provider.nonWebScaffoldKey.currentState!.isDrawerOpen) {
-                //   provider.nonWebScaffoldKey.currentState?.closeDrawer();
-                // } else {
-                //   provider.nonWebScaffoldKey.currentState?.openDrawer();
-                // }
-              },
-              icon: Icon(
-                Icons.menu_rounded,
-                color: const Color(0xaaf7f7f7).withOpacity(1),
-              ),
-            ),
             Image.asset(
               'assets/images/logo.png',
               width: sw * 0.2,
             ),
-            IconButton(
-              padding: EdgeInsets.zero,
+            TextButton(
               onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.person_alt_circle_fill,
-                color: const Color(0xaaf7f7f7).withOpacity(1),
+              child: Row(
+                children: [
+                  Text(
+                    'Account',
+                    style: context.bodySmall?.copyWith(color: Colors.white70),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.white70,
+                    size: ar * 30,
+                  ),
+                ],
               ),
             ),
           ],

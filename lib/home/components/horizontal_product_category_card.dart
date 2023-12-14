@@ -5,17 +5,12 @@ import '../../config/themes/app_theme.dart';
 
 class HorizontalProductCategoryCard extends StatelessWidget {
   final String category;
-  final String description;
+
   final String imagePath;
   final bool isMobile;
   final dynamic onPressed;
   const HorizontalProductCategoryCard(
-      {super.key,
-      required this.category,
-      required this.description,
-      required this.imagePath,
-      this.onPressed,
-      required this.isMobile});
+      {super.key, required this.category, required this.imagePath, this.onPressed, required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +30,7 @@ class HorizontalProductCategoryCard extends StatelessWidget {
         direction: Axis.horizontal,
         children: [
           Expanded(
-            flex: isMobile ? 2 : 1,
+            flex: isMobile ? 4 : 1,
             child: Image.network(
               imagePath,
               height: 80,
@@ -66,13 +61,6 @@ class HorizontalProductCategoryCard extends StatelessWidget {
                   style: isMobile
                       ? context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
                       : context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
-                ),
-                Text(
-                  description,
-                  overflow: TextOverflow.clip,
-                  style: isMobile
-                      ? context.bodySmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                      : context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                 ),
               ],
             ),

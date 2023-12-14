@@ -158,8 +158,6 @@ class TabletHomeBody extends StatelessWidget {
                     Navigator.pushNamed(context, '/hardware/printers');
                   },
                   category: 'Printers',
-                  description:
-                      'A wide range of printers, scanners, plotters, and much more, for business or personal utility.',
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
               const SizedBox(
@@ -171,7 +169,6 @@ class TabletHomeBody extends StatelessWidget {
                     Navigator.pushNamed(context, '/hardware/notebooks');
                   },
                   category: 'Notebooks',
-                  description: 'Professional, guaranteed, and trendy collections - always.',
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
               const SizedBox(
@@ -183,7 +180,6 @@ class TabletHomeBody extends StatelessWidget {
                     Navigator.pushNamed(context, '/hardware/servers');
                   },
                   category: 'Servers',
-                  description: 'State-of-the-art servers tailored to your required enterprise needs.',
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
               const SizedBox(
@@ -195,8 +191,6 @@ class TabletHomeBody extends StatelessWidget {
                     Navigator.pushNamed(context, '/hardware/desktops');
                   },
                   category: 'Desktop PC',
-                  description:
-                      'The cornerstone of all digital enterprise management, with varied utilities and cost-effectiveness.',
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
               const SizedBox(
