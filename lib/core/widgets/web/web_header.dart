@@ -17,7 +17,11 @@ class WebHeader extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/images/logo1.png'),
+          GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/');
+              },
+              child: Image.asset('assets/images/logo1.png')),
           const Spacer(),
           Container(
             height: 300,

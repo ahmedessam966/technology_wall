@@ -22,15 +22,20 @@ class PrintersBuilderWidget extends StatelessWidget {
               );
             }
             if (provider.printerSearchController.text.isEmpty) {
-              return GridView.builder(
-                  physics: const RangeMaintainingScrollPhysics(),
-                  itemCount: provider.printersList.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
-                  itemBuilder: (context, index) {
-                    final printer = provider.printersList[index];
-                    return PrinterCardWidget(printer: printer);
-                  });
+              return Semantics(
+                label: 'Printers, All-In-One Printers, All-In-One',
+                value:
+                    'HP, Canon, Zebra, Epson, Dot Matrix, Epson Dot Maxtrix, Epson Printers, HP Laserjet, HP Deskjet, HP Printer, HP All-In-One, Canon All-In-One, Canon Printer, Canon Laserjet, Canon Copier',
+                child: GridView.builder(
+                    physics: const RangeMaintainingScrollPhysics(),
+                    itemCount: provider.printersList.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
+                    itemBuilder: (context, index) {
+                      final printer = provider.printersList[index];
+                      return PrinterCardWidget(printer: printer);
+                    }),
+              );
             } else {
               return FutureBuilder(
                   future: provider.searchPrinters(),

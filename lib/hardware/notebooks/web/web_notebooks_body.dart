@@ -173,7 +173,7 @@ class WebNotebooksBody extends StatelessWidget {
                       ),
                       DropdownButton(
                           underline: const SizedBox.shrink(),
-                          hint: const Text('Filter by Brand'),
+                          hint: const Text('Show by Brand'),
                           value: provider.notebookFilterSelection,
                           borderRadius: BorderRadius.circular(10),
                           items: const [
