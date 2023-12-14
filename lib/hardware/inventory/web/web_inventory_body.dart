@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
@@ -11,19 +12,6 @@ class WebInventoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> categories = [
-      'Cabinets',
-      'CCTV/Cameras',
-      'Desktop PC',
-      'Firewalls',
-      'Notebooks',
-      'Printers',
-      'Routers',
-      'Scanners',
-      'Servers',
-      'Switches',
-      'UPS'
-    ];
     return Consumer<InventoryControllers>(builder: (context, provider, _) {
       return Semantics(
         container: true,
@@ -134,114 +122,6 @@ class WebInventoryBody extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SearchBar(
-                          controller: provider.generalHardwareSearchController,
-                          leading: const Icon(Icons.search),
-                          hintText: 'Search products',
-                          onSubmitted: (value) {
-                            provider.setNBSearchController(value);
-                          },
-                          elevation: const MaterialStatePropertyAll(0),
-                          backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          padding: const MaterialStatePropertyAll(EdgeInsets.only(left: 10)),
-                          trailing: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                              decoration: BoxDecoration(
-                                  color: AppTheme.darkest.withOpacity(1),
-                                  borderRadius: const BorderRadius.only(
-                                    topRight: Radius.circular(10),
-                                    bottomRight: Radius.circular(10),
-                                  )),
-                              child: DropdownButton(
-                                  underline: const SizedBox.shrink(),
-                                  elevation: 0,
-                                  iconDisabledColor: Colors.white70,
-                                  iconEnabledColor: Colors.white70,
-                                  hint: Text(
-                                    'Search in',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
-                                  ),
-                                  value: provider.notebookFilterSelection,
-                                  borderRadius: BorderRadius.circular(10),
-                                  items: const [
-                                    DropdownMenuItem(
-                                      value: 'Cabinets',
-                                      child: Text('Cabinets'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Cameras',
-                                      child: Text('Cameras'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Desktop PC',
-                                      child: Text('Desktop PC'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Firewalls',
-                                      child: Text('Firewalls'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Notebooks',
-                                      child: Text('Notebooks'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Printers',
-                                      child: Text('Printers'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Routers',
-                                      child: Text('Routers'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Scanners',
-                                      child: Text('Scanners'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Servers',
-                                      child: Text('Servers'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'Switches',
-                                      child: Text('Switches'),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: 'UPS',
-                                      child: Text('UPS'),
-                                    ),
-                                  ],
-                                  onChanged: (newValue) {
-                                    if (newValue != null && newValue != 'All') {
-                                      provider.setHardwareFilter(newValue);
-                                    } else {
-                                      provider.setHardwareFilter(null);
-                                    }
-                                  }),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        TextButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
-                          onPressed: () {},
-                          child: Text(
-                            'Go',
-                            style: context.bodyLarge,
-                          ),
-                        ),
-                      ],
-                    ),
                     const SizedBox(
                       height: 50,
                     ),
@@ -254,95 +134,124 @@ class WebInventoryBody extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
-                    Expanded(
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 5,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                            childAspectRatio: 1),
-                        children: [
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/cabinets');
+                    provider.generalHardwareSearchController.text.isEmpty
+                        ? Expanded(
+                            child: GridView(
+                              physics: const NeverScrollableScrollPhysics(),
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 5,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  childAspectRatio: 1),
+                              children: [
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/cabinets');
+                                    },
+                                    category: 'Cabinets',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fcabinets.png?alt=media&token=92e2bd59-84f1-48af-914d-670fbc4472b9'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/cctv');
+                                    },
+                                    category: 'CCTV Cameras',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fcctv.png?alt=media&token=6989cc7b-733f-4878-a8ec-04addd78f4fd'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/desktops');
+                                    },
+                                    category: 'Desktop PC',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/firewalls');
+                                    },
+                                    category: 'Firewalls',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ffirewalls.png?alt=media&token=12d3254a-7573-40e9-a099-279febdce64b'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/notebooks');
+                                    },
+                                    category: 'Notebooks',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/printers');
+                                    },
+                                    category: 'Printers',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/routers');
+                                    },
+                                    category: 'Routers',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Frouters.png?alt=media&token=dd24a2ef-c660-4c4c-8411-488192730f6f'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/scanners');
+                                    },
+                                    category: 'Scanners',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fscanners.png?alt=media&token=f0e1fea2-659d-4f90-9758-4bdcec5af154'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/servers');
+                                    },
+                                    category: 'Servers',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/switches');
+                                    },
+                                    category: 'Switches',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fswitches.png?alt=media&token=ca014e2f-3f2f-469c-a85d-0b2e14a230b5'),
+                                InventoryCategoryCard(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/hardware/ups');
+                                    },
+                                    category: 'UPS',
+                                    imagePath:
+                                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fups.png?alt=media&token=a4f8e391-da19-4b0f-aaa3-32f69f4c27e3'),
+                              ],
+                            ),
+                          )
+                        : Expanded(
+                            child: FutureBuilder(
+                              future: provider.searchInventory(),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState == ConnectionState.waiting) {
+                                  return const Center(
+                                    child: SpinKitCircle(
+                                      color: AppTheme.darkest,
+                                    ),
+                                  );
+                                } else {
+                                  return GridView.builder(
+                                      physics: const NeverScrollableScrollPhysics(),
+                                      itemCount: snapshot.data?.length,
+                                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 4,
+                                          crossAxisSpacing: 20,
+                                          mainAxisSpacing: 20,
+                                          childAspectRatio: 0.7),
+                                      itemBuilder: (context, index) {
+                                        final product = snapshot.data?[index];
+                                        return InventoryCategoryCard(
+                                            category: product!.title, imagePath: product.snapshot);
+                                      });
+                                }
                               },
-                              category: 'Cabinets',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fcabinets.png?alt=media&token=92e2bd59-84f1-48af-914d-670fbc4472b9'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/cctv');
-                              },
-                              category: 'CCTV Cameras',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fcctv.png?alt=media&token=6989cc7b-733f-4878-a8ec-04addd78f4fd'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/desktops');
-                              },
-                              category: 'Desktop PC',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/firewalls');
-                              },
-                              category: 'Firewalls',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ffirewalls.png?alt=media&token=12d3254a-7573-40e9-a099-279febdce64b'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/notebooks');
-                              },
-                              category: 'Notebooks',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/printers');
-                              },
-                              category: 'Printers',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/routers');
-                              },
-                              category: 'Routers',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Frouters.png?alt=media&token=dd24a2ef-c660-4c4c-8411-488192730f6f'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/scanners');
-                              },
-                              category: 'Scanners',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fscanners.png?alt=media&token=f0e1fea2-659d-4f90-9758-4bdcec5af154'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/servers');
-                              },
-                              category: 'Servers',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/switches');
-                              },
-                              category: 'Switches',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fswitches.png?alt=media&token=ca014e2f-3f2f-469c-a85d-0b2e14a230b5'),
-                          InventoryCategoryCard(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/ups');
-                              },
-                              category: 'UPS',
-                              imagePath:
-                                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fups.png?alt=media&token=a4f8e391-da19-4b0f-aaa3-32f69f4c27e3'),
-                        ],
-                      ),
-                    ),
+                            ),
+                          ),
                   ],
                 ),
               ),

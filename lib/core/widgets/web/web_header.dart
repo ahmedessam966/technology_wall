@@ -40,72 +40,54 @@ class WebHeader extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      provider.changePage('Hardware Products');
+                      Navigator.pushNamed(context, '/hardware');
                     },
                     child: Text(
                       'Hardware',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
-                      provider.changePage('Software Products');
+                      Navigator.pushNamed(context, '/software');
                     },
                     child: Text(
                       'Software',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
-                      provider.changePage('AMCs');
-                    },
-                    child: Text(
-                      'AMCs',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      provider.changePage('Networking');
-                    },
-                    child: Text(
-                      'Networking',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      provider.changePage('SAP');
+                      Navigator.pushNamed(context, '/software/sap');
                     },
                     child: Text(
                       'SAP Solutions',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      provider.changePage('Services');
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Services',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
-                      provider.changePage('Contact Us');
+                      Navigator.pushNamed(context, '/about');
+                    },
+                    child: Text(
+                      'About TW',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/contact-us');
                     },
                     child: Text(
                       'Contact Us',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                 ],
@@ -131,8 +113,7 @@ class WebHeader extends StatelessWidget {
                         Provider.of<AuthControllers>(context, listen: false).staffModel?.name.split('')[0];
                     return Text(
                       name ?? 'Sign In',
-                      style:
-                          Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.black, fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black),
                     );
                   }),
                   const Icon(

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 class InventoryControllers extends ChangeNotifier {
   int _orderFormStep = 0;
@@ -63,6 +64,11 @@ class InventoryControllers extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setGeneralSearchController(String value) {
+    _generalHardwareSearchController.text = value;
+    notifyListeners();
+  }
+
   void setNBSearchController(String value) {
     _notebookSearchController.text = value;
     notifyListeners();
@@ -76,6 +82,28 @@ class InventoryControllers extends ChangeNotifier {
   void searchType() {
     _searchByBrand = !_searchByBrand;
     notifyListeners();
+  }
+
+  Future<List<ProductModel>> searchInventory() async {
+    final List<ProductModel> results = [];
+    final db = FirebaseFirestore.instance.collection(_hardwareFilterSelection.toString());
+    final query = _printerSearchController.text.toLowerCase();
+    final snapshot = await db.where('Model', isGreaterThanOrEqualTo: query).get();
+    for (final element in snapshot.docs) {
+      final product = ProductModel(
+          id: element.id,
+          title: element.data()['Title'],
+          brand: element.data()['Brand'],
+          cost: element.data()['Cost'],
+          maxDiscounted: element.data()['Max Discounted Price'],
+          model: element.data()['Model'],
+          snapshot: element.data()['Snapshot'],
+          price: element.data()['Selling Price']);
+      if (product.model!.toLowerCase().contains(query)) {
+        results.add(product);
+      }
+    }
+    return results;
   }
 
   Future<void> getPrinters() async {

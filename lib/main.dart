@@ -78,7 +78,8 @@ class MyApp extends StatelessWidget {
               '/software/microsoft': (context) => const MicrosoftSoftwarePage(),
               '/software/sage': (context) => const SagePage(),
               '/software/sap': (context) => const SAPPage(),
-              '/software/tally': (context) => const TallyPage()
+              '/software/tally': (context) => const TallyPage(),
+              '/software/zoho': (context) => const ZohoPage()
             },
           );
         },

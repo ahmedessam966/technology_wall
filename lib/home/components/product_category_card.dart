@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../config/themes/app_theme.dart';
@@ -48,6 +49,15 @@ class ProductCategoryCard extends StatelessWidget {
               child: Image.network(
                 imagePath,
                 height: 200,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress?.cumulativeBytesLoaded != loadingProgress?.expectedTotalBytes) {
+                    return const SpinKitFadingCircle(
+                      color: AppTheme.darkest,
+                    );
+                  } else {
+                    return child;
+                  }
+                },
               ),
             ),
             const Spacer(),

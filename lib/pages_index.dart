@@ -23,3 +23,4 @@ export 'software/microsoft/microsoft_software_page.dart';
 export 'software/sage/sage_page.dart';
 export 'software/sap/sap_page.dart';
 export 'software/tally/tally_page.dart';
+export 'software/zoho/zoho_page.dart';
