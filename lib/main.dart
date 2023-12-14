@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       label:
-          'Technology Wall, A leading IT company based in Riyadh, KSA. Offering integrated, smart, and digitized solutions',
+          'Technology Wall, a leading IT company based in Riyadh, KSA. Offering integrated, smart, and digitized solutions',
       value:
           "tech-wall, tech-wall.me, techwall.me, techwall, techwallme, techwall co., tech-wall co., SAP Business One, SAP, Tally ERP, ERP, erp, tally, sap, sap business one, sage, Sage, Sage ERP, sage erp, s4/hana, sap4, sap4/hana, s4hana, s4hana erp, hp, dell, canon, hp printers, dell printers, hp servers, dell servers, dell pc, hp pc, dell laptop, dell notebook, hp notebook,contact us",
       child: MultiProvider(

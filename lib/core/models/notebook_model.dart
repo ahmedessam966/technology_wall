@@ -1,5 +1,6 @@
 class NotebookModel {
   final String id;
+  final String title;
   final String brand;
   final String color;
   final num cost;
@@ -18,6 +19,7 @@ class NotebookModel {
 
   NotebookModel(
       {required this.id,
+      required this.title,
       required this.brand,
       required this.color,
       required this.cost,

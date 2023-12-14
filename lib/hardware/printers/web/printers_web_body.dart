@@ -6,6 +6,8 @@ import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/hardware/printers/components/printers_builder_widget.dart';
 import 'package:technology_wall/hardware/printers/components/refined_printers_builder_widget.dart';
 
+import '../../../config/themes/app_theme.dart';
+
 class WebHardwareBody extends StatelessWidget {
   const WebHardwareBody({super.key});
 
@@ -146,7 +148,19 @@ class WebHardwareBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SearchBar(
-                        hintText: 'Search by brand, model, or utility...',
+                        controller: provider.printerSearchController,
+                        trailing: [
+                          const Text('search by brand'),
+                          Checkbox.adaptive(
+                              value: provider.searchByBrand,
+                              onChanged: (newValue) {
+                                provider.searchType();
+                              }),
+                        ],
+                        hintText: 'Search by brand or model',
+                        onSubmitted: (value) {
+                          provider.setPrinterSearchController(value);
+                        },
                         elevation: const MaterialStatePropertyAll(0),
                         backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
                         shape: MaterialStatePropertyAll(
@@ -195,6 +209,38 @@ class WebHardwareBody extends StatelessWidget {
                     child: provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
                         ? const PrintersBuilderWidget()
                         : const RefinedPrintersBuilderWidget(),
+                  ),
+                  Center(
+                    child: TextButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        overlayColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return Colors.transparent;
+                          } else {
+                            return Colors.grey.shade100;
+                          }
+                        }),
+                        shape: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
+                          } else {
+                            return null;
+                          }
+                        }),
+                      ),
+                      onPressed: provider.isLoading
+                          ? null
+                          : () async {
+                              provider.setLoading();
+                              await provider.loadMoreItems(provider.getPrinters());
+                              provider.setLoading();
+                            },
+                      child: Text(
+                        'Show More',
+                        style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 50,

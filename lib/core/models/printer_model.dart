@@ -1,5 +1,6 @@
 class PrinterModel {
   final String id;
+  final String title;
   final String brand;
   final String model;
   final num price;
@@ -16,6 +17,7 @@ class PrinterModel {
 
   PrinterModel(
       {required this.id,
+      required this.title,
       required this.brand,
       required this.model,
       required this.price,

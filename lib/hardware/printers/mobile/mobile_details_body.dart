@@ -5,7 +5,7 @@ class MobilePrinterDetailsBody extends StatelessWidget {
   final double sw;
   final double sh;
   final double ar;
-  final PrinterModel printer;
+  final PrinterModel? printer;
   const MobilePrinterDetailsBody(
       {super.key, required this.sw, required this.sh, required this.ar, required this.printer});
 

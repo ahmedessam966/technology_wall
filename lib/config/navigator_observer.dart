@@ -21,7 +21,6 @@ class TitleObserver extends NavigatorObserver {
 
   void updateTitle(String? routeName) {
     if (routeName != null) {
-      // Extract the last segment of the route path
       List<String> pathSegments = routeName.split('/');
       String pageTitle = pathSegments.isNotEmpty ? pathSegments.last : 'Home';
       pageTitle = capitalize(pageTitle);

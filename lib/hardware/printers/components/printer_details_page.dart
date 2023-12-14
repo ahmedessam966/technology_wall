@@ -14,14 +14,14 @@ import '../../../core/widgets/tablet/tablet_footer.dart';
 import '../../../core/widgets/web/web_footer.dart';
 
 class PrinterDetailsPage extends StatefulWidget {
-  final PrinterModel printer;
+  final PrinterModel? printer;
   const PrinterDetailsPage({super.key, required this.printer});
 
   @override
   State<PrinterDetailsPage> createState() => _PrinterDetailsPageState();
 }
 
-late PrinterModel printer;
+late PrinterModel? printer;
 
 class _PrinterDetailsPageState extends State<PrinterDetailsPage> {
   @override
@@ -38,8 +38,8 @@ class _PrinterDetailsPageState extends State<PrinterDetailsPage> {
     final provider = Provider.of<AppControllers>(context, listen: true);
     final scroller = ScrollController();
     return Semantics(
-      label: '${printer.brand} ${printer.model}',
-      value: '${printer.brand}, ${printer.model}, ${printer.family}, ${printer.type}, printer',
+      label: '${printer?.brand} ${printer?.model}',
+      value: '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.type}, printer',
       child: PopScope(
         canPop: true,
         onPopInvoked: (value) {

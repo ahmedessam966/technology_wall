@@ -57,6 +57,11 @@ class InventoryControllers extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setPrinterSearchController(String value) {
+    _printerSearchController.text = value;
+    notifyListeners();
+  }
+
   void searchType() {
     _searchByBrand = !_searchByBrand;
     notifyListeners();
@@ -79,6 +84,7 @@ class InventoryControllers extends ChangeNotifier {
       for (final element in snapshot.docs) {
         final printer = PrinterModel(
             id: element.id,
+            title: element.data()['Title'],
             brand: element.data()['Brand'],
             model: element.data()['Model'],
             price: element.data()['Selling Price'],
@@ -106,6 +112,80 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
+  Future<List<PrinterModel>> getBrandFilteredPrinters(String? brand) async {
+    final List<PrinterModel> results = [];
+    final db = FirebaseFirestore.instance.collection('Printers');
+    final snapshot = await db.where('Brand', isEqualTo: printerFilterSelection?.toLowerCase()).get();
+    try {
+      for (final element in snapshot.docs) {
+        final printer = PrinterModel(
+            id: element.id,
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
+            model: element.data()['Model'],
+            price: element.data()['Selling Price'],
+            cost: element.data()['Cost'],
+            discounted: element.data()['Max Discounted Price'],
+            stock: element.data()['Stock'],
+            family: element.data()['Family'],
+            toner: element.data()['Toners'],
+            ppm: element.data()['PPM'],
+            type: element.data()['Type'],
+            utility: element.data()['Utility'],
+            snapshot: element.data()['Snapshot'],
+            network: element.data()['Network']);
+        if (!results.any((p) => p.id == printer.id)) {
+          results.add(printer);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return results;
+  }
+
+  Future<List<PrinterModel>> searchPrinters() async {
+    final List<PrinterModel> results = [];
+    final db = FirebaseFirestore.instance.collection('Printers');
+    final query = _printerSearchController.text.toLowerCase();
+    final String path = _searchByBrand ? 'Brand' : 'Model';
+    final snapshot = await db.where(path, isGreaterThanOrEqualTo: query).get();
+
+    for (final element in snapshot.docs) {
+      final printer = PrinterModel(
+          id: element.id,
+          title: element.data()['Title'],
+          brand: element.data()['Brand'],
+          model: element.data()['Model'],
+          price: element.data()['Selling Price'],
+          cost: element.data()['Cost'],
+          discounted: element.data()['Max Discounted Price'],
+          stock: element.data()['Stock'],
+          family: element.data()['Family'],
+          toner: element.data()['Toners'],
+          ppm: element.data()['PPM'],
+          type: element.data()['Type'],
+          utility: element.data()['Utility'],
+          snapshot: element.data()['Snapshot'],
+          network: element.data()['Network']);
+
+      // Convert field value to lowercase and check for a case-insensitive match
+      if (printer.model.toLowerCase().contains(query)) {
+        results.add(printer);
+      }
+      if (printer.brand.toLowerCase().contains(query)) {
+        results.add(printer);
+      }
+    }
+
+    return results;
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   Future<void> getNotebooks() async {
     try {
       final db = FirebaseFirestore.instance.collection('Notebooks');
@@ -123,19 +203,18 @@ class InventoryControllers extends ChangeNotifier {
       for (final element in snapshot.docs) {
         final notebook = NotebookModel(
             id: element.id,
-            brand: element.data()['Brand'] == 'hp' ? 'HP' : capitalize(element.data()['Brand']),
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
             color: element.data()['Colors'],
             cost: element.data()['Cost'],
             display: element.data()['Display'],
             graphics: element.data()['Graphics'],
             maxDiscounted: element.data()['Max Discounted Price'],
             memory: element.data()['Memory'],
-            model: element.data()['Model'].toString().startsWith('xps')
-                ? element.data()['Model'].toString().toUpperCase()
-                : capitalize(element.data()['Model']),
+            model: element.data()['Model'],
             os: element.data()['Operating System'],
             processor: element.data()['Processor'],
-            series: element.data()['Series'] == 'xps' ? 'XPS' : capitalize(element.data()['Series']),
+            series: element.data()['Series'],
             snapshot: element.data()['Snapshot'],
             storage: element.data()['Storage'],
             price: element.data()['Selling Price'],
@@ -155,6 +234,43 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
+  Future<List<NotebookModel>> getBrandFilteredNotebooks(String? brand) async {
+    final List<NotebookModel> results = [];
+    final db = FirebaseFirestore.instance.collection('Notebooks');
+    final snapshot = await db.where('Brand', isEqualTo: printerFilterSelection?.toLowerCase()).get();
+    try {
+      for (final element in snapshot.docs) {
+        final notebook = NotebookModel(
+            id: element.id,
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
+            color: element.data()['Colors'],
+            cost: element.data()['Cost'],
+            display: element.data()['Display'],
+            graphics: element.data()['Graphics'],
+            maxDiscounted: element.data()['Max Discounted Price'],
+            memory: element.data()['Memory'],
+            model: element.data()['Model'],
+            os: element.data()['Operating System'],
+            processor: element.data()['Processor'],
+            series: element.data()['Series'],
+            snapshot: element.data()['Snapshot'],
+            storage: element.data()['Storage'],
+            price: element.data()['Selling Price'],
+            warranty: element.data()['Warranty']);
+
+        if (!results.any((p) => p.id == notebook.id)) {
+          results.add(notebook);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return results;
+  }
+
   Future<List<NotebookModel>> searchNotebooks() async {
     final List<NotebookModel> results = [];
     final db = FirebaseFirestore.instance.collection('Notebooks');
@@ -165,19 +281,18 @@ class InventoryControllers extends ChangeNotifier {
     for (final element in snapshot.docs) {
       final notebook = NotebookModel(
           id: element.id,
-          brand: element.data()['Brand'] == 'hp' ? 'HP' : capitalize(element.data()['Brand']),
+          title: element.data()['Title'],
+          brand: element.data()['Brand'],
           color: element.data()['Colors'],
           cost: element.data()['Cost'],
           display: element.data()['Display'],
           graphics: element.data()['Graphics'],
           maxDiscounted: element.data()['Max Discounted Price'],
           memory: element.data()['Memory'],
-          model: element.data()['Model'].toString().startsWith('xps')
-              ? element.data()['Model'].toString().toUpperCase()
-              : capitalize(element.data()['Model']),
+          model: element.data()['Model'],
           os: element.data()['Operating System'],
           processor: element.data()['Processor'],
-          series: element.data()['Series'] == 'xps' ? 'XPS' : capitalize(element.data()['Series']),
+          series: element.data()['Series'],
           snapshot: element.data()['Snapshot'],
           storage: element.data()['Storage'],
           price: element.data()['Selling Price'],
@@ -203,19 +318,5 @@ class InventoryControllers extends ChangeNotifier {
         print("Error retrieving data: $e");
       }
     }
-  }
-
-  String capitalize(String input) {
-    if (input == null || input.isEmpty) {
-      return input;
-    }
-
-    return input.toLowerCase().split(' ').map((word) {
-      if (word.isNotEmpty) {
-        return word[0].toUpperCase() + word.substring(1);
-      } else {
-        return '';
-      }
-    }).join(' ');
   }
 }

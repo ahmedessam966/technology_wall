@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/notebook_model.dart';
+import 'package:technology_wall/core/models/printer_model.dart';
 
+import '../../../config/routing_transition_services.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../../core/widgets/web/web_notebook_form.dart';
+import '../../../core/controllers/app_controllers.dart';
+import '../../../core/widgets/web/web_printer_order_form.dart';
+import 'printer_details_page.dart';
 
-class NotebookCardWidget extends StatelessWidget {
-  final NotebookModel? notebook;
-  const NotebookCardWidget({super.key, required this.notebook});
+class PrinterCardWidget extends StatelessWidget {
+  final PrinterModel? printer;
+  const PrinterCardWidget({super.key, required this.printer});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class NotebookCardWidget extends StatelessWidget {
             flex: 10,
             child: Center(
               child: Image.network(
-                notebook!.snapshot,
+                printer!.snapshot,
                 height: 150,
                 width: 200,
               ),
@@ -34,58 +38,43 @@ class NotebookCardWidget extends StatelessWidget {
           ),
           const Spacer(),
           Expanded(
-            flex: 2,
+            flex: 4,
             child: Center(
               child: SelectableText(
-                notebook!.title,
+                printer!.title,
                 style: context.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Center(
-              child: Text(
-                notebook!.model,
-                style: context.bodyMedium,
                 textAlign: TextAlign.center,
               ),
             ),
           ),
           const Spacer(),
           Expanded(
-            flex: 8,
+            flex: 7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Processor: ${notebook?.processor}',
+                  '• Printing Capability: ${printer?.ppm} papers/minute',
                   textAlign: TextAlign.justify,
                   style: context.bodySmall,
                 ),
                 SelectableText(
-                  '• Operating System: ${notebook?.os}',
+                  '• Printer Family: ${printer?.family}',
                   textAlign: TextAlign.justify,
                   style: context.bodySmall,
                 ),
                 SelectableText(
-                  '• Graphics: ${notebook?.graphics}',
+                  '• Printer Type: ${printer?.type}',
                   textAlign: TextAlign.justify,
                   style: context.bodySmall,
                 ),
                 SelectableText(
-                  '• Memory: ${notebook?.memory}',
+                  '• Network Module: ${printer?.network}',
                   textAlign: TextAlign.justify,
                   style: context.bodySmall,
                 ),
                 SelectableText(
-                  '• Storage: ${notebook?.storage}',
-                  textAlign: TextAlign.justify,
-                  style: context.bodySmall,
-                ),
-                SelectableText(
-                  '• Display: ${notebook?.display}',
+                  '• Ideal Utility: ${printer?.utility}',
                   textAlign: TextAlign.justify,
                   style: context.bodySmall,
                 ),
@@ -119,8 +108,8 @@ class NotebookCardWidget extends StatelessWidget {
                     await showAdaptiveDialog(
                         context: context,
                         builder: (context) {
-                          return WebNotebookOrderForm(
-                            item: notebook,
+                          return WebOrderForm(
+                            item: printer,
                           );
                         });
                   },
@@ -135,9 +124,14 @@ class NotebookCardWidget extends StatelessWidget {
                       LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<AppControllers>(context, listen: false)
+                        .changePage('Printers | ${printer?.brand} ${printer?.model}');
+                    Navigator.push(
+                        context, RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
+                  },
                   child: Text(
-                    'Full Specifications',
+                    'Printer Details',
                     style: context.bodySmall,
                   ),
                 ),
