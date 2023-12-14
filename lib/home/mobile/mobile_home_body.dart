@@ -215,7 +215,9 @@ class MobileHomeBody extends StatelessWidget {
                         ),
                       ),
                       backgroundColor: MaterialStatePropertyAll(const Color(0xaa071923).withOpacity(1))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/hardware');
+                  },
                   child: Text(
                     'Explore Inventory',
                     style: context.bodySmall?.copyWith(color: Colors.white70),

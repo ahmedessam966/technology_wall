@@ -29,6 +29,7 @@ class _InventoryPageState extends State<InventoryPage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     final provider = Provider.of<AppControllers>(context, listen: true);
+
     return Semantics(
       label: 'Technology Wall | Hardware',
       value:
@@ -47,7 +48,7 @@ class _InventoryPageState extends State<InventoryPage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            key: sw < 1280 ? provider.nonWebScaffoldKey : null,
+            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
             drawer: sw < 1280
                 ? NonWebDrawer(
                     sw: sw,
@@ -81,7 +82,11 @@ class _InventoryPageState extends State<InventoryPage> {
                       ? const WebInventoryBody()
                       : sw < 1280 && sw >= 768
                           ? const TabletInventoryBody()
-                          : const MobileInventoryBody(),
+                          : MobileInventoryBody(
+                              sw: sw,
+                              sh: sh,
+                              ar: ar,
+                            ),
                 ),
                 sw >= 1280
                     ? const WebFooter()

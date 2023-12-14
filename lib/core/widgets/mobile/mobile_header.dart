@@ -31,11 +31,11 @@ class MobileHeader extends StatelessWidget {
             IconButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                if (provider.nonWebScaffoldKey.currentState!.isDrawerOpen) {
-                  provider.nonWebScaffoldKey.currentState?.closeDrawer();
-                } else {
-                  provider.nonWebScaffoldKey.currentState?.openDrawer();
-                }
+                // if (provider.nonWebScaffoldKey.currentState!.isDrawerOpen) {
+                //   provider.nonWebScaffoldKey.currentState?.closeDrawer();
+                // } else {
+                //   provider.nonWebScaffoldKey.currentState?.openDrawer();
+                // }
               },
               icon: Icon(
                 Icons.menu_rounded,

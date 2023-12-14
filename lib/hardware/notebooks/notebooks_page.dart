@@ -47,7 +47,7 @@ class _NotebooksPageState extends State<NotebooksPage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            key: sw < 1280 ? provider.nonWebScaffoldKey : null,
+            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
             drawer: sw < 1280
                 ? NonWebDrawer(
                     sw: sw,

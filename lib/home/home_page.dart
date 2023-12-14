@@ -22,6 +22,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     AppControllers.showAppBanner(
+  //         context, MediaQuery.of(context).size.height, MediaQuery.of(context).size.width);
+  //   });
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -29,6 +48,7 @@ class _HomePageState extends State<HomePage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     final provider = Provider.of<AppControllers>(context, listen: true);
+
     return Semantics(
       link: true,
       label: 'Technology Wall Home Page',
@@ -48,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            key: sw < 1280 ? provider.nonWebScaffoldKey : null,
+            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
             drawer: sw < 1280
                 ? NonWebDrawer(
                     sw: sw,
