@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/input_validation_services.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
@@ -18,6 +19,7 @@ class WebNotebookOrderForm extends StatefulWidget {
 }
 
 late NotebookModel notebook;
+bool _isLoading = false;
 
 class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
   @override
@@ -145,32 +147,44 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                       backgroundColor: AppTheme.darkest,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
                                   onPressed: () async {
+                                    setState(() {
+                                      _isLoading = !_isLoading;
+                                    });
                                     await EmailController.sendEmail(
-                                            _nameController.text,
-                                            'Printer Purchase Order',
-                                            _notesController.text,
-                                            _emailController.text,
-                                            _phoneController.text,
-                                            '${notebook.brand} ${notebook.series} ${notebook.model} for a quantity of ${_quantityController.text}')
-                                        .then((value) {
+                                      _nameController.text,
+                                      'Printer Purchase Order',
+                                      _notesController.text,
+                                      _emailController.text,
+                                      _phoneController.text,
+                                      notebook.title,
+                                      int.parse(_quantityController.text),
+                                    ).then((value) {
+                                      setState(() {
+                                        _isLoading = !_isLoading;
+                                      });
                                       if (value == 200) {
                                         Flushbar(
                                           title: 'Purchase Order Received',
                                           leftBarIndicatorColor: Colors.green.shade600,
                                           borderRadius: BorderRadius.circular(10),
                                           titleColor: Colors.green,
-                                          flushbarPosition: FlushbarPosition.TOP,
+                                          flushbarPosition: FlushbarPosition.BOTTOM,
                                           duration: const Duration(seconds: 5),
                                           message:
-                                              'Your purchase order for ${notebook.brand} ${notebook.model} has been sent successfully. You will receive email confirmation shortly.',
+                                              'Your purchase order for ${notebook.title} has been sent successfully. You will receive email confirmation shortly.',
                                         ).show(context).whenComplete(() => Navigator.pop(context));
                                       }
                                     });
                                   },
-                                  child: Text(
-                                    'Submit Purchase Order',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
-                                  ),
+                                  child: _isLoading
+                                      ? const SpinKitThreeBounce(
+                                          size: 14,
+                                          color: Colors.white,
+                                        )
+                                      : Text(
+                                          'Submit Purchase Order',
+                                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                        ),
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -215,15 +229,15 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                     height: 20,
                                   ),
                                   Text(
-                                    '  - Notebook Brand: ${notebook.brand}',
+                                    '  - Notebook Brand: ${notebook.brand[0].toUpperCase() + notebook.brand.substring(1)}',
                                     style: context.bodyLarge,
                                   ),
                                   Text(
-                                    '  - Notebook Model: ${notebook.model}',
+                                    '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
                                     style: context.bodyLarge,
                                   ),
                                   Text(
-                                    '  - Notebook Series: ${notebook.series}',
+                                    '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
                                     style: context.bodyLarge,
                                   ),
                                   const SizedBox(
@@ -407,7 +421,7 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Requested Quantity of ${notebook.brand} ${notebook.model}',
+                                    'Requested Quantity of ${notebook.title}',
                                     style: context.bodyLarge,
                                   ),
                                 ),
@@ -473,15 +487,15 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                         height: 20,
                                       ),
                                       Text(
-                                        '  - Notebook Brand: ${notebook.brand}',
+                                        '  - Notebook Brand: ${notebook.brand[0].toUpperCase() + notebook.brand.substring(1)}',
                                         style: context.bodyLarge,
                                       ),
                                       Text(
-                                        '  - Notebook Model: ${notebook.model}',
+                                        '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
                                         style: context.bodyLarge,
                                       ),
                                       Text(
-                                        '  - Notebook Series: ${notebook.series}',
+                                        '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
                                         style: context.bodyLarge,
                                       ),
                                       const SizedBox(

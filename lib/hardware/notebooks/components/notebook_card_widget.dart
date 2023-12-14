@@ -51,7 +51,7 @@ class NotebookCardWidget extends StatelessWidget {
               flex: 1,
               child: Center(
                 child: Text(
-                  notebook!.model,
+                  '${notebook!.model[0].toUpperCase()}${notebook!.model.substring(1)}',
                   style: context.bodyMedium,
                   textAlign: TextAlign.center,
                 ),

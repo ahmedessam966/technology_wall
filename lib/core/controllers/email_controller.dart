@@ -3,15 +3,16 @@ import 'package:flutter/foundation.dart';
 
 class EmailController {
   static Future<int> sendEmail(
-      String name, String subject, String? notes, String email, String phone, String request) async {
+      String name, String subject, String? notes, String email, String phone, String product, int quantity) async {
     Map<String, dynamic> templateParams = {
       'to_name': name,
       'topic': subject,
-      'request': request,
+      'request': product,
       'message': notes,
       'to_email': email,
       'phone': phone,
-      'reply_to': email
+      'reply_to': email,
+      'quantity':quantity
     };
 
     try {

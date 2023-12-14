@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/input_validation_services.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
@@ -18,6 +19,7 @@ class WebOrderForm extends StatefulWidget {
 }
 
 late PrinterModel printer;
+bool _isLoading = false;
 
 class _WebOrderFormState extends State<WebOrderForm> {
   @override
@@ -145,32 +147,44 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                       backgroundColor: AppTheme.darkest,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
                                   onPressed: () async {
+                                    setState(() {
+                                      _isLoading = !_isLoading;
+                                    });
                                     await EmailController.sendEmail(
                                             _nameController.text,
                                             'Printer Purchase Order',
                                             _notesController.text,
                                             _emailController.text,
                                             _phoneController.text,
-                                            '${printer.brand} ${printer.model} for a quantity of ${_quantityController.text}')
+                                            printer.title,
+                                            int.parse(_quantityController.text))
                                         .then((value) {
                                       if (value == 200) {
+                                        setState(() {
+                                          _isLoading = !_isLoading;
+                                        });
                                         Flushbar(
                                           title: 'Purchase Order Received',
                                           leftBarIndicatorColor: Colors.green.shade600,
                                           borderRadius: BorderRadius.circular(10),
                                           titleColor: Colors.green,
-                                          flushbarPosition: FlushbarPosition.TOP,
+                                          flushbarPosition: FlushbarPosition.BOTTOM,
                                           duration: const Duration(seconds: 5),
                                           message:
-                                              'Your purchase order for ${printer.brand} ${printer.model} has been sent successfully. You will receive email confirmation shortly.',
+                                              'Your purchase order for ${printer.title} has been sent successfully. You will receive email confirmation shortly.',
                                         ).show(context).whenComplete(() => Navigator.pop(context));
                                       }
                                     });
                                   },
-                                  child: Text(
-                                    'Submit Purchase Order',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
-                                  ),
+                                  child: _isLoading
+                                      ? const SpinKitThreeBounce(
+                                          size: 14,
+                                          color: Colors.white,
+                                        )
+                                      : Text(
+                                          'Submit Purchase Order',
+                                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                        ),
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -387,7 +401,7 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Requested Quantity of ${printer.brand} ${printer.model}',
+                                    'Requested Quantity of ${printer.title}',
                                     style: context.bodyLarge,
                                   ),
                                 ),
