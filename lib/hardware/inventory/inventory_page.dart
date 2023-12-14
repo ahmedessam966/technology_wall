@@ -30,7 +30,6 @@ class _InventoryPageState extends State<InventoryPage> {
     final scroller = ScrollController();
     final provider = Provider.of<AppControllers>(context, listen: true);
     return Semantics(
-      link: true,
       label: 'Technology Wall | Hardware',
       value:
           'HP, Dell, Lenovo, MacBook, Apple, Acer, Asus, Toshiba, HP Notebooks, HP Laptops, Dell Notebooks, Dell Laptops, Lenovo Laptops, Lenovo Notebooks, MacBook Pro, MacBook Notebooks, MacBook Laptops, MacBook Pro Laptops, MacBook Pro Notebooks, Apple Laptops, Apple Notebooks, Acer Laptops, Acer Notebooks, Asus Laptops, Asus Notebooks, Toshiba Laptops, Toshiba Notebooks, Scanners, Fujitsu, Routers, Cisco, Cisco Routers, TP-Link, Switches, UPS, Servers, HP Servers, Dell Servers, HP G Series, HP G10, Dell PowerEdge, HP Workstation, Dell, Workstation, Firewalls, Fortinet, Fortigate, Sophos, CCTV, Cameras, Surveillance, Hik-Vision, NVR, DVR',

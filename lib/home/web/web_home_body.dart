@@ -278,7 +278,9 @@ class WebHomeBody extends StatelessWidget {
                           }
                         }),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/hardware');
+                      },
                       child: Text(
                         'Explore Inventory',
                         style: context.bodyMedium?.copyWith(color: Colors.white70),

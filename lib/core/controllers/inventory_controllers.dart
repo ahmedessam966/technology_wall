@@ -8,6 +8,9 @@ class InventoryControllers extends ChangeNotifier {
   int _orderFormStep = 0;
   int get orderFormStep => _orderFormStep;
 
+  final TextEditingController _generalHardwareSearchController = TextEditingController();
+  TextEditingController get generalHardwareSearchController => _generalHardwareSearchController;
+
   final TextEditingController _printerSearchController = TextEditingController();
   TextEditingController get printerSearchController => _printerSearchController;
   final List<PrinterModel> _printersList = [];
@@ -17,6 +20,9 @@ class InventoryControllers extends ChangeNotifier {
   TextEditingController get notebookSearchController => _notebookSearchController;
   final List<NotebookModel> _notebooksList = [];
   List<NotebookModel> get notebooksList => _notebooksList;
+
+  String? _hardwareFilterSelection;
+  String? get hardwareFilterSelection => _hardwareFilterSelection;
 
   String? _printerFilterSelection;
   String? get printerFilterSelection => _printerFilterSelection;
@@ -39,6 +45,11 @@ class InventoryControllers extends ChangeNotifier {
 
   void changeFormStep(int index) {
     _orderFormStep = index;
+    notifyListeners();
+  }
+
+  void setHardwareFilter(String? selection) {
+    _hardwareFilterSelection = selection;
     notifyListeners();
   }
 

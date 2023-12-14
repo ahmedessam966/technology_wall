@@ -65,32 +65,26 @@ class NotebookCardWidget extends StatelessWidget {
                 children: [
                   SelectableText(
                     '• Processor: ${notebook?.processor}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                   SelectableText(
                     '• Operating System: ${notebook?.os}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                   SelectableText(
                     '• Graphics: ${notebook?.graphics}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                   SelectableText(
                     '• Memory: ${notebook?.memory}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                   SelectableText(
                     '• Storage: ${notebook?.storage}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                   SelectableText(
                     '• Display: ${notebook?.display}',
-                    textAlign: TextAlign.justify,
                     style: context.bodySmall,
                   ),
                 ],

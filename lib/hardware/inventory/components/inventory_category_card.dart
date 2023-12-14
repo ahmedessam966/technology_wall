@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
-import '../../config/themes/app_theme.dart';
+import '../../../config/themes/app_theme.dart';
 
-class ProductCategoryCard extends StatelessWidget {
+class InventoryCategoryCard extends StatelessWidget {
   final String category;
-  final String description;
   final String imagePath;
   final dynamic onPressed;
-  const ProductCategoryCard(
-      {super.key,
-      required this.category,
-      required this.description,
-      required this.imagePath,
-      this.onPressed});
+  const InventoryCategoryCard({super.key, required this.category, required this.imagePath, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 400,
       child: ElevatedButton(
         style: ButtonStyle(
           padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
-          surfaceTintColor: const MaterialStatePropertyAll(AppTheme.darkest),
           overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
@@ -32,7 +25,7 @@ class ProductCategoryCard extends StatelessWidget {
           ),
           elevation: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.hovered)) {
-              return 2;
+              return 5;
             } else {
               return 0;
             }
@@ -44,7 +37,7 @@ class ProductCategoryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              flex: 4,
+              flex: 6,
               child: Image.network(
                 imagePath,
                 height: 200,
@@ -52,19 +45,9 @@ class ProductCategoryCard extends StatelessWidget {
             ),
             const Spacer(),
             Expanded(
-              flex: 1,
               child: Text(
                 category,
-                style: context.displaySmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
-              ),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 2,
-              child: Text(
-                description,
-                textAlign: TextAlign.center,
-                style: context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer()
