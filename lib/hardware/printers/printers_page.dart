@@ -3,8 +3,6 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/hardware/printers/web/printers_web_body.dart';
-
-import '../../core/controllers/app_controllers.dart';
 import '../../core/widgets/mobile/mobile_footer.dart';
 import '../../core/widgets/mobile/mobile_header.dart';
 import '../../core/widgets/mobile/non_web_drawer.dart';
@@ -34,7 +32,6 @@ class _PrintersPageState extends State<PrintersPage> {
     final double sh = MediaQuery.of(context).size.height;
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
-    final provider = Provider.of<AppControllers>(context, listen: true);
 
     return Semantics(
       link: true,
@@ -55,7 +52,6 @@ class _PrintersPageState extends State<PrintersPage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
             drawer: sw < 1280
                 ? NonWebDrawer(
                     sw: sw,

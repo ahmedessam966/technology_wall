@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:provider/provider.dart';
 import 'package:technology_wall/hardware/inventory/mobile/mobile_inventory_body.dart';
 import 'package:technology_wall/hardware/inventory/tablet/tablet_inventory_body.dart';
 import 'package:technology_wall/hardware/inventory/web/web_inventory_body.dart';
-
-import '../../core/controllers/app_controllers.dart';
 import '../../core/widgets/mobile/mobile_footer.dart';
 import '../../core/widgets/mobile/mobile_header.dart';
 import '../../core/widgets/mobile/non_web_drawer.dart';
@@ -28,7 +25,6 @@ class _InventoryPageState extends State<InventoryPage> {
     final double sh = MediaQuery.of(context).size.height;
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
-    final provider = Provider.of<AppControllers>(context, listen: true);
 
     return Semantics(
       label: 'Technology Wall | Hardware',

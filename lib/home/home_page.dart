@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:provider/provider.dart';
 import 'package:technology_wall/home/mobile/mobile_home_body.dart';
 import 'package:technology_wall/home/tablet/tablet_home_body.dart';
 import 'package:technology_wall/home/web/web_home_body.dart';
-
-import '../core/controllers/app_controllers.dart';
 import '../core/widgets/mobile/mobile_footer.dart';
 import '../core/widgets/mobile/mobile_header.dart';
 import '../core/widgets/mobile/non_web_drawer.dart';
@@ -47,7 +44,6 @@ class _HomePageState extends State<HomePage> {
     final double sh = MediaQuery.of(context).size.height;
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
-    final provider = Provider.of<AppControllers>(context, listen: true);
 
     return Semantics(
       link: true,
@@ -68,7 +64,6 @@ class _HomePageState extends State<HomePage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
             drawer: sw < 1280
                 ? NonWebDrawer(
                     sw: sw,

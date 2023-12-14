@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
-import '../../controllers/app_controllers.dart';
 import '../../controllers/auth_controllers.dart';
 
 class WebHeader extends StatelessWidget {
@@ -10,7 +7,6 @@ class WebHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return Semantics(
       header: true,
       container: true,
