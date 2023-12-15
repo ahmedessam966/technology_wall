@@ -7,6 +7,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import 'package:technology_wall/home/components/customers_carousel.dart';
 import 'package:technology_wall/home/components/product_category_card.dart';
+import 'package:technology_wall/home/web/web_purchase_order.dart';
 
 class WebHomeBody extends StatelessWidget {
   const WebHomeBody({super.key});
@@ -115,7 +116,13 @@ class WebHomeBody extends StatelessWidget {
                             }
                           }),
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await showAdaptiveDialog(
+                              context: context,
+                              builder: (context) {
+                                return const WebPurchaseOrder();
+                              });
+                        },
                         child: Text(
                           'Create Purchase Order',
                           style: context.bodyMedium?.copyWith(color: Colors.white70),

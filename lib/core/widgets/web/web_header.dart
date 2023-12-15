@@ -102,7 +102,7 @@ class WebHeader extends StatelessWidget {
                   shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                Navigator.pushNamed(context, '/portal');
               },
               child: Row(
                 children: [

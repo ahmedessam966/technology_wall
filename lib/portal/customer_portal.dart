@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 class CustomerPortal extends StatefulWidget {
@@ -25,7 +26,6 @@ class _CustomerPortalState extends State<CustomerPortal> {
     final double sw = MediaQuery.of(context).size.width;
     final double sh = MediaQuery.of(context).size.height;
     final double ar = MediaQuery.of(context).size.aspectRatio;
-
     return Semantics(
       link: true,
       label: 'Technology Wall Zoho Customer Login',

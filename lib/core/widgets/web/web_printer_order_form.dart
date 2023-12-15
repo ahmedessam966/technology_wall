@@ -375,7 +375,6 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                   ),
                                 ),
                               ),
-
                               const SizedBox(
                                 height: 20,
                               ),
@@ -435,32 +434,6 @@ class _WebOrderFormState extends State<WebOrderForm> {
                               const SizedBox(
                                 height: 30,
                               ),
-                              // ElevatedButton(
-                              //   onPressed: () async {
-                              //     await EmailController.sendEmail(
-                              //             _nameController.text,
-                              //             'Printer Purchase Order',
-                              //             '',
-                              //             _emailController.text,
-                              //             _phoneController.text,
-                              //             '${printer.brand} ${printer.model} for a quantity of ${_quantityController.text}')
-                              //         .then((value) {
-                              //       if (value == 200) {
-                              //         Fluttertoast.showToast(
-                              //             msg: "Your Request Is Sent",
-                              //             toastLength: Toast.LENGTH_LONG,
-                              //             gravity: ToastGravity.SNACKBAR,
-                              //             timeInSecForIosWeb: 3,
-                              //             backgroundColor: AppTheme.second,
-                              //             textColor: Colors.black,
-                              //             webBgColor: "#C8E0CA",
-                              //             webPosition: 'center',
-                              //             fontSize: 16.0);
-                              //       }
-                              //     });
-                              //   },
-                              //   child: const Text('Submit'),
-                              // ),
                             ],
                           ),
                         ),
@@ -468,12 +441,12 @@ class _WebOrderFormState extends State<WebOrderForm> {
                         //
                         //
                         Step(
-                          state: provider.orderFormStep == 1
+                          state: provider.orderFormStep == 2
                               ? StepState.indexed
-                              : provider.orderFormStep > 1
+                              : provider.orderFormStep > 2
                                   ? StepState.complete
                                   : StepState.indexed,
-                          isActive: provider.orderFormStep == 1,
+                          isActive: provider.orderFormStep == 2,
                           title: const Text('Request Summary'),
                           content: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
