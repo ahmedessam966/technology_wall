@@ -1,6 +1,6 @@
 {
-    "name": "technology_wall",
-    "short_name": "TW",
+    "name": "Technology Wall",
+    "short_name": "Tech-Wall",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
