@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
-    "theme_color": "#hexcode",
+    "theme_color": "#f7f7f7",
     "description": "Technology Wall IT Services and Digital ERP Solutions",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,

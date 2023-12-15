@@ -4,6 +4,9 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/pages_index.dart';
+import 'package:technology_wall/privacy/privacy_policy_page.dart.dart';
+import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
+import 'package:webview_flutter_web/webview_flutter_web.dart';
 
 import 'config/navigator_observer.dart';
 import 'config/themes/app_theme.dart';
@@ -16,6 +19,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WebViewPlatform.instance = WebWebViewPlatform();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -71,7 +75,7 @@ class MyApp extends StatelessWidget {
               '/hardware/switches': (context) => const SwitchesPage(),
               '/hardware/ups': (context) => const UPSPage(),
               '/hardware': (context) => const InventoryPage(),
-              '/login': (context) => const LoginPage(),
+              '/portal': (context) => const CustomerPortal(),
               '/request': (context) => const RequestsPage(),
               '/software': (context) => const SoftwarePage(),
               '/software/fortinet': (context) => const FortinetSoftwarePage(),
@@ -79,7 +83,8 @@ class MyApp extends StatelessWidget {
               '/software/sage': (context) => const SagePage(),
               '/software/sap': (context) => const SAPPage(),
               '/software/tally': (context) => const TallyPage(),
-              '/software/zoho': (context) => const ZohoPage()
+              '/software/zoho': (context) => const ZohoPage(),
+              '/privacy': (context) => const PrivacyPolicyPage()
             },
           );
         },

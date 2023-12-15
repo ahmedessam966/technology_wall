@@ -117,7 +117,7 @@ class WebHomeBody extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: Text(
-                          'Explore Now',
+                          'Create Purchase Order',
                           style: context.bodyMedium?.copyWith(color: Colors.white70),
                         ),
                       ),
