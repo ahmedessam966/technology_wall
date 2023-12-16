@@ -16,7 +16,6 @@ export 'hardware/printers/components/printer_details_page.dart';
 export 'home/home_page.dart';
 export 'hardware/inventory/inventory_page.dart';
 export 'portal/customer_portal.dart';
-export 'request/request_page.dart';
 export 'software/software/software_page.dart';
 export 'software/fortinet/fortinet_software_page.dart';
 export 'software/microsoft/microsoft_software_page.dart';

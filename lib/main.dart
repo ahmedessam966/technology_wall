@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/home/controllers/home_page_controllers.dart';
 import 'package:technology_wall/pages_index.dart';
 import 'package:technology_wall/privacy/privacy_policy_page.dart.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => AppTheme()),
           ChangeNotifierProvider(create: (_) => ThemeModeServices()),
           ChangeNotifierProvider(create: (_) => InventoryControllers()),
+          ChangeNotifierProvider(create: (_) => HomePageControllers()),
         ],
         builder: (context, _) {
           final themeNotifier = context.watch<ThemeModeServices>();
@@ -76,7 +78,6 @@ class MyApp extends StatelessWidget {
               '/hardware/ups': (context) => const UPSPage(),
               '/hardware': (context) => const InventoryPage(),
               '/portal': (context) => const CustomerPortal(),
-              '/request': (context) => const RequestsPage(),
               '/software': (context) => const SoftwarePage(),
               '/software/fortinet': (context) => const FortinetSoftwarePage(),
               '/software/microsoft': (context) => const MicrosoftSoftwarePage(),
