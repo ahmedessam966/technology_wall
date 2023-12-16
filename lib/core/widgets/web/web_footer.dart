@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -11,103 +12,277 @@ class WebFooter extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(50),
             child: Flex(
               direction: Axis.horizontal,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 7,
+                  flex: 9,
                   child: Flex(
                     direction: Axis.vertical,
-                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'assets/images/logo1.png',
-                        height: 100,
+                      Center(
+                        child: Image.asset(
+                          'assets/images/logo1.png',
+                          height: 80,
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          'Technology Wall Subsidiaries',
+                          style: context.bodyLarge?.copyWith(color: Colors.white70),
+                        ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
-                      Text(
-                        'Technology Wall Subsidiaries',
-                        style: context.bodyLarge?.copyWith(color: Colors.white70),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Pro-Rays Co.',
-                        style: context.bodyMedium?.copyWith(color: Colors.white54),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
+                      Flex(
+                        direction: Axis.horizontal,
                         children: [
-                          const Icon(
-                            Icons.location_on,
-                            color: Colors.white54,
+                          Expanded(
+                            flex: 4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(
+                                  'assets/images/prorays.png',
+                                  height: 40,
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      'Dubai - United Arab Emirates',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.link,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () async {
+                                        final Uri uri = Uri(scheme: 'https', path: 'prorays.tech-wall.me');
+                                        await launchUrl(uri);
+                                      },
+                                      child: Text(
+                                        'prorays.technology-wall.me',
+                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.phone,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      '+9722335228',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.email,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      'info@prorays.tech-wall.me',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                        'assets/icons/facebook.svg',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                        'assets/icons/instagram.svg',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        'assets/images/x.png',
+                                        height: 40,
+                                        width: 40,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Dubai - United Arab Emirates',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.link,
-                            color: Colors.white54,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          GestureDetector(
-                            onTap: () async {
-                              final Uri uri = Uri(scheme: 'https', path: 'prorays.tech-wall.me');
-                              await launchUrl(uri);
-                            },
-                            child: Text(
-                              'prorays.technology-wall.me',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                          const Spacer(),
+                          Expanded(
+                            flex: 4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(
+                                  'assets/images/prorays.png',
+                                  height: 40,
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      'Dubai - United Arab Emirates',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.link,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () async {
+                                        final Uri uri = Uri(scheme: 'https', path: 'prorays.tech-wall.me');
+                                        await launchUrl(uri);
+                                      },
+                                      child: Text(
+                                        'prorays.technology-wall.me',
+                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.phone,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      '+9722335228',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.email,
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      'info@prorays.tech-wall.me',
+                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                        'assets/icons/facebook.svg',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                        'assets/icons/instagram.svg',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        'assets/images/x.png',
+                                        height: 40,
+                                        width: 40,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.phone,
-                            color: Colors.white54,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            '+9722335228',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
-                          ),
-                        ],
+                      const Divider(
+                        color: Colors.white,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          const Icon(
-                            Icons.email,
-                            color: Colors.white54,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
                           Text(
-                            'info@prorays.tech-wall.me',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                            'Powered By',
+                            style: context.headlineSmall?.copyWith(color: Colors.white70),
+                          ),
+                          Image.asset(
+                            'assets/images/hcc.png',
+                            height: 80,
                           ),
                         ],
                       ),
@@ -116,7 +291,7 @@ class WebFooter extends StatelessWidget {
                 ),
                 const Spacer(),
                 const SizedBox(
-                  height: 300,
+                  height: 450,
                   child: VerticalDivider(
                     color: Colors.white70,
                   ),
@@ -125,7 +300,7 @@ class WebFooter extends StatelessWidget {
                 Expanded(
                   flex: 9,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
@@ -133,14 +308,9 @@ class WebFooter extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/software');
-                            },
-                            child: Text(
-                              'Software',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
-                            ),
+                          Text(
+                            'Software',
+                            style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
                           const SizedBox(
                             height: 10,
@@ -193,14 +363,9 @@ class WebFooter extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/inventory');
-                            },
-                            child: Text(
-                              'Hardware',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
-                            ),
+                          Text(
+                            'Hardware',
+                            style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
                           const SizedBox(
                             height: 10,
@@ -273,25 +438,30 @@ class WebFooter extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            'About Us',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'About Us',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
-                          Text(
-                            'Clients',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Clients',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
-                          Text(
-                            'Careers',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Careers',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text(
                             'Legal',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
@@ -299,17 +469,26 @@ class WebFooter extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            'Privacy Policy',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Privacy Policy',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
-                          Text(
-                            'Terms of Service',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Terms of Service',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
-                          Text(
-                            'Security',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Security',
+                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
@@ -343,6 +522,35 @@ class WebFooter extends StatelessWidget {
           ),
           const SizedBox(
             height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/facebook.svg',
+                  height: 40,
+                  width: 40,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/instagram.svg',
+                  height: 40,
+                  width: 40,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  'assets/images/x.png',
+                  height: 45,
+                  width: 45,
+                ),
+              ),
+            ],
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),

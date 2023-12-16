@@ -1,4 +1,5 @@
 export 'about/about_page.dart';
+export '404/not_found_page.dart';
 export 'about/accreditation/accreditation_page.dart';
 export 'contact/contact_page.dart';
 export 'hardware/cabinets/cabinets_page.dart';
@@ -23,3 +24,4 @@ export 'software/sage/sage_page.dart';
 export 'software/sap/sap_page.dart';
 export 'software/tally/tally_page.dart';
 export 'software/zoho/zoho_page.dart';
+export 'package:technology_wall/privacy/privacy_policy_page.dart.dart';

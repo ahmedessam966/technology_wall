@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/config/themes/text_varaiants.dart';
 import '../../controllers/auth_controllers.dart';
 
 class WebHeader extends StatelessWidget {
@@ -16,16 +17,35 @@ class WebHeader extends StatelessWidget {
       value:
           'Computers, Laptops, Computer Hardware, Computer Software, ERP, SAP, SAP Business One, SAP 4/Hana, S4/Hana, Zoho, Zoho ERP, Sage, Sage Software, Sage ERP, Networking, Contact Us, About, ',
       child: SizedBox(
-        height: 100,
+        height: 120,
         width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/');
-                },
-                child: Image.asset('assets/images/logo1.png')),
+            Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                  child: Semantics(
+                    label: 'Main Logo',
+                    image: true,
+                    link: true,
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      height: 90,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Powered By HCC',
+                  style: context.bodySmall?.copyWith(
+                    color: Colors.white54,
+                  ),
+                ),
+              ],
+            ),
             const Spacer(),
             Container(
               height: 300,
@@ -92,33 +112,36 @@ class WebHeader extends StatelessWidget {
             const Spacer(
               flex: 2,
             ),
-            ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
-                  elevation: const MaterialStatePropertyAll(0),
-                  padding: const MaterialStatePropertyAll(
-                    EdgeInsets.all(20),
-                  ),
-                  shape: MaterialStatePropertyAll(
-                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),
-              onPressed: () {
-                Navigator.pushNamed(context, '/portal');
-              },
-              child: Row(
-                children: [
-                  Builder(builder: (context) {
-                    final String? name =
-                        Provider.of<AuthControllers>(context, listen: false).staffModel?.name.split('')[0];
-                    return Text(
-                      name ?? 'Sign In',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black),
-                    );
-                  }),
-                  const Icon(
-                    Icons.arrow_right_alt_outlined,
-                    color: Colors.black,
-                  ),
-                ],
+            Semantics(
+              button: true,
+              label: 'Zoho Customer Portal Login Button',
+              child: IconButton(
+                padding: const EdgeInsets.all(10),
+                tooltip: 'Zoho Customer Portal',
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
+                    elevation: const MaterialStatePropertyAll(0),
+                    shape: MaterialStatePropertyAll(
+                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/portal');
+                },
+                icon: Row(
+                  children: [
+                    Builder(builder: (context) {
+                      final String? name =
+                          Provider.of<AuthControllers>(context, listen: false).staffModel?.name.split('')[0];
+                      return Text(
+                        name ?? 'Sign In',
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black),
+                      );
+                    }),
+                    const Icon(
+                      Icons.arrow_right_alt_outlined,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
               ),
             ),
             const Spacer(),

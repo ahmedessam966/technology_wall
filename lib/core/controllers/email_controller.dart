@@ -36,7 +36,6 @@ class EmailController {
 
   static Future<int> sendGeneralPO(String name, String subject, String? notes, String email, String phone,
       List<List<String>> products) async {
-    String emailBody = generateEmailTemplate(products);
     Map<String, dynamic> templateParams = {
       'to_name': name,
       'topic': subject,

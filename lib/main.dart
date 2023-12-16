@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/home/controllers/home_page_controllers.dart';
-import 'package:technology_wall/pages_index.dart';
-import 'package:technology_wall/privacy/privacy_policy_page.dart.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 
@@ -60,32 +59,10 @@ class MyApp extends StatelessWidget {
             navigatorObservers: [TitleObserver(context.read<AppControllers>())],
             onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
             initialRoute: '/',
-            routes: {
-              '/': (context) => const HomePage(),
-              '/about': (context) => const AboutPage(),
-              '/about/accreditation': (context) => const AccreditationPage(),
-              '/contact-us': (context) => const ContactPage(),
-              '/hardware/cabinets': (context) => const CabinetsPage(),
-              '/hardware/cctv': (context) => const CCTVPage(),
-              '/hardware/desktops': (context) => const DekstopsPage(),
-              '/hardware/firewalls': (context) => const FirewallsPage(),
-              '/hardware/notebooks': (context) => const NotebooksPage(),
-              '/hardware/printers': (context) => const PrintersPage(),
-              '/hardware/routers': (context) => const RoutersPage(),
-              '/hardware/scanners': (context) => const ScannersPage(),
-              '/hardware/servers': (context) => const ServersPage(),
-              '/hardware/switches': (context) => const SwitchesPage(),
-              '/hardware/ups': (context) => const UPSPage(),
-              '/hardware': (context) => const InventoryPage(),
-              '/portal': (context) => const CustomerPortal(),
-              '/software': (context) => const SoftwarePage(),
-              '/software/fortinet': (context) => const FortinetSoftwarePage(),
-              '/software/microsoft': (context) => const MicrosoftSoftwarePage(),
-              '/software/sage': (context) => const SagePage(),
-              '/software/sap': (context) => const SAPPage(),
-              '/software/tally': (context) => const TallyPage(),
-              '/software/zoho': (context) => const ZohoPage(),
-              '/privacy': (context) => const PrivacyPolicyPage()
+            onGenerateRoute: (settings) {
+              return MaterialPageRoute(
+                builder: (context) => RoutingTransitionServices.generateRoute(settings),
+              );
             },
           );
         },
