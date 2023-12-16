@@ -171,6 +171,11 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           _isLoading = !_isLoading;
                                         });
                                         Flushbar(
+                                          onStatusChanged: (status) {
+                                            if (status == FlushbarStatus.DISMISSED) {
+                                              Navigator.pushNamed(context, '/');
+                                            }
+                                          },
                                           title: 'Purchase Order Received',
                                           leftBarIndicatorColor: Colors.green.shade600,
                                           borderRadius: BorderRadius.circular(10),
@@ -179,7 +184,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           duration: const Duration(seconds: 5),
                                           message:
                                               'Your purchase order has been sent successfully. You will receive email confirmation shortly.',
-                                        ).show(context).whenComplete(() => Navigator.pop(context));
+                                        ).show(context);
                                       }
                                     });
                                   },

@@ -36,10 +36,11 @@ class EmailController {
 
   static Future<int> sendGeneralPO(String name, String subject, String? notes, String email, String phone,
       List<List<String>> products) async {
+    String emailBody = generateEmailTemplate(products);
     Map<String, dynamic> templateParams = {
       'to_name': name,
       'topic': subject,
-      'message': products.join('\n'),
+      'message': emailBody,
       'notes': notes,
       'to_email': email,
       'phone': phone,
@@ -66,11 +67,11 @@ class EmailController {
   }
 
   static String generateEmailTemplate(List<List<String>> items) {
-    StringBuffer template = StringBuffer();
+    String template = """""";
 
     for (int i = 0; i < items.length; i++) {
-      String itemRow = '${items[i][0]}: ${items[i][1]}\n';
-      template.writeln(itemRow);
+      String itemRow = '${items[i][0]}: ${items[i][1]} Piece(s)\n';
+      template += itemRow;
     }
     return template.toString();
   }

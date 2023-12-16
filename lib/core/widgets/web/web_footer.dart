@@ -40,7 +40,7 @@ class WebFooter extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
                       Flex(
                         direction: Axis.horizontal,
@@ -509,7 +509,13 @@ class WebFooter extends StatelessWidget {
                             style: context.bodySmall?.copyWith(color: Colors.white54),
                           ),
                           Text(
-                            'B233, Olaya District, Riyadh, Saudi Arabia',
+                            'B233, Office 37, Olaya District Computer Market',
+                            overflow: TextOverflow.clip,
+                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                          ),
+                          Text(
+                            '12211 Riyadh, Saudi Arabia',
+                            overflow: TextOverflow.clip,
                             style: context.bodySmall?.copyWith(color: Colors.white54),
                           ),
                         ],
