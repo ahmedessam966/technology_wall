@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:technology_wall/privacy/privacy_policy_page.dart.dart';
 import '../pages_index.dart';
 
 class RoutingTransitionServices {
@@ -42,7 +41,7 @@ class RoutingTransitionServices {
       case '/hardware/cctv':
         return const CCTVPage();
       case '/hardware/desktops':
-        return const DekstopsPage();
+        return const DesktopsPage();
       case '/hardware/firewalls':
         return const FirewallsPage();
       case '/hardware/notebooks':

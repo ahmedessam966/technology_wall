@@ -13,6 +13,7 @@ import 'config/themes/app_theme.dart';
 import 'config/themes/theme_mode_services.dart';
 import 'core/controllers/app_controllers.dart';
 import 'core/controllers/auth_controllers.dart';
+import 'pages_index.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         builder: (context, _) {
           final themeNotifier = context.watch<ThemeModeServices>();
           final themeConstants = context.watch<AppTheme>();
+
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             themeMode: themeNotifier.selectedTheme,
@@ -59,7 +61,36 @@ class MyApp extends StatelessWidget {
             navigatorObservers: [TitleObserver(context.read<AppControllers>())],
             onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
             initialRoute: '/',
+            routes: {
+              '/': (context) => const HomePage(),
+              '/about': (context) => const AboutPage(),
+              '/about/accreditation': (context) => const AccreditationPage(),
+              '/contact-us': (context) => const ContactPage(),
+              '/hardware': (context) => const InventoryPage(),
+              '/hardware/cabinets': (context) => const CabinetsPage(),
+              '/hardware/cctv': (context) => const CCTVPage(),
+              '/hardware/desktops': (context) => const DesktopsPage(),
+              '/hardware/firewalls': (context) => const FirewallsPage(),
+              '/hardware/notebooks': (context) => const NotebooksPage(),
+              '/hardware/printers': (context) => const PrintersPage(),
+              '/hardware/routers': (context) => const RoutersPage(),
+              '/hardware/scanners': (context) => const ScannersPage(),
+              '/hardware/servers': (context) => const ServersPage(),
+              '/hardware/switches': (context) => const SwitchesPage(),
+              '/hardware/ups': (context) => const UPSPage(),
+              '/portal': (context) => const CustomerPortal(),
+              '/software': (context) => const SoftwarePage(),
+              '/software/fortinet': (context) => const FortinetSoftwarePage(),
+              '/software/microsoft': (context) => const MicrosoftSoftwarePage(),
+              '/software/sap': (context) => const SAPPage(),
+              '/software/sage': (context) => const SagePage(),
+              '/software/tally': (context) => const TallyPage(),
+              '/software/zoho': (context) => const ZohoPage(),
+              '/privacy': (context) => const PrivacyPolicyPage(),
+              '/not-found': (context) => const NotFoundPage(),
+            },
             onGenerateRoute: (settings) {
+              TitleObserver.updateJsonKeywordMap();
               return MaterialPageRoute(
                 builder: (context) => RoutingTransitionServices.generateRoute(settings),
               );

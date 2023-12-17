@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DekstopsPage extends StatefulWidget {
-  const DekstopsPage({super.key});
+class DesktopsPage extends StatefulWidget {
+  const DesktopsPage({super.key});
 
   @override
-  State<DekstopsPage> createState() => _DekstopsPageState();
+  State<DesktopsPage> createState() => _DesktopsPageState();
 }
 
-class _DekstopsPageState extends State<DekstopsPage> {
+class _DesktopsPageState extends State<DesktopsPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold();
