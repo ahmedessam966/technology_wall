@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
 
 import '../../../config/themes/app_theme.dart';
@@ -43,16 +45,6 @@ class NotebookCardWidget extends StatelessWidget {
                 child: SelectableText(
                   notebook!.title,
                   style: context.headlineSmall,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Center(
-                child: Text(
-                  '${notebook!.model[0].toUpperCase()}${notebook!.model.substring(1)}',
-                  style: context.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -127,22 +119,71 @@ class NotebookCardWidget extends StatelessWidget {
                       style: context.bodyMedium?.copyWith(color: Colors.white70),
                     ),
                   ),
-                  TextButton(
-                    style: ButtonStyle(
-                      shape: MaterialStatePropertyAll(
-                        LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
+                  Builder(builder: (context) {
+                    final cart = Provider.of<CartControllers>(context, listen: true);
+                    return ElevatedButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(1),
+                            side: const BorderSide(color: Colors.white70),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return const Color(0xaa7c9cc1).withOpacity(1);
+                          } else {
+                            return const Color(0xaa071923).withOpacity(1);
+                          }
+                        }),
                       ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      'Full Specifications',
-                      style: context.bodySmall,
-                    ),
-                  ),
+                      onPressed: () {
+                        cart.cart.containsKey(notebook?.id)
+                            ? cart.removeFromCart(notebook!.id)
+                            : cart.addToCart(notebook);
+                      },
+                      child: cart.cart.containsKey(notebook?.id)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(
+                                  Icons.check,
+                                  color: Colors.white70,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Added',
+                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                ),
+                              ],
+                            )
+                          : Text(
+                              'Add to Cart',
+                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                            ),
+                    );
+                  }),
                 ],
               ),
             ),
             const Spacer(),
+            Center(
+              child: TextButton(
+                style: ButtonStyle(
+                  shape: MaterialStatePropertyAll(
+                    LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
+                  ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  'Full Specifications',
+                  style: context.bodySmall,
+                ),
+              ),
+            ),
           ],
         ),
       ),

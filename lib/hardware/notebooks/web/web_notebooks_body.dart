@@ -2,9 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/core/widgets/web/cart_widget.dart';
 import 'package:technology_wall/hardware/notebooks/components/notebooks_builder_widget.dart';
+import 'package:technology_wall/hardware/notebooks/components/refined_notebooks_builder_widget.dart';
 import '../../../config/themes/app_theme.dart';
+import '../../../core/widgets/web/web_purchase_order.dart';
 
 class WebNotebooksBody extends StatelessWidget {
   const WebNotebooksBody({super.key});
@@ -147,11 +151,29 @@ class WebNotebooksBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
               color: const Color(0xaaf7f7f7).withOpacity(1),
               child: SizedBox(
-                height: 800,
+                height: 1000,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Center(
+                      child: Text(
+                        'Notebooks and Portable PC',
+                        style: context.headlineMedium,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Center(
+                      child: Text(
+                        'A selection of renowned brands and diverse utilites to serve your personal, entertainment, or business needs',
+                        style: context.bodyLarge,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -179,7 +201,7 @@ class WebNotebooksBody extends StatelessWidget {
                         ),
                         DropdownButton(
                             underline: const SizedBox.shrink(),
-                            hint: const Text('Show by Brand'),
+                            hint: const Text('select brand'),
                             value: provider.notebookFilterSelection,
                             borderRadius: BorderRadius.circular(10),
                             items: const [
@@ -208,6 +230,47 @@ class WebNotebooksBody extends StatelessWidget {
                                 provider.setNBFilter(null);
                               }
                             }),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: const MaterialStatePropertyAll(0),
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1),
+                                side: const BorderSide(color: Colors.white70),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return const Color(0xaa7c9cc1).withOpacity(1);
+                              } else {
+                                return const Color(0xaa071923).withOpacity(1);
+                              }
+                            }),
+                          ),
+                          onPressed: () async {
+                            await showAdaptiveDialog(
+                                context: context,
+                                builder: (context) {
+                                  return const CartWidget();
+                                });
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.white70,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                                style: context.bodyMedium?.copyWith(color: Colors.white70),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -217,7 +280,10 @@ class WebNotebooksBody extends StatelessWidget {
                       child: provider.notebookFilterSelection == null ||
                               provider.notebookFilterSelection == 'All'
                           ? const NotebooksBuilderWidget()
-                          : const SizedBox(),
+                          : const RefinedNotebooksBuilderWidget(),
+                    ),
+                    const SizedBox(
+                      height: 50,
                     ),
                     Center(
                       child: TextButton(
@@ -252,8 +318,48 @@ class WebNotebooksBody extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 100,
                     ),
+                    Center(
+                      child: Text(
+                        'Couldn\'t find your product? Submit a requsition form and we will find it for you',
+                        style: context.bodyMedium,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Center(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: const MaterialStatePropertyAll(0),
+                          shape: MaterialStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(1),
+                              side: const BorderSide(color: Colors.white70),
+                            ),
+                          ),
+                          backgroundColor: MaterialStateProperty.resolveWith((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              return const Color(0xaa7c9cc1).withOpacity(1);
+                            } else {
+                              return const Color(0xaa071923).withOpacity(1);
+                            }
+                          }),
+                        ),
+                        onPressed: () async {
+                          await showAdaptiveDialog(
+                              context: context,
+                              builder: (context) {
+                                return const WebPurchaseOrder();
+                              });
+                        },
+                        child: Text(
+                          'Create Requisition Request',
+                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

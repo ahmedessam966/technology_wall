@@ -3,16 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/home/controllers/home_page_controllers.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 
-import 'config/navigator_observer.dart';
-import 'config/themes/app_theme.dart';
-import 'config/themes/theme_mode_services.dart';
-import 'core/controllers/app_controllers.dart';
-import 'core/controllers/auth_controllers.dart';
+import 'controller_index.dart';
 import 'pages_index.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -47,6 +41,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => ThemeModeServices()),
           ChangeNotifierProvider(create: (_) => InventoryControllers()),
           ChangeNotifierProvider(create: (_) => HomePageControllers()),
+          ChangeNotifierProvider(create: (_) => CartControllers()),
         ],
         builder: (context, _) {
           final themeNotifier = context.watch<ThemeModeServices>();

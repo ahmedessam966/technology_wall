@@ -13,11 +13,11 @@ class RefinedNotebooksBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<InventoryControllers>(builder: (context, provider, _) {
       return FutureBuilder(
-          future: provider.getBrandFilteredNotebooks(provider.printerFilterSelection),
+          future: provider.getBrandFilteredNotebooks(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: SpinKitThreeBounce(
+                child: SpinKitFadingCircle(
                   color: AppTheme.darkest,
                 ),
               );
@@ -31,7 +31,7 @@ class RefinedNotebooksBuilderWidget extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: snapshot.data?.length,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.8),
+                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
                     itemBuilder: (context, index) {
                       final notebook = snapshot.data?[index];
                       return NotebookCardWidget(notebook: notebook);

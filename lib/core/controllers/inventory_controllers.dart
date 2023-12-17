@@ -273,10 +273,10 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
-  Future<List<NotebookModel>> getBrandFilteredNotebooks(String? brand) async {
+  Future<List<NotebookModel>> getBrandFilteredNotebooks() async {
     final List<NotebookModel> results = [];
     final db = FirebaseFirestore.instance.collection('Notebooks');
-    final snapshot = await db.where('Brand', isEqualTo: printerFilterSelection?.toLowerCase()).get();
+    final snapshot = await db.where('Brand', isEqualTo: _notebookFilterSelection?.toLowerCase()).get();
     try {
       for (final element in snapshot.docs) {
         final notebook = NotebookModel(
@@ -358,4 +358,6 @@ class InventoryControllers extends ChangeNotifier {
       }
     }
   }
+
+  ////////////////////////////////////
 }

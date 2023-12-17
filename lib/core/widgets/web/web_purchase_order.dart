@@ -6,9 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/home/controllers/home_page_controllers.dart';
 
-import '../../config/input_validation_services.dart';
-import '../../config/themes/app_theme.dart';
-import '../../core/controllers/email_controller.dart';
+import '../../../config/input_validation_services.dart';
+import '../../../config/themes/app_theme.dart';
+import '../../controllers/email_controller.dart';
 
 class WebPurchaseOrder extends StatefulWidget {
   const WebPurchaseOrder({super.key});
