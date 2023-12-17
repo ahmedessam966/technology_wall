@@ -11,15 +11,19 @@ class TitleObserver extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
-    updateTitle(route.settings.name);
-    updateJsonKeywordMap();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      updateTitle(route.settings.name);
+      updateJsonKeywordMap();
+    });
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    updateTitle(previousRoute?.settings.name);
-    updateJsonKeywordMap();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      updateTitle(previousRoute?.settings.name);
+      updateJsonKeywordMap();
+    });
   }
 
   void updateTitle(String? routeName) {

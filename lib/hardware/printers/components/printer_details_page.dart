@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 import 'package:technology_wall/hardware/printers/mobile/mobile_details_body.dart';
 import 'package:technology_wall/hardware/printers/tablet/tablet_details_body.dart';
-import 'package:technology_wall/hardware/printers/web/web_details_body.dart';
+import 'package:technology_wall/hardware/printers/web/web_prrinter_details_body.dart';
 
 import '../../../core/controllers/app_controllers.dart';
 import '../../../core/widgets/mobile/mobile_footer.dart';

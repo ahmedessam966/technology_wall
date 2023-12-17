@@ -15,7 +15,6 @@ class CartWidget extends StatelessWidget {
         surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             border: Border.all(color: Colors.black),
@@ -25,29 +24,35 @@ class CartWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Your Cart',
-                    style: context.headlineSmall,
-                  ),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(Icons.close),
-                  ),
-                ],
+              Container(
+                color: const Color(0xaaf7f7f7).withOpacity(1),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Your Cart',
+                      style: context.headlineSmall,
+                    ),
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
-                height: provider.cart.isEmpty ? 200 : 50,
+                height: provider.cart.isEmpty ? 300 : 50,
               ),
               provider.cart.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
-                  : Expanded(
+                  : SizedBox(
+                      height: 380,
                       child: ListView.separated(
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 10,
                         ),
@@ -77,41 +82,33 @@ class CartWidget extends StatelessWidget {
                     ),
               const Spacer(),
               provider.cart.isEmpty
-                  ? SizedBox.shrink()
-                  : Center(
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          elevation: const MaterialStatePropertyAll(0),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1),
-                              side: const BorderSide(color: Colors.white70),
+                  ? const SizedBox.shrink()
+                  : Container(
+                      color: const Color(0xaaf7f7f7).withOpacity(1),
+                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+                      child: Center(
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: const MaterialStatePropertyAll(0),
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1),
+                                side: const BorderSide(color: Colors.white70),
+                              ),
                             ),
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return const Color(0xaa7c9cc1).withOpacity(1);
+                              } else {
+                                return const Color(0xaa071923).withOpacity(1);
+                              }
+                            }),
                           ),
-                          backgroundColor: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return const Color(0xaa7c9cc1).withOpacity(1);
-                            } else {
-                              return const Color(0xaa071923).withOpacity(1);
-                            }
-                          }),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Proceed To Checkout',
-                              style: context.bodyMedium?.copyWith(color: Colors.white70),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            const Icon(
-                              Icons.shopping_cart_checkout,
-                              color: Colors.white70,
-                            ),
-                          ],
+                          onPressed: () {},
+                          child: Text(
+                            'Proceed To Checkout',
+                            style: context.bodyMedium?.copyWith(color: Colors.white70),
+                          ),
                         ),
                       ),
                     ),

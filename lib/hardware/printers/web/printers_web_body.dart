@@ -7,6 +7,9 @@ import 'package:technology_wall/hardware/printers/components/printers_builder_wi
 import 'package:technology_wall/hardware/printers/components/refined_printers_builder_widget.dart';
 
 import '../../../config/themes/app_theme.dart';
+import '../../../core/controllers/cart_controllers.dart';
+import '../../../core/widgets/web/cart_widget.dart';
+import '../../../core/widgets/web/web_purchase_order.dart';
 
 class WebHardwareBody extends StatelessWidget {
   const WebHardwareBody({super.key});
@@ -150,6 +153,24 @@ class WebHardwareBody extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Center(
+                      child: Text(
+                        'Printer & Scanners',
+                        style: context.headlineMedium,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Center(
+                      child: Text(
+                        'A variety of multi-purpose printers and scanners suitable for business and personal use',
+                        style: context.bodyLarge,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -206,6 +227,47 @@ class WebHardwareBody extends StatelessWidget {
                                 provider.setFilter(null);
                               }
                             }),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: const MaterialStatePropertyAll(0),
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1),
+                                side: const BorderSide(color: Colors.white70),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return const Color(0xaa7c9cc1).withOpacity(1);
+                              } else {
+                                return const Color(0xaa071923).withOpacity(1);
+                              }
+                            }),
+                          ),
+                          onPressed: () async {
+                            await showAdaptiveDialog(
+                                context: context,
+                                builder: (context) {
+                                  return const CartWidget();
+                                });
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.white70,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                                style: context.bodyMedium?.copyWith(color: Colors.white70),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -216,6 +278,9 @@ class WebHardwareBody extends StatelessWidget {
                           provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
                               ? const PrintersBuilderWidget()
                               : const RefinedPrintersBuilderWidget(),
+                    ),
+                    const SizedBox(
+                      height: 50,
                     ),
                     Center(
                       child: TextButton(
@@ -250,8 +315,48 @@ class WebHardwareBody extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 100,
                     ),
+                    Center(
+                      child: Text(
+                        'Couldn\'t find your product? Submit a requsition form and we will find it for you',
+                        style: context.bodyMedium,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Center(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: const MaterialStatePropertyAll(0),
+                          shape: MaterialStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(1),
+                              side: const BorderSide(color: Colors.white70),
+                            ),
+                          ),
+                          backgroundColor: MaterialStateProperty.resolveWith((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              return const Color(0xaa7c9cc1).withOpacity(1);
+                            } else {
+                              return const Color(0xaa071923).withOpacity(1);
+                            }
+                          }),
+                        ),
+                        onPressed: () async {
+                          await showAdaptiveDialog(
+                              context: context,
+                              builder: (context) {
+                                return const WebPurchaseOrder();
+                              });
+                        },
+                        child: Text(
+                          'Create Requisition Request',
+                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

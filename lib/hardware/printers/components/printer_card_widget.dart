@@ -6,6 +6,7 @@ import 'package:technology_wall/core/models/printer_model.dart';
 import '../../../config/routing_transition_services.dart';
 import '../../../config/themes/app_theme.dart';
 import '../../../core/controllers/app_controllers.dart';
+import '../../../core/controllers/cart_controllers.dart';
 import '../../../core/widgets/web/web_printer_order_form.dart';
 import 'printer_details_page.dart';
 
@@ -122,27 +123,76 @@ class PrinterCardWidget extends StatelessWidget {
                       style: context.bodyMedium?.copyWith(color: Colors.white70),
                     ),
                   ),
-                  TextButton(
-                    style: ButtonStyle(
-                      shape: MaterialStatePropertyAll(
-                        LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
+                  Builder(builder: (context) {
+                    final cart = Provider.of<CartControllers>(context, listen: true);
+                    return ElevatedButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(1),
+                            side: const BorderSide(color: Colors.white70),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return const Color(0xaa7c9cc1).withOpacity(1);
+                          } else {
+                            return const Color(0xaa071923).withOpacity(1);
+                          }
+                        }),
                       ),
-                    ),
-                    onPressed: () {
-                      Provider.of<AppControllers>(context, listen: false)
-                          .changePage('Printers | ${printer?.brand} ${printer?.model}');
-                      Navigator.push(context,
-                          RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
-                    },
-                    child: Text(
-                      'Printer Details',
-                      style: context.bodySmall,
-                    ),
-                  ),
+                      onPressed: () {
+                        cart.cart.containsKey(printer?.id)
+                            ? cart.removeFromCart(printer!.id)
+                            : cart.addToCart(printer);
+                      },
+                      child: cart.cart.containsKey(printer?.id)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(
+                                  Icons.check,
+                                  color: Colors.white70,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Added',
+                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                ),
+                              ],
+                            )
+                          : Text(
+                              'Add to Cart',
+                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                            ),
+                    );
+                  }),
                 ],
               ),
             ),
             const Spacer(),
+            Center(
+              child: TextButton(
+                style: ButtonStyle(
+                  shape: MaterialStatePropertyAll(
+                    LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
+                  ),
+                ),
+                onPressed: () {
+                  Provider.of<AppControllers>(context, listen: false)
+                      .changePage('Printers | ${printer?.brand} ${printer?.model}');
+                  Navigator.push(
+                      context, RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
+                },
+                child: Text(
+                  'Printer Details',
+                  style: context.bodySmall,
+                ),
+              ),
+            ),
           ],
         ),
       ),
