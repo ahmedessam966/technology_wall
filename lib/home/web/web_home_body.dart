@@ -43,18 +43,18 @@ class WebHomeBody extends StatelessWidget {
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       SelectableText(
                         'home_slogan_small'.tr(),
                         style: provider.isEnglish
-                            ? context.headlineSmall?.copyWith(
+                            ? context.headlineMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
-                            : context.titleSmall?.copyWith(
+                            : context.titleMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 40,
                       ),
                       Row(
                         children: [
@@ -79,17 +79,20 @@ class WebHomeBody extends StatelessWidget {
                         style: provider.isEnglish
                             ? context.headlineMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
-                            : context.displayMedium?.copyWith(
+                            : context.titleMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Row(
                         children: [
                           SelectableText(
                             'home_service2_title'.tr(),
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            style: provider.isEnglish
+                                ? context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))
+                                : context.displayLarge
+                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
                           const SizedBox(
                             width: 10,
@@ -105,18 +108,18 @@ class WebHomeBody extends StatelessWidget {
                         style: provider.isEnglish
                             ? context.headlineMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
-                            : context.displayMedium?.copyWith(
+                            : context.titleMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
                       SelectableText(
                         'home_services_end'.tr(),
                         style: provider.isEnglish
                             ? context.headlineMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
-                            : context.displayMedium?.copyWith(
+                            : context.titleMedium?.copyWith(
                                 color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
@@ -202,9 +205,8 @@ class WebHomeBody extends StatelessWidget {
                     child: Text(
                       'our_products'.tr(),
                       style: provider.isEnglish
-                          ? context.headlineLarge
-                              ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600)
-                          : context.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+                          ? context.headlineLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)
+                          : context.titleLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
                     ),
                   ),
                   const SizedBox(
@@ -337,22 +339,30 @@ class WebHomeBody extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/erp.svg',
-                        height: 50,
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'erp_essentials'.tr(),
-                        style: provider.isEnglish
-                            ? context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)
-                            : context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                  SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/erp.svg',
+                          height: 50,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'erp_essentials'.tr(),
+                          style: provider.isEnglish
+                              ? context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)
+                              : context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        const Spacer(),
+                        Image.asset(
+                          'assets/images/hcc.png',
+                          height: 80,
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 25,
@@ -410,39 +420,43 @@ class WebHomeBody extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SelectableText(
-                                'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
-                                style: context.bodyMedium,
-                                textAlign: TextAlign.justify,
+                                'home_erp_segment1'.tr(),
+                                style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
+                                textAlign: provider.isEnglish ? TextAlign.justify : TextAlign.right,
                               ),
                               Row(
                                 children: [
                                   SelectableText(
-                                    'Learn more about our our SAP accreditation and parternship',
-                                    style: context.bodyMedium,
+                                    'home_erp_segment2'.tr(),
+                                    style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
                                   ),
                                   const SizedBox(
                                     width: 10,
                                   ),
                                   GestureDetector(
                                     child: Text(
-                                      'Learn More',
-                                      style: context.bodyMedium?.copyWith(color: Colors.blue.shade700),
+                                      'learn_more_link'.tr(),
+                                      style: provider.isEnglish
+                                          ? context.bodyLarge?.copyWith(color: Colors.blue.shade700)
+                                          : context.displayLarge?.copyWith(color: Colors.blue.shade700),
                                     ),
                                   )
                                 ],
                               ),
                               SelectableText(
-                                'Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7',
-                                style: context.bodyMedium,
-                                textAlign: TextAlign.justify,
+                                'home_erp_segment4'.tr(),
+                                style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
+                                textAlign: provider.isEnglish ? TextAlign.justify : TextAlign.right,
                               ),
                               SelectableText(
-                                'Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
-                                style: context.bodyMedium,
-                                textAlign: TextAlign.justify,
+                                'home_erp_segment3'.tr(),
+                                style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
+                                textAlign: provider.isEnglish ? TextAlign.justify : TextAlign.right,
                               ),
-                              const SelectableText(
-                                  'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:'),
+                              SelectableText(
+                                'home_erp_segment5'.tr(),
+                                style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
+                              ),
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: const MaterialStatePropertyAll(0),
@@ -464,8 +478,10 @@ class WebHomeBody extends StatelessWidget {
                                   Navigator.pushNamed(context, '/software/sap');
                                 },
                                 child: Text(
-                                  'Contact Pre-Sales',
-                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                  'contact_psales_button'.tr(),
+                                  style: provider.isEnglish
+                                      ? context.bodyMedium?.copyWith(color: Colors.white70)
+                                      : context.displayMedium?.copyWith(color: Colors.white70),
                                 ),
                               ),
                             ],

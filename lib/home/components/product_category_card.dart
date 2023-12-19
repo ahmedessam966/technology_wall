@@ -69,8 +69,8 @@ class ProductCategoryCard extends StatelessWidget {
               child: Text(
                 category,
                 style: provider.isEnglish
-                    ? context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.titleSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                    ? context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                    : context.titleMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer(),
@@ -80,8 +80,8 @@ class ProductCategoryCard extends StatelessWidget {
                 description,
                 textAlign: TextAlign.center,
                 style: provider.isEnglish
-                    ? context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.displayMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                    ? context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                    : context.displayLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer()

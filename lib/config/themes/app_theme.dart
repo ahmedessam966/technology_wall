@@ -14,20 +14,20 @@ class AppTheme extends ChangeNotifier {
         scrollbarTheme: const ScrollbarThemeData(thumbColor: MaterialStatePropertyAll(Colors.grey)),
         textTheme: TextTheme(
           //English Fonts
-          headlineLarge: GoogleFonts.lexend(fontSize: 26),
+          headlineLarge: GoogleFonts.lexend(fontSize: 28),
           headlineMedium: GoogleFonts.lexend(fontSize: 24),
-          headlineSmall: GoogleFonts.lexend(fontSize: 22),
-          bodyLarge: GoogleFonts.lexend(fontSize: 20),
-          bodyMedium: GoogleFonts.lexend(fontSize: 18),
-          bodySmall: GoogleFonts.lexend(fontSize: 16),
+          headlineSmall: GoogleFonts.lexend(fontSize: 20),
+          bodyLarge: GoogleFonts.lexend(fontSize: 16),
+          bodyMedium: GoogleFonts.lexend(fontSize: 12),
+          bodySmall: GoogleFonts.lexend(fontSize: 8),
 
           //Arabic Fonts
-          titleLarge: GoogleFonts.notoKufiArabic(fontSize: 24),
+          titleLarge: GoogleFonts.notoKufiArabic(fontSize: 28),
           titleMedium: GoogleFonts.notoKufiArabic(fontSize: 24),
-          titleSmall: GoogleFonts.notoKufiArabic(fontSize: 22),
-          displayLarge: GoogleFonts.notoKufiArabic(fontSize: 20),
-          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 18),
-          displaySmall: GoogleFonts.notoKufiArabic(fontSize: 16),
+          titleSmall: GoogleFonts.notoKufiArabic(fontSize: 20),
+          displayLarge: GoogleFonts.notoKufiArabic(fontSize: 16),
+          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 12),
+          displaySmall: GoogleFonts.notoKufiArabic(fontSize: 8),
         ),
       );
 

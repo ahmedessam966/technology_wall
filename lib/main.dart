@@ -16,14 +16,16 @@ void main() async {
   WebViewPlatform.instance = WebWebViewPlatform();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await EasyLocalization.ensureInitialized();
+  Future.delayed(const Duration(seconds: 1));
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setUrlStrategy(PathUrlStrategy());
   runApp(EasyLocalization(
+      assetLoader: const RootBundleAssetLoader(),
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SA')],
-      path: 'assets/lang', // <-- change the path of the translation files
-      fallbackLocale: const Locale('ar', 'SA'),
+      path: 'assets/lang',
+      fallbackLocale: const Locale('en', 'US'),
       child: const MyApp()));
 }
 
