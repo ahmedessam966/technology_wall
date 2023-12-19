@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../controllers/auth_controllers.dart';
 
 class WebHeader extends StatelessWidget {
@@ -26,7 +28,15 @@ class WebHeader extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/');
+                    final app = Provider.of<AppControllers>(context, listen: false);
+                    // Navigator.pushNamed(context, '/');
+                    if (context.locale.languageCode == 'en') {
+                      context.setLocale(const Locale('ar', 'SA'));
+                      app.changeLocale(false);
+                    } else {
+                      context.setLocale(const Locale('en', 'US'));
+                      app.changeLocale(true);
+                    }
                   },
                   child: Semantics(
                     label: 'Main Logo',
@@ -59,8 +69,10 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/hardware');
                     },
                     child: Text(
-                      'Hardware',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('hardware'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
@@ -68,8 +80,10 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/software');
                     },
                     child: Text(
-                      'Software',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('software'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
@@ -77,15 +91,19 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/software/sap');
                     },
                     child: Text(
-                      'SAP Solutions',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('sap_solutions'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Services',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('services'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
@@ -93,8 +111,10 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/about');
                     },
                     child: Text(
-                      'About TW',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('about_tw'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                   TextButton(
@@ -102,8 +122,10 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/contact-us');
                     },
                     child: Text(
-                      'Contact Us',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                      context.tr('contact_us'),
+                      style: context.locale.languageCode == 'en'
+                          ? context.bodyLarge?.copyWith(color: Colors.white)
+                          : context.displayLarge?.copyWith(color: Colors.white),
                     ),
                   ),
                 ],
@@ -117,7 +139,7 @@ class WebHeader extends StatelessWidget {
               label: 'Zoho Customer Portal Login Button',
               child: IconButton(
                 padding: const EdgeInsets.all(10),
-                tooltip: 'Zoho Customer Portal',
+                tooltip: 'zoho_portal_tooltip'.tr(),
                 style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
                     elevation: const MaterialStatePropertyAll(0),
@@ -132,8 +154,10 @@ class WebHeader extends StatelessWidget {
                       final String? name =
                           Provider.of<AuthControllers>(context, listen: false).staffModel?.name.split('')[0];
                       return Text(
-                        name ?? 'Sign In',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black),
+                        name ?? 'sign_in'.tr(),
+                        style: context.locale.languageCode == 'en'
+                            ? context.bodyLarge?.copyWith(color: Colors.black)
+                            : context.displayLarge?.copyWith(color: Colors.black),
                       );
                     }),
                     const Icon(

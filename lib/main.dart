@@ -5,10 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'controller_index.dart';
 import 'pages_index.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -16,11 +15,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WebViewPlatform.instance = WebWebViewPlatform();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setUrlStrategy(PathUrlStrategy());
-  runApp(const MyApp());
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SA')],
+      path: 'assets/lang', // <-- change the path of the translation files
+      fallbackLocale: const Locale('ar', 'SA'),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -54,6 +58,9 @@ class MyApp extends StatelessWidget {
             theme: themeNotifier.selectedTheme == ThemeMode.light
                 ? themeConstants.lightTheme
                 : themeConstants.darkTheme,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             navigatorObservers: [TitleObserver(context.read<AppControllers>())],
             onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
             initialRoute: '/',

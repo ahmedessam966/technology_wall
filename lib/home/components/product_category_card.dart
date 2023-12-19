@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/app_controllers.dart';
 
 import '../../config/themes/app_theme.dart';
 
@@ -18,6 +20,7 @@ class ProductCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppControllers>(context, listen: true);
     return SizedBox(
       height: 500,
       child: ElevatedButton(
@@ -65,7 +68,9 @@ class ProductCategoryCard extends StatelessWidget {
               flex: 1,
               child: Text(
                 category,
-                style: context.displaySmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: provider.isEnglish
+                    ? context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                    : context.titleSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer(),
@@ -74,7 +79,9 @@ class ProductCategoryCard extends StatelessWidget {
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: provider.isEnglish
+                    ? context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                    : context.displayMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer()

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
@@ -14,7 +15,7 @@ class WebHomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: false);
+    final provider = Provider.of<AppControllers>(context, listen: true);
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,16 +35,23 @@ class WebHomeBody extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       SelectableText(
-                        'Integrated Solutions - Fast and Easy',
-                        style: context.displayMedium?.copyWith(
-                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                        'home_slogan_big'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineLarge?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                            : context.titleLarge?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       SelectableText(
-                        'All-Round Medium of Digitized Services',
-                        style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        'home_slogan_small'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineSmall?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                            : context.titleSmall?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 10,
@@ -51,7 +59,36 @@ class WebHomeBody extends StatelessWidget {
                       Row(
                         children: [
                           SelectableText(
-                            'Hardware Services',
+                            'home_service1_title'.tr(),
+                            style: provider.isEnglish
+                                ? context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))
+                                : context.displayLarge
+                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Icon(
+                            Icons.arrow_right_alt_sharp,
+                            color: Color(0xaaffffff),
+                          ),
+                        ],
+                      ),
+                      SelectableText(
+                        'home_service1_sub'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                            : context.displayMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          SelectableText(
+                            'home_service2_title'.tr(),
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
                           const SizedBox(
@@ -64,37 +101,23 @@ class WebHomeBody extends StatelessWidget {
                         ],
                       ),
                       SelectableText(
-                        'Supplying primary hardware and up to complex servers',
-                        style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          SelectableText(
-                            'Software Services',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      SelectableText(
-                        'Licensed, supported software solutions required for business intelligence',
-                        style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        'home_service2_sub'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                            : context.displayMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       SelectableText(
-                        'Save valuable time and effort. Explore our integrated solutions plan.',
-                        style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        'home_services_end'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                            : context.displayMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
                         height: 20,
@@ -124,8 +147,12 @@ class WebHomeBody extends StatelessWidget {
                               });
                         },
                         child: Text(
-                          'Create Purchase Order',
-                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                          'create_po_button'.tr(),
+                          style: provider.isEnglish
+                              ? context.bodyMedium?.copyWith(
+                                  color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)
+                              : context.displayMedium?.copyWith(
+                                  color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
@@ -149,8 +176,10 @@ class WebHomeBody extends StatelessWidget {
           ),
           Center(
             child: Text(
-              'Strategic Partners',
-              style: context.headlineSmall?.copyWith(color: const Color(0xaaf7f7f7)),
+              'home_partners_title'.tr(),
+              style: provider.isEnglish
+                  ? context.headlineMedium?.copyWith(color: const Color(0xaaf7f7f7))
+                  : context.titleMedium?.copyWith(color: const Color(0xaaf7f7f7)),
             ),
           ),
           Container(
@@ -171,8 +200,11 @@ class WebHomeBody extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      'Our Products',
-                      style: context.displayMedium?.copyWith(fontWeight: FontWeight.w600),
+                      'our_products'.tr(),
+                      style: provider.isEnglish
+                          ? context.headlineLarge
+                              ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600)
+                          : context.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
                     ),
                   ),
                   const SizedBox(
@@ -188,8 +220,10 @@ class WebHomeBody extends StatelessWidget {
                         width: 20,
                       ),
                       Text(
-                        'Enterprise Essentials',
-                        style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
+                        'enterprise_essentials'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)
+                            : context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),
@@ -206,9 +240,8 @@ class WebHomeBody extends StatelessWidget {
                               provider.changePage('Technology Wall | Printers');
                               Navigator.pushNamed(context, '/hardware/printers');
                             },
-                            category: 'Printers',
-                            description:
-                                'A wide range of printers, scanners, plotters, and much more, for business or personal utility.',
+                            category: 'home_printers_tab'.tr(),
+                            description: 'home_printers_desc'.tr(),
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
                       ),
@@ -220,8 +253,8 @@ class WebHomeBody extends StatelessWidget {
                               provider.changePage('Technology Wall | Notebooks');
                               Navigator.pushNamed(context, '/hardware/notebooks');
                             },
-                            category: 'Notebooks',
-                            description: 'Professional, guaranteed, and trendy collections - always.',
+                            category: 'home_notebooks_tab'.tr(),
+                            description: 'home_notebooks_desc'.tr(),
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
                       ),
@@ -233,9 +266,8 @@ class WebHomeBody extends StatelessWidget {
                               provider.changePage('Technology Wall | Servers');
                               Navigator.pushNamed(context, '/hardware/servers');
                             },
-                            category: 'Servers',
-                            description:
-                                'State-of-the-art servers tailored to your required enterprise needs.',
+                            category: 'home_servers_tab'.tr(),
+                            description: 'home_servers_desc'.tr(),
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
                       ),
@@ -247,9 +279,8 @@ class WebHomeBody extends StatelessWidget {
                               provider.changePage('Technology Wall | Desktop PC');
                               Navigator.pushNamed(context, '/hardware/desktops');
                             },
-                            category: 'Desktop PC',
-                            description:
-                                'The cornerstone of all digital enterprise management, with varied utilities and cost-effectiveness.',
+                            category: 'home_desktops_tab'.tr(),
+                            description: 'home_desktops_desc'.tr(),
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
                       ),
@@ -260,8 +291,8 @@ class WebHomeBody extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Looking for more?',
-                      style: context.bodyLarge,
+                      'looking_for_more'.tr(),
+                      style: provider.isEnglish ? context.bodyLarge : context.displayLarge,
                     ),
                   ),
                   const SizedBox(
@@ -289,8 +320,10 @@ class WebHomeBody extends StatelessWidget {
                         Navigator.pushNamed(context, '/hardware');
                       },
                       child: Text(
-                        'Explore Inventory',
-                        style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        'explore_inventory_button'.tr(),
+                        style: provider.isEnglish
+                            ? context.bodyMedium?.copyWith(color: Colors.white70)
+                            : context.displayMedium?.copyWith(color: Colors.white70),
                       ),
                     ),
                   ),
@@ -314,8 +347,10 @@ class WebHomeBody extends StatelessWidget {
                         width: 20,
                       ),
                       Text(
-                        'ERP Essentials',
-                        style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
+                        'erp_essentials'.tr(),
+                        style: provider.isEnglish
+                            ? context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)
+                            : context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),
