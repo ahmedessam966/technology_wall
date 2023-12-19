@@ -184,8 +184,8 @@ class PrinterCardWidget extends StatelessWidget {
                 onPressed: () {
                   Provider.of<AppControllers>(context, listen: false)
                       .changePage('Printers | ${printer?.brand} ${printer?.model}');
-                  Navigator.push(
-                      context, RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
+                  // Navigator.push(
+                  //     context, RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
                 },
                 child: Text(
                   'Printer Details',

@@ -33,7 +33,7 @@ class WebHomeBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
+                      SelectableText(
                         'Integrated Solutions - Fast and Easy',
                         style: context.displayMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
@@ -41,7 +41,7 @@ class WebHomeBody extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      SelectableText(
                         'All-Round Medium of Digitized Services',
                         style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
@@ -50,7 +50,7 @@ class WebHomeBody extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
+                          SelectableText(
                             'Hardware Services',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
@@ -63,7 +63,7 @@ class WebHomeBody extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text(
+                      SelectableText(
                         'Supplying primary hardware and up to complex servers',
                         style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
@@ -72,7 +72,7 @@ class WebHomeBody extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
+                          SelectableText(
                             'Software Services',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
@@ -85,14 +85,14 @@ class WebHomeBody extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text(
+                      SelectableText(
                         'Licensed, supported software solutions required for business intelligence',
                         style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      SelectableText(
                         'Save valuable time and effort. Explore our integrated solutions plan.',
                         style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
@@ -369,7 +369,7 @@ class WebHomeBody extends StatelessWidget {
                         ),
                         const Spacer(),
                         Expanded(
-                          flex: 8,
+                          flex: 10,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -425,7 +425,9 @@ class WebHomeBody extends StatelessWidget {
                                     }
                                   }),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/software/sap');
+                                },
                                 child: Text(
                                   'Contact Pre-Sales',
                                   style: context.bodyMedium?.copyWith(color: Colors.white70),

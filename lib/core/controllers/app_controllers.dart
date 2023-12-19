@@ -25,7 +25,11 @@ class AppControllers extends ChangeNotifier {
   }
 
   void changePage(String page) async {
-    _pageTitle = 'Technology Wall | $page';
+    if (page == 'Sap') {
+      _pageTitle = 'Technology Wall | SAP';
+    } else {
+      _pageTitle = 'Technology Wall | $page';
+    }
     notifyListeners();
   }
 

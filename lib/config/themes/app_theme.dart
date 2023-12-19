@@ -5,7 +5,7 @@ class AppTheme extends ChangeNotifier {
   AppTheme();
 
   static const Color darkest = Color(0xaa071923);
-  static const Color second = Color(0XAAC8E0CA);
+  static const Color second = Color(0XAA7C9CC1);
   static const Color hint = Color(0XAAF7B318);
   static const Color prohibit = Color(0XAAF85118);
 

@@ -24,8 +24,6 @@ class _CustomerPortalState extends State<CustomerPortal> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     return Semantics(
       link: true,
       label: 'Technology Wall Zoho Customer Login',

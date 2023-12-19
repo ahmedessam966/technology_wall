@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => InventoryControllers()),
           ChangeNotifierProvider(create: (_) => HomePageControllers()),
           ChangeNotifierProvider(create: (_) => CartControllers()),
+          ChangeNotifierProvider(create: (_) => SAPPageControllers()),
         ],
         builder: (context, _) {
           final themeNotifier = context.watch<ThemeModeServices>();

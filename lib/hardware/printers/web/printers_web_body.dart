@@ -147,187 +147,85 @@ class WebHardwareBody extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
               color: const Color(0xaaf7f7f7).withOpacity(1),
-              child: SizedBox(
-                height: 1000,
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        'Printer & Scanners',
-                        style: context.headlineMedium,
-                      ),
+              height: 1000,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Text(
+                      'Printer & Scanners',
+                      style: context.headlineMedium,
                     ),
-                    const SizedBox(
-                      height: 15,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Center(
+                    child: Text(
+                      'A variety of multi-purpose printers and scanners suitable for business and personal use',
+                      style: context.bodyLarge,
                     ),
-                    Center(
-                      child: Text(
-                        'A variety of multi-purpose printers and scanners suitable for business and personal use',
-                        style: context.bodyLarge,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SearchBar(
-                          controller: provider.printerSearchController,
-                          trailing: [
-                            const Text('search by brand'),
-                            Checkbox.adaptive(
-                                value: provider.searchByBrand,
-                                onChanged: (newValue) {
-                                  provider.searchType();
-                                }),
-                          ],
-                          hintText: 'Search by brand or model',
-                          onSubmitted: (value) {
-                            provider.setPrinterSearchController(value);
-                          },
-                          elevation: const MaterialStatePropertyAll(0),
-                          backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                        DropdownButton(
-                            underline: const SizedBox.shrink(),
-                            hint: const Text('Show by Brand'),
-                            value: provider.printerFilterSelection,
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SearchBar(
+                        controller: provider.printerSearchController,
+                        trailing: [
+                          const Text('search by brand'),
+                          Checkbox.adaptive(
+                              value: provider.searchByBrand,
+                              onChanged: (newValue) {
+                                provider.searchType();
+                              }),
+                        ],
+                        hintText: 'Search by brand or model',
+                        onSubmitted: (value) {
+                          provider.setPrinterSearchController(value);
+                        },
+                        elevation: const MaterialStatePropertyAll(0),
+                        backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
-                            items: const [
-                              DropdownMenuItem(
-                                value: 'All',
-                                child: Text('All'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'HP',
-                                child: Text('HP'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Canon',
-                                child: Text('Canon'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Fujitsu',
-                                child: Text('Fujitsu'),
-                              ),
-                            ],
-                            onChanged: (newValue) {
-                              if (newValue != null && newValue != 'All') {
-                                provider.setFilter(newValue);
-                              }
-                              if (newValue == 'All') {
-                                provider.setFilter(null);
-                              }
-                            }),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: const MaterialStatePropertyAll(0),
-                            shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(1),
-                                side: const BorderSide(color: Colors.white70),
-                              ),
+                          ),
+                        ),
+                      ),
+                      DropdownButton(
+                          underline: const SizedBox.shrink(),
+                          hint: const Text('Show by Brand'),
+                          value: provider.printerFilterSelection,
+                          borderRadius: BorderRadius.circular(10),
+                          items: const [
+                            DropdownMenuItem(
+                              value: 'All',
+                              child: Text('All'),
                             ),
-                            backgroundColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return const Color(0xaa7c9cc1).withOpacity(1);
-                              } else {
-                                return const Color(0xaa071923).withOpacity(1);
-                              }
-                            }),
-                          ),
-                          onPressed: () async {
-                            await showAdaptiveDialog(
-                                context: context,
-                                builder: (context) {
-                                  return const CartWidget();
-                                });
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.shopping_cart_outlined,
-                                color: Colors.white70,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
-                                style: context.bodyMedium?.copyWith(color: Colors.white70),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Expanded(
-                      child:
-                          provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
-                              ? const PrintersBuilderWidget()
-                              : const RefinedPrintersBuilderWidget(),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Center(
-                      child: TextButton(
-                        style: ButtonStyle(
-                          elevation: const MaterialStatePropertyAll(0),
-                          overlayColor: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return Colors.transparent;
-                            } else {
-                              return Colors.grey.shade100;
+                            DropdownMenuItem(
+                              value: 'HP',
+                              child: Text('HP'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Canon',
+                              child: Text('Canon'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Fujitsu',
+                              child: Text('Fujitsu'),
+                            ),
+                          ],
+                          onChanged: (newValue) {
+                            if (newValue != null && newValue != 'All') {
+                              provider.setFilter(newValue);
+                            }
+                            if (newValue == 'All') {
+                              provider.setFilter(null);
                             }
                           }),
-                          shape: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
-                            } else {
-                              return null;
-                            }
-                          }),
-                        ),
-                        onPressed: provider.isLoading
-                            ? null
-                            : () async {
-                                provider.setLoading();
-                                await provider.loadMoreItems(provider.getPrinters());
-                                provider.setLoading();
-                              },
-                        child: Text(
-                          'Show More',
-                          style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 100,
-                    ),
-                    Center(
-                      child: Text(
-                        'Couldn\'t find your product? Submit a requsition form and we will find it for you',
-                        style: context.bodyMedium,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Center(
-                      child: ElevatedButton(
+                      ElevatedButton(
                         style: ButtonStyle(
                           elevation: const MaterialStatePropertyAll(0),
                           shape: MaterialStatePropertyAll(
@@ -348,17 +246,115 @@ class WebHardwareBody extends StatelessWidget {
                           await showAdaptiveDialog(
                               context: context,
                               builder: (context) {
-                                return const WebPurchaseOrder();
+                                return const CartWidget();
                               });
                         },
-                        child: Text(
-                          'Create Requisition Request',
-                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.shopping_cart_outlined,
+                              color: Colors.white70,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                            ),
+                          ],
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Expanded(
+                    child: provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
+                        ? const PrintersBuilderWidget()
+                        : const RefinedPrintersBuilderWidget(),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: TextButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        overlayColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return Colors.transparent;
+                          } else {
+                            return Colors.grey.shade100;
+                          }
+                        }),
+                        shape: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
+                          } else {
+                            return null;
+                          }
+                        }),
+                      ),
+                      onPressed: provider.isLoading
+                          ? null
+                          : () async {
+                              provider.setLoading();
+                              await provider.loadMoreItems(provider.getPrinters());
+                              provider.setLoading();
+                            },
+                      child: Text(
+                        'Show More',
+                        style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Center(
+                    child: Text(
+                      'Couldn\'t find your product? Submit a requsition form and we will find it for you',
+                      style: context.bodyMedium,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(1),
+                            side: const BorderSide(color: Colors.white70),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return const Color(0xaa7c9cc1).withOpacity(1);
+                          } else {
+                            return const Color(0xaa071923).withOpacity(1);
+                          }
+                        }),
+                      ),
+                      onPressed: () async {
+                        await showAdaptiveDialog(
+                            context: context,
+                            builder: (context) {
+                              return const WebPurchaseOrder();
+                            });
+                      },
+                      child: Text(
+                        'Create Requisition Request',
+                        style: context.bodyMedium?.copyWith(color: Colors.white70),
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
           ],
