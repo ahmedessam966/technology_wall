@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import '../pages_index.dart';
+import '../en/pages_index.dart';
 
 class RoutingTransitionServices {
   static Route Transition(page) {
@@ -26,7 +26,6 @@ class RoutingTransitionServices {
 
   static Widget generateRoute(RouteSettings settings) {
     final String routeName = settings.name ?? 'not-found';
-
     switch (routeName) {
       case '/':
         return const HomePage();

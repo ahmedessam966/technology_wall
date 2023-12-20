@@ -2,31 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/config/routing_maps.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'controller_index.dart';
-import 'pages_index.dart';
+import 'en/controller_index.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'config/firebase_options.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WebViewPlatform.instance = WebWebViewPlatform();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await EasyLocalization.ensureInitialized();
   Future.delayed(const Duration(seconds: 1));
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setUrlStrategy(PathUrlStrategy());
-  runApp(EasyLocalization(
-      assetLoader: const RootBundleAssetLoader(),
-      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SA')],
-      path: 'assets/lang',
-      fallbackLocale: const Locale('en', 'US'),
-      child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
     return Semantics(
       label:
           'Technology Wall, a leading IT company based in Riyadh, KSA. Offering integrated, smart, and digitized solutions',
@@ -53,54 +48,30 @@ class MyApp extends StatelessWidget {
         builder: (context, _) {
           final themeNotifier = context.watch<ThemeModeServices>();
           final themeConstants = context.watch<AppTheme>();
+          final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            themeMode: themeNotifier.selectedTheme,
-            theme: themeNotifier.selectedTheme == ThemeMode.light
-                ? themeConstants.lightTheme
-                : themeConstants.darkTheme,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            navigatorObservers: [TitleObserver(context.read<AppControllers>())],
-            onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
-            initialRoute: '/',
-            routes: {
-              '/': (context) => const HomePage(),
-              '/about': (context) => const AboutPage(),
-              '/about/accreditation': (context) => const AccreditationPage(),
-              '/contact-us': (context) => const ContactPage(),
-              '/hardware': (context) => const InventoryPage(),
-              '/hardware/cabinets': (context) => const CabinetsPage(),
-              '/hardware/cctv': (context) => const CCTVPage(),
-              '/hardware/desktops': (context) => const DesktopsPage(),
-              '/hardware/firewalls': (context) => const FirewallsPage(),
-              '/hardware/notebooks': (context) => const NotebooksPage(),
-              '/hardware/printers': (context) => const PrintersPage(),
-              '/hardware/routers': (context) => const RoutersPage(),
-              '/hardware/scanners': (context) => const ScannersPage(),
-              '/hardware/servers': (context) => const ServersPage(),
-              '/hardware/switches': (context) => const SwitchesPage(),
-              '/hardware/ups': (context) => const UPSPage(),
-              '/portal': (context) => const CustomerPortal(),
-              '/software': (context) => const SoftwarePage(),
-              '/software/fortinet': (context) => const FortinetSoftwarePage(),
-              '/software/microsoft': (context) => const MicrosoftSoftwarePage(),
-              '/software/sap': (context) => const SAPPage(),
-              '/software/sage': (context) => const SagePage(),
-              '/software/tally': (context) => const TallyPage(),
-              '/software/zoho': (context) => const ZohoPage(),
-              '/privacy': (context) => const PrivacyPolicyPage(),
-              '/not-found': (context) => const NotFoundPage(),
-            },
-            onGenerateRoute: (settings) {
-              TitleObserver.updateJsonKeywordMap();
-              return MaterialPageRoute(
-                builder: (context) => RoutingTransitionServices.generateRoute(settings),
-              );
-            },
-          );
+          return ResponsiveSizer(builder: (context, orientation, deviceType) {
+            return MaterialApp(
+              title: context.watch<AppControllers>().pageTitle,
+              navigatorKey: navigatorKey,
+              scaffoldMessengerKey: scaffoldKey,
+              debugShowCheckedModeBanner: false,
+              themeMode: themeNotifier.selectedTheme,
+              theme: themeNotifier.selectedTheme == ThemeMode.light
+                  ? themeConstants.lightTheme
+                  : themeConstants.darkTheme,
+              navigatorObservers: [TitleObserver(context.read<AppControllers>())],
+              onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
+              initialRoute: '/en',
+              routes: RoutingMaps.routingMap,
+              onGenerateRoute: (settings) {
+                TitleObserver.updateJsonKeywordMap();
+                return MaterialPageRoute(
+                  builder: (context) => RoutingTransitionServices.generateRoute(settings),
+                );
+              },
+            );
+          });
         },
       ),
     );

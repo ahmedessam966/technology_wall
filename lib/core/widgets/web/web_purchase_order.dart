@@ -1,10 +1,10 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/home/controllers/home_page_controllers.dart';
+import 'package:technology_wall/core/controllers/app_controllers.dart';
+import '../../../en/home/controllers/home_page_controllers.dart';
 
 import '../../../config/input_validation_services.dart';
 import '../../../config/themes/app_theme.dart';
@@ -25,6 +25,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _notesController = TextEditingController();
+
   @override
   void dispose() {
     super.dispose();
@@ -36,7 +37,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomePageControllers>(builder: (context, provider, _) {
+    return Consumer2<HomePageControllers, AppControllers>(builder: (context, provider, locale, _) {
       return Semantics(
         label: 'General Purchase Order Form',
         value: 'Request any of our services and we\'ll contact you with a personalized quotation.',
@@ -57,8 +58,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Order Requisition Form',
-                        style: context.headlineSmall,
+                        'requisition_order_form',
+                        style: locale.isEnglish ? context.headlineSmall : context.titleSmall,
                       ),
                       IconButton(
                         padding: EdgeInsets.zero,
@@ -84,33 +85,23 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                         switch (details.currentStep) {
                           case 0:
                             return Align(
-                              alignment: Alignment.bottomLeft,
+                              alignment: locale.isEnglish ? Alignment.bottomLeft : Alignment.bottomRight,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     enableFeedback: true,
                                     backgroundColor: AppTheme.darkest,
                                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
-                                onPressed: () {
+                                onPressed: () async {
                                   // ignore: prefer_is_empty
                                   if (items.length >= 1 && items[0][0] != '') {
                                     provider.changeFormStep(provider.orderFormStep + 1);
-                                  } else {
-                                    Flushbar(
-                                      title: 'Missing Items',
-                                      message: 'At least one item is required before proceeding',
-                                      duration: const Duration(seconds: 5),
-                                      mainButton: TextButton(
-                                          onPressed: () {},
-                                          child: Text(
-                                            'Dismiss',
-                                            style: context.bodyLarge?.copyWith(color: Colors.white70),
-                                          )),
-                                    ).show(context);
-                                  }
+                                  } else {}
                                 },
                                 child: Text(
-                                  'Continue',
-                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                  'continue_button',
+                                  style: locale.isEnglish
+                                      ? context.bodyMedium?.copyWith(color: Colors.white70)
+                                      : context.displayMedium?.copyWith(color: Colors.white70),
                                 ),
                               ),
                             );
@@ -128,8 +119,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     }
                                   },
                                   child: Text(
-                                    'Continue',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                    'continue_button',
+                                    style: locale.isEnglish
+                                        ? context.bodyMedium?.copyWith(color: Colors.white70)
+                                        : context.displayMedium?.copyWith(color: Colors.white70),
                                   ),
                                 ),
                                 const SizedBox(
@@ -142,7 +135,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   onPressed: () {
                                     provider.changeFormStep(provider.orderFormStep - 1);
                                   },
-                                  child: const Text('Go Back'),
+                                  child: Text(
+                                    'go_back_button',
+                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                  ),
                                 ),
                               ],
                             );
@@ -170,21 +166,6 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                         setState(() {
                                           _isLoading = !_isLoading;
                                         });
-                                        Flushbar(
-                                          onStatusChanged: (status) {
-                                            if (status == FlushbarStatus.DISMISSED) {
-                                              Navigator.pushNamed(context, '/');
-                                            }
-                                          },
-                                          title: 'Purchase Order Received',
-                                          leftBarIndicatorColor: Colors.green.shade600,
-                                          borderRadius: BorderRadius.circular(10),
-                                          titleColor: Colors.green,
-                                          flushbarPosition: FlushbarPosition.BOTTOM,
-                                          duration: const Duration(seconds: 5),
-                                          message:
-                                              'Your purchase order has been sent successfully. You will receive email confirmation shortly.',
-                                        ).show(context);
                                       }
                                     });
                                   },
@@ -194,8 +175,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           color: Colors.white,
                                         )
                                       : Text(
-                                          'Submit Purchase Order',
-                                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                          'submit_po_button',
+                                          style: locale.isEnglish
+                                              ? context.bodyMedium?.copyWith(color: Colors.white70)
+                                              : context.displayMedium?.copyWith(color: Colors.white70),
                                         ),
                                 ),
                                 const SizedBox(
@@ -208,7 +191,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   onPressed: () {
                                     provider.changeFormStep(provider.orderFormStep - 1);
                                   },
-                                  child: const Text('Go Back'),
+                                  child: Text(
+                                    'go_back_button',
+                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                  ),
                                 ),
                               ],
                             );
@@ -224,10 +210,15 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ? StepState.complete
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 0,
-                          title: const Text('Select Products'),
+                          title: Text(
+                            'select_products',
+                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                          ),
                           subtitle: Text(
-                            'You can also search for specific products by visiting the sections of the website that corresponds to your desired product type.',
-                            style: context.bodySmall?.copyWith(fontStyle: FontStyle.italic),
+                            'select_products_sub',
+                            style: locale.isEnglish
+                                ? context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)
+                                : context.displayMedium?.copyWith(fontStyle: FontStyle.italic),
                           ),
                           content: SizedBox(
                             height: 300,
@@ -245,10 +236,11 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                             flex: 10,
                                             child: TextFormField(
                                               decoration: InputDecoration(
-                                                  labelText: 'Product | Description',
-                                                  hintStyle: context.bodySmall,
-                                                  hintText:
-                                                      'This can be a product name or your custom product requirement'),
+                                                  labelText: 'product_field_label',
+                                                  hintStyle: locale.isEnglish
+                                                      ? context.bodySmall
+                                                      : context.displaySmall?.copyWith(fontSize: 8),
+                                                  hintText: 'product_field_hint'),
                                               onChanged: (value) {
                                                 setState(() {
                                                   items[index][0] = value;
@@ -260,7 +252,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           Expanded(
                                             flex: 1,
                                             child: TextFormField(
-                                              decoration: const InputDecoration(labelText: 'Quantity'),
+                                              decoration: InputDecoration(labelText: 'qunatity_field_label'),
                                               onChanged: (value) {
                                                 setState(() {
                                                   items[index][1] = value;
@@ -279,12 +271,18 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       items.add(['', '']);
                                     });
                                   },
-                                  child: const Text('Add Item'),
+                                  child: Text(
+                                    'add_item_button',
+                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ),
+                        //
+                        //
+                        //
                         Step(
                           state: provider.orderFormStep == 1
                               ? StepState.indexed
@@ -292,19 +290,26 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ? StepState.complete
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 1,
-                          title: const Text('Request Details'),
+                          title: Text(
+                            'request_details',
+                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                          ),
                           subtitle: provider.orderFormStep == 1
                               ? Row(
                                   children: [
                                     Text(
-                                      'Your business / personal information. Learn how we process your information by visiting ',
-                                      style: context.bodySmall,
+                                      'personal_info',
+                                      style: locale.isEnglish
+                                          ? context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)
+                                          : context.displayMedium?.copyWith(fontStyle: FontStyle.italic),
                                     ),
                                     TextButton(
                                       onPressed: () {},
                                       child: Text(
-                                        'Privacy Center',
-                                        style: context.bodySmall?.copyWith(color: Colors.blue.shade700),
+                                        'privacy_center_button',
+                                        style: locale.isEnglish
+                                            ? context.bodySmall?.copyWith(color: Colors.blue.shade700)
+                                            : context.displaySmall?.copyWith(color: Colors.blue.shade700),
                                       ),
                                     ),
                                   ],
@@ -336,8 +341,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Company/Client Name',
-                                    style: context.bodyLarge,
+                                    'client_field_label',
+                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
                                   ),
                                 ),
                               ),
@@ -365,8 +370,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Company/Client Contact Email',
-                                    style: context.bodyLarge,
+                                    'email_field_label',
+                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
                                   ),
                                 ),
                               ),
@@ -403,8 +408,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Company/Client Contact Phone',
-                                    style: context.bodyLarge,
+                                    'phone_field_label',
+                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
                                   ),
                                 ),
                               ),
@@ -429,8 +434,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'Additional Notes (Optional)',
-                                    style: context.bodyLarge,
+                                    'notes_field_label',
+                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
                                   ),
                                 ),
                               ),
@@ -450,19 +455,33 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ? StepState.complete
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 2,
-                          title: const Text('Request Summary'),
+                          title: Text(
+                            'request_summary',
+                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                          ),
                           content: SizedBox(
                             height: 300,
                             width: double.infinity,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Flex(
+                                Flex(
                                   direction: Axis.horizontal,
                                   children: [
-                                    Expanded(flex: 5, child: Text('Selected Products')),
-                                    Spacer(),
-                                    Expanded(flex: 2, child: Text('Quantity')),
+                                    Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          locale.isEnglish ? 'Selected Products' : 'العناصر المُختارة',
+                                          style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                        )),
+                                    const Spacer(),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        locale.isEnglish ? 'Quantity' : 'الكمية',
+                                        style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(
@@ -494,10 +513,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     },
                                   ),
                                 ),
-                                Text('Company/Client Name:   ${_nameController.text}'),
-                                Text('Company/Client Contact Email:   ${_emailController.text}'),
-                                Text('Company/Client Contact Phone:   ${_phoneController.text}'),
-                                Text('Company/Client Additional Notes:   ${_notesController.text}'),
+                                Text('${'client_field_label'}:   ${_nameController.text}'),
+                                Text('${'email_field_label'}:   ${_emailController.text}'),
+                                Text('${'phone_field_label'}:   ${_phoneController.text}'),
+                                Text('${'notes_field_label'}:   ${_notesController.text}'),
                                 const SizedBox(
                                   height: 50,
                                 )
