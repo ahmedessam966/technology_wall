@@ -176,7 +176,7 @@ class WebHomeBody extends StatelessWidget {
                       const SizedBox(
                         width: 20,
                       ),
-                      Text('Enterprise Essentials',
+                      SelectableText('Enterprise Essentials',
                           style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
                     ],
                   ),
@@ -300,7 +300,7 @@ class WebHomeBody extends StatelessWidget {
                         const SizedBox(
                           width: 20,
                         ),
-                        Text('ERP Essentials',
+                        SelectableText('ERP Essentials',
                             style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
                         const Spacer(),
                         Image.asset(

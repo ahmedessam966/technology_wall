@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               physics: const RangeMaintainingScrollPhysics(),
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
+                  padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: sh * 0.04),
                   child: sw >= 1280
                       ? const WebHeader()
                       : sw < 1280 && sw >= 768
@@ -58,14 +59,10 @@ class _HomePageState extends State<HomePage> {
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHeader(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            ),
+                          : const MobileHeader(),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0.1.h),
                   child: sw >= 1280
                       ? const WebHomeBody()
                       : sw < 1280 && sw >= 768
@@ -74,11 +71,7 @@ class _HomePageState extends State<HomePage> {
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHomeBody(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            ),
+                          : const MobileHomeBody(),
                 ),
                 sw >= 1280
                     ? const WebFooter()

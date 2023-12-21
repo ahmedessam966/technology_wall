@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../config/themes/app_theme.dart';
 
 class HorizontalProductCategoryCard extends StatelessWidget {
   final String category;
-
   final String imagePath;
   final bool isMobile;
   final dynamic onPressed;
@@ -33,12 +33,12 @@ class HorizontalProductCategoryCard extends StatelessWidget {
             flex: isMobile ? 4 : 1,
             child: Image.network(
               imagePath,
-              height: 80,
-              width: 80,
+              height: 55.px,
+              width: 55.px,
             ),
           ),
-          const SizedBox(
-            width: 10,
+          SizedBox(
+            width: 0.5.w,
           ),
           const SizedBox(
             height: 50,
@@ -59,8 +59,8 @@ class HorizontalProductCategoryCard extends StatelessWidget {
                 Text(
                   category,
                   style: isMobile
-                      ? context.bodyMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                      : context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                      ? context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                      : context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                 ),
               ],
             ),

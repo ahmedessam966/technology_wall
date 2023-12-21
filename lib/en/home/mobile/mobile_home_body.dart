@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../components/horizontal_product_category_card.dart';
 
 class MobileHomeBody extends StatelessWidget {
-  final double sw;
-  final double sh;
-  final double ar;
-  const MobileHomeBody({super.key, required this.sw, required this.sh, required this.ar});
+  const MobileHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,73 +15,62 @@ class MobileHomeBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text(
-          'Integrated Solutions - Fast and Easy',
-          style: context.bodyLarge
-              ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-        ),
-        Text(
-          'All-Round Medium of Digitized Services',
-          style: context.bodySmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-        ),
+        SelectableText('Integrated Solutions - Easy and Reliable',
+            style: context.headlineMedium
+                ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+        SelectableText('All-Round Medium of Digitized Services',
+            style: context.headlineSmall
+                ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
         SizedBox(
-          height: sh * 0.04,
+          height: 2.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Hardware Services',
-              style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-            ),
+            SelectableText('Hardware Services',
+                style: context.bodyMedium?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
             SizedBox(
-              width: sw * 0.01,
+              width: 0.01.w,
             ),
-            const Icon(
+            Icon(
               Icons.arrow_right_alt_sharp,
-              color: Color(0xaaffffff),
+              color: const Color(0xaaffffff),
+              size: 15.px,
             ),
           ],
         ),
-        Text(
-          'Supplying primary hardware and up to complex servers',
-          textAlign: TextAlign.center,
-          style: context.bodySmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-        ),
+        SelectableText('Supplying primary hardware and up to complex servers',
+            style: context.bodyLarge
+                ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
         SizedBox(
-          height: sh * 0.04,
+          height: 0.2.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Software Services',
-              style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-            ),
+            SelectableText('Software Services',
+                style: context.bodyMedium?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
             SizedBox(
-              width: sw * 0.01,
+              width: 0.01.w,
             ),
-            const Icon(
+            Icon(
               Icons.arrow_right_alt_sharp,
-              color: Color(0xaaffffff),
+              color: const Color(0xaaffffff),
+              size: 15.px,
             ),
           ],
         ),
-        Text(
-          'Licensed, supported software solutions required for business intelligence',
-          textAlign: TextAlign.center,
-          style: context.bodySmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-        ),
+        SelectableText('Licensed, supported software solutions required for business intelligence',
+            style: context.bodyLarge
+                ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
         SizedBox(
-          height: sh * 0.04,
+          height: 2.h,
         ),
-        Text(
-          'Save valuable time and effort. Explore our integrated solutions plan.',
-          textAlign: TextAlign.center,
-          style: context.bodyMedium?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-        ),
+        SelectableText('Save valuable time and effort. Explore our integrated solutions plan',
+            style: context.bodyLarge
+                ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
         SizedBox(
-          height: sh * 0.04,
+          height: 2.h,
         ),
         ElevatedButton(
           style: ButtonStyle(
@@ -103,13 +90,12 @@ class MobileHomeBody extends StatelessWidget {
             }),
           ),
           onPressed: () {},
-          child: Text(
-            'Explore Now',
-            style: context.bodyMedium?.copyWith(color: Colors.white70),
-          ),
+          child: Text('Create Purchase Order',
+              style: context.bodyLarge
+                  ?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
         ),
         SizedBox(
-          height: sh * 0.04,
+          height: 2.h,
         ),
         Container(
           color: const Color(0xaaf7f7f7).withOpacity(1),
@@ -119,31 +105,27 @@ class MobileHomeBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Text(
-                  'Our Products',
-                  style: context.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
-                ),
+                child: Text('Our Products & Services',
+                    style: context.headlineLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)),
               ),
               SizedBox(
-                height: sh * 0.03,
+                height: 2.h,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/basics.svg',
-                    height: sh * 0.03,
+                    height: 20.px,
                   ),
                   SizedBox(
-                    width: sw * 0.02,
+                    width: 0.02.w,
                   ),
-                  Text(
-                    'Enterprise Essentials',
-                    style: context.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
-                  ),
+                  SelectableText('Enterprise Essentials',
+                      style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
                 ],
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               HorizontalProductCategoryCard(
                   isMobile: true,
@@ -154,7 +136,7 @@ class MobileHomeBody extends StatelessWidget {
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
               SizedBox(
-                height: sh * 0.01,
+                height: 1.h,
               ),
               HorizontalProductCategoryCard(
                   isMobile: true,
@@ -165,7 +147,7 @@ class MobileHomeBody extends StatelessWidget {
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
               SizedBox(
-                height: sh * 0.01,
+                height: 1.h,
               ),
               HorizontalProductCategoryCard(
                   isMobile: true,
@@ -176,7 +158,7 @@ class MobileHomeBody extends StatelessWidget {
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
               SizedBox(
-                height: sh * 0.01,
+                height: 1.h,
               ),
               HorizontalProductCategoryCard(
                   isMobile: true,
@@ -187,16 +169,16 @@ class MobileHomeBody extends StatelessWidget {
                   imagePath:
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               Center(
                 child: Text(
-                  'Looking for more?',
-                  style: context.bodyMedium,
+                  'Looking For More?',
+                  style: context.bodyLarge,
                 ),
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 2.h,
               ),
               Center(
                 child: ElevatedButton(
@@ -210,69 +192,64 @@ class MobileHomeBody extends StatelessWidget {
                       ),
                       backgroundColor: MaterialStatePropertyAll(const Color(0xaa071923).withOpacity(1))),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/hardware');
+                    Navigator.pushNamed(context, '/en/hardware');
                   },
-                  child: Text(
-                    'Explore Inventory',
-                    style: context.bodySmall?.copyWith(color: Colors.white70),
-                  ),
+                  child: Text('Explore Inventory', style: context.bodyLarge?.copyWith(color: Colors.white70)),
                 ),
               ),
               SizedBox(
-                height: sh * 0.025,
+                height: 2.h,
               ),
               Divider(
-                indent: sw * 0.015,
-                endIndent: sw * 0.015,
+                indent: 1.15.w,
+                endIndent: 1.15.w,
               ),
               SizedBox(
-                height: sh * 0.025,
+                height: 2.h,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/erp.svg',
-                    height: sh * 0.03,
+                    height: 20.px,
                   ),
                   SizedBox(
-                    width: sw * 0.02,
+                    width: 0.02.w,
                   ),
-                  Text(
-                    'ERP Essentials',
-                    style: context.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
-                  ),
+                  SelectableText('ERP Essentials',
+                      style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
                 ],
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsone.png?alt=media&token=bf4eb120-1472-410c-8d21-c43f587d98cd',
-                    height: sh * 0.08,
-                    width: sw * 0.15,
+                    height: 50.px,
+                    width: 50.px,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fs4hana.png?alt=media&token=79b3e395-e676-4d2b-b36f-cb9b746281c2',
-                    height: sh * 0.08,
-                    width: sw * 0.15,
+                    height: 50.px,
+                    width: 50.px,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsage.png?alt=media&token=71be32ed-48c6-4633-b054-de0f42288e93',
-                    height: sh * 0.08,
-                    width: sw * 0.15,
+                    height: 50.px,
+                    width: 50.px,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ftally.png?alt=media&token=cc2a18b7-5796-4ad5-96e6-a5503ed1b65e',
-                    height: sh * 0.08,
-                    width: sw * 0.15,
+                    height: 50.px,
+                    width: 50.px,
                   ),
                 ],
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 0.01.h,
               ),
               SelectableText(
                 'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
@@ -280,7 +257,7 @@ class MobileHomeBody extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 0.01.h,
               ),
               GestureDetector(
                 onTap: () {},
@@ -293,7 +270,7 @@ class MobileHomeBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 0.01.h,
               ),
               SelectableText(
                 'Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7.',
@@ -301,7 +278,7 @@ class MobileHomeBody extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 0.01.h,
               ),
               SelectableText(
                 'Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
@@ -309,12 +286,12 @@ class MobileHomeBody extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 0.01.h,
               ),
               const SelectableText(
                   'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:'),
               SizedBox(
-                height: sh * 0.025,
+                height: 0.025.h,
               ),
               Center(
                 child: ElevatedButton(

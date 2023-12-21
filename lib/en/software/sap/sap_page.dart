@@ -66,11 +66,7 @@ class _SAPPageState extends State<SAPPage> {
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHeader(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            ),
+                          : const MobileHeader(),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),

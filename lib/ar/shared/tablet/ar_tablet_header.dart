@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../../core/controllers/app_controllers.dart';
 import '../../../core/controllers/auth_controllers.dart';
 
 class ARTabletHeader extends StatelessWidget {
@@ -12,7 +10,6 @@ class ARTabletHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Semantics(

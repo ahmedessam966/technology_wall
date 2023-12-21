@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 class MobileHeader extends StatelessWidget {
-  final double sw;
-  final double sh;
-  final double ar;
-  const MobileHeader({super.key, required this.sw, required this.sh, required this.ar});
+  const MobileHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,6 @@ class MobileHeader extends StatelessWidget {
       value:
           'Computers, Laptops, Computer Hardware, Computer Software, ERP, SAP, SAP Business One, SAP 4/Hana, S4/Hana, Zoho, Zoho ERP, Sage, Sage Software, Sage ERP, Networking, Contact Us, About, ',
       child: SizedBox(
-        height: sh * 0.1,
         width: double.infinity,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,15 +23,15 @@ class MobileHeader extends StatelessWidget {
           children: [
             Image.asset(
               'assets/images/logo.png',
-              width: sw * 0.2,
+              width: 90.px,
             ),
             TextButton(
               onPressed: () {},
               child: Row(
                 children: [
                   Text(
-                    'Account',
-                    style: context.bodySmall?.copyWith(color: Colors.white70),
+                    'Portal',
+                    style: context.bodyLarge?.copyWith(color: Colors.white70),
                   ),
                   const SizedBox(
                     width: 5,
@@ -42,7 +39,7 @@ class MobileHeader extends StatelessWidget {
                   Icon(
                     Icons.arrow_forward_ios_rounded,
                     color: Colors.white70,
-                    size: ar * 30,
+                    size: 15.px,
                   ),
                 ],
               ),
