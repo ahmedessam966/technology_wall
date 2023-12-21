@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
 
 import '../../../config/themes/app_theme.dart';
 
-class ProductCategoryCard extends StatelessWidget {
+class ARProductCategoryCard extends StatelessWidget {
   final String category;
   final String description;
   final String imagePath;
   final dynamic onPressed;
-  const ProductCategoryCard(
+  const ARProductCategoryCard(
       {super.key,
       required this.category,
       required this.description,
@@ -20,7 +18,6 @@ class ProductCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return SizedBox(
       height: 500,
       child: ElevatedButton(
@@ -68,9 +65,7 @@ class ProductCategoryCard extends StatelessWidget {
               flex: 1,
               child: Text(
                 category,
-                style: provider.isEnglish
-                    ? context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.titleMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: context.titleMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer(),
@@ -79,9 +74,7 @@ class ProductCategoryCard extends StatelessWidget {
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: provider.isEnglish
-                    ? context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.displayLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: context.displayLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer()

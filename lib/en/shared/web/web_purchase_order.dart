@@ -4,11 +4,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
+import '../../../core/controllers/email_controller.dart';
 import '../../../en/home/controllers/home_page_controllers.dart';
 
 import '../../../config/input_validation_services.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../controllers/email_controller.dart';
 
 class WebPurchaseOrder extends StatefulWidget {
   const WebPurchaseOrder({super.key});
@@ -252,7 +252,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           Expanded(
                                             flex: 1,
                                             child: TextFormField(
-                                              decoration: InputDecoration(labelText: 'qunatity_field_label'),
+                                              decoration:
+                                                  const InputDecoration(labelText: 'qunatity_field_label'),
                                               onChanged: (value) {
                                                 setState(() {
                                                   items[index][1] = value;

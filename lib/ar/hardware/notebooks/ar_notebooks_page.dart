@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import '../../shared/mobile/ar_mobile_footer.dart';
+import '../../shared/mobile/ar_mobile_header.dart';
+import '../../shared/tablet/ar_tablet_footer.dart';
+import '../../shared/tablet/ar_tablet_header.dart';
+import '../../shared/web/ar_web_footer.dart';
+import '../../shared/web/ar_web_header.dart';
 import 'web/ar_web_notebooks_body.dart';
-import '../../../core/widgets/mobile/mobile_footer.dart';
-import '../../../core/widgets/mobile/mobile_header.dart';
-import '../../../core/widgets/mobile/non_web_drawer.dart';
-import '../../../core/widgets/tablet/tablet_footer.dart';
-import '../../../core/widgets/tablet/tablet_header.dart';
-import '../../../core/widgets/web/web_footer.dart';
-import '../../../core/widgets/web/web_header.dart';
 
 class ARNotebooksPage extends StatefulWidget {
   const ARNotebooksPage({super.key});
@@ -43,14 +42,6 @@ class _ARNotebooksPageState extends State<ARNotebooksPage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            // key: sw < 1280 ? provider.nonWebScaffoldKey : null,
-            drawer: sw < 1280
-                ? NonWebDrawer(
-                    sw: sw,
-                    sh: sh,
-                    ar: ar,
-                  )
-                : null,
             body: ListView(
               controller: scroller,
               physics: const RangeMaintainingScrollPhysics(),
@@ -58,14 +49,14 @@ class _ARNotebooksPageState extends State<ARNotebooksPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
                   child: sw >= 1280
-                      ? const WebHeader()
+                      ? const ARWebHeader()
                       : sw < 1280 && sw >= 768
-                          ? TabletHeader(
+                          ? ARTabletHeader(
                               sw: sw,
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHeader(
+                          : ARMobileHeader(
                               sw: sw,
                               sh: sh,
                               ar: ar,
@@ -80,14 +71,14 @@ class _ARNotebooksPageState extends State<ARNotebooksPage> {
                           : const SizedBox(),
                 ),
                 sw >= 1280
-                    ? const WebFooter()
+                    ? const ARWebFooter()
                     : sw < 1280 && sw >= 768
-                        ? TabletFooter(
+                        ? ARTabletFooter(
                             sw: sw,
                             sh: sh,
                             ar: ar,
                           )
-                        : MobileFooter(
+                        : ARMobileFooter(
                             sw: sw,
                             sh: sh,
                             ar: ar,

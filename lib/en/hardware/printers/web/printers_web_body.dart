@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import '../../../shared/web/cart_widget.dart';
+import '../../../shared/web/web_purchase_order.dart';
 import '../components/printers_builder_widget.dart';
 import '../components/refined_printers_builder_widget.dart';
 
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/cart_controllers.dart';
-import '../../../../core/widgets/web/cart_widget.dart';
-import '../../../../core/widgets/web/web_purchase_order.dart';
 
 class WebHardwareBody extends StatelessWidget {
   const WebHardwareBody({super.key});

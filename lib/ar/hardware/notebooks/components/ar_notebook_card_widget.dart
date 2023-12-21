@@ -5,7 +5,7 @@ import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
 
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/widgets/web/web_notebook_form.dart';
+import '../../../shared/web/ar_web_notebook_form.dart';
 
 class ARNotebookCardWidget extends StatelessWidget {
   final NotebookModel? notebook;
@@ -109,7 +109,7 @@ class ARNotebookCardWidget extends StatelessWidget {
                       await showAdaptiveDialog(
                           context: context,
                           builder: (context) {
-                            return WebNotebookOrderForm(
+                            return ARWebNotebookOrderForm(
                               item: notebook,
                             );
                           });

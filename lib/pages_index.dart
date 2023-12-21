@@ -45,7 +45,7 @@ export 'ar/hardware/servers/ar_servers_page.dart';
 export 'ar/hardware/switches/ar_switches_page.dart';
 export 'ar/hardware/ups/ar_ups_page.dart';
 export 'ar/hardware/printers/components/ar_printer_details_page.dart';
-export 'ar/home/home_page.dart';
+export 'ar/home/ar_home_page.dart';
 export 'ar/hardware/inventory/inventory_page.dart';
 export 'ar/portal/ar_customer_portal.dart';
 export 'ar/software/software/ar_software_page.dart';

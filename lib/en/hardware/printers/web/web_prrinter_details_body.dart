@@ -3,7 +3,7 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 
-import '../../../../core/widgets/web/web_printer_order_form.dart';
+import '../../../shared/web/web_printer_order_form.dart';
 
 class WebPrinterDetailsBody extends StatelessWidget {
   final PrinterModel? printer;

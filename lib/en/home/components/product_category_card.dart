@@ -66,23 +66,15 @@ class ProductCategoryCard extends StatelessWidget {
             const Spacer(),
             Expanded(
               flex: 1,
-              child: Text(
-                category,
-                style: provider.isEnglish
-                    ? context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.titleMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
-              ),
+              child: Text(category,
+                  style: context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))),
             ),
             const Spacer(),
             Expanded(
               flex: 2,
-              child: Text(
-                description,
-                textAlign: TextAlign.center,
-                style: provider.isEnglish
-                    ? context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1))
-                    : context.displayLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
-              ),
+              child: Text(description,
+                  textAlign: TextAlign.center,
+                  style: context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1))),
             ),
             const Spacer()
           ],

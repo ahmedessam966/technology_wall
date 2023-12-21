@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import '../../shared/mobile/ar_mobile_footer.dart';
+import '../../shared/mobile/ar_mobile_header.dart';
+import '../../shared/tablet/ar_tablet_footer.dart';
+import '../../shared/tablet/ar_tablet_header.dart';
+import '../../shared/web/ar_web_footer.dart';
+import '../../shared/web/ar_web_header.dart';
 import 'web/web_sap_body.dart';
-import '/core/widgets/mobile/mobile_footer.dart';
-import '/core/widgets/mobile/mobile_header.dart';
-import '/core/widgets/mobile/non_web_drawer.dart';
-import '/core/widgets/tablet/tablet_footer.dart';
-import '/core/widgets/tablet/tablet_header.dart';
-import '/core/widgets/web/web_footer.dart';
-import '/core/widgets/web/web_header.dart';
 
 class ARSAPPage extends StatefulWidget {
   const ARSAPPage({super.key});
@@ -17,15 +16,6 @@ class ARSAPPage extends StatefulWidget {
 }
 
 class _ARSAPPageState extends State<ARSAPPage> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     AppControllers.showAppBanner(
-  //         context, MediaQuery.of(context).size.height, MediaQuery.of(context).size.width);
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -43,74 +33,70 @@ class _ARSAPPageState extends State<ARSAPPage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
 
-    return Semantics(
-      link: true,
-      label: 'Technology Wall | SAP ERP Page',
-      value:
-          "SAP Business One, SAP, Tally ERP, ERP, erp, sap, sap business one, s4/hana, sap4, sap4/hana, s4hana, s4hana erp",
-      child: PopScope(
-        canPop: true,
-        onPopInvoked: (value) {
-          if (value) {
-            return;
-          } else {
-            Navigator.of(context).pop();
-          }
-        },
-        child: ImprovedScrolling(
-          scrollController: scroller,
-          enableMMBScrolling: true,
-          enableKeyboardScrolling: true,
-          child: Scaffold(
-            drawer: sw < 1280
-                ? NonWebDrawer(
-                    sw: sw,
-                    sh: sh,
-                    ar: ar,
-                  )
-                : null,
-            body: ListView(
-              controller: scroller,
-              physics: const RangeMaintainingScrollPhysics(),
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                  child: sw >= 1280
-                      ? const WebHeader()
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Semantics(
+        link: true,
+        label: 'Technology Wall | SAP ERP Page',
+        value:
+            "SAP Business One, SAP, Tally ERP, ERP, erp, sap, sap business one, s4/hana, sap4, sap4/hana, s4hana, s4hana erp",
+        child: PopScope(
+          canPop: true,
+          onPopInvoked: (value) {
+            if (value) {
+              return;
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+          child: ImprovedScrolling(
+            scrollController: scroller,
+            enableMMBScrolling: true,
+            enableKeyboardScrolling: true,
+            child: Scaffold(
+              body: ListView(
+                controller: scroller,
+                physics: const RangeMaintainingScrollPhysics(),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
+                    child: sw >= 1280
+                        ? const ARWebHeader()
+                        : sw < 1280 && sw >= 768
+                            ? ARTabletHeader(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              )
+                            : ARMobileHeader(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                    child: sw >= 1280
+                        ? const WebSAPBody()
+                        : sw < 1280 && sw >= 768
+                            ? const SizedBox()
+                            : const SizedBox(),
+                  ),
+                  sw >= 1280
+                      ? const ARWebFooter()
                       : sw < 1280 && sw >= 768
-                          ? TabletHeader(
+                          ? ARTabletFooter(
                               sw: sw,
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHeader(
+                          : ARMobileFooter(
                               sw: sw,
                               sh: sh,
                               ar: ar,
                             ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                  child: sw >= 1280
-                      ? const WebSAPBody()
-                      : sw < 1280 && sw >= 768
-                          ? const SizedBox()
-                          : const SizedBox(),
-                ),
-                sw >= 1280
-                    ? const WebFooter()
-                    : sw < 1280 && sw >= 768
-                        ? TabletFooter(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          )
-                        : MobileFooter(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

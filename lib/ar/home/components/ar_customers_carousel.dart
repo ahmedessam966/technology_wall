@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 
-class CustomersCarousel extends StatelessWidget {
-  const CustomersCarousel({super.key});
+class ARCustomersCarousel extends StatelessWidget {
+  const ARCustomersCarousel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class CustomersCarousel extends StatelessWidget {
               return FlutterCarousel.builder(
                 itemCount: snapshot.data?.length,
                 options: CarouselOptions(
+                  reverse: true,
                   pageSnapping: false,
                   viewportFraction: 0.25,
                   enableInfiniteScroll: true,

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 
-class MobilePrinterDetailsBody extends StatelessWidget {
+class ARTabletPrinterDetailsBody extends StatelessWidget {
   final double sw;
   final double sh;
   final double ar;
   final PrinterModel? printer;
-  const MobilePrinterDetailsBody(
+  const ARTabletPrinterDetailsBody(
       {super.key, required this.sw, required this.sh, required this.ar, required this.printer});
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return const Directionality(textDirection: TextDirection.rtl, child: SizedBox());
   }
 }

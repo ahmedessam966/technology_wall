@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import '../shared/mobile/mobile_footer.dart';
+import '../shared/mobile/mobile_header.dart';
+import '../shared/tablet/tablet_footer.dart';
+import '../shared/tablet/tablet_header.dart';
+import '../shared/web/web_footer.dart';
+import '../shared/web/web_header.dart';
 import 'mobile/mobile_home_body.dart';
 import 'tablet/tablet_home_body.dart';
 import 'web/web_home_body.dart';
-import '../../core/widgets/mobile/mobile_footer.dart';
-import '../../core/widgets/mobile/mobile_header.dart';
-import '../../core/widgets/mobile/non_web_drawer.dart';
-import '../../core/widgets/tablet/tablet_footer.dart';
-import '../../core/widgets/tablet/tablet_header.dart';
-import '../../core/widgets/web/web_footer.dart';
-import '../../core/widgets/web/web_header.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,13 +44,6 @@ class _HomePageState extends State<HomePage> {
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
           child: Scaffold(
-            drawer: sw < 1280
-                ? NonWebDrawer(
-                    sw: sw,
-                    sh: sh,
-                    ar: ar,
-                  )
-                : null,
             body: ListView(
               controller: scroller,
               physics: const RangeMaintainingScrollPhysics(),

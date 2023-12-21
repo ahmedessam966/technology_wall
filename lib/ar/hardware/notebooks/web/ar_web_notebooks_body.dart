@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/core/widgets/web/cart_widget.dart';
+import '../../../shared/web/ar_cart_widget.dart';
+import '../../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_notebooks_builder_widget.dart';
 import '../components/ar_refined_notebooks_builder_widget.dart';
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/widgets/web/web_purchase_order.dart';
 
 class ARWebNotebooksBody extends StatelessWidget {
   const ARWebNotebooksBody({super.key});
@@ -251,7 +251,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                             await showAdaptiveDialog(
                                 context: context,
                                 builder: (context) {
-                                  return const CartWidget();
+                                  return const ARCartWidget();
                                 });
                           },
                           child: Row(
@@ -351,7 +351,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                           await showAdaptiveDialog(
                               context: context,
                               builder: (context) {
-                                return const WebPurchaseOrder();
+                                return const ARWebPurchaseOrder();
                               });
                         },
                         child: Text(

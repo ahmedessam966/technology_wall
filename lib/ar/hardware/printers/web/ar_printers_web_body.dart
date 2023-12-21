@@ -2,163 +2,160 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import '../../../shared/web/cart_widget.dart';
-import '../../../shared/web/web_purchase_order.dart';
-import '../components/notebooks_builder_widget.dart';
-import '../components/refined_notebooks_builder_widget.dart';
-import '../../../../config/themes/app_theme.dart';
+import '../../../shared/web/ar_cart_widget.dart';
+import '../../../shared/web/ar_web_purchase_order.dart';
+import '../components/ar_printers_builder_widget.dart';
+import '../components/ar_refined_printers_builder_widget.dart';
 
-class WebNotebooksBody extends StatelessWidget {
-  const WebNotebooksBody({super.key});
+import '../../../../config/themes/app_theme.dart';
+import '../../../../core/controllers/cart_controllers.dart';
+
+class ARWebHardwareBody extends StatelessWidget {
+  const ARWebHardwareBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
-      return Semantics(
-        label: 'Notebooks, Laptops, Portable PC',
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Semantics(
+        label: 'Technology Wall | Printers',
         value:
-            'HP, Dell, MacBook, Apple, Lenovo, Toshiba, Acer, Asus, Laptops, Notebooks, MacBook Pro, MacBook Air, Dell Inspiron, Dell XPS, Dell Vostro, Dell Latitude, HP Envy, HP Laptops, Apple Laptops',
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SlideInLeft(
-                    duration: const Duration(milliseconds: 1000),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'One-Stop Shop for Any Portable Computer',
-                          style: context.displayMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'For Personal Use',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Supplying primary hardware and up to complex servers.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'For Business Use',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Licensed, supported software soultions required for business intelligence',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Save valuable time and effort. Explore our integrated solutions plan.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                      ],
+            'HP Printers, Canon Printers, Epson Printers, Zebra Printers, Printers, Scanners, Copier, Scanner, HP All-In-One, Canon All-In-One, Epson Dot Matrix, Dot Matrix, HP Scanners, HP Copier, Epson Scanners, Network Printers, HP Network Printer',
+        child: Consumer<InventoryControllers>(builder: (context, provider, _) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SlideInLeft(
+                      duration: const Duration(milliseconds: 1000),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'One-Stop Shop for Any Printing Purpose',
+                            style: context.displayMedium?.copyWith(
+                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'For Personal Use',
+                                style: context.bodyLarge
+                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Icon(
+                                Icons.arrow_right_alt_sharp,
+                                color: Color(0xaaffffff),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Supplying primary hardware and up to complex servers.',
+                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'For Business Use',
+                                style: context.bodyLarge
+                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Icon(
+                                Icons.arrow_right_alt_sharp,
+                                color: Color(0xaaffffff),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Licensed, supported software soultions required for business intelligence',
+                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Save valuable time and effort. Explore our integrated solutions plan.',
+                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 50,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a',
-                    height: 250,
-                  ),
-                ],
+                    const SizedBox(
+                      width: 50,
+                    ),
+                    Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f',
+                      height: 250,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            const Divider(
-              indent: 50,
-              endIndent: 50,
-              color: Colors.white70,
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdell.png?alt=media&token=0ca2a759-f048-4b31-bb88-ada49ba68690',
-                    color: Colors.white70,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fhp.png?alt=media&token=93888802-9693-4f3f-a63f-50806af7c184',
-                    color: Colors.white70,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fapple.png?alt=media&token=ba00b9c1-1470-4ea2-94f5-aae50216d565',
-                    color: Colors.white70,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flenovo.png?alt=media&token=ff38cb73-0695-434b-aaee-7de5ea6943f8',
-                    color: Colors.white70,
-                  ),
-                ],
+              const SizedBox(
+                height: 100,
               ),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
-              color: const Color(0xaaf7f7f7).withOpacity(1),
-              child: SizedBox(
+              const Divider(
+                indent: 50,
+                endIndent: 50,
+                color: Colors.white70,
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              SizedBox(
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fcanon.png?alt=media&token=13879247-d407-4014-be47-02560b767f08',
+                      color: Colors.white70,
+                    ),
+                    Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fhp.png?alt=media&token=93888802-9693-4f3f-a63f-50806af7c184',
+                      color: Colors.white70,
+                    ),
+                    Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ffujitsu.png?alt=media&token=43a14824-0814-41f1-9c2e-2ce084b22bdd',
+                      color: Colors.white70,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+                color: const Color(0xaaf7f7f7).withOpacity(1),
                 height: 1000,
-                width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
                       child: Text(
-                        'Notebooks and Portable PC',
+                        'Printer & Scanners',
                         style: context.headlineMedium,
                       ),
                     ),
@@ -167,7 +164,7 @@ class WebNotebooksBody extends StatelessWidget {
                     ),
                     Center(
                       child: Text(
-                        'A selection of renowned brands and diverse utilites to serve your personal, entertainment, or business needs',
+                        'A variety of multi-purpose printers and scanners suitable for business and personal use',
                         style: context.bodyLarge,
                       ),
                     ),
@@ -178,7 +175,7 @@ class WebNotebooksBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SearchBar(
-                          controller: provider.notebookSearchController,
+                          controller: provider.printerSearchController,
                           trailing: [
                             const Text('search by brand'),
                             Checkbox.adaptive(
@@ -189,7 +186,7 @@ class WebNotebooksBody extends StatelessWidget {
                           ],
                           hintText: 'Search by brand or model',
                           onSubmitted: (value) {
-                            provider.setNBSearchController(value);
+                            provider.setPrinterSearchController(value);
                           },
                           elevation: const MaterialStatePropertyAll(0),
                           backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
@@ -201,8 +198,8 @@ class WebNotebooksBody extends StatelessWidget {
                         ),
                         DropdownButton(
                             underline: const SizedBox.shrink(),
-                            hint: const Text('select brand'),
-                            value: provider.notebookFilterSelection,
+                            hint: const Text('Show by Brand'),
+                            value: provider.printerFilterSelection,
                             borderRadius: BorderRadius.circular(10),
                             items: const [
                               DropdownMenuItem(
@@ -214,20 +211,20 @@ class WebNotebooksBody extends StatelessWidget {
                                 child: Text('HP'),
                               ),
                               DropdownMenuItem(
-                                value: 'Dell',
-                                child: Text('Dell'),
+                                value: 'Canon',
+                                child: Text('Canon'),
                               ),
                               DropdownMenuItem(
-                                value: 'Lenovo',
-                                child: Text('Lenovo'),
+                                value: 'Fujitsu',
+                                child: Text('Fujitsu'),
                               ),
                             ],
                             onChanged: (newValue) {
                               if (newValue != null && newValue != 'All') {
-                                provider.setNBFilter(newValue);
+                                provider.setFilter(newValue);
                               }
                               if (newValue == 'All') {
-                                provider.setNBFilter(null);
+                                provider.setFilter(null);
                               }
                             }),
                         ElevatedButton(
@@ -251,7 +248,7 @@ class WebNotebooksBody extends StatelessWidget {
                             await showAdaptiveDialog(
                                 context: context,
                                 builder: (context) {
-                                  return const CartWidget();
+                                  return const ARCartWidget();
                                 });
                           },
                           child: Row(
@@ -277,10 +274,10 @@ class WebNotebooksBody extends StatelessWidget {
                       height: 50,
                     ),
                     Expanded(
-                      child: provider.notebookFilterSelection == null ||
-                              provider.notebookFilterSelection == 'All'
-                          ? const NotebooksBuilderWidget()
-                          : const RefinedNotebooksBuilderWidget(),
+                      child:
+                          provider.printerFilterSelection == null || provider.printerFilterSelection == 'All'
+                              ? const PrintersBuilderWidget()
+                              : const RefinedPrintersBuilderWidget(),
                     ),
                     const SizedBox(
                       height: 50,
@@ -308,7 +305,7 @@ class WebNotebooksBody extends StatelessWidget {
                             ? null
                             : () async {
                                 provider.setLoading();
-                                await provider.loadMoreItems(provider.getNotebooks());
+                                await provider.loadMoreItems(provider.getPrinters());
                                 provider.setLoading();
                               },
                         child: Text(
@@ -351,7 +348,7 @@ class WebNotebooksBody extends StatelessWidget {
                           await showAdaptiveDialog(
                               context: context,
                               builder: (context) {
-                                return const WebPurchaseOrder();
+                                return const ARWebPurchaseOrder();
                               });
                         },
                         child: Text(
@@ -363,10 +360,10 @@ class WebNotebooksBody extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      );
-    });
+            ],
+          );
+        }),
+      ),
+    );
   }
 }

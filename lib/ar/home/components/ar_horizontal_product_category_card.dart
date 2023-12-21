@@ -3,13 +3,13 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../config/themes/app_theme.dart';
 
-class HorizontalProductCategoryCard extends StatelessWidget {
+class ARHorizontalProductCategoryCard extends StatelessWidget {
   final String category;
 
   final String imagePath;
   final bool isMobile;
   final dynamic onPressed;
-  const HorizontalProductCategoryCard(
+  const ARHorizontalProductCategoryCard(
       {super.key, required this.category, required this.imagePath, this.onPressed, required this.isMobile});
 
   @override

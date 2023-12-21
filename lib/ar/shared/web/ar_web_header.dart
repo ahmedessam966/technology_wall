@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
-import '../../controllers/auth_controllers.dart';
-import '../../../ar/home/home_page.dart' as ar;
-import '../../../en/home/home_page.dart' as en;
+import '../../../core/controllers/auth_controllers.dart';
 
-class WebHeader extends StatelessWidget {
-  const WebHeader({super.key});
+class ARWebHeader extends StatelessWidget {
+  const ARWebHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +20,7 @@ class WebHeader extends StatelessWidget {
       child: Consumer<AppControllers>(
         builder: (context, app, _) {
           return Directionality(
-            textDirection: app.isEnglish ? TextDirection.ltr : TextDirection.rtl,
+            textDirection: TextDirection.rtl,
             child: SizedBox(
               height: 120,
               width: double.infinity,
@@ -34,7 +31,7 @@ class WebHeader extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/');
+                          Navigator.pushNamed(context, '/ar');
                         },
                         child: Semantics(
                           label: 'Main Logo',
@@ -84,9 +81,9 @@ class WebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/hardware');
+                            Navigator.pushNamed(context, '/ar/hardware');
                           },
-                          child: Text('hardware', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                          child: Text('الأجهزة', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -110,36 +107,36 @@ class WebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/software');
-                          },
-                          child: Text('software', style: context.bodyLarge?.copyWith(color: Colors.white)),
-                        ),
-                        TextButton(
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return Colors.white10;
-                              } else {
-                                return null;
-                              }
-                            }),
-                            shape: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return LinearBorder.bottom(
-                                  side: const BorderSide(color: Colors.white54),
-                                );
-                              } else {
-                                return const LinearBorder(
-                                  side: BorderSide(color: Colors.transparent),
-                                );
-                              }
-                            }),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/software/sap');
+                            Navigator.pushNamed(context, '/ar/software');
                           },
                           child:
-                              Text('sap_solutions', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                              Text('البرمجيات', style: context.displayLarge?.copyWith(color: Colors.white)),
+                        ),
+                        TextButton(
+                          style: ButtonStyle(
+                            overlayColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return Colors.white10;
+                              } else {
+                                return null;
+                              }
+                            }),
+                            shape: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return LinearBorder.bottom(
+                                  side: const BorderSide(color: Colors.white54),
+                                );
+                              } else {
+                                return const LinearBorder(
+                                  side: BorderSide(color: Colors.transparent),
+                                );
+                              }
+                            }),
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/ar/oftware/sap');
+                          },
+                          child: Text('حلول SAP', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -163,7 +160,7 @@ class WebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {},
-                          child: Text('services', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                          child: Text('الخدمات', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -187,9 +184,10 @@ class WebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/about');
+                            Navigator.pushNamed(context, '/ar/about');
                           },
-                          child: Text('about_tw', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                          child:
+                              Text('عن الشركة', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -213,9 +211,10 @@ class WebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/contact-us');
+                            Navigator.pushNamed(context, '/ar/contact-us');
                           },
-                          child: Text('contact_us', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                          child:
+                              Text('تواصل معنا', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
                       ],
                     ),
@@ -225,17 +224,17 @@ class WebHeader extends StatelessWidget {
                   ),
                   Semantics(
                     button: true,
-                    label: 'Zoho Customer Portal Login Button',
+                    label: 'بوابة دخول عملاء Zoho',
                     child: IconButton(
                       padding: const EdgeInsets.all(10),
-                      tooltip: 'zoho_portal_tooltip',
+                      tooltip: 'بوابة دخول عملاء Zoho',
                       style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
                           elevation: const MaterialStatePropertyAll(0),
                           shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/portal');
+                        Navigator.pushNamed(context, '/ar/portal');
                       },
                       icon: Row(
                         children: [
@@ -244,8 +243,8 @@ class WebHeader extends StatelessWidget {
                                 .staffModel
                                 ?.name
                                 .split('')[0];
-                            return Text(name ?? 'sign_in',
-                                style: context.bodyLarge?.copyWith(color: Colors.black));
+                            return Text(name ?? 'الدخول',
+                                style: context.displayLarge?.copyWith(color: Colors.black));
                           }),
                           const Icon(
                             Icons.arrow_right_alt_outlined,
@@ -278,22 +277,10 @@ class WebHeader extends StatelessWidget {
                       }),
                     ),
                     onPressed: () async {
-                      if (app.isEnglish) {
-                        app.changeLocale(false);
-                        Navigator.pushReplacement(
-                            context, RoutingTransitionServices.Transition(const ar.ARHomePage()));
-                      } else {
-                        app.changeLocale(true);
-                        Navigator.pushReplacement(
-                            context, RoutingTransitionServices.Transition(const en.HomePage()));
-                      }
+                      app.changeLocale(true);
+                      Navigator.pushReplacementNamed(context, '/en');
                     },
-                    child: Text(
-                      app.isEnglish ? 'العربية' : 'English',
-                      style: app.isEnglish
-                          ? context.titleSmall?.copyWith(color: Colors.white70)
-                          : context.headlineSmall?.copyWith(color: Colors.white70),
-                    ),
+                    child: Text('English', style: context.headlineSmall?.copyWith(color: Colors.white70)),
                   ),
                   const Spacer()
                 ],

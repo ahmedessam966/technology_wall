@@ -5,12 +5,12 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
-import '../../shared/web/web_purchase_order.dart';
-import '../components/customers_carousel.dart';
-import '../components/product_category_card.dart';
+import '../../shared/web/ar_web_purchase_order.dart';
+import '../components/ar_customers_carousel.dart';
+import '../components/ar_product_category_card.dart';
 
-class WebHomeBody extends StatelessWidget {
-  const WebHomeBody({super.key});
+class ARWebHomeBody extends StatelessWidget {
+  const ARWebHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,50 +26,36 @@ class WebHomeBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SlideInLeft(
+                SlideInRight(
                   duration: const Duration(milliseconds: 1000),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SelectableText('Integrated Solutions - Easy and Reliable',
-                          style: context.headlineMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SelectableText(
+                        'انظمة متكاملة - سهلة ويٌعتمد عليها',
+                        style: context.titleLarge?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
-                      SelectableText('All-Round Medium of Digitized Services',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SelectableText(
+                        'وسط شامل للخدمات الرقمية',
+                        style: context.titleSmall?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
                       const SizedBox(
                         height: 40,
                       ),
                       Row(
                         children: [
-                          SelectableText('Hardware Services',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
-                          const SizedBox(
-                            width: 10,
+                          SelectableText(
+                            'خدمات الأجهزة',
+                            style:
+                                context.displayLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      SelectableText('Supplying primary hardware and up to complex servers',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          SelectableText('Software Services',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
                           const SizedBox(
                             width: 10,
                           ),
@@ -80,15 +66,42 @@ class WebHomeBody extends StatelessWidget {
                         ],
                       ),
                       SelectableText(
-                          'Licensed, supported software solutions required for business intelligence',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                        'توريد الأجهزة الأساسية وحتى الخوادم المعقدة',
+                        style: context.titleSmall?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          SelectableText(
+                            'خدمات البرمجيات',
+                            style:
+                                context.displayLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Icon(
+                            Icons.arrow_right_alt_sharp,
+                            color: Color(0xaaffffff),
+                          ),
+                        ],
+                      ),
+                      SelectableText(
+                        'حلول برمجية مرخصة ومدعومة مطلوبة للأعمال الذكية',
+                        style: context.titleMedium?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
                       const SizedBox(
                         height: 40,
                       ),
-                      SelectableText('"Save valuable time and effort. Explore our integrated solutions plan',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SelectableText(
+                        'وفر الوقت والجهد الثمين. اكتشف خطة الحلول المتكاملة لدينا',
+                        style: context.titleSmall?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -113,12 +126,14 @@ class WebHomeBody extends StatelessWidget {
                           await showAdaptiveDialog(
                               context: context,
                               builder: (context) {
-                                return const WebPurchaseOrder();
+                                return const ARWebPurchaseOrder();
                               });
                         },
-                        child: Text('Create Purchase Order',
-                            style: context.bodyLarge?.copyWith(
-                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                        child: Text(
+                          'انشاء طلب شراء',
+                          style: context.displayLarge?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ],
                   ),
@@ -140,8 +155,10 @@ class WebHomeBody extends StatelessWidget {
             height: 100,
           ),
           Center(
-            child: Text('Strategic Partners',
-                style: context.headlineMedium?.copyWith(color: const Color(0xaaf7f7f7))),
+            child: Text(
+              'شركاء النجاح',
+              style: context.titleMedium?.copyWith(color: const Color(0xaaf7f7f7)),
+            ),
           ),
           Container(
             height: 150,
@@ -150,7 +167,7 @@ class WebHomeBody extends StatelessWidget {
                 bottom: BorderSide(color: AppTheme.darkest),
               ),
             ),
-            child: const CustomersCarousel(),
+            child: const ARCustomersCarousel(),
           ),
           Container(
               color: const Color(0xaaf7f7f7).withOpacity(1),
@@ -160,9 +177,10 @@ class WebHomeBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Text('Our Products & Services',
-                        style: context.headlineLarge
-                            ?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)),
+                    child: Text(
+                      'منتجاتنا',
+                      style: context.titleLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
+                    ),
                   ),
                   const SizedBox(
                     height: 50,
@@ -176,8 +194,10 @@ class WebHomeBody extends StatelessWidget {
                       const SizedBox(
                         width: 20,
                       ),
-                      Text('Enterprise Essentials',
-                          style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
+                      Text(
+                        'أساسيات مؤسسية',
+                        style: context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                      ),
                     ],
                   ),
                   const SizedBox(
@@ -188,55 +208,54 @@ class WebHomeBody extends StatelessWidget {
                     children: [
                       Expanded(
                         flex: 4,
-                        child: ProductCategoryCard(
+                        child: ARProductCategoryCard(
                             onPressed: () {
                               provider.changePage('Technology Wall | Printers');
-                              Navigator.pushNamed(context, '/en/hardware/printers');
+                              Navigator.pushNamed(context, '/ar/hardware/printers');
                             },
-                            category: 'Printers',
+                            category: 'الطابعات',
                             description:
-                                'A wide range of printers, scanners, plotters, and much more, for business or personal utility',
+                                'مجموعة واسعة من الطابعات والماسحات الضوئية وأجهزة الراسمة وغير ذلك الكثير للأعمال أو الأغراض الشخصية',
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fprinters.png?alt=media&token=204e41e8-caf1-4683-9834-1d39c76b465f'),
                       ),
                       const Spacer(),
                       Expanded(
                         flex: 4,
-                        child: ProductCategoryCard(
+                        child: ARProductCategoryCard(
                             onPressed: () {
                               provider.changePage('Technology Wall | Notebooks');
-                              Navigator.pushNamed(context, '/en/hardware/notebooks');
+                              Navigator.pushNamed(context, '/ar/hardware/notebooks');
                             },
-                            category: 'Notebooks',
-                            description: 'Professional, guaranteed, and trendy collections - always',
+                            category: 'الأجهزة المحمولة',
+                            description: 'مجموعات احترافية ومضمونة وعصرية - دائمًا',
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a'),
                       ),
                       const Spacer(),
                       Expanded(
                         flex: 4,
-                        child: ProductCategoryCard(
+                        child: ARProductCategoryCard(
                             onPressed: () {
                               provider.changePage('Technology Wall | Servers');
-                              Navigator.pushNamed(context, '/en/hardware/servers');
+                              Navigator.pushNamed(context, '/ar/hardware/servers');
                             },
-                            category: 'Servers',
-                            description:
-                                'State-of-the-art servers tailored to your required enterprise needs',
+                            category: 'الخوادم',
+                            description: 'خوادم حديثة مصممة خصيصًا لتلبية احتياجات مؤسستك المطلوبة',
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fservers.png?alt=media&token=375a0f05-a830-41df-9db0-6731850b95fd'),
                       ),
                       const Spacer(),
                       Expanded(
                         flex: 4,
-                        child: ProductCategoryCard(
+                        child: ARProductCategoryCard(
                             onPressed: () {
                               provider.changePage('Technology Wall | Desktop PC');
-                              Navigator.pushNamed(context, '/en/hardware/desktops');
+                              Navigator.pushNamed(context, '/ar/hardware/desktops');
                             },
-                            category: 'Desktop PC',
+                            category: 'الأجهزة المكتبية',
                             description:
-                                'The cornerstone of all digital enterprise management, with varied utilities and cost-effectiveness',
+                                'حجر الأساس في إدارة المؤسسات الرقمية بالكامل، مع أدوات مساعدة متنوعة وفعالية من حيث التكلفة',
                             imagePath:
                                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
                       ),
@@ -247,8 +266,8 @@ class WebHomeBody extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Looking For More?',
-                      style: context.bodyLarge,
+                      'تبحث عن المزيد؟',
+                      style: context.displayLarge,
                     ),
                   ),
                   const SizedBox(
@@ -273,10 +292,12 @@ class WebHomeBody extends StatelessWidget {
                         }),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/en/hardware');
+                        Navigator.pushNamed(context, '/ar/hardware');
                       },
-                      child: Text('Explore Inventory',
-                          style: context.bodyLarge?.copyWith(color: Colors.white70)),
+                      child: Text(
+                        'إستكشف منتاجتنا',
+                        style: context.displayLarge?.copyWith(color: Colors.white70),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -300,8 +321,10 @@ class WebHomeBody extends StatelessWidget {
                         const SizedBox(
                           width: 20,
                         ),
-                        Text('ERP Essentials',
-                            style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600)),
+                        Text(
+                          'أساسيات إدارة الموارد',
+                          style: context.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                        ),
                         const Spacer(),
                         Image.asset(
                           'assets/images/hcc.png',
@@ -368,38 +391,40 @@ class WebHomeBody extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SelectableText(
-                                  'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
-                                  style: context.bodyLarge,
-                                  textAlign: TextAlign.justify,
+                                  'بدعم من HCC، شريك حلول SAP المعتمد، يقدم سور التكنولوجيا حلول SAP فريدة لأي عمل تجاري. تقديم توقعات مجدية واحترافية، وتحديد النطاق المطلوب لحل تخطيط موارد المؤسسات (ERP)، والتنفيذ ونشر النظام من خلال عمليات عمليات التكوير والتكامل المٌستدام المخصصة للعميل، وعقد صيانة سنوي اختياري ينفذه مستشارو SAP الخبراء المعتمدون لدينا.',
+                                  style: context.displayLarge,
+                                  textAlign: TextAlign.right,
                                 ),
                                 Row(
                                   children: [
                                     SelectableText(
-                                      'Learn more about our our SAP accreditation and parternship',
-                                      style: context.bodyLarge,
+                                      'تعرف على المزيد حول اعتمادنا وشراكتنا مع SAP',
+                                      style: context.displayLarge,
                                     ),
                                     const SizedBox(
                                       width: 10,
                                     ),
                                     GestureDetector(
-                                      child: Text('Learn More',
-                                          style: context.bodyLarge?.copyWith(color: Colors.blue.shade700)),
+                                      child: Text(
+                                        'تفاصيل أكثر',
+                                        style: context.displayLarge?.copyWith(color: Colors.blue.shade700),
+                                      ),
                                     )
                                   ],
                                 ),
                                 SelectableText(
-                                  'Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7.',
-                                  style: context.bodyLarge,
-                                  textAlign: TextAlign.justify,
+                                  'تم ترخيص سور التكنولوجيا مباشرة من قبل Sage لإدارة الموارد المؤسساتية لاقتراح وتصميم وتنفيذ حلول Sage لإدارة موارد المؤسسة. بفضل وجود فريق متخصص من خبراء Sage، تقدم سور التكنولوجيا أيضًا خطة دعم تنافسية لما بعد البيع لحلول Sage المنفذة - 24/7',
+                                  style: context.displayLarge,
+                                  textAlign: TextAlign.right,
                                 ),
                                 SelectableText(
-                                  'Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
-                                  style: context.bodyLarge,
-                                  textAlign: TextAlign.justify,
+                                  'يهدف سور التكنولوجيا إلى تقديم خدمة كاملة ومهنية لمتطلبات منطق الأعمال للمؤسسات على اختلاف أحجامها - الصغيرة والمتوسطة والواسعة النطاق. ولخدمة هذا الغرض، تقدم شركة سور التكنولوجيا خدماتها لشركة Tally أنظمة كموزع معتمد.',
+                                  style: context.displayLarge,
+                                  textAlign: TextAlign.right,
                                 ),
                                 SelectableText(
-                                  'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:',
-                                  style: context.bodyLarge,
+                                  'قم بتقييم احتياجات عملك - يمكن تحسين مؤسستك لحلول Sage أو Tally أو SAP. لمزيد من المعلومات حول كيفية تقييم الاستعداد وخطط التسعير، وأي نظام تخطيط موارد المؤسسات (ERP) يناسب متطلبات عملك:',
+                                  style: context.displayLarge,
                                 ),
                                 ElevatedButton(
                                   style: ButtonStyle(
@@ -419,10 +444,12 @@ class WebHomeBody extends StatelessWidget {
                                     }),
                                   ),
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/en/software/sap');
+                                    Navigator.pushNamed(context, '/ar/software/sap');
                                   },
-                                  child: Text('Contact Pre-Sales',
-                                      style: context.bodyLarge?.copyWith(color: Colors.white70)),
+                                  child: Text(
+                                    'خدمات ما قبل البيع',
+                                    style: context.displayLarge?.copyWith(color: Colors.white70),
+                                  ),
                                 ),
                               ],
                             ),

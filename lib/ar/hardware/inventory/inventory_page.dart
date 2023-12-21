@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import '../../shared/mobile/ar_mobile_footer.dart';
+import '../../shared/mobile/ar_mobile_header.dart';
+import '../../shared/tablet/ar_tablet_footer.dart';
+import '../../shared/tablet/ar_tablet_header.dart';
+import '../../shared/web/ar_web_footer.dart';
+import '../../shared/web/ar_web_header.dart';
 import 'mobile/ar_mobile_inventory_body.dart';
 import 'tablet/ar_tablet_inventory_body.dart';
 import 'web/ar_web_inventory_body.dart';
-import '../../../core/widgets/mobile/mobile_footer.dart';
-import '../../../core/widgets/mobile/mobile_header.dart';
-import '../../../core/widgets/tablet/tablet_footer.dart';
-import '../../../core/widgets/tablet/tablet_header.dart';
-import '../../../core/widgets/web/web_footer.dart';
-import '../../../core/widgets/web/web_header.dart';
 
 class ARInventoryPage extends StatefulWidget {
   const ARInventoryPage({super.key});
@@ -50,14 +50,14 @@ class _ARInventoryPageState extends State<ARInventoryPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
                   child: sw >= 1280
-                      ? const WebHeader()
+                      ? const ARWebHeader()
                       : sw < 1280 && sw >= 768
-                          ? TabletHeader(
+                          ? ARTabletHeader(
                               sw: sw,
                               sh: sh,
                               ar: ar,
                             )
-                          : MobileHeader(
+                          : ARMobileHeader(
                               sw: sw,
                               sh: sh,
                               ar: ar,
@@ -76,14 +76,14 @@ class _ARInventoryPageState extends State<ARInventoryPage> {
                             ),
                 ),
                 sw >= 1280
-                    ? const WebFooter()
+                    ? const ARWebFooter()
                     : sw < 1280 && sw >= 768
-                        ? TabletFooter(
+                        ? ARTabletFooter(
                             sw: sw,
                             sh: sh,
                             ar: ar,
                           )
-                        : MobileFooter(
+                        : ARMobileFooter(
                             sw: sw,
                             sh: sh,
                             ar: ar,

@@ -5,7 +5,7 @@ import 'package:technology_wall/core/models/printer_model.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/app_controllers.dart';
 import '../../../../core/controllers/cart_controllers.dart';
-import '../../../../core/widgets/web/web_printer_order_form.dart';
+import '../../../shared/web/web_printer_order_form.dart';
 
 class PrinterCardWidget extends StatelessWidget {
   final PrinterModel? printer;
