@@ -55,7 +55,6 @@ class _ARPrinterDetailsPageState extends State<ARPrinterDetailsPage> {
             enableMMBScrolling: true,
             enableKeyboardScrolling: true,
             child: Scaffold(
-              key: sw < 1280 ? provider.nonWebScaffoldKey : null,
               body: ListView(
                 controller: scroller,
                 physics: const RangeMaintainingScrollPhysics(),

@@ -16,7 +16,7 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: SpinKitThreeBounce(
+                child: SpinKitCircle(
                   color: AppTheme.darkest,
                 ),
               );

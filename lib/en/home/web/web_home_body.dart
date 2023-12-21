@@ -86,7 +86,7 @@ class WebHomeBody extends StatelessWidget {
                       const SizedBox(
                         height: 40,
                       ),
-                      SelectableText('"Save valuable time and effort. Explore our integrated solutions plan',
+                      SelectableText('Save valuable time and effort. Explore our integrated solutions plan',
                           style: context.headlineSmall?.copyWith(
                               color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                       const SizedBox(
@@ -368,7 +368,7 @@ class WebHomeBody extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SelectableText(
-                                  'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
+                                  'Powered by HCC, a certified SAP Solutions Partner, Technology, HCC\'s Extended Business Member in Saudi Arabia, Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
                                   style: context.bodyLarge,
                                   textAlign: TextAlign.justify,
                                 ),

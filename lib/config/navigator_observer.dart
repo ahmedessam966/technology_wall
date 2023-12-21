@@ -29,7 +29,12 @@ class TitleObserver extends NavigatorObserver {
   void updateTitle(String? routeName) {
     if (routeName != null) {
       List<String> pathSegments = routeName.split('/');
-      String pageTitle = pathSegments.isNotEmpty ? pathSegments.last : 'Home';
+      String pageTitle = '';
+      if (pathSegments.isEmpty || pathSegments.last == 'en') {
+        pageTitle = 'Home';
+      } else {
+        pageTitle = pathSegments.last;
+      }
       pageTitle = capitalize(pageTitle);
       appControllers.changePage(pageTitle);
     }
@@ -45,7 +50,7 @@ class TitleObserver extends NavigatorObserver {
     String jsonLdData = '''''';
 
     switch (currentPageUrl) {
-      case 'https://tech-wall.me':
+      case 'https://techwall.com.sa':
         jsonLdData = '''
     {
       "@context": "https://schema.org",
@@ -54,7 +59,7 @@ class TitleObserver extends NavigatorObserver {
       "keywords": ["HCC ME","HCC","IT solutions","SAP","Sage ERP","retail hardware","HP","Dell","Apple","Canon","SAP Business One","HP Printers","HP Laptops","HP Desktop","HP Server","HP Scanners","HP Notebooks","HP All-In-One","MacBook","Zoho CRM","Zoho Books","Zoho ERP","Dell Desktop","Dell Notebooks","Dell Laptops","Dell Desktop","Dell Optiplex","Dell Servers","Dell PowerEdge","Intel Core","network","سور","سور التكنولوجيا","sap tech wall","sap techwall", "sap technology wall", "tech wall dell", "كومبيوتر", "شبكات", "سرفر", "كاميرات مراقبة","cctv","cameras","surveillance","خوادم","خادم"],
       "alternateName": "tech-wall",
       "url" : "$currentPageUrl",
-      "email": "info@tech-wall.me",
+      "email": "info@techwall.com.sa",
       "memberOf":{"@type":"Organization", "name":"HCC Middle East","url":"https://hcc-me.com"},
       "subOrganization":{"@type":"Organization", "name":"Prorays"},
       "location": [{"@type":"Place","name":"Riyadh, Saudi Arabia"},{"@type":"Place","name":"Medina, Saudi Arabia"},{"@type":"Place","name":"Dubai, United Arab Emirates"}],
@@ -68,7 +73,7 @@ class TitleObserver extends NavigatorObserver {
         break;
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
-      case 'https://tech-wall.me/hardware':
+      case 'https://techwall.com.sa/hardware':
         jsonLdData = '''
           {
             "@context": "https://schema.org",
@@ -78,7 +83,7 @@ class TitleObserver extends NavigatorObserver {
             "url": "$currentPageUrl",
             "mainEntityOfPage": {
               "@type": "WebSite",
-              "url": "https://tech-wall.me"
+              "url": "https://techwall.com.sa"
             },
             "description": "Technology Wall Hardware Main Page. All the digital inventory needed can be explored here. Computers, laptops, servers, routers, switches, printers, scanners, and firewalls.",
             "keywords":["printers","desktop pc","laptop","scanner","server","firewall","ups","notebook","hp computer","hp laptop","dell computers","hp server","hp workstation","dell server","dell poweredge","hp printer","hp all-in-one","canon printer","canon scanner", "fortinet","fortigate","inspiron","envy","macbook","vostro","latitude"]

@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
     return Semantics(
       label:
           'Technology Wall, a leading IT company based in Riyadh, KSA. Offering integrated, smart, and digitized solutions',
@@ -52,8 +51,6 @@ class MyApp extends StatelessWidget {
 
           return ResponsiveSizer(builder: (context, orientation, deviceType) {
             return MaterialApp(
-              title: context.watch<AppControllers>().pageTitle,
-              navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldKey,
               debugShowCheckedModeBanner: false,
               themeMode: themeNotifier.selectedTheme,

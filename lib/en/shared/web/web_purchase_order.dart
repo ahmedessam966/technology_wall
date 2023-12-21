@@ -58,8 +58,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'requisition_order_form',
-                        style: locale.isEnglish ? context.headlineSmall : context.titleSmall,
+                        'Requisition Order Form',
+                        style: context.headlineSmall,
                       ),
                       IconButton(
                         padding: EdgeInsets.zero,
@@ -97,12 +97,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     provider.changeFormStep(provider.orderFormStep + 1);
                                   } else {}
                                 },
-                                child: Text(
-                                  'continue_button',
-                                  style: locale.isEnglish
-                                      ? context.bodyMedium?.copyWith(color: Colors.white70)
-                                      : context.displayMedium?.copyWith(color: Colors.white70),
-                                ),
+                                child: Text('Continue',
+                                    style: context.bodyLarge?.copyWith(color: Colors.white70)),
                               ),
                             );
                           case 1:
@@ -118,12 +114,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       provider.changeFormStep(provider.orderFormStep + 1);
                                     }
                                   },
-                                  child: Text(
-                                    'continue_button',
-                                    style: locale.isEnglish
-                                        ? context.bodyMedium?.copyWith(color: Colors.white70)
-                                        : context.displayMedium?.copyWith(color: Colors.white70),
-                                  ),
+                                  child: Text('Continue',
+                                      style: context.bodyLarge?.copyWith(color: Colors.white70)),
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -136,8 +128,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     provider.changeFormStep(provider.orderFormStep - 1);
                                   },
                                   child: Text(
-                                    'go_back_button',
-                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                    'Go Back',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ],
@@ -174,12 +166,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           size: 14,
                                           color: Colors.white,
                                         )
-                                      : Text(
-                                          'submit_po_button',
-                                          style: locale.isEnglish
-                                              ? context.bodyMedium?.copyWith(color: Colors.white70)
-                                              : context.displayMedium?.copyWith(color: Colors.white70),
-                                        ),
+                                      : Text('Submit Purchase Order',
+                                          style: context.bodyLarge?.copyWith(color: Colors.white70)),
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -192,8 +180,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     provider.changeFormStep(provider.orderFormStep - 1);
                                   },
                                   child: Text(
-                                    'go_back_button',
-                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                    'Go Back',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ],
@@ -211,15 +199,12 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 0,
                           title: Text(
-                            'select_products',
-                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                            'Select Products',
+                            style: context.headlineMedium,
                           ),
                           subtitle: Text(
-                            'select_products_sub',
-                            style: locale.isEnglish
-                                ? context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)
-                                : context.displayMedium?.copyWith(fontStyle: FontStyle.italic),
-                          ),
+                              'You can also search for specific products by visiting the sections of the website that corresponds to your desired product type.',
+                              style: context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)),
                           content: SizedBox(
                             height: 300,
                             width: double.infinity,
@@ -236,11 +221,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                             flex: 10,
                                             child: TextFormField(
                                               decoration: InputDecoration(
-                                                  labelText: 'product_field_label',
-                                                  hintStyle: locale.isEnglish
-                                                      ? context.bodySmall
-                                                      : context.displaySmall?.copyWith(fontSize: 8),
-                                                  hintText: 'product_field_hint'),
+                                                  labelText: 'Product | Description',
+                                                  hintStyle: context.bodySmall,
+                                                  hintText:
+                                                      'This can be a product name or your custom product requirement'),
                                               onChanged: (value) {
                                                 setState(() {
                                                   items[index][0] = value;
@@ -252,8 +236,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           Expanded(
                                             flex: 1,
                                             child: TextFormField(
-                                              decoration:
-                                                  const InputDecoration(labelText: 'qunatity_field_label'),
+                                              decoration: const InputDecoration(labelText: 'Quantity'),
                                               onChanged: (value) {
                                                 setState(() {
                                                   items[index][1] = value;
@@ -273,8 +256,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     });
                                   },
                                   child: Text(
-                                    'add_item_button',
-                                    style: locale.isEnglish ? context.bodyMedium : context.displayMedium,
+                                    'Add Item',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ],
@@ -292,26 +275,19 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 1,
                           title: Text(
-                            'request_details',
-                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                            'Request Details',
+                            style: context.headlineMedium,
                           ),
                           subtitle: provider.orderFormStep == 1
                               ? Row(
                                   children: [
                                     Text(
-                                      'personal_info',
-                                      style: locale.isEnglish
-                                          ? context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)
-                                          : context.displayMedium?.copyWith(fontStyle: FontStyle.italic),
-                                    ),
+                                        'Your business / personal information. Learn how we process your information by visiting ',
+                                        style: context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)),
                                     TextButton(
                                       onPressed: () {},
-                                      child: Text(
-                                        'privacy_center_button',
-                                        style: locale.isEnglish
-                                            ? context.bodySmall?.copyWith(color: Colors.blue.shade700)
-                                            : context.displaySmall?.copyWith(color: Colors.blue.shade700),
-                                      ),
+                                      child: Text('Privacy Center',
+                                          style: context.bodyMedium?.copyWith(color: Colors.blue.shade700)),
                                     ),
                                   ],
                                 )
@@ -342,8 +318,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'client_field_label',
-                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                    'Company/Client Name',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ),
@@ -371,8 +347,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'email_field_label',
-                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                    'Company/Client Contact Email',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ),
@@ -409,8 +385,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'phone_field_label',
-                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                    'Company/Client Contact Phone',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ),
@@ -435,8 +411,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   ),
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
                                   label: Text(
-                                    'notes_field_label',
-                                    style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                    'Additional Notes (Optional)',
+                                    style: context.bodyLarge,
                                   ),
                                 ),
                               ),
@@ -457,8 +433,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   : StepState.indexed,
                           isActive: provider.orderFormStep == 2,
                           title: Text(
-                            'request_summary',
-                            style: locale.isEnglish ? context.headlineMedium : context.titleMedium,
+                            'Request Summary',
+                            style: context.headlineMedium,
                           ),
                           content: SizedBox(
                             height: 300,
@@ -472,15 +448,15 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     Expanded(
                                         flex: 5,
                                         child: Text(
-                                          locale.isEnglish ? 'Selected Products' : 'العناصر المُختارة',
-                                          style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                          'Selected Products',
+                                          style: context.bodyLarge,
                                         )),
                                     const Spacer(),
                                     Expanded(
-                                      flex: 2,
+                                      flex: 1,
                                       child: Text(
-                                        locale.isEnglish ? 'Quantity' : 'الكمية',
-                                        style: locale.isEnglish ? context.bodyLarge : context.displayLarge,
+                                        'Quantity',
+                                        style: context.bodyLarge,
                                       ),
                                     ),
                                   ],
@@ -493,7 +469,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   children: [
                                     Expanded(flex: 5, child: Divider()),
                                     Spacer(),
-                                    Expanded(flex: 2, child: Divider()),
+                                    Expanded(flex: 1, child: Divider()),
                                   ],
                                 ),
                                 const SizedBox(
@@ -506,18 +482,29 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       return Flex(
                                         direction: Axis.horizontal,
                                         children: [
-                                          Expanded(flex: 5, child: Text(items[index][0])),
+                                          Expanded(
+                                              flex: 5,
+                                              child: Text(
+                                                items[index][0],
+                                                style: context.bodyLarge,
+                                              )),
                                           const Spacer(),
-                                          Expanded(flex: 2, child: Text(items[index][1])),
+                                          Expanded(
+                                              flex: 1,
+                                              child: Text(items[index][1], style: context.bodyLarge)),
                                         ],
                                       );
                                     },
                                   ),
                                 ),
-                                Text('${'client_field_label'}:   ${_nameController.text}'),
-                                Text('${'email_field_label'}:   ${_emailController.text}'),
-                                Text('${'phone_field_label'}:   ${_phoneController.text}'),
-                                Text('${'notes_field_label'}:   ${_notesController.text}'),
+                                Text('Company/Client Name:   ${_nameController.text}',
+                                    style: context.bodyLarge),
+                                Text('Company/Client Contact Email:   ${_emailController.text}',
+                                    style: context.bodyLarge),
+                                Text('Company/Client Contact Phone:   ${_phoneController.text}',
+                                    style: context.bodyLarge),
+                                Text('Additional Notes (Optional):   ${_notesController.text}',
+                                    style: context.bodyLarge),
                                 const SizedBox(
                                   height: 50,
                                 )

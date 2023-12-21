@@ -40,7 +40,7 @@ class WebNotebooksBody extends StatelessWidget {
                       children: [
                         Text(
                           'One-Stop Shop for Any Portable Computer',
-                          style: context.displayMedium?.copyWith(
+                          style: context.headlineMedium?.copyWith(
                               color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(
@@ -64,7 +64,8 @@ class WebNotebooksBody extends StatelessWidget {
                         ),
                         Text(
                           'Supplying primary hardware and up to complex servers.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                         const SizedBox(
                           height: 10,
@@ -87,14 +88,16 @@ class WebNotebooksBody extends StatelessWidget {
                         ),
                         Text(
                           'Licensed, supported software soultions required for business intelligence',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Save valuable time and effort. Explore our integrated solutions plan.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                       ],
                     ),
@@ -180,7 +183,10 @@ class WebNotebooksBody extends StatelessWidget {
                         SearchBar(
                           controller: provider.notebookSearchController,
                           trailing: [
-                            const Text('search by brand'),
+                            Text(
+                              'search by brand',
+                              style: context.bodyMedium,
+                            ),
                             Checkbox.adaptive(
                                 value: provider.searchByBrand,
                                 onChanged: (newValue) {
@@ -201,9 +207,13 @@ class WebNotebooksBody extends StatelessWidget {
                         ),
                         DropdownButton(
                             underline: const SizedBox.shrink(),
-                            hint: const Text('select brand'),
+                            hint: Text(
+                              'Select brand',
+                              style: context.bodyLarge,
+                            ),
                             value: provider.notebookFilterSelection,
                             borderRadius: BorderRadius.circular(10),
+                            style: context.bodyLarge,
                             items: const [
                               DropdownMenuItem(
                                 value: 'All',
@@ -266,7 +276,7 @@ class WebNotebooksBody extends StatelessWidget {
                               ),
                               Text(
                                 'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
-                                style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                style: context.bodyLarge?.copyWith(color: Colors.white70),
                               ),
                             ],
                           ),
@@ -313,7 +323,7 @@ class WebNotebooksBody extends StatelessWidget {
                               },
                         child: Text(
                           'Show More',
-                          style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
+                          style: context.bodyLarge?.copyWith(color: AppTheme.darkest),
                         ),
                       ),
                     ),
@@ -323,7 +333,7 @@ class WebNotebooksBody extends StatelessWidget {
                     Center(
                       child: Text(
                         'Couldn\'t find your product? Submit a requsition form and we will find it for you',
-                        style: context.bodyMedium,
+                        style: context.bodyLarge,
                       ),
                     ),
                     const SizedBox(
@@ -356,7 +366,7 @@ class WebNotebooksBody extends StatelessWidget {
                         },
                         child: Text(
                           'Create Requisition Request',
-                          style: context.bodyMedium?.copyWith(color: Colors.white70),
+                          style: context.bodyLarge?.copyWith(color: Colors.white70),
                         ),
                       ),
                     )

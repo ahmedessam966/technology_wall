@@ -14,22 +14,9 @@ class AppControllers extends ChangeNotifier {
   bool _isEnglish = true;
   bool get isEnglish => _isEnglish;
 
-  final GlobalKey<ScaffoldState> _nonWebScaffoldKey = GlobalKey<ScaffoldState>();
-  GlobalKey<ScaffoldState> get nonWebScaffoldKey => _nonWebScaffoldKey;
-
   void changeLocale(bool isEnglish) {
     _isEnglish = isEnglish;
     notifyListeners();
-  }
-
-  void drawerController() {
-    if (_nonWebScaffoldKey.currentState!.isDrawerOpen) {
-      _nonWebScaffoldKey.currentState?.closeDrawer();
-      notifyListeners();
-    } else {
-      _nonWebScaffoldKey.currentState?.openDrawer();
-      notifyListeners();
-    }
   }
 
   void changePage(String page) async {

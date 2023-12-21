@@ -41,7 +41,7 @@ class WebHardwareBody extends StatelessWidget {
                       children: [
                         Text(
                           'One-Stop Shop for Any Printing Purpose',
-                          style: context.displayMedium?.copyWith(
+                          style: context.headlineMedium?.copyWith(
                               color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(
@@ -65,7 +65,8 @@ class WebHardwareBody extends StatelessWidget {
                         ),
                         Text(
                           'Supplying primary hardware and up to complex servers.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                         const SizedBox(
                           height: 10,
@@ -88,14 +89,16 @@ class WebHardwareBody extends StatelessWidget {
                         ),
                         Text(
                           'Licensed, supported software soultions required for business intelligence',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Save valuable time and effort. Explore our integrated solutions plan.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
                       ],
                     ),
@@ -147,7 +150,9 @@ class WebHardwareBody extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
               color: const Color(0xaaf7f7f7).withOpacity(1),
-              height: 1000,
+              height: provider.printerFilterSelection != null && provider.printerFilterSelection!.isNotEmpty
+                  ? 1100
+                  : 1600,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -175,7 +180,10 @@ class WebHardwareBody extends StatelessWidget {
                       SearchBar(
                         controller: provider.printerSearchController,
                         trailing: [
-                          const Text('search by brand'),
+                          Text(
+                            'search by brand',
+                            style: context.bodyMedium,
+                          ),
                           Checkbox.adaptive(
                               value: provider.searchByBrand,
                               onChanged: (newValue) {
@@ -196,9 +204,13 @@ class WebHardwareBody extends StatelessWidget {
                       ),
                       DropdownButton(
                           underline: const SizedBox.shrink(),
-                          hint: const Text('Show by Brand'),
+                          hint: Text(
+                            'Show by Brand',
+                            style: context.bodyLarge,
+                          ),
                           value: provider.printerFilterSelection,
                           borderRadius: BorderRadius.circular(10),
+                          style: context.bodyLarge,
                           items: const [
                             DropdownMenuItem(
                               value: 'All',
@@ -261,7 +273,7 @@ class WebHardwareBody extends StatelessWidget {
                             ),
                             Text(
                               'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
-                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                              style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                           ],
                         ),
@@ -279,45 +291,47 @@ class WebHardwareBody extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  Center(
-                    child: TextButton(
-                      style: ButtonStyle(
-                        elevation: const MaterialStatePropertyAll(0),
-                        overlayColor: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return Colors.transparent;
-                          } else {
-                            return Colors.grey.shade100;
-                          }
-                        }),
-                        shape: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
-                          } else {
-                            return null;
-                          }
-                        }),
-                      ),
-                      onPressed: provider.isLoading
-                          ? null
-                          : () async {
-                              provider.setLoading();
-                              await provider.loadMoreItems(provider.getPrinters());
-                              provider.setLoading();
-                            },
-                      child: Text(
-                        'Show More',
-                        style: context.bodyMedium?.copyWith(color: AppTheme.darkest),
-                      ),
-                    ),
-                  ),
+                  provider.printerFilterSelection == null || provider.printerFilterSelection!.isEmpty
+                      ? Center(
+                          child: TextButton(
+                            style: ButtonStyle(
+                              elevation: const MaterialStatePropertyAll(0),
+                              overlayColor: MaterialStateProperty.resolveWith((states) {
+                                if (states.contains(MaterialState.hovered)) {
+                                  return Colors.transparent;
+                                } else {
+                                  return Colors.grey.shade100;
+                                }
+                              }),
+                              shape: MaterialStateProperty.resolveWith((states) {
+                                if (states.contains(MaterialState.hovered)) {
+                                  return LinearBorder.bottom(side: const BorderSide(color: Colors.black));
+                                } else {
+                                  return null;
+                                }
+                              }),
+                            ),
+                            onPressed: provider.isLoading
+                                ? null
+                                : () async {
+                                    provider.setLoading();
+                                    await provider.loadMoreItems(provider.getPrinters());
+                                    provider.setLoading();
+                                  },
+                            child: Text(
+                              'Show More',
+                              style: context.bodyLarge?.copyWith(color: AppTheme.darkest),
+                            ),
+                          ),
+                        )
+                      : const SizedBox.shrink(),
                   const SizedBox(
                     height: 100,
                   ),
                   Center(
                     child: Text(
                       'Couldn\'t find your product? Submit a requsition form and we will find it for you',
-                      style: context.bodyMedium,
+                      style: context.bodyLarge,
                     ),
                   ),
                   const SizedBox(
@@ -350,7 +364,7 @@ class WebHardwareBody extends StatelessWidget {
                       },
                       child: Text(
                         'Create Requisition Request',
-                        style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        style: context.bodyLarge?.copyWith(color: Colors.white70),
                       ),
                     ),
                   )

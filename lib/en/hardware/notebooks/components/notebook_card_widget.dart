@@ -57,27 +57,27 @@ class NotebookCardWidget extends StatelessWidget {
                 children: [
                   SelectableText(
                     '• Processor: ${notebook?.processor}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Operating System: ${notebook?.os}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Graphics: ${notebook?.graphics}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Memory: ${notebook?.memory}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Storage: ${notebook?.storage}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Display: ${notebook?.display}',
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                 ],
               ),
@@ -116,7 +116,7 @@ class NotebookCardWidget extends StatelessWidget {
                     },
                     child: Text(
                       'Order Now',
-                      style: context.bodyMedium?.copyWith(color: Colors.white70),
+                      style: context.bodyLarge?.copyWith(color: Colors.white70),
                     ),
                   ),
                   Builder(builder: (context) {
@@ -156,13 +156,13 @@ class NotebookCardWidget extends StatelessWidget {
                                 ),
                                 Text(
                                   'Added',
-                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                  style: context.bodyLarge?.copyWith(color: Colors.white70),
                                 ),
                               ],
                             )
                           : Text(
                               'Add to Cart',
-                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                              style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                     );
                   }),
@@ -180,7 +180,7 @@ class NotebookCardWidget extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'Full Specifications',
-                  style: context.bodySmall,
+                  style: context.bodyLarge,
                 ),
               ),
             ),

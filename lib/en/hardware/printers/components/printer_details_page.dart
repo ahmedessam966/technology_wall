@@ -8,7 +8,7 @@ import '../../../shared/tablet/tablet_footer.dart';
 import '../../../shared/web/web_footer.dart';
 import '../mobile/mobile_details_body.dart';
 import '../tablet/tablet_details_body.dart';
-import '../web/web_prrinter_details_body.dart';
+import '../web/web_printer_details_body.dart';
 
 import '../../../../core/controllers/app_controllers.dart';
 

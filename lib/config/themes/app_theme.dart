@@ -19,7 +19,7 @@ class AppTheme extends ChangeNotifier {
           headlineMedium: GoogleFonts.lexend(fontSize: 16.sp),
           headlineSmall: GoogleFonts.lexend(fontSize: 14.sp),
           bodyLarge: GoogleFonts.lexend(fontSize: 12.sp),
-          bodyMedium: GoogleFonts.lexend(fontSize: 10.sp),
+          bodyMedium: GoogleFonts.lexend(fontSize: 10.5.sp),
           bodySmall: GoogleFonts.lexend(fontSize: 8.sp),
 
           //Arabic Fonts
@@ -27,7 +27,7 @@ class AppTheme extends ChangeNotifier {
           titleMedium: GoogleFonts.notoKufiArabic(fontSize: 16.sp),
           titleSmall: GoogleFonts.notoKufiArabic(fontSize: 14.sp),
           displayLarge: GoogleFonts.notoKufiArabic(fontSize: 12.sp),
-          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 10.sp),
+          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 10.5.sp),
           displaySmall: GoogleFonts.notoKufiArabic(fontSize: 8.sp),
         ),
       );

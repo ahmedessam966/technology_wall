@@ -58,27 +58,27 @@ class PrinterCardWidget extends StatelessWidget {
                   SelectableText(
                     '• Printing Capability: ${printer?.ppm} papers/minute',
                     textAlign: TextAlign.justify,
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Printer Family: ${printer?.family}',
                     textAlign: TextAlign.justify,
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Printer Type: ${printer?.type}',
                     textAlign: TextAlign.justify,
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Network Module: ${printer?.network}',
                     textAlign: TextAlign.justify,
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                   SelectableText(
                     '• Ideal Utility: ${printer?.utility}',
                     textAlign: TextAlign.justify,
-                    style: context.bodySmall,
+                    style: context.bodyMedium,
                   ),
                 ],
               ),
@@ -117,7 +117,7 @@ class PrinterCardWidget extends StatelessWidget {
                     },
                     child: Text(
                       'Order Now',
-                      style: context.bodyMedium?.copyWith(color: Colors.white70),
+                      style: context.bodyLarge?.copyWith(color: Colors.white70),
                     ),
                   ),
                   Builder(builder: (context) {
@@ -157,13 +157,13 @@ class PrinterCardWidget extends StatelessWidget {
                                 ),
                                 Text(
                                   'Added',
-                                  style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                  style: context.bodyLarge?.copyWith(color: Colors.white70),
                                 ),
                               ],
                             )
                           : Text(
                               'Add to Cart',
-                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                              style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                     );
                   }),
@@ -186,7 +186,7 @@ class PrinterCardWidget extends StatelessWidget {
                 },
                 child: Text(
                   'Printer Details',
-                  style: context.bodySmall,
+                  style: context.bodyMedium,
                 ),
               ),
             ),

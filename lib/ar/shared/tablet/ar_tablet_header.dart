@@ -42,7 +42,7 @@ class ARTabletHeader extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        provider.changePage('Hardware Products');
+                        // provider.changePage('Hardware Products');
                       },
                       child: Text(
                         'Hardware',
@@ -51,7 +51,7 @@ class ARTabletHeader extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        provider.changePage('Software Products');
+                        // provider.changePage('Software Products');
                       },
                       child: Text(
                         'Software',
@@ -60,7 +60,7 @@ class ARTabletHeader extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        provider.changePage('Software Products');
+                        // provider.changePage('Software Products');
                       },
                       child: Text(
                         'About',
@@ -69,7 +69,7 @@ class ARTabletHeader extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        provider.changePage('Contact Us');
+                        // provider.changePage('Contact Us');
                       },
                       child: Text(
                         'Contact Us',

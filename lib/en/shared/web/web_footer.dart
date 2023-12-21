@@ -68,9 +68,13 @@ class WebFooter extends StatelessWidget {
                                     const SizedBox(
                                       width: 5,
                                     ),
-                                    Text(
-                                      'Dubai - United Arab Emirates',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                    SizedBox(
+                                      width: 250,
+                                      child: Text(
+                                        'Al Madinah - Al Arid District - P. Muhammed Bin Abdulaziz St.',
+                                        overflow: TextOverflow.clip,
+                                        style: context.bodyMedium?.copyWith(color: Colors.white54),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -85,12 +89,12 @@ class WebFooter extends StatelessWidget {
                                     ),
                                     GestureDetector(
                                       onTap: () async {
-                                        final Uri uri = Uri(scheme: 'https', path: 'prorays.tech-wall.me');
+                                        final Uri uri = Uri(scheme: 'https', path: 'prorays.techwall.com.sa');
                                         await launchUrl(uri);
                                       },
                                       child: Text(
-                                        'prorays.technology-wall.me',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        'prorays.techwall.com.sa',
+                                        style: context.bodyMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ),
                                   ],
@@ -106,7 +110,7 @@ class WebFooter extends StatelessWidget {
                                     ),
                                     Text(
                                       '+9722335228',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      style: context.bodyMedium?.copyWith(color: Colors.white54),
                                     ),
                                   ],
                                 ),
@@ -120,8 +124,8 @@ class WebFooter extends StatelessWidget {
                                       width: 5,
                                     ),
                                     Text(
-                                      'info@prorays.tech-wall.me',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      'info@prorays.techwall.com.sa',
+                                      style: context.bodyMedium?.copyWith(color: Colors.white54),
                                     ),
                                   ],
                                 ),
@@ -182,7 +186,7 @@ class WebFooter extends StatelessWidget {
                                     ),
                                     Text(
                                       'Dubai - United Arab Emirates',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      style: context.bodyMedium?.copyWith(color: Colors.white54),
                                     ),
                                   ],
                                 ),
@@ -202,7 +206,7 @@ class WebFooter extends StatelessWidget {
                                       },
                                       child: Text(
                                         'prorays.technology-wall.me',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        style: context.bodyMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ),
                                   ],
@@ -218,7 +222,7 @@ class WebFooter extends StatelessWidget {
                                     ),
                                     Text(
                                       '+9722335228',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      style: context.bodyMedium?.copyWith(color: Colors.white54),
                                     ),
                                   ],
                                 ),
@@ -233,7 +237,7 @@ class WebFooter extends StatelessWidget {
                                     ),
                                     Text(
                                       'info@prorays.tech-wall.me',
-                                      style: context.bodySmall?.copyWith(color: Colors.white54),
+                                      style: context.bodyMedium?.copyWith(color: Colors.white54),
                                     ),
                                   ],
                                 ),
@@ -280,9 +284,14 @@ class WebFooter extends StatelessWidget {
                             'Powered By',
                             style: context.headlineSmall?.copyWith(color: Colors.white70),
                           ),
-                          Image.asset(
-                            'assets/images/hcc.png',
-                            height: 80,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/en/about/accreditation');
+                            },
+                            child: Image.asset(
+                              'assets/images/hcc.png',
+                              height: 80,
+                            ),
                           ),
                         ],
                       ),
@@ -317,47 +326,47 @@ class WebFooter extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/software/sap');
+                              Navigator.pushNamed(context, '/en/software/sap');
                             },
                             child: Text(
                               'SAP Solutions',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/software/sage');
+                              Navigator.pushNamed(context, '/en/software/sage');
                             },
                             child: Text(
                               'Sage ERP',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/software/tally');
+                              Navigator.pushNamed(context, '/en/software/tally');
                             },
                             child: Text(
                               'Tally Solutions',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/software/microsoft');
+                              Navigator.pushNamed(context, '/en/software/microsoft');
                             },
                             child: Text(
                               'Microsoft',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/software/fortinet');
+                              Navigator.pushNamed(context, '/en/software/fortinet');
                             },
                             child: Text(
                               'Fortinet',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           const SizedBox(
@@ -372,56 +381,56 @@ class WebFooter extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/cctv');
+                              Navigator.pushNamed(context, '/en/hardware/cctv');
                             },
                             child: Text(
                               'CCTVs',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/desktops');
+                              Navigator.pushNamed(context, '/en/hardware/desktops');
                             },
                             child: Text(
                               'Desktops',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/firewalls');
+                              Navigator.pushNamed(context, '/en/hardware/firewalls');
                             },
                             child: Text(
                               'Firewalls',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/notebooks');
+                              Navigator.pushNamed(context, '/en/hardware/notebooks');
                             },
                             child: Text(
                               'Notebooks',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/printers');
+                              Navigator.pushNamed(context, '/en/hardware/printers');
                             },
                             child: Text(
                               'Printers',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/hardware/servers');
+                              Navigator.pushNamed(context, '/en/hardware/servers');
                             },
                             child: Text(
                               'Servers',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                         ],
@@ -442,21 +451,21 @@ class WebFooter extends StatelessWidget {
                             onPressed: () {},
                             child: Text(
                               'About Us',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               'Clients',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               'Careers',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           const SizedBox(
@@ -473,21 +482,21 @@ class WebFooter extends StatelessWidget {
                             onPressed: () {},
                             child: Text(
                               'Privacy Policy',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               'Terms of Service',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               'Security',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
                           const SizedBox(
@@ -502,21 +511,21 @@ class WebFooter extends StatelessWidget {
                           ),
                           Text(
                             '+966542575808',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                            style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
                           Text(
-                            'info@tech-wall.me',
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                            'info@techwall.com.sa',
+                            style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
                           Text(
                             'B233, Office 37, Olaya District Computer Market',
                             overflow: TextOverflow.clip,
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                            style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
                           Text(
                             '12211 Riyadh, Saudi Arabia',
                             overflow: TextOverflow.clip,
-                            style: context.bodySmall?.copyWith(color: Colors.white54),
+                            style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
                         ],
                       ),
@@ -565,7 +574,7 @@ class WebFooter extends StatelessWidget {
             child: Center(
               child: Text(
                 '©️ Developed By Technology Wall Team, Technology Wall Corporation. All Rights Reserved',
-                style: context.bodySmall?.copyWith(color: Colors.white54),
+                style: context.bodyMedium?.copyWith(color: Colors.white54),
               ),
             ),
           ),
