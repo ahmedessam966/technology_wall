@@ -60,7 +60,7 @@ class _CustomerPortalState extends State<CustomerPortal> {
                           const Divider(),
                           Center(
                             child: Text(
-                              'Sign in',
+                              'Sign In',
                               style: context.headlineMedium,
                             ),
                           ),
