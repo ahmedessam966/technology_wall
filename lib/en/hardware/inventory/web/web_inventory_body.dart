@@ -131,7 +131,7 @@ class WebInventoryBody extends StatelessWidget {
                     Center(
                       child: Text(
                         'All Categories',
-                        style: context.displaySmall?.copyWith(fontWeight: FontWeight.w600),
+                        style: context.headlineMedium,
                       ),
                     ),
                     const SizedBox(

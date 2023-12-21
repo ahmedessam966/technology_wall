@@ -72,6 +72,13 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
+                            } else if (app.pageTitle.endsWith('Home')) {
+                              return LinearBorder.bottom(
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
+                              );
                             } else {
                               return const LinearBorder(
                                 side: BorderSide(color: Colors.transparent),
@@ -80,7 +87,42 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/en/hardware');
+                          app.pageTitle.endsWith('Home') ? null : Navigator.pushNamed(context, '/en');
+                        },
+                        child: Text('Home', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                          overlayColor: MaterialStateProperty.resolveWith((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              return Colors.white10;
+                            } else {
+                              return null;
+                            }
+                          }),
+                          shape: MaterialStateProperty.resolveWith((states) {
+                            if (states.contains(MaterialState.hovered)) {
+                              return LinearBorder.bottom(
+                                side: const BorderSide(color: Colors.white54),
+                              );
+                            } else if (app.pageTitle.endsWith('Hardware')) {
+                              return LinearBorder.bottom(
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
+                              );
+                            } else {
+                              return const LinearBorder(
+                                side: BorderSide(color: Colors.transparent),
+                              );
+                            }
+                          }),
+                        ),
+                        onPressed: () {
+                          app.pageTitle.endsWith('Hardware')
+                              ? null
+                              : Navigator.pushNamed(context, '/en/hardware');
                         },
                         child: Text('Hardware', style: context.bodyLarge?.copyWith(color: Colors.white)),
                       ),
@@ -98,6 +140,13 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
+                            } else if (app.pageTitle.endsWith('Software')) {
+                              return LinearBorder.bottom(
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
+                              );
                             } else {
                               return const LinearBorder(
                                 side: BorderSide(color: Colors.transparent),
@@ -106,7 +155,9 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/en/software');
+                          app.pageTitle.endsWith('Software')
+                              ? null
+                              : Navigator.pushNamed(context, '/en/software');
                         },
                         child: Text('Software', style: context.bodyLarge?.copyWith(color: Colors.white)),
                       ),
@@ -124,6 +175,13 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
+                            } else if (app.pageTitle.endsWith('SAP')) {
+                              return LinearBorder.bottom(
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
+                              );
                             } else {
                               return const LinearBorder(
                                 side: BorderSide(color: Colors.transparent),
@@ -132,7 +190,9 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/en/software/sap');
+                          app.pageTitle.endsWith('SAP')
+                              ? null
+                              : Navigator.pushNamed(context, '/en/software/sap');
                         },
                         child: Text('SAP Solutions', style: context.bodyLarge?.copyWith(color: Colors.white)),
                       ),
@@ -150,29 +210,12 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
-                            } else {
-                              return const LinearBorder(
-                                side: BorderSide(color: Colors.transparent),
-                              );
-                            }
-                          }),
-                        ),
-                        onPressed: () {},
-                        child: Text('Services', style: context.bodyLarge?.copyWith(color: Colors.white)),
-                      ),
-                      TextButton(
-                        style: ButtonStyle(
-                          overlayColor: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return Colors.white10;
-                            } else {
-                              return null;
-                            }
-                          }),
-                          shape: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
+                            } else if (app.pageTitle.endsWith('About')) {
                               return LinearBorder.bottom(
-                                side: const BorderSide(color: Colors.white54),
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
                               );
                             } else {
                               return const LinearBorder(
@@ -182,7 +225,7 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/en/about');
+                          app.pageTitle.endsWith('About') ? null : Navigator.pushNamed(context, '/en/about');
                         },
                         child: Text('About TW', style: context.bodyLarge?.copyWith(color: Colors.white)),
                       ),
@@ -200,6 +243,13 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
+                            } else if (app.pageTitle.endsWith('Contact Us')) {
+                              return LinearBorder.bottom(
+                                size: 0.5,
+                                side: const BorderSide(
+                                  color: Colors.white,
+                                ),
+                              );
                             } else {
                               return const LinearBorder(
                                 side: BorderSide(color: Colors.transparent),
@@ -208,7 +258,9 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/en/contact-us');
+                          app.pageTitle.endsWith('Contact Us')
+                              ? null
+                              : Navigator.pushNamed(context, '/en/contact-us');
                         },
                         child: Text('Contact Us', style: context.bodyLarge?.copyWith(color: Colors.white)),
                       ),
