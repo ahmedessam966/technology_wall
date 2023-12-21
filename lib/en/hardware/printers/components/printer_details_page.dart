@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:provider/provider.dart';
-
 import 'package:technology_wall/core/models/printer_model.dart';
 import '../../../shared/mobile/mobile_footer.dart';
 import '../../../shared/tablet/tablet_footer.dart';
@@ -9,8 +7,6 @@ import '../../../shared/web/web_footer.dart';
 import '../mobile/mobile_details_body.dart';
 import '../tablet/tablet_details_body.dart';
 import '../web/web_printer_details_body.dart';
-
-import '../../../../core/controllers/app_controllers.dart';
 
 class PrinterDetailsPage extends StatefulWidget {
   final PrinterModel? printer;
@@ -34,7 +30,6 @@ class _PrinterDetailsPageState extends State<PrinterDetailsPage> {
     final double sw = MediaQuery.of(context).size.width;
     final double sh = MediaQuery.of(context).size.height;
     final double ar = MediaQuery.of(context).size.aspectRatio;
-    final provider = Provider.of<AppControllers>(context, listen: true);
     final scroller = ScrollController();
     return Semantics(
       label: '${printer?.brand} ${printer?.model}',

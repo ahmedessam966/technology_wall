@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
 
 import '../../../config/themes/app_theme.dart';
 
@@ -20,7 +18,6 @@ class ProductCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return SizedBox(
       height: 500,
       child: ElevatedButton(

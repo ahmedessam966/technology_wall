@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../../core/controllers/app_controllers.dart';
 import '../../../core/controllers/auth_controllers.dart';
 
 class TabletHeader extends StatelessWidget {
@@ -12,7 +10,6 @@ class TabletHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AppControllers>(context, listen: true);
     return Semantics(
       header: true,
       container: true,
