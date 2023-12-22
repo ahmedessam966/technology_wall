@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../core/controllers/metadata_controllers.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
@@ -19,6 +20,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | Home',
+        'Technology Wall Home Page. Browse and explore our unique-quality services including software implementations for SAP and Microsoft. Find the best-performing hardware devices for your enteprise from renowned brands such as Dell, HP, Canon, Apple, and much more.');
+    metadataFunctions.updateHeaderMetaData();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
