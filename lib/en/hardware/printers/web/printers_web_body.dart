@@ -11,8 +11,8 @@ import '../components/refined_printers_builder_widget.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/cart_controllers.dart';
 
-class WebHardwareBody extends StatelessWidget {
-  const WebHardwareBody({super.key});
+class WebPrintersBody extends StatelessWidget {
+  const WebPrintersBody({super.key});
 
   @override
   Widget build(BuildContext context) {

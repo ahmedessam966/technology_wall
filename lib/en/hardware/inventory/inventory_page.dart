@@ -78,11 +78,7 @@ class _InventoryPageState extends State<InventoryPage> {
                       ? const WebInventoryBody()
                       : sw < 1280 && sw >= 768
                           ? const TabletInventoryBody()
-                          : MobileInventoryBody(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            ),
+                          : const MobileInventoryBody(),
                 ),
                 sw >= 1280
                     ? const WebFooter()

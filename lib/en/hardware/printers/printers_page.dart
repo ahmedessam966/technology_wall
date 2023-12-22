@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/en/hardware/printers/mobile/mobile_printers_body.dart';
+import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';
@@ -19,6 +21,15 @@ class PrintersPage extends StatefulWidget {
 }
 
 class _PrintersPageState extends State<PrintersPage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | Printers',
+        'All printing purposes available. Available types: color laserjet, monochrome laserjet, dot-matrix, heavy-duty office printer, all-in-one printers. Available brands: HP, Canon, Zebra, and Epson');
+    metadataFunctions.updateHeaderMetaData();
+  }
+
   @override
   void dispose() {
     Provider.of<InventoryControllers>(context, listen: false).printersList.clear();
@@ -70,10 +81,10 @@ class _PrintersPageState extends State<PrintersPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
                   child: sw >= 1280
-                      ? const WebHardwareBody()
+                      ? const WebPrintersBody()
                       : sw < 1280 && sw >= 768
                           ? const SizedBox()
-                          : const SizedBox(),
+                          : const MobilePrintersBody(),
                 ),
                 sw >= 1280
                     ? const WebFooter()

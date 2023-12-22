@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/metadata_controllers.dart';
 
 import '../components/horizontal_product_category_card.dart';
 
@@ -10,6 +11,10 @@ class MobileHomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        'Enterprise Essentials\n ERP Essentials \n Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants. \n Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7. \n Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
+        'en');
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +33,7 @@ class MobileHomeBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SelectableText('Hardware Services',
-                style: context.bodyMedium?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
+                style: context.bodyLarge?.copyWith(color: const Color(0xaaf7f7f7).withOpacity(1))),
             SizedBox(
               width: 0.01.w,
             ),
@@ -49,7 +54,7 @@ class MobileHomeBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SelectableText('Software Services',
-                style: context.bodyMedium?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
+                style: context.bodyLarge?.copyWith(color: const Color(0xaaf7f7f7).withOpacity(1))),
             SizedBox(
               width: 0.01.w,
             ),
@@ -74,6 +79,7 @@ class MobileHomeBody extends StatelessWidget {
         ),
         ElevatedButton(
           style: ButtonStyle(
+            padding: MaterialStatePropertyAll(EdgeInsets.all(10.px)),
             elevation: const MaterialStatePropertyAll(0),
             shape: MaterialStatePropertyAll(
               RoundedRectangleBorder(
@@ -178,11 +184,12 @@ class MobileHomeBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 2.h,
+                height: 1.h,
               ),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(10.px)),
                       elevation: const MaterialStatePropertyAll(0),
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
@@ -224,78 +231,93 @@ class MobileHomeBody extends StatelessWidget {
                 height: 2.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsone.png?alt=media&token=bf4eb120-1472-410c-8d21-c43f587d98cd',
-                    height: 50.px,
-                    width: 50.px,
+                    height: 70.px,
+                    width: 70.px,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fs4hana.png?alt=media&token=79b3e395-e676-4d2b-b36f-cb9b746281c2',
-                    height: 50.px,
-                    width: 50.px,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsage.png?alt=media&token=71be32ed-48c6-4633-b054-de0f42288e93',
-                    height: 50.px,
-                    width: 50.px,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ftally.png?alt=media&token=cc2a18b7-5796-4ad5-96e6-a5503ed1b65e',
-                    height: 50.px,
-                    width: 50.px,
+                    height: 70.px,
+                    width: 70.px,
                   ),
                 ],
               ),
               SizedBox(
-                height: 0.01.h,
+                height: 1.h,
               ),
               SelectableText(
                 'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
-                style: context.bodySmall,
+                style: context.headlineSmall,
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: 0.01.h,
+                height: 1.h,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: SelectableText(
-                  'Learn more about our our SAP accreditation and parternship',
-                  style: context.bodySmall?.copyWith(
-                    color: Colors.blue.shade700,
-                    decoration: TextDecoration.underline,
+              Center(
+                child: GestureDetector(
+                  onTap: () {},
+                  child: SelectableText(
+                    'Learn more about our our SAP accreditation and parternship',
+                    style: context.bodyLarge?.copyWith(
+                      color: Colors.blue.shade700,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 0.01.h,
+                height: 1.h,
+              ),
+              const Divider(),
+              SizedBox(
+                height: 1.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsage.png?alt=media&token=71be32ed-48c6-4633-b054-de0f42288e93',
+                    height: 70.px,
+                    width: 70.px,
+                  ),
+                  Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ftally.png?alt=media&token=cc2a18b7-5796-4ad5-96e6-a5503ed1b65e',
+                    height: 90.px,
+                    width: 90.px,
+                  ),
+                ],
               ),
               SelectableText(
-                'Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7.',
-                style: context.bodyMedium,
+                'Technology Wall is licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7.',
+                style: context.headlineSmall,
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: 0.01.h,
+                height: 1.h,
               ),
               SelectableText(
                 'Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
-                style: context.bodyMedium,
+                style: context.headlineSmall,
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: 0.01.h,
+                height: 1.h,
               ),
-              const SelectableText(
-                  'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:'),
+              SelectableText(
+                'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:',
+                style: context.headlineSmall,
+                textAlign: TextAlign.justify,
+              ),
               SizedBox(
-                height: 0.025.h,
+                height: 2.h,
               ),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(10.px)),
                     elevation: const MaterialStatePropertyAll(0),
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(
@@ -314,7 +336,7 @@ class MobileHomeBody extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'Contact Pre-Sales',
-                    style: context.bodyMedium?.copyWith(color: Colors.white70),
+                    style: context.bodyLarge?.copyWith(color: Colors.white70),
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/core/controllers/metadata_controllers.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/app_controllers.dart';
@@ -13,6 +14,10 @@ class PrinterCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.brand} Printer, ${printer?.model} Printer',
+        'en');
     return Semantics(
       label: '${printer?.title}',
       value:

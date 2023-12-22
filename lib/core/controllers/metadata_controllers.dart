@@ -5,10 +5,7 @@ import 'dart:html' as html;
 class MetadataControllers {
   void updateMetaData(String title, String content) {
     html.document.head!.children.removeWhere((element) => element is html.MetaElement);
-    html.document.body!.children.removeWhere((element) => element is html.HeadingElement);
-    html.document.body?.append(html.HeadingElement.h1()
-      ..title = title
-      ..hidden = true);
+
     html.document.head?.append(html.MetaElement()
       ..name = 'description'
       ..title = title
@@ -17,13 +14,15 @@ class MetadataControllers {
     html.document.head!.append(html.MetaElement()
       ..name = 'viewport'
       ..content = 'width=device-width, initial-scale=1');
+
+    html.document.head!.setAttribute('title', title);
   }
 
   void updateHeaderMetaData() {
-    html.document.body!.children.removeWhere((element) => element == html.Element.header());
-    final headerElement = html.Element.header()
+    html.document.body!.children.removeWhere((element) => element is html.DivElement);
+    final headerElement = html.DivElement()
       ..children = [
-        html.Element.div()
+        html.Element.header()
           ..children = [
             html.Element.nav()
               ..id = 'web-navbar'
@@ -55,5 +54,37 @@ class MetadataControllers {
           ]
       ];
     html.document.body!.append(headerElement);
+  }
+
+  void injectPageSpecificContent(String paragraph, String lang) {
+    html.document.body!.children.removeWhere((element) => element is html.ParagraphElement);
+
+    html.document.body?.append(html.ParagraphElement()
+      ..lang = lang
+      ..hidden = true
+      ..innerHtml = paragraph);
+  }
+
+  void injectAllProducts(String lang, List products) {
+    html.document.body!.children.removeWhere((element) => element is html.TextAreaElement);
+    for (final child in products) {
+      html.document.body!.append(html.TextAreaElement()
+        ..lang = lang
+        ..hidden = true
+        ..title = child.title
+        ..innerHtml = '${child.brand} ${child.title} (${child.model})');
+    }
+  }
+
+  void injectProductSpecs(String specs, String lang) {
+    html.document.body!.children.removeWhere((element) => element is html.SpanElement);
+    html.document.body?.append(html.SpanElement()
+      ..lang = lang
+      ..hidden = true
+      ..innerHtml = specs);
+  }
+
+  void clearInjectedProduct() {
+    html.document.body!.children.removeWhere((element) => element is html.SpanElement);
   }
 }

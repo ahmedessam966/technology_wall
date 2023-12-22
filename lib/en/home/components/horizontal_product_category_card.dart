@@ -33,21 +33,21 @@ class HorizontalProductCategoryCard extends StatelessWidget {
             flex: isMobile ? 4 : 1,
             child: Image.network(
               imagePath,
-              height: 55.px,
-              width: 55.px,
+              height: 70.px,
+              width: 70.px,
             ),
           ),
           SizedBox(
             width: 0.5.w,
           ),
-          const SizedBox(
-            height: 50,
-            child: VerticalDivider(
+          SizedBox(
+            height: 60.px,
+            child: const VerticalDivider(
               color: Colors.black87,
             ),
           ),
-          const SizedBox(
-            width: 10,
+          SizedBox(
+            width: 0.5.w,
           ),
           Expanded(
             flex: 10,
@@ -59,7 +59,7 @@ class HorizontalProductCategoryCard extends StatelessWidget {
                 Text(
                   category,
                   style: isMobile
-                      ? context.headlineSmall?.copyWith(color: AppTheme.darkest.withOpacity(1))
+                      ? context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1))
                       : context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                 ),
               ],

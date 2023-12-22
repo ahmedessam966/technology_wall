@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../../config/themes/app_theme.dart';
 
 class MobileInventoryCategoryCard extends StatelessWidget {
-  final double sh;
-  final double sw;
   final String category;
   final String imagePath;
   final dynamic onPressed;
-  const MobileInventoryCategoryCard(
-      {super.key,
-      required this.category,
-      required this.imagePath,
-      this.onPressed,
-      required this.sh,
-      required this.sw});
+  const MobileInventoryCategoryCard({
+    super.key,
+    required this.category,
+    required this.imagePath,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: sh * 0.2,
+      height: 15.h,
       child: ElevatedButton(
         style: ButtonStyle(
           padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
@@ -43,12 +41,13 @@ class MobileInventoryCategoryCard extends StatelessWidget {
         child: Flex(
           direction: Axis.vertical,
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 5,
+              flex: 10,
               child: Image.network(
                 imagePath,
-                height: sh * 0.1,
+                height: 70.px,
               ),
             ),
             const Spacer(),
@@ -56,7 +55,7 @@ class MobileInventoryCategoryCard extends StatelessWidget {
               flex: 2,
               child: Text(
                 category,
-                style: context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
+                style: context.headlineMedium?.copyWith(color: AppTheme.darkest.withOpacity(1)),
               ),
             ),
             const Spacer()
