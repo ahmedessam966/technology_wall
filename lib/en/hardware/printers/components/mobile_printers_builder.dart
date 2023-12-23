@@ -52,9 +52,12 @@ class MobilePrintersBuilder extends StatelessWidget {
                         ),
                       );
                     } else {
-                      return ListView.builder(
+                      return ListView.separated(
+                          separatorBuilder: (context, index) => SizedBox(
+                                height: 2.h,
+                              ),
                           physics: const RangeMaintainingScrollPhysics(),
-                          itemCount: snapshot.data?.length,
+                          itemCount: snapshot.data!.length,
                           itemBuilder: (context, index) {
                             final printer = snapshot.data?[index];
                             return MobilePrinterCard(printer: printer);

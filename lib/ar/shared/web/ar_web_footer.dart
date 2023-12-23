@@ -282,9 +282,14 @@ class ARWebFooter extends StatelessWidget {
                               'Powered By',
                               style: context.headlineSmall?.copyWith(color: Colors.white70),
                             ),
-                            Image.asset(
-                              'assets/images/hcc.png',
-                              height: 80,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/ar/about/accreditation');
+                              },
+                              child: Image.asset(
+                                'assets/images/hcc.png',
+                                height: 80,
+                              ),
                             ),
                           ],
                         ),

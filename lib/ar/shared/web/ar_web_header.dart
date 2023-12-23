@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
+import '../../../en/shared/en_language_redirect.dart';
 import '../../../core/controllers/auth_controllers.dart';
 
 class ARWebHeader extends StatelessWidget {
@@ -278,7 +279,8 @@ class ARWebHeader extends StatelessWidget {
                     ),
                     onPressed: () async {
                       app.changeLocale(true);
-                      Navigator.pushReplacementNamed(context, '/en');
+                      Navigator.pushReplacement(
+                          context, MaterialPageRoute(builder: (context) => const EnLanguageRedirect()));
                     },
                     child: Text('English', style: context.headlineSmall?.copyWith(color: Colors.white70)),
                   ),

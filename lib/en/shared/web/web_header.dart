@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
+import '../language_redirect.dart';
 
 import '../../../core/controllers/auth_controllers.dart';
 
@@ -210,7 +211,8 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
-                            } else if (app.pageTitle.endsWith('About')) {
+                            } else if (app.pageTitle.endsWith('Software') ||
+                                app.pageTitle.endsWith('Accreditation')) {
                               return LinearBorder.bottom(
                                 size: 0.5,
                                 side: const BorderSide(
@@ -326,7 +328,8 @@ class WebHeader extends StatelessWidget {
                   ),
                   onPressed: () async {
                     app.changeLocale(false);
-                    Navigator.pushReplacementNamed(context, '/ar');
+                    Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (context) => const LanguageRedirect()));
                   },
                   child: Text('العربية', style: context.titleSmall?.copyWith(color: Colors.white70)),
                 ),

@@ -53,7 +53,42 @@ class MetadataControllers {
               ]
           ]
       ];
+
+    final footerElement = html.DivElement()
+      ..children = [
+        html.Element.footer()
+          ..children = [
+            html.Element.nav()
+              ..id = 'web-footer'
+              ..lang = 'en'
+              ..children = [
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en'
+                  ..title = 'Homepage URL',
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en/hardware'
+                  ..title = 'Hardware URL',
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en/software'
+                  ..title = 'Software URL',
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en/sap'
+                  ..title = 'SAP ERP URL',
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en/about'
+                  ..title = 'About URL',
+                html.AnchorElement()
+                  ..href = 'https://techwall.com.sa/en/contact-us'
+                  ..title = 'Contact Us URL',
+                html.ButtonElement()
+                  ..value = 'portal_login'
+                  ..name = 'portal_button'
+                  ..title = 'Contact Us URL',
+              ]
+          ]
+      ];
     html.document.body!.append(headerElement);
+    html.document.body!.append(footerElement);
   }
 
   void injectPageSpecificContent(String paragraph, String lang) {
