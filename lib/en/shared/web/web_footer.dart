@@ -479,7 +479,9 @@ class WebFooter extends StatelessWidget {
                             height: 10,
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/en/privacy');
+                            },
                             child: Text(
                               'Privacy Policy',
                               style: context.bodyMedium?.copyWith(color: Colors.white54),

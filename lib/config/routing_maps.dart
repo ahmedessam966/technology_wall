@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:technology_wall/facebook_redirect.dart';
+
 import '../pages_index.dart';
 
 class RoutingMaps {
   static final Map<String, Widget Function(BuildContext)> routingMap = {
-    '/en?fbclid=IwAR3L4OEQoLJ3BRpG3lGdKkLcH9QXfuDZIsRkbytn6hWCA4IkowUtA4CH47M': (context) =>
-        const FacebookRedirect(),
     '/en': (context) => const HomePage(),
     '/en/about': (context) => const AboutPage(),
     '/en/about/accreditation': (context) => const AccreditationPage(),
