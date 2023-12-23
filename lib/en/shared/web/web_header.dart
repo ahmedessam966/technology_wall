@@ -211,7 +211,7 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
-                            } else if (app.pageTitle.endsWith('Software') ||
+                            } else if (app.pageTitle.endsWith('About') ||
                                 app.pageTitle.endsWith('Accreditation')) {
                               return LinearBorder.bottom(
                                 size: 0.5,

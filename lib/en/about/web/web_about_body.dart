@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
 
-class WebAccreditationBody extends StatelessWidget {
-  const WebAccreditationBody({super.key});
+class WebAboutBody extends StatelessWidget {
+  const WebAboutBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
     metadataControllers.injectPageSpecificContent(
-        'Accreditation Page\n SAP ERP Accreditation \n Learn more about our partnership with HCC Middle East for supplying and implementing SAP Business One ERP Solutions. \n To ensure reliable quality and a competitve performance, Technology Wall sought to be a certified operator of SAP Business One ERP Solutions in Saudi Arabia. Powered by HCC Middle East, a certfied SAP Soultions provider in Dubai, United Arab Emirates, Technology Wall has made it possible to provide excelsior SAP implementation services and consultations. \n Enriching the market with strong partnerships. \n As part of our vision, Technology Wall is committed to providing top-level service qualities regardless of the required task. Every client is just as valuable as the next. At Technology Wall, we relentlessy seek flexible accommodations to suffice each and every business requirement. We understand VALUE, which is why our operations are always audited with international quality standardizations that ultimately benefits our strategic partners, potential partners and prospects, and our clients.',
+        'About Page\n  Discover what drives Technology Wall. Our motivation, vision, and goals. \n The beginning of Technology Wall; how it started. \n Founded by Muhib Marghilani, Technology Wall\'s General Director, and Essameldin Ahmed, Technology Wall\'s Regional MENA Director, the origins of Technology Wall extend back to 2000, which have then transformed to establish a pioneering entity in the field of technology and information systems. Technology Wall has maintained sustainable and feasible expansion strategies that have allowed for the entity\'s growth for the past 23 years, providing unparalleled quality services for more than 50 clients. \n Technology Wall aims to be a major contributor in the digitization initiative in Saudi Arabia. \n In line with the vision of the Kingdom of Saudi Arabia for the year 2030, we aim to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
         'en');
 
     return Column(
@@ -57,6 +57,16 @@ class WebAccreditationBody extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 80),
+                      child: Center(
+                        child: Text(
+                          'About Us',
+                          style: context.headlineLarge
+                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -70,23 +80,6 @@ class WebAccreditationBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3',
-                    height: 80,
-                  ),
-                  Image.asset(
-                    'assets/images/hcc.png',
-                    height: 80,
-                  ),
-                  Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsone.png?alt=media&token=bf4eb120-1472-410c-8d21-c43f587d98cd',
-                    height: 100,
-                  ),
-                ],
-              ),
               const SizedBox(
                 height: 50,
               ),
@@ -98,7 +91,7 @@ class WebAccreditationBody extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Enriching the market with strong partnerships',
+                          'The beginning of Technology Wall; how it started.',
                           overflow: TextOverflow.clip,
                           style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600, fontSize: 60),
                         ),
@@ -106,7 +99,7 @@ class WebAccreditationBody extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'To ensure reliable quality and a competitve performance, Technology Wall sought to be a certified operator of SAP Business One ERP Solutions in Saudi Arabia. Powered by HCC Middle East Consultancy FZCO, a certfied SAP Solutions provider in Dubai, United Arab Emirates, Technology Wall has made it possible to provide excelsior SAP implementation services and consultations.',
+                          'Founded by Muhib Marghilani, Technology Wall\'s General Director, and Essameldin Ahmed, Technology Wall\'s Regional MENA Director, the origins of Technology Wall extend back to 2000, which have then transformed to establish a pioneering entity in the field of technology and information systems. Technology Wall has maintained sustainable and feasible expansion strategies that have allowed for the entity\'s growth for the past 23 years, providing unparalleled quality services for more than 50 clients.',
                           style: context.bodyLarge,
                         ),
                       ],
@@ -115,18 +108,90 @@ class WebAccreditationBody extends StatelessWidget {
                   const Spacer(),
                   Expanded(
                     flex: 4,
-                    child: Container(
+                    child: SizedBox(
                       height: 400,
-                      padding: EdgeInsets.zero,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 3, color: Colors.grey),
+                                boxShadow: const [
+                                  BoxShadow(offset: Offset(0, 0), color: Colors.black45, blurRadius: 3),
+                                ],
+                              ),
+                              child: const CircleAvatar(
+                                radius: 90,
+                                backgroundImage: AssetImage('assets/images/essam.png'),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 3, color: Colors.grey),
+                                boxShadow: const [
+                                  BoxShadow(offset: Offset(0, 0), color: Colors.black45, blurRadius: 3),
+                                ],
+                              ),
+                              child: const CircleAvatar(
+                                radius: 90,
+                                backgroundImage: AssetImage('assets/images/essam.png'),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Flex(
+                direction: Axis.horizontal,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      height: 450,
                       decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.black45),
                         borderRadius: const BorderRadius.all(Radius.zero),
                         image: const DecorationImage(
-                            image: AssetImage('assets/images/partner.jpg'), fit: BoxFit.cover),
+                            image: AssetImage('assets/images/aspire.webp'), fit: BoxFit.cover),
                         boxShadow: const [
                           BoxShadow(color: Colors.black26, offset: Offset(5, 5), blurRadius: 2),
                         ],
                       ),
+                    ),
+                  ),
+                  const Spacer(),
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Technology Wall aims to be a major contributor in the digitization initiative in Saudi Arabia.',
+                          overflow: TextOverflow.clip,
+                          style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600, fontSize: 60),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'In line with the vision of the Kingdom of Saudi Arabia for the year 2030, we aim to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
+                          style: context.bodyLarge,
+                        ),
+                      ],
                     ),
                   ),
                 ],

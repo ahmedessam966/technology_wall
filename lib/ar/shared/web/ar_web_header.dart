@@ -74,6 +74,13 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
+                              } else if (app.pageTitle.endsWith('Home')) {
+                                return LinearBorder.bottom(
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                );
                               } else {
                                 return const LinearBorder(
                                   side: BorderSide(color: Colors.transparent),
@@ -82,7 +89,42 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/ar/hardware');
+                            app.pageTitle.endsWith('/ar') ? null : Navigator.pushNamed(context, '/ar');
+                          },
+                          child: Text('الرئيسية', style: context.displayLarge?.copyWith(color: Colors.white)),
+                        ),
+                        TextButton(
+                          style: ButtonStyle(
+                            overlayColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return Colors.white10;
+                              } else {
+                                return null;
+                              }
+                            }),
+                            shape: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return LinearBorder.bottom(
+                                  side: const BorderSide(color: Colors.white54),
+                                );
+                              } else if (app.pageTitle.endsWith('Hardware')) {
+                                return LinearBorder.bottom(
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                );
+                              } else {
+                                return const LinearBorder(
+                                  side: BorderSide(color: Colors.transparent),
+                                );
+                              }
+                            }),
+                          ),
+                          onPressed: () {
+                            app.pageTitle.endsWith('Hardware')
+                                ? null
+                                : Navigator.pushNamed(context, '/ar/hardware');
                           },
                           child: Text('الأجهزة', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
@@ -100,6 +142,13 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
+                              } else if (app.pageTitle.endsWith('Software')) {
+                                return LinearBorder.bottom(
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                );
                               } else {
                                 return const LinearBorder(
                                   side: BorderSide(color: Colors.transparent),
@@ -108,7 +157,9 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/ar/software');
+                            app.pageTitle.endsWith('Software')
+                                ? null
+                                : Navigator.pushNamed(context, '/ar/software');
                           },
                           child:
                               Text('البرمجيات', style: context.displayLarge?.copyWith(color: Colors.white)),
@@ -127,6 +178,13 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
+                              } else if (app.pageTitle.endsWith('SAP')) {
+                                return LinearBorder.bottom(
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                );
                               } else {
                                 return const LinearBorder(
                                   side: BorderSide(color: Colors.transparent),
@@ -135,7 +193,9 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/ar/oftware/sap');
+                            app.pageTitle.endsWith('SAP')
+                                ? null
+                                : Navigator.pushNamed(context, '/ar/software/sap');
                           },
                           child: Text('حلول SAP', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
@@ -153,29 +213,13 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
-                              } else {
-                                return const LinearBorder(
-                                  side: BorderSide(color: Colors.transparent),
-                                );
-                              }
-                            }),
-                          ),
-                          onPressed: () {},
-                          child: Text('الخدمات', style: context.displayLarge?.copyWith(color: Colors.white)),
-                        ),
-                        TextButton(
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return Colors.white10;
-                              } else {
-                                return null;
-                              }
-                            }),
-                            shape: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
+                              } else if (app.pageTitle.endsWith('About') ||
+                                  app.pageTitle.endsWith('Accreditation')) {
                                 return LinearBorder.bottom(
-                                  side: const BorderSide(color: Colors.white54),
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
                                 );
                               } else {
                                 return const LinearBorder(
@@ -185,7 +229,9 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/ar/about');
+                            app.pageTitle.endsWith('About')
+                                ? null
+                                : Navigator.pushNamed(context, '/ar/about');
                           },
                           child:
                               Text('عن الشركة', style: context.displayLarge?.copyWith(color: Colors.white)),
@@ -204,6 +250,13 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
+                              } else if (app.pageTitle.endsWith('Contact Us')) {
+                                return LinearBorder.bottom(
+                                  size: 0.5,
+                                  side: const BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                );
                               } else {
                                 return const LinearBorder(
                                   side: BorderSide(color: Colors.transparent),
@@ -212,7 +265,9 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '/ar/contact-us');
+                            app.pageTitle.endsWith('Contact Us')
+                                ? null
+                                : Navigator.pushNamed(context, '/ar/contact-us');
                           },
                           child:
                               Text('تواصل معنا', style: context.displayLarge?.copyWith(color: Colors.white)),
