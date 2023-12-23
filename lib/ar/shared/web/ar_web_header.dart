@@ -1,9 +1,13 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
-import '../../../en/shared/en_language_redirect.dart';
 import '../../../core/controllers/auth_controllers.dart';
+import 'dart:html' as html;
+
+import '../../../en/shared/en_language_redirect.dart';
 
 class ARWebHeader extends StatelessWidget {
   const ARWebHeader({super.key});
@@ -74,7 +78,7 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
-                              } else if (app.pageTitle.endsWith('Home')) {
+                              } else if (app.pageTitle.endsWith('Ar')) {
                                 return LinearBorder.bottom(
                                   size: 0.5,
                                   side: const BorderSide(
@@ -89,7 +93,7 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            app.pageTitle.endsWith('/ar') ? null : Navigator.pushNamed(context, '/ar');
+                            app.pageTitle.endsWith('Ar') ? null : Navigator.pushNamed(context, '/ar');
                           },
                           child: Text('الرئيسية', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
@@ -333,9 +337,18 @@ class ARWebHeader extends StatelessWidget {
                       }),
                     ),
                     onPressed: () async {
+                      String current = html.window.location.href;
+                      int indexOfEn = current.indexOf("/ar/");
+                      String destination = current.substring(indexOfEn + 4);
                       app.changeLocale(true);
                       Navigator.pushReplacement(
-                          context, MaterialPageRoute(builder: (context) => const EnLanguageRedirect()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EnLanguageRedirect(
+                            url: destination,
+                          ),
+                        ),
+                      );
                     },
                     child: Text('English', style: context.headlineSmall?.copyWith(color: Colors.white70)),
                   ),

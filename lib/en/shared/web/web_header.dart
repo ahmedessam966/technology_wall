@@ -1,10 +1,13 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
-import '../language_redirect.dart';
+import '../../../ar/shared/web/language_redirect.dart';
 
 import '../../../core/controllers/auth_controllers.dart';
+import 'dart:html' as html;
 
 class WebHeader extends StatelessWidget {
   const WebHeader({super.key});
@@ -327,9 +330,18 @@ class WebHeader extends StatelessWidget {
                     }),
                   ),
                   onPressed: () async {
+                    String current = html.window.location.href;
+                    int indexOfEn = current.indexOf("/en/");
+                    String destination = current.substring(indexOfEn + 4);
                     app.changeLocale(false);
                     Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const LanguageRedirect()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LanguageRedirect(
+                          url: destination,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('العربية', style: context.titleSmall?.copyWith(color: Colors.white70)),
                 ),

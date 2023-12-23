@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class EnLanguageRedirect extends StatefulWidget {
-  const EnLanguageRedirect({super.key});
+  final String url;
+  const EnLanguageRedirect({super.key, required this.url});
 
   @override
   State<EnLanguageRedirect> createState() => _EnLanguageRedirectState();
@@ -12,8 +13,9 @@ class _EnLanguageRedirectState extends State<EnLanguageRedirect> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, '/en');
+      Navigator.pushReplacementNamed(context, '/en/${widget.url}');
     });
   }
 
