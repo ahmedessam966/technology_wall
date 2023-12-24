@@ -23,12 +23,12 @@ class AppTheme extends ChangeNotifier {
           bodySmall: GoogleFonts.lexend(fontSize: 8.sp),
 
           //Arabic Fonts
-          titleLarge: GoogleFonts.notoKufiArabic(fontSize: 18.sp),
-          titleMedium: GoogleFonts.notoKufiArabic(fontSize: 16.sp),
-          titleSmall: GoogleFonts.notoKufiArabic(fontSize: 14.sp),
-          displayLarge: GoogleFonts.notoKufiArabic(fontSize: 12.sp),
-          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 10.5.sp),
-          displaySmall: GoogleFonts.notoKufiArabic(fontSize: 8.sp),
+          titleLarge: GoogleFonts.notoKufiArabic(fontSize: 19.sp),
+          titleMedium: GoogleFonts.notoKufiArabic(fontSize: 17.sp),
+          titleSmall: GoogleFonts.notoKufiArabic(fontSize: 15.sp),
+          displayLarge: GoogleFonts.notoKufiArabic(fontSize: 13.sp),
+          displayMedium: GoogleFonts.notoKufiArabic(fontSize: 11.5.sp),
+          displaySmall: GoogleFonts.notoKufiArabic(fontSize: 9.sp),
         ),
       );
 

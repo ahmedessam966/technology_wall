@@ -15,7 +15,12 @@ class _EnLanguageRedirectState extends State<EnLanguageRedirect> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, '/en/${widget.url}');
+      print(widget.url);
+      if (widget.url.endsWith('/ar') || widget.url.isEmpty) {
+        Navigator.pushReplacementNamed(context, '/en');
+      } else {
+        Navigator.pushReplacementNamed(context, '/en/${widget.url}');
+      }
     });
   }
 

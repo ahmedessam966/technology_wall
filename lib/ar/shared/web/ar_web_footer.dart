@@ -37,8 +37,8 @@ class ARWebFooter extends StatelessWidget {
                         ),
                         Center(
                           child: Text(
-                            'Technology Wall Subsidiaries',
-                            style: context.bodyLarge?.copyWith(color: Colors.white70),
+                            'الشركات التابعة',
+                            style: context.displayLarge?.copyWith(color: Colors.white70),
                           ),
                         ),
                         const SizedBox(
@@ -71,8 +71,8 @@ class ARWebFooter extends StatelessWidget {
                                         width: 5,
                                       ),
                                       Text(
-                                        'Dubai - United Arab Emirates',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        'المدينة المنورة - حي العريض - شارع الأمير محمد بن عبد العزيز',
+                                        style: context.displaySmall?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -87,11 +87,12 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       GestureDetector(
                                         onTap: () async {
-                                          final Uri uri = Uri(scheme: 'https', path: 'prorays.tech-wall.me');
+                                          final Uri uri =
+                                              Uri(scheme: 'https', path: 'prorays.techwall.com.sa');
                                           await launchUrl(uri);
                                         },
                                         child: Text(
-                                          'prorays.technology-wall.me',
+                                          'prorays.techwall.com.sa',
                                           style: context.bodySmall?.copyWith(color: Colors.white54),
                                         ),
                                       ),
@@ -108,7 +109,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         '+9722335228',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        style: context.displaySmall?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -122,7 +123,7 @@ class ARWebFooter extends StatelessWidget {
                                         width: 5,
                                       ),
                                       Text(
-                                        'info@prorays.tech-wall.me',
+                                        'info@prorays.techwall.com.sa',
                                         style: context.bodySmall?.copyWith(color: Colors.white54),
                                       ),
                                     ],
@@ -183,8 +184,8 @@ class ARWebFooter extends StatelessWidget {
                                         width: 5,
                                       ),
                                       Text(
-                                        'Dubai - United Arab Emirates',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        'دبي - الأمارات العربية المتحدة',
+                                        style: context.displaySmall?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -220,7 +221,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         '+9722335228',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        style: context.displaySmall?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -279,8 +280,8 @@ class ARWebFooter extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'Powered By',
-                              style: context.headlineSmall?.copyWith(color: Colors.white70),
+                              'بدعم من',
+                              style: context.titleSmall?.copyWith(color: Colors.white70),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -316,119 +317,119 @@ class ARWebFooter extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Software',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              'البرمجيات',
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/software/sap');
+                                Navigator.pushNamed(context, '/ar/software/sap');
                               },
                               child: Text(
-                                'SAP Solutions',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'حلول SAP',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/software/sage');
+                                Navigator.pushNamed(context, '/ar/software/sage');
                               },
                               child: Text(
-                                'Sage ERP',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'حلول Sage',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/software/tally');
+                                Navigator.pushNamed(context, '/ar/software/tally');
                               },
                               child: Text(
-                                'Tally Solutions',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'حلول Tally',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/software/microsoft');
+                                Navigator.pushNamed(context, '/ar/software/microsoft');
                               },
                               child: Text(
-                                'Microsoft',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'مايكروسوفت',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/software/fortinet');
+                                Navigator.pushNamed(context, '/ar/software/fortinet');
                               },
                               child: Text(
-                                'Fortinet',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'فورتي-نت',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             Text(
-                              'Hardware',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              'الأجهزة',
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/cctv');
+                                Navigator.pushNamed(context, '/ar/hardware/cctv');
                               },
                               child: Text(
-                                'CCTVs',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'كاميرات المراقبة',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/desktops');
+                                Navigator.pushNamed(context, '/ar/hardware/desktops');
                               },
                               child: Text(
-                                'Desktops',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'الأجهزة المكتبية',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/firewalls');
+                                Navigator.pushNamed(context, '/ar/hardware/firewalls');
                               },
                               child: Text(
-                                'Firewalls',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'جدار الحماية',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/notebooks');
+                                Navigator.pushNamed(context, '/ar/hardware/notebooks');
                               },
                               child: Text(
-                                'Notebooks',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'الأجهزة المحمولة',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/printers');
+                                Navigator.pushNamed(context, '/ar/hardware/printers');
                               },
                               child: Text(
-                                'Printers',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'الطابعات',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/hardware/servers');
+                                Navigator.pushNamed(context, '/ar/hardware/servers');
                               },
                               child: Text(
-                                'Servers',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'الخوادم',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                           ],
@@ -439,70 +440,76 @@ class ARWebFooter extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Company',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              'الشركة',
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/ar/about');
+                              },
                               child: Text(
-                                'About Us',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'عن الشركة',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                'Clients',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'عملاؤنا',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                'Careers',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Legal',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Privacy Policy',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Terms of Service',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Security',
-                                style: context.bodySmall?.copyWith(color: Colors.white54),
+                                'الوظائف',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             Text(
-                              'Contact Us',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              'الشئون القانونية',
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/ar/privacy');
+                              },
+                              child: Text(
+                                'سياسة الخصوصية',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/ar/privacy');
+                              },
+                              child: Text(
+                                'شروط الأستخدام',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'الأمان',
+                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'تواصل معنا',
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                             const SizedBox(
                               height: 10,
@@ -513,17 +520,17 @@ class ARWebFooter extends StatelessWidget {
                             ),
                             Text(
                               'info@tech-wall.me',
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.displaySmall?.copyWith(color: Colors.white54),
                             ),
                             Text(
-                              'B233, Office 37, Olaya District Computer Market',
+                              'مكتب 27, مبنى 233, شارع جرير, سوق العليا للحاسبات',
                               overflow: TextOverflow.clip,
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.displaySmall?.copyWith(color: Colors.white54),
                             ),
                             Text(
-                              '12211 Riyadh, Saudi Arabia',
+                              '12211 الرياض, المملكة العربية السعودية',
                               overflow: TextOverflow.clip,
-                              style: context.bodySmall?.copyWith(color: Colors.white54),
+                              style: context.displaySmall?.copyWith(color: Colors.white54),
                             ),
                           ],
                         ),
@@ -571,7 +578,7 @@ class ARWebFooter extends StatelessWidget {
               color: AppTheme.darkest.withOpacity(0.5),
               child: Center(
                 child: Text(
-                  '©️ Developed By Technology Wall Team, Technology Wall Corporation. All Rights Reserved',
+                  '©️ تم التطير بواسطة فريق سور التكنولوجيا. مؤسسة سور التكنولوجيا. جميع الحقوق محفوظة',
                   style: context.bodySmall?.copyWith(color: Colors.white54),
                 ),
               ),

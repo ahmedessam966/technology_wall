@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
-import '../../../ar/shared/web/language_redirect.dart';
+import '../../../ar/shared/language_redirect.dart';
 
 import '../../../core/controllers/auth_controllers.dart';
 import 'dart:html' as html;
