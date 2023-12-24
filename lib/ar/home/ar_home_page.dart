@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../core/controllers/metadata_controllers.dart';
 import '../shared/mobile/ar_mobile_footer.dart';
 import '../shared/mobile/ar_mobile_header.dart';
 import '../shared/tablet/ar_tablet_footer.dart';
@@ -18,6 +20,15 @@ class ARHomePage extends StatefulWidget {
 }
 
 class _ARHomePageState extends State<ARHomePage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | الرئيسية',
+        'الصفحة الرئيسية لسور التكنولوجيا. تصفح واستكشف خدماتنا ذات الجودة الفريدة بما في ذلك تطبيقات البرامج لـ SAP وMicrosoft. اعثر على الأجهزة الأفضل أداءً لمؤسستك من العلامات التجارية الشهيرة مثل Dell، وHP، وCanon، وApple، وغير ذلك الكثير.');
+    metadataFunctions.updateHeaderMetaData();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -27,28 +38,33 @@ class _ARHomePageState extends State<ARHomePage> {
 
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Semantics(
-        link: true,
-        label: 'Technology Wall Home Page',
-        value:
-            "tech-wall, tech-wall.me, techwall.me, techwall, techwallme, techwall co., tech-wall co., SAP Business One, SAP, Tally ERP, ERP, erp, tally, sap, sap business one, sage, Sage, Sage ERP, sage erp, s4/hana, sap4, sap4/hana, s4hana, s4hana erp, hp, dell, canon, hp printers, dell printers, hp servers, dell servers, dell pc, hp pc, dell laptop, dell notebook, hp notebook,contact us",
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: PopScope(
-            canPop: true,
-            onPopInvoked: (value) {
-              if (value) {
-                return;
-              } else {
-                Navigator.of(context).pop();
-              }
-            },
-            child: ImprovedScrolling(
-              scrollController: scroller,
-              enableMMBScrolling: true,
-              enableKeyboardScrolling: true,
-              child: Scaffold(
-                body: ListView(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: PopScope(
+          canPop: true,
+          onPopInvoked: (value) {
+            if (value) {
+              return;
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+          child: ImprovedScrolling(
+            scrollController: scroller,
+            enableMMBScrolling: true,
+            enableKeyboardScrolling: true,
+            child: Scaffold(
+                body: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(
+                  opacity: 0.05,
+                  child: SvgPicture.asset(
+                    'assets/icons/ttten.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView(
                   controller: scroller,
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
@@ -99,8 +115,8 @@ class _ARHomePageState extends State<ARHomePage> {
                               ),
                   ],
                 ),
-              ),
-            ),
+              ],
+            )),
           ),
         ),
       ),

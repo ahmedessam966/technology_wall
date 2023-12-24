@@ -4,6 +4,8 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
+import '../../core/controllers/metadata_controllers.dart';
+
 class ARCustomerPortal extends StatefulWidget {
   const ARCustomerPortal({super.key});
 
@@ -20,14 +22,20 @@ class _ARCustomerPortalState extends State<ARCustomerPortal> {
             'https://books.zoho.com/accounts/signin?_sh=false&hideidp=true&dcc=true&portal=10054731280&client_portal=true&servicename=ZohoBooks&serviceurl=https://books.zoho.com/portal/technologywallforcomputers/index&service_language=en'),
       ),
     );
+  final MetadataControllers metadataFunctions = MetadataControllers();
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | بوابة عملاء Zoho',
+        'هذه صفحة عملاء Zoho اصحاب التراخيص والمعاملات مع شركة سور التكنولوجيا.');
+    metadataFunctions.updateHeaderMetaData();
+  }
 
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    return Semantics(
-      link: true,
-      label: 'Technology Wall Zoho Customer Login',
-      value: "Zoho Customer Portal Login Page",
+    return Directionality(
+      textDirection: TextDirection.rtl,
       child: PopScope(
         canPop: true,
         onPopInvoked: (value) {
@@ -60,14 +68,14 @@ class _ARCustomerPortalState extends State<ARCustomerPortal> {
                           const Divider(),
                           Center(
                             child: Text(
-                              'Sign in',
-                              style: context.headlineMedium,
+                              'تسجيل الدخول',
+                              style: context.titleMedium,
                             ),
                           ),
                           Center(
                             child: Text(
-                              'View and manage your transactions with Technology Wall',
-                              style: context.bodyMedium,
+                              'عرض وإدارة معاملاتك مع سور التكنولوجيا',
+                              style: context.displayMedium,
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -81,8 +89,8 @@ class _ARCustomerPortalState extends State<ARCustomerPortal> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Don\'t have an account?',
-                                style: context.bodyLarge,
+                                'ليس لديك حساب؟',
+                                style: context.displayLarge,
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(
@@ -97,8 +105,8 @@ class _ARCustomerPortalState extends State<ARCustomerPortal> {
                                 child: Row(
                                   children: [
                                     Text(
-                                      'Sign Up',
-                                      style: context.bodyLarge?.copyWith(color: Colors.blue.shade700),
+                                      'تسجيل',
+                                      style: context.displayLarge?.copyWith(color: Colors.blue.shade700),
                                     ),
                                     Icon(
                                       Icons.arrow_forward_sharp,
@@ -117,8 +125,8 @@ class _ARCustomerPortalState extends State<ARCustomerPortal> {
                                     '_blank');
                               },
                               child: Text(
-                                'Forgot Password?',
-                                style: context.bodyLarge?.copyWith(color: Colors.blue.shade700),
+                                'نسيت كلمة المرور؟',
+                                style: context.displayLarge?.copyWith(color: Colors.blue.shade700),
                               ),
                             ),
                           ),

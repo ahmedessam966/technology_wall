@@ -132,12 +132,9 @@ class WebHomeBody extends StatelessWidget {
                 const SizedBox(
                   width: 50,
                 ),
-                Opacity(
-                  opacity: 0.5,
-                  child: Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fserver-back.png?alt=media&token=f6276371-4a7b-4e89-aa7d-2d6799ff5819',
-                    height: 300,
-                  ),
+                Image.network(
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fserver-back.png?alt=media&token=f6276371-4a7b-4e89-aa7d-2d6799ff5819',
+                  height: 300,
                 ),
               ],
             ),
