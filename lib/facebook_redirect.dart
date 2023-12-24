@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 class FacebookRedirect extends StatefulWidget {
   const FacebookRedirect({super.key});
@@ -19,18 +20,21 @@ class _FacebookRedirectState extends State<FacebookRedirect> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SpinKitFadingCircle(
+            const SpinKitFadingCircle(
               color: Colors.white70,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Text('Redirecting...')
+            Text(
+              'Redirecting...',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            )
           ],
         ),
       ),
