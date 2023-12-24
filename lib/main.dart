@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/routing_maps.dart';
@@ -14,8 +13,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WebViewPlatform.instance = WebWebViewPlatform();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  Future.delayed(const Duration(seconds: 1));
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
