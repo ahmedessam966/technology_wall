@@ -16,7 +16,7 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: SpinKitThreeBounce(
+                child: SpinKitCircle(
                   color: AppTheme.darkest,
                 ),
               );
@@ -33,7 +33,7 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
                         crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.8),
                     itemBuilder: (context, index) {
                       final printer = snapshot.data?[index];
-                      return PrinterCardWidget(printer: printer);
+                      return ARPrinterCardWidget(printer: printer);
                     }),
               );
             }

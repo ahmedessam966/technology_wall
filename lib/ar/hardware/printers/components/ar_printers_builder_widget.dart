@@ -33,7 +33,7 @@ class PrintersBuilderWidget extends StatelessWidget {
                         crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
                     itemBuilder: (context, index) {
                       final printer = provider.printersList[index];
-                      return PrinterCardWidget(printer: printer);
+                      return ARPrinterCardWidget(printer: printer);
                     }),
               );
             } else {
@@ -57,7 +57,7 @@ class PrintersBuilderWidget extends StatelessWidget {
                               childAspectRatio: 0.7),
                           itemBuilder: (context, index) {
                             final printer = snapshot.data?[index];
-                            return PrinterCardWidget(printer: printer);
+                            return ARPrinterCardWidget(printer: printer);
                           });
                     }
                   });

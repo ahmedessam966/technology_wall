@@ -70,9 +70,13 @@ class ARWebFooter extends StatelessWidget {
                                       const SizedBox(
                                         width: 5,
                                       ),
-                                      Text(
-                                        'المدينة المنورة - حي العريض - شارع الأمير محمد بن عبد العزيز',
-                                        style: context.displaySmall?.copyWith(color: Colors.white54),
+                                      SizedBox(
+                                        width: 250,
+                                        child: Text(
+                                          'المدينة المنورة - حي العريض - شارع الأمير محمد بن عبد العزيز',
+                                          overflow: TextOverflow.clip,
+                                          style: context.displayMedium?.copyWith(color: Colors.white54),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -93,7 +97,7 @@ class ARWebFooter extends StatelessWidget {
                                         },
                                         child: Text(
                                           'prorays.techwall.com.sa',
-                                          style: context.bodySmall?.copyWith(color: Colors.white54),
+                                          style: context.bodyMedium?.copyWith(color: Colors.white54),
                                         ),
                                       ),
                                     ],
@@ -109,7 +113,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         '+9722335228',
-                                        style: context.displaySmall?.copyWith(color: Colors.white54),
+                                        style: context.displayMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -124,7 +128,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         'info@prorays.techwall.com.sa',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        style: context.bodyMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -185,7 +189,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         'دبي - الأمارات العربية المتحدة',
-                                        style: context.displaySmall?.copyWith(color: Colors.white54),
+                                        style: context.displayMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -205,7 +209,7 @@ class ARWebFooter extends StatelessWidget {
                                         },
                                         child: Text(
                                           'prorays.technology-wall.me',
-                                          style: context.bodySmall?.copyWith(color: Colors.white54),
+                                          style: context.bodyMedium?.copyWith(color: Colors.white54),
                                         ),
                                       ),
                                     ],
@@ -221,7 +225,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         '+9722335228',
-                                        style: context.displaySmall?.copyWith(color: Colors.white54),
+                                        style: context.displayMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -236,7 +240,7 @@ class ARWebFooter extends StatelessWidget {
                                       ),
                                       Text(
                                         'info@prorays.tech-wall.me',
-                                        style: context.bodySmall?.copyWith(color: Colors.white54),
+                                        style: context.bodyMedium?.copyWith(color: Colors.white54),
                                       ),
                                     ],
                                   ),
@@ -329,7 +333,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'حلول SAP',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -338,7 +342,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'حلول Sage',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -347,7 +351,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'حلول Tally',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -356,7 +360,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'مايكروسوفت',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -365,7 +369,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'فورتي-نت',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             const SizedBox(
@@ -384,7 +388,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'كاميرات المراقبة',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -393,7 +397,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'الأجهزة المكتبية',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -402,7 +406,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'جدار الحماية',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -411,7 +415,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'الأجهزة المحمولة',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -420,7 +424,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'الطابعات',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -429,7 +433,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'الخوادم',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                           ],
@@ -452,21 +456,21 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'عن الشركة',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {},
                               child: Text(
                                 'عملاؤنا',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {},
                               child: Text(
                                 'الوظائف',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             const SizedBox(
@@ -485,7 +489,7 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'سياسة الخصوصية',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
@@ -494,14 +498,14 @@ class ARWebFooter extends StatelessWidget {
                               },
                               child: Text(
                                 'شروط الأستخدام',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             TextButton(
                               onPressed: () {},
                               child: Text(
                                 'الأمان',
-                                style: context.displaySmall?.copyWith(color: Colors.white54),
+                                style: context.displayMedium?.copyWith(color: Colors.white54),
                               ),
                             ),
                             const SizedBox(
@@ -520,17 +524,17 @@ class ARWebFooter extends StatelessWidget {
                             ),
                             Text(
                               'info@tech-wall.me',
-                              style: context.displaySmall?.copyWith(color: Colors.white54),
+                              style: context.displayMedium?.copyWith(color: Colors.white54),
                             ),
                             Text(
                               'مكتب 27, مبنى 233, شارع جرير, سوق العليا للحاسبات',
                               overflow: TextOverflow.clip,
-                              style: context.displaySmall?.copyWith(color: Colors.white54),
+                              style: context.displayMedium?.copyWith(color: Colors.white54),
                             ),
                             Text(
                               '12211 الرياض, المملكة العربية السعودية',
                               overflow: TextOverflow.clip,
-                              style: context.displaySmall?.copyWith(color: Colors.white54),
+                              style: context.displayMedium?.copyWith(color: Colors.white54),
                             ),
                           ],
                         ),
@@ -578,8 +582,8 @@ class ARWebFooter extends StatelessWidget {
               color: AppTheme.darkest.withOpacity(0.5),
               child: Center(
                 child: Text(
-                  '©️ تم التطير بواسطة فريق سور التكنولوجيا. مؤسسة سور التكنولوجيا. جميع الحقوق محفوظة',
-                  style: context.bodySmall?.copyWith(color: Colors.white54),
+                  '©️ تم التطوير بواسطة فريق سور التكنولوجيا. مؤسسة سور التكنولوجيا. جميع الحقوق محفوظة',
+                  style: context.displayMedium?.copyWith(color: Colors.white54),
                 ),
               ),
             ),

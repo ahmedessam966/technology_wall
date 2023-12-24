@@ -6,7 +6,7 @@ import '../../../shared/tablet/ar_tablet_footer.dart';
 import '../../../shared/web/ar_web_footer.dart';
 import '../mobile/ar_mobile_details_body.dart';
 import '../tablet/ar_tablet_details_body.dart';
-import '../web/ar_web_prrinter_details_body.dart';
+import '../web/ar_web_printer_details_body.dart';
 
 class ARPrinterDetailsPage extends StatefulWidget {
   final PrinterModel? printer;

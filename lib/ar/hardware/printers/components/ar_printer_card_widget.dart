@@ -7,9 +7,9 @@ import '../../../../core/controllers/app_controllers.dart';
 import '../../../../core/controllers/cart_controllers.dart';
 import '../../../shared/web/ar_web_printer_order_form.dart';
 
-class PrinterCardWidget extends StatelessWidget {
+class ARPrinterCardWidget extends StatelessWidget {
   final PrinterModel? printer;
-  const PrinterCardWidget({super.key, required this.printer});
+  const ARPrinterCardWidget({super.key, required this.printer});
 
   @override
   Widget build(BuildContext context) {
@@ -58,30 +58,33 @@ class PrinterCardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SelectableText(
-                      '• Printing Capability: ${printer?.ppm} papers/minute',
-                      textAlign: TextAlign.justify,
-                      style: context.bodySmall,
+                      '• القدرة على الطباعة: ${printer?.ppm} ورقة/دقيقة',
+                      style: context.displayMedium,
                     ),
                     SelectableText(
-                      '• Printer Family: ${printer?.family}',
-                      textAlign: TextAlign.justify,
-                      style: context.bodySmall,
+                      '• عائلة الطابعة: ${printer?.family}',
+                      style: context.displayMedium,
                     ),
                     SelectableText(
-                      '• Printer Type: ${printer?.type}',
-                      textAlign: TextAlign.justify,
-                      style: context.bodySmall,
+                      '• نوع الطابعة: ${printer?.type}',
+                      style: context.displayMedium,
                     ),
                     SelectableText(
-                      '• Network Module: ${printer?.network}',
-                      textAlign: TextAlign.justify,
-                      style: context.bodySmall,
+                      '• وحدة الشبكة: ${printer?.network == 'N/A' ? 'لا يوجد' : '${printer?.network}'}',
+                      style: context.displayMedium,
                     ),
-                    SelectableText(
-                      '• Ideal Utility: ${printer?.utility}',
-                      textAlign: TextAlign.justify,
-                      style: context.bodySmall,
-                    ),
+                    Builder(builder: (context) {
+                      String ut = '';
+                      printer!.utility == 'Home'
+                          ? ut = 'منزلي'
+                          : printer!.utility == 'Small Business/Home'
+                              ? ut = 'أعمال صغيرة / منزلي'
+                              : ut = 'مكتبي';
+                      return SelectableText(
+                        '• الأستخدام الأمثل: $ut',
+                        style: context.displayMedium,
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -118,8 +121,8 @@ class PrinterCardWidget extends StatelessWidget {
                             });
                       },
                       child: Text(
-                        'Order Now',
-                        style: context.bodyMedium?.copyWith(color: Colors.white70),
+                        'أطلب الأن',
+                        style: context.displayMedium?.copyWith(color: Colors.white70),
                       ),
                     ),
                     Builder(builder: (context) {
@@ -158,14 +161,14 @@ class PrinterCardWidget extends StatelessWidget {
                                     width: 5,
                                   ),
                                   Text(
-                                    'Added',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                    'مضافة',
+                                    style: context.displayMedium?.copyWith(color: Colors.white70),
                                   ),
                                 ],
                               )
                             : Text(
-                                'Add to Cart',
-                                style: context.bodyMedium?.copyWith(color: Colors.white70),
+                                'أضف الى السلة',
+                                style: context.displayMedium?.copyWith(color: Colors.white70),
                               ),
                       );
                     }),
@@ -187,8 +190,8 @@ class PrinterCardWidget extends StatelessWidget {
                     //     context, RoutingTransitionServices.Transition(PrinterDetailsPage(printer: printer)));
                   },
                   child: Text(
-                    'Printer Details',
-                    style: context.bodySmall,
+                    'تفاصيل كاملة',
+                    style: context.displayMedium,
                   ),
                 ),
               ),

@@ -13,6 +13,8 @@ class AppTheme extends ChangeNotifier {
   ThemeData get lightTheme => ThemeData(
         scaffoldBackgroundColor: const Color(0xaa071923).withOpacity(1),
         scrollbarTheme: const ScrollbarThemeData(thumbColor: MaterialStatePropertyAll(Colors.grey)),
+        textSelectionTheme:
+            TextSelectionThemeData(cursorColor: Colors.black, selectionColor: Colors.grey.shade300),
         textTheme: TextTheme(
           //English Fonts
           headlineLarge: GoogleFonts.lexend(fontSize: 18.sp),

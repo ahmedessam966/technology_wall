@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/ar_mobile_footer.dart';
 import '../../shared/mobile/ar_mobile_header.dart';
 import '../../shared/tablet/ar_tablet_footer.dart';
@@ -19,6 +20,16 @@ class ARPrintersPage extends StatefulWidget {
 }
 
 class _ARPrintersPageState extends State<ARPrintersPage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
+
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | طابعات',
+        'استكشف أو ابحث عن الطابعة التي تريدها. استكشف أنواع الطابعات المتوفرة: طابعة ليزر ملونة، وطابعة نقطية، وطابعة أحادية اللون، وطابعة مكتبية، وأدوات مكتبية للخدمة الشاقة، وطابعات الشبكة، ونماذج الطابعات المتكاملة. العلامات التجارية المضمونة. طابعات HP وCanon وEpson وZebra.');
+    metadataFunctions.updateHeaderMetaData();
+  }
+
   @override
   void dispose() {
     Provider.of<InventoryControllers>(context, listen: false).printersList.clear();

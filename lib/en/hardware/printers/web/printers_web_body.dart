@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import '../../../../core/controllers/metadata_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
 import '../components/printers_builder_widget.dart';
@@ -16,6 +17,10 @@ class WebPrintersBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        'Explore or search for your desired printer. Explore the types of printers available: Color laserjet, dot-matrix, monochrome laserjet, deskjet, heavy-duty office utility, network printers, and all-in-one printer models. Guaranteed brands; HP, Canon, Epson, and Zebra printers.',
+        'en');
     return Semantics(
       label: 'Technology Wall | Printers',
       value:

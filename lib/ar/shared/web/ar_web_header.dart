@@ -78,7 +78,7 @@ class ARWebHeader extends StatelessWidget {
                                 return LinearBorder.bottom(
                                   side: const BorderSide(color: Colors.white54),
                                 );
-                              } else if (app.pageTitle.endsWith('Ar')) {
+                              } else if (app.pageTitle.endsWith('Home')) {
                                 return LinearBorder.bottom(
                                   size: 0.5,
                                   side: const BorderSide(
@@ -93,7 +93,7 @@ class ARWebHeader extends StatelessWidget {
                             }),
                           ),
                           onPressed: () {
-                            app.pageTitle.endsWith('Ar') ? null : Navigator.pushNamed(context, '/ar');
+                            app.pageTitle.endsWith('Home') ? null : Navigator.pushNamed(context, '/ar');
                           },
                           child: Text('الرئيسية', style: context.displayLarge?.copyWith(color: Colors.white)),
                         ),
