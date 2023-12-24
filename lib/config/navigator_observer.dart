@@ -30,7 +30,7 @@ class TitleObserver extends NavigatorObserver {
     if (routeName != null) {
       List<String> pathSegments = routeName.split('/');
       String pageTitle = '';
-      if (pathSegments.isEmpty || pathSegments.last == 'en') {
+      if (pathSegments.isEmpty || pathSegments.last == 'en' || pathSegments.last == 'ar') {
         pageTitle = 'Home';
       } else {
         pageTitle = pathSegments.last;

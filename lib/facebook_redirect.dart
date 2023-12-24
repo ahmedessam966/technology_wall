@@ -21,8 +21,17 @@ class _FacebookRedirectState extends State<FacebookRedirect> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: SpinKitFadingCircle(
-          color: Colors.white70,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SpinKitFadingCircle(
+              color: Colors.white70,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text('Redirecting...')
+          ],
         ),
       ),
     );
