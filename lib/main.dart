@@ -25,49 +25,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      label:
-          'Technology Wall, a leading IT company based in Riyadh, KSA. Offering integrated, smart, and digitized solutions',
-      value:
-          "tech-wall, tech-wall.me, techwall.me, techwall, techwallme, techwall co., tech-wall co., SAP Business One, SAP, Tally ERP, ERP, erp, tally, sap, sap business one, sage, Sage, Sage ERP, sage erp, s4/hana, sap4, sap4/hana, s4hana, s4hana erp, hp, dell, canon, hp printers, dell printers, hp servers, dell servers, dell pc, hp pc, dell laptop, dell notebook, hp notebook,contact us",
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => AppControllers()),
-          ChangeNotifierProvider(create: (_) => AuthControllers()),
-          ChangeNotifierProvider(create: (_) => AppTheme()),
-          ChangeNotifierProvider(create: (_) => ThemeModeServices()),
-          ChangeNotifierProvider(create: (_) => InventoryControllers()),
-          ChangeNotifierProvider(create: (_) => HomePageControllers()),
-          ChangeNotifierProvider(create: (_) => CartControllers()),
-          ChangeNotifierProvider(create: (_) => SAPPageControllers()),
-        ],
-        builder: (context, _) {
-          final themeNotifier = context.watch<ThemeModeServices>();
-          final themeConstants = context.watch<AppTheme>();
-          final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppControllers()),
+        ChangeNotifierProvider(create: (_) => AuthControllers()),
+        ChangeNotifierProvider(create: (_) => AppTheme()),
+        ChangeNotifierProvider(create: (_) => ThemeModeServices()),
+        ChangeNotifierProvider(create: (_) => InventoryControllers()),
+        ChangeNotifierProvider(create: (_) => HomePageControllers()),
+        ChangeNotifierProvider(create: (_) => CartControllers()),
+        ChangeNotifierProvider(create: (_) => SAPPageControllers()),
+      ],
+      builder: (context, _) {
+        final themeNotifier = context.watch<ThemeModeServices>();
+        final themeConstants = context.watch<AppTheme>();
+        final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
-          return ResponsiveSizer(builder: (context, orientation, deviceType) {
-            return MaterialApp(
-              scaffoldMessengerKey: scaffoldKey,
-              debugShowCheckedModeBanner: false,
-              themeMode: themeNotifier.selectedTheme,
-              theme: themeNotifier.selectedTheme == ThemeMode.light
-                  ? themeConstants.lightTheme
-                  : themeConstants.darkTheme,
-              navigatorObservers: [TitleObserver(context.read<AppControllers>())],
-              onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
-              initialRoute: '/en',
-              routes: RoutingMaps.routingMap,
-              onGenerateRoute: (settings) {
-                TitleObserver.updateJsonKeywordMap();
-                return MaterialPageRoute(
-                  builder: (context) => RoutingTransitionServices.generateRoute(settings),
-                );
-              },
-            );
-          });
-        },
-      ),
+        return ResponsiveSizer(builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            scaffoldMessengerKey: scaffoldKey,
+            debugShowCheckedModeBanner: false,
+            themeMode: themeNotifier.selectedTheme,
+            theme: themeNotifier.selectedTheme == ThemeMode.light
+                ? themeConstants.lightTheme
+                : themeConstants.darkTheme,
+            navigatorObservers: [TitleObserver(context.read<AppControllers>())],
+            onGenerateTitle: (context) => context.watch<AppControllers>().pageTitle,
+            initialRoute: '/en',
+            routes: RoutingMaps.routingMap,
+            onGenerateRoute: (settings) {
+              TitleObserver.updateJsonKeywordMap();
+              return MaterialPageRoute(
+                builder: (context) => RoutingTransitionServices.generateRoute(settings),
+              );
+            },
+          );
+        });
+      },
     );
   }
 }

@@ -3,9 +3,49 @@
 import 'dart:html' as html;
 
 class MetadataControllers {
+  void updateMainMetaData() {
+    html.document.head?.append(html.MetaElement()
+      ..name = 'description'
+      ..content =
+          'عضو أعمال موسع في HCC الشرق الأوسط. شركة رائدة في مجال الحلول الرقمية المتكاملة ومقرها الرياض، المملكة العربية السعودية. أجهزة البيع بالتجزئة • حلول البرمجيات | An HCC Middle East Extended Business Memeber. Pioneering digital integrated solutions company based in Riyadh, KSA. Retail Hardware • Software Solutions');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'viewport'
+      ..content = 'width=device-width, initial-scale=1');
+
+    html.document.head!.append(html.MetaElement()
+      ..httpEquiv = 'X-UA-Compatible'
+      ..content = 'IE=Edge');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'robots'
+      ..content = 'index,follow');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'og:type'
+      ..content = 'website');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'og:site_name'
+      ..content = 'Technology Wall');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'og:title'
+      ..content = 'Technology Wall | Smart Digital Solutions');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'og:description'
+      ..content =
+          'عضو أعمال موسع في HCC الشرق الأوسط. شركة رائدة في مجال الحلول الرقمية المتكاملة ومقرها الرياض، المملكة العربية السعودية. أجهزة البيع بالتجزئة • حلول البرمجيات | An HCC Middle East Extended Business Memeber. Pioneering digital integrated solutions company based in Riyadh, KSA. Retail Hardware • Software Solutions');
+
+    html.document.head!.append(html.MetaElement()
+      ..name = 'og:image'
+      ..content =
+          'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flogo1.png?alt=media&token=3d7475f5-4344-428b-a28b-e2abc0d4998f');
+  }
+
   void updateMetaData(String title, String content) {
     html.document.head!.children.removeWhere((element) => element is html.MetaElement);
-
     html.document.head?.append(html.MetaElement()
       ..name = 'description'
       ..title = title

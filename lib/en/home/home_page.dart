@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -39,68 +38,62 @@ class _HomePageState extends State<HomePage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
 
-    return Semantics(
-      link: true,
-      label: 'Technology Wall Home Page',
-      value:
-          "tech-wall, tech-wall.me, techwall.me, techwall, techwallme, techwall co., tech-wall co., SAP Business One, SAP, Tally ERP, ERP, erp, tally, sap, sap business one, sage, Sage, Sage ERP, sage erp, s4/hana, sap4, sap4/hana, s4hana, s4hana erp, hp, dell, canon, hp printers, dell printers, hp servers, dell servers, dell pc, hp pc, dell laptop, dell notebook, hp notebook,contact us",
-      child: PopScope(
-        canPop: true,
-        onPopInvoked: (value) {
-          if (value) {
-            return;
-          } else {
-            Navigator.of(context).pop();
-          }
-        },
-        child: ImprovedScrolling(
-          scrollController: scroller,
-          enableMMBScrolling: true,
-          enableKeyboardScrolling: true,
-          child: Scaffold(
-            body: ListView(
-              controller: scroller,
-              physics: const RangeMaintainingScrollPhysics(),
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: sh * 0.04),
-                  child: sw >= 1280
-                      ? const WebHeader()
-                      : sw < 1280 && sw >= 768
-                          ? TabletHeader(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            )
-                          : const MobileHeader(),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0.1.h),
-                  child: sw >= 1280
-                      ? const WebHomeBody()
-                      : sw < 1280 && sw >= 768
-                          ? TabletHomeBody(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            )
-                          : const MobileHomeBody(),
-                ),
-                sw >= 1280
-                    ? const WebFooter()
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (value) {
+        if (value) {
+          return;
+        } else {
+          Navigator.of(context).pop();
+        }
+      },
+      child: ImprovedScrolling(
+        scrollController: scroller,
+        enableMMBScrolling: true,
+        enableKeyboardScrolling: true,
+        child: Scaffold(
+          body: ListView(
+            controller: scroller,
+            physics: const RangeMaintainingScrollPhysics(),
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: sh * 0.04),
+                child: sw >= 1280
+                    ? const WebHeader()
                     : sw < 1280 && sw >= 768
-                        ? TabletFooter(
+                        ? TabletHeader(
                             sw: sw,
                             sh: sh,
                             ar: ar,
                           )
-                        : MobileFooter(
+                        : const MobileHeader(),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0.1.h),
+                child: sw >= 1280
+                    ? const WebHomeBody()
+                    : sw < 1280 && sw >= 768
+                        ? TabletHomeBody(
                             sw: sw,
                             sh: sh,
                             ar: ar,
-                          ),
-              ],
-            ),
+                          )
+                        : const MobileHomeBody(),
+              ),
+              sw >= 1280
+                  ? const WebFooter()
+                  : sw < 1280 && sw >= 768
+                      ? TabletFooter(
+                          sw: sw,
+                          sh: sh,
+                          ar: ar,
+                        )
+                      : MobileFooter(
+                          sw: sw,
+                          sh: sh,
+                          ar: ar,
+                        ),
+            ],
           ),
         ),
       ),
