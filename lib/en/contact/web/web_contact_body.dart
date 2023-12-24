@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
@@ -139,7 +140,7 @@ class WebContactBody extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              const Icon(Icons.phone_android_sharp, color: Colors.white70),
+                              const Icon(CupertinoIcons.phone_down_fill, color: Colors.white70),
                               const SizedBox(width: 15),
                               Text('+966542575808',
                                   style: context.bodyLarge?.copyWith(color: Colors.white70)),
@@ -150,7 +151,7 @@ class WebContactBody extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              const Icon(Icons.mail_sharp, color: Colors.white70),
+                              const Icon(CupertinoIcons.mail_solid, color: Colors.white70),
                               const SizedBox(width: 15),
                               Text('info@techwall.com.sa',
                                   style: context.bodyLarge?.copyWith(color: Colors.white70)),
