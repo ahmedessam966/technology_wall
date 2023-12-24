@@ -116,8 +116,45 @@ class WebContactBody extends StatelessWidget {
                             height: 25,
                           ),
                           Text(
-                            'Fill in the form and we\'ll make sure to contact you regarding your questions, messages, or concerns as soon as possible.',
+                            'Fill in the form and we\'ll make sure to contact you regarding your questions, suggestions, proposals, or concerns as soon as possible.',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          const Divider(
+                            indent: 30,
+                            endIndent: 30,
+                            color: Colors.white60,
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Text(
+                            'You can also reach out to us via',
+                            style: context.headlineSmall?.copyWith(color: Colors.white70),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(Icons.phone_android_sharp, color: Colors.white70),
+                              const SizedBox(width: 15),
+                              Text('+966542575808',
+                                  style: context.bodyLarge?.copyWith(color: Colors.white70)),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(Icons.mail_sharp, color: Colors.white70),
+                              const SizedBox(width: 15),
+                              Text('info@techwall.com.sa',
+                                  style: context.bodyLarge?.copyWith(color: Colors.white70)),
+                            ],
                           ),
                         ],
                       ),
@@ -254,6 +291,10 @@ class WebContactBody extends StatelessWidget {
                                         DropdownMenuItem(
                                           value: 'Complaint',
                                           child: Text('Complaint'),
+                                        ),
+                                        DropdownMenuItem(
+                                          value: 'Other',
+                                          child: Text('Other'),
                                         ),
                                       ],
                                       onChanged: (newValue) {}),

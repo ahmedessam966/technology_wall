@@ -248,7 +248,7 @@ class WebHeader extends StatelessWidget {
                               return LinearBorder.bottom(
                                 side: const BorderSide(color: Colors.white54),
                               );
-                            } else if (app.pageTitle.endsWith('Contact Us')) {
+                            } else if (app.pageTitle.endsWith('Contact-us')) {
                               return LinearBorder.bottom(
                                 size: 0.5,
                                 side: const BorderSide(
@@ -263,7 +263,7 @@ class WebHeader extends StatelessWidget {
                           }),
                         ),
                         onPressed: () {
-                          app.pageTitle.endsWith('Contact Us')
+                          app.pageTitle.endsWith('Contact-us')
                               ? null
                               : Navigator.pushNamed(context, '/en/contact-us');
                         },
