@@ -30,7 +30,7 @@ class WebAboutBody extends StatelessWidget {
                 Opacity(
                   opacity: 0.05,
                   child: SvgPicture.asset(
-                    'assets/icons/qqquad.svg',
+                    'assets/icons/ttten.svg',
                     fit: BoxFit.cover,
                   ),
                 ),
