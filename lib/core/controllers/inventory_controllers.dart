@@ -337,7 +337,6 @@ class InventoryControllers extends ChangeNotifier {
           price: element.data()['Selling Price'],
           warranty: element.data()['Warranty']);
 
-      // Convert field value to lowercase and check for a case-insensitive match
       if (notebook.model.toLowerCase().contains(query)) {
         results.add(notebook);
       }
@@ -357,6 +356,31 @@ class InventoryControllers extends ChangeNotifier {
         print("Error retrieving data: $e");
       }
     }
+  }
+
+  Future<List<ProductModel>> getFeaturedProducts() async {
+    final List<ProductModel> feeatured = [];
+    final db = FirebaseFirestore.instance.collection('Printers');
+    final snapshot = await db.where('Featured', isEqualTo: true).get();
+    for (final element in snapshot.docs) {
+      final product = ProductModel(
+          id: element.id,
+          title: element.data()['Title'],
+          brand: element.data()['Brand'],
+          cost: element.data()['Cost'],
+          maxDiscounted: element.data()['Max Discounted Price'],
+          model: element.data()['Model'].toString().toUpperCase(),
+          snapshot: element.data()['Snapshot'],
+          price: element.data()['Selling Price'],
+          ppm: element.data()['PPM'],
+          family: element.data()['Family'],
+          network: element.data()['Network'],
+          type: element.data()['Type'],
+          utility: element.data()['Utility'],
+          warranty: element.data()['Warranty']);
+      feeatured.add(product);
+    }
+    return feeatured;
   }
 
   ////////////////////////////////////

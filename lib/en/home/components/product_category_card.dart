@@ -28,7 +28,7 @@ class ProductCategoryCard extends StatelessWidget {
           overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(2),
                 side: BorderSide(color: const Color(0xaaaaaeb6).withOpacity(1))),
           ),
           elevation: MaterialStateProperty.resolveWith((states) {

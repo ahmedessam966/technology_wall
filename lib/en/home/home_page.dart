@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     metadataFunctions.updateMetaData('Technology Wall | Home',
-        'Technology Wall Home Page. Browse and explore our unique-quality services including software implementations for SAP and Microsoft. Find the best-performing hardware devices for your enteprise from renowned brands such as Dell, HP, Canon, Apple, and much more.');
+        'Browse and explore our unique-quality services including software implementations for SAP and Microsoft. Find the best-performing hardware devices for your enteprise from renowned brands such as Dell, HP, Canon, Apple, and much more.');
     metadataFunctions.updateHeaderMetaData();
   }
 

@@ -7,8 +7,8 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/email_controller.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 class WebOrderForm extends StatefulWidget {
   final dynamic item;
@@ -18,7 +18,7 @@ class WebOrderForm extends StatefulWidget {
   State<WebOrderForm> createState() => _WebOrderFormState();
 }
 
-late PrinterModel printer;
+late ProductModel printer;
 bool _isLoading = false;
 
 class _WebOrderFormState extends State<WebOrderForm> {
