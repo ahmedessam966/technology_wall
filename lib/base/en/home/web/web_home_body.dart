@@ -20,7 +20,6 @@ class WebHomeBody extends StatelessWidget {
     metadataControllers.injectPageSpecificContent(
         'Offers and Featured Products \n Enterprise Essentials\n ERP Essentials \n Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants. \n Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7. \n Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
         'en');
-
     final provider = Provider.of<AppControllers>(context, listen: true);
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,

@@ -19,6 +19,10 @@ class _DevHomePageState extends State<DevHomePage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall | Development Center',
+        'Develop your custom software or web kits with Technology Wall.',
+        'Explore our sample customizations for web development projects. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise online.');
     metadataFunctions.updateMetaData('Technology Wall | Development Center',
         'Develop your custom software or web kits with Technology Wall.');
     metadataFunctions.updateHeaderMetaData();
@@ -46,7 +50,7 @@ class _DevHomePageState extends State<DevHomePage> {
         child: Scaffold(
           backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
           appBar: AppBar(
-            backgroundColor: const Color(0xaa0025ce).withOpacity(1),
+            backgroundColor: const Color(0xaa26344b).withOpacity(1),
             leading: BackButton(
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(context, '/en', (route) => false);
@@ -64,7 +68,7 @@ class _DevHomePageState extends State<DevHomePage> {
             physics: const RangeMaintainingScrollPhysics(),
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0.1.h),
+                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
                 child: sw >= 1280
                     ? const WebDevHomeBody()
                     : sw < 1280 && sw >= 768

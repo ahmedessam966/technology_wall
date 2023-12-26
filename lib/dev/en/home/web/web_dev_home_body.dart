@@ -3,13 +3,20 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/dev/en/home/components/dev_coustomer_carousel.dart';
 
+import '../../../../core/controllers/metadata_controllers.dart';
+
 class WebDevHomeBody extends StatelessWidget {
   const WebDevHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        'Explore our sample customizations for web development projects. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise online.',
+        'en');
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
