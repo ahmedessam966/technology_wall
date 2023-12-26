@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/dev/en/home/mobile/mobile_dev_home_body.dart';
 import 'package:technology_wall/dev/en/home/tablet/tablet_dev_home_body.dart';
 import 'package:technology_wall/dev/en/home/web/web_dev_home_body.dart';
@@ -25,7 +23,6 @@ class _DevHomePageState extends State<DevHomePage> {
         'Explore our sample customizations for web development projects. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise online.');
     metadataFunctions.updateMetaData('Technology Wall | Development Center',
         'Develop your custom software or web kits with Technology Wall.');
-    metadataFunctions.updateHeaderMetaData();
   }
 
   @override
@@ -48,33 +45,16 @@ class _DevHomePageState extends State<DevHomePage> {
         enableKeyboardScrolling: true,
         keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
-          backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
-          appBar: AppBar(
-            backgroundColor: const Color(0xaa26344b).withOpacity(1),
-            leading: BackButton(
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/en', (route) => false);
-              },
-              color: Colors.white,
-            ),
-            centerTitle: true,
-            title: Text(
-              'Technology Wall Digital Development Center',
-              style: context.labelLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w500),
-            ),
-          ),
+          backgroundColor: const Color(0xaaf0f0f0).withOpacity(1),
           body: ListView(
             controller: scroller,
             physics: const RangeMaintainingScrollPhysics(),
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                child: sw >= 1280
-                    ? const WebDevHomeBody()
-                    : sw < 1280 && sw >= 768
-                        ? const TabletDevHomeBody()
-                        : const MobileDevHomeBody(),
-              ),
+              sw >= 1280
+                  ? const WebDevHomeBody()
+                  : sw < 1280 && sw >= 768
+                      ? const TabletDevHomeBody()
+                      : const MobileDevHomeBody(),
             ],
           ),
         ),
