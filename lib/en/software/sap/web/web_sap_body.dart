@@ -6,6 +6,8 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:technology_wall/en/software/sap/components/sap_product_details.dart';
+import '../../../../core/controllers/metadata_controllers.dart';
 import '../controllers/sap_page_controllers.dart';
 
 class WebSAPBody extends StatelessWidget {
@@ -13,6 +15,10 @@ class WebSAPBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        'SAP Business One Solutions: ERP system that is specialized and tailored for small to medium-sized enterprises. Providing unparalleled modules and solutions including, Cloud ERP, Business Technology Plarform, Artificial Intelligence, Supply Chain Management, Financial Management, and much more.\n\n\n Get your certified SAP solutions with Technology Wall.',
+        'en');
     return Consumer<SAPPageControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -21,134 +27,128 @@ class WebSAPBody extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
-            child: Semantics(
-              container: true,
-              header: true,
-              label: 'SAP',
-              value: 'SAP ERP Intro',
-              child: Flex(
-                direction: Axis.horizontal,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    flex: 10,
-                    child: SlideInLeft(
-                      duration: const Duration(milliseconds: 1000),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          SelectableText(
-                            'SAP Enterprise Resource Planning (ERP)',
-                            style: context.displayMedium?.copyWith(
-                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          SelectableText(
-                            'SAP is one of the world’s leading producers of software for the management of business processes.',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SelectableText(
-                                'Financial Management',
-                                style: context.bodyLarge
-                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Icon(
-                                Icons.arrow_right_alt_sharp,
-                                color: Color(0xaaffffff),
-                              ),
-                            ],
-                          ),
-                          SelectableText(
-                            'A core and vital enterprise management module, required for every business entity.',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SelectableText(
-                                'CRM & Customer Experience',
-                                style: context.bodyLarge
-                                    ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Icon(
-                                Icons.arrow_right_alt_sharp,
-                                color: Color(0xaaffffff),
-                              ),
-                            ],
-                          ),
-                          SelectableText(
-                            'Customer feedback moderation is essential for the growth of the enterprise.',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          SelectableText(
-                            'Discover the realm of SAP services.',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              elevation: const MaterialStatePropertyAll(0),
-                              shape: MaterialStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(1),
-                                  side: const BorderSide(color: Colors.white70),
-                                ),
-                              ),
-                              backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                if (states.contains(MaterialState.hovered)) {
-                                  return const Color(0xaa7c9cc1).withOpacity(1);
-                                } else {
-                                  return const Color(0xaa071923).withOpacity(1);
-                                }
-                              }),
+            child: Flex(
+              direction: Axis.horizontal,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  flex: 10,
+                  child: SlideInLeft(
+                    duration: const Duration(milliseconds: 1000),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        SelectableText(
+                          'SAP Enterprise Resource Planning (ERP)',
+                          style: context.headlineMedium?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SelectableText(
+                          'SAP is one of the world’s leading producers of software for the management of business processes.',
+                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            SelectableText(
+                              'Financial Management',
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                             ),
-                            onPressed: () {
-                              html.window.open('https://www.sap.com/', 'SAP Website');
-                            },
-                            child: Text(
-                              'Discover at SAP.com',
-                              style: context.bodyMedium?.copyWith(color: Colors.white70),
+                            const SizedBox(
+                              width: 10,
                             ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        SelectableText(
+                          'A core and vital enterprise management module, required for every business entity.',
+                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            SelectableText(
+                              'CRM & Customer Experience',
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        SelectableText(
+                          'Customer feedback moderation is essential for the growth of the enterprise.',
+                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SelectableText(
+                          'Discover the realm of SAP services.',
+                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: const MaterialStatePropertyAll(0),
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1),
+                                side: const BorderSide(color: Colors.white70),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return const Color(0xaa7c9cc1).withOpacity(1);
+                              } else {
+                                return const Color(0xaa071923).withOpacity(1);
+                              }
+                            }),
                           ),
-                        ],
-                      ),
+                          onPressed: () {
+                            html.window.open('https://www.sap.com/', 'SAP Website');
+                          },
+                          child: Text(
+                            'Discover at SAP.com',
+                            style: context.bodyMedium?.copyWith(color: Colors.white70),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  const Spacer(),
-                  Expanded(
-                    flex: 8,
-                    child: Opacity(
-                      opacity: 0.7,
-                      child: Image.network(
-                        'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3',
-                      ),
+                ),
+                const Spacer(),
+                Expanded(
+                  flex: 8,
+                  child: Opacity(
+                    opacity: 0.7,
+                    child: Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3',
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
@@ -202,8 +202,7 @@ class WebSAPBody extends StatelessWidget {
                     const SizedBox(
                       height: 100,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                    Center(
                       child: SelectableText(
                         'What is SAP software used for?',
                         style: context.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
@@ -221,7 +220,7 @@ class WebSAPBody extends StatelessWidget {
                             flex: 4,
                             child: SelectableText(
                               'Traditional business models often decentralize data management, with each business function storing its own operational data in a separate database. This makes it difficult for employees from different business functions to access each other’s information. Furthermore, duplication of data across multiple departments increases IT storage costs and the risk of data errors.',
-                              style: context.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+                              style: context.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
                             ),
                           ),
                           const Spacer(),
@@ -229,7 +228,7 @@ class WebSAPBody extends StatelessWidget {
                             flex: 4,
                             child: SelectableText(
                               'By centralizing data management, SAP software provides multiple business functions with a single view of the truth. This helps companies better manage complex business processes by giving employees of different departments easy access to real-time insights across the enterprise. As a result, businesses can accelerate workflows, improve operational efficiency, raise productivity, enhance customer experiences – and ultimately increase profits.',
-                              style: context.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+                              style: context.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
                             ),
                           ),
                         ],
@@ -289,7 +288,15 @@ class WebSAPBody extends StatelessWidget {
                                 ),
                                 backgroundColor: const MaterialStatePropertyAll(Colors.white),
                                 surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
+                            onPressed: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return const SAPProductDetails(
+                                      product: 'Cloud ERP',
+                                    );
+                                  });
+                            },
                             child: Flex(
                               direction: Axis.vertical,
                               crossAxisAlignment: CrossAxisAlignment.center,

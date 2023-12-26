@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/hardware/printers/mobile/mobile_printers_body.dart';
+import '../../../config/themes/app_theme.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
@@ -56,46 +58,65 @@ class _PrintersPageState extends State<PrintersPage> {
         enableMMBScrolling: true,
         enableKeyboardScrolling: true,
         child: Scaffold(
-          body: ListView(
-            controller: scroller,
-            physics: const RangeMaintainingScrollPhysics(),
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                child: sw >= 1280
-                    ? const WebHeader()
-                    : sw < 1280 && sw >= 768
-                        ? TabletHeader(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          )
-                        : const MobileHeader(),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: AppTheme.darkest,
+              onPressed: () {},
+              child: const Icon(
+                Icons.chat_rounded,
+                color: Colors.white70,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                child: sw >= 1280
-                    ? const WebPrintersBody()
-                    : sw < 1280 && sw >= 768
-                        ? const SizedBox()
-                        : const MobilePrintersBody(),
-              ),
-              sw >= 1280
-                  ? const WebFooter()
-                  : sw < 1280 && sw >= 768
-                      ? TabletFooter(
-                          sw: sw,
-                          sh: sh,
-                          ar: ar,
-                        )
-                      : MobileFooter(
-                          sw: sw,
-                          sh: sh,
-                          ar: ar,
-                        ),
-            ],
-          ),
-        ),
+            ),
+            body: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(
+                  opacity: 0.05,
+                  child: SvgPicture.asset(
+                    'assets/icons/ttten.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView(
+                  controller: scroller,
+                  physics: const RangeMaintainingScrollPhysics(),
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
+                      child: sw >= 1280
+                          ? const WebHeader()
+                          : sw < 1280 && sw >= 768
+                              ? TabletHeader(
+                                  sw: sw,
+                                  sh: sh,
+                                  ar: ar,
+                                )
+                              : const MobileHeader(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      child: sw >= 1280
+                          ? const WebPrintersBody()
+                          : sw < 1280 && sw >= 768
+                              ? const SizedBox()
+                              : const MobilePrintersBody(),
+                    ),
+                    sw >= 1280
+                        ? const WebFooter()
+                        : sw < 1280 && sw >= 768
+                            ? TabletFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              )
+                            : MobileFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              ),
+                  ],
+                ),
+              ],
+            )),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
 
@@ -19,45 +18,33 @@ class WebAccreditationBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
-        SlideInUp(
+        SlideInDown(
           duration: const Duration(milliseconds: 1000),
           child: SizedBox(
             height: 400,
             width: double.infinity,
-            child: Stack(
-              alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Opacity(
-                  opacity: 0.05,
-                  child: SvgPicture.asset(
-                    'assets/icons/ttten.svg',
-                    fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
+                  child: Center(
+                    child: Text(
+                      'Meet',
+                      style: context.headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
+                    ),
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
-                      child: Center(
-                        child: Text(
-                          'Meet',
-                          style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
-                        ),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: Center(
+                    child: Text(
+                      'Technology Wall',
+                      style: context.headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
-                      child: Center(
-                        child: Text(
-                          'Technology Wall',
-                          style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
@@ -106,7 +93,7 @@ class WebAccreditationBody extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'To ensure reliable quality and a competitve performance, Technology Wall sought to be a certified operator of SAP Business One ERP Solutions in Saudi Arabia. Powered by HCC Middle East Consultancy FZCO, a certfied SAP Solutions provider in Dubai, United Arab Emirates, Technology Wall has made it possible to provide excelsior SAP implementation services and consultations.',
+                          'To ensure reliable quality and a competitve performance, Technology Wall sought to be a certified operator of SAP Business One ERP Solutions in Saudi Arabia. Powered by HCC Middle East Consultancy FZCO, a certified SAP Solutions provider in Dubai, United Arab Emirates, Technology Wall has made it possible to provide excelsior SAP implementation services and consultations.',
                           style: context.bodyLarge,
                         ),
                       ],

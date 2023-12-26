@@ -9,3 +9,4 @@ export '../config/themes/app_theme.dart';
 export '../config/themes/theme_mode_services.dart';
 export 'en/software/sap/controllers/sap_page_controllers.dart';
 export 'ar/software/sap/controllers/ar_sap_page_controllers.dart';
+export 'core/controllers/software_controllers.dart';

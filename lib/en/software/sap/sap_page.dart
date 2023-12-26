@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../../config/themes/app_theme.dart';
+import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';
@@ -16,14 +19,13 @@ class SAPPage extends StatefulWidget {
 }
 
 class _SAPPageState extends State<SAPPage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
   @override
   void initState() {
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
+    metadataFunctions.updateMetaData('Technology Wall | SAP',
+        'Explore the realm of SAP Enterprise Resource Planning solutions, services, and products. Get to know the aspects that makes SAP stand out among the top-tier ERP solutions in the world.');
+    metadataFunctions.updateHeaderMetaData();
   }
 
   @override
@@ -33,66 +35,79 @@ class _SAPPageState extends State<SAPPage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
 
-    return Semantics(
-      link: true,
-      label: 'Technology Wall | SAP ERP Page',
-      value:
-          "SAP Business One, SAP, Tally ERP, ERP, erp, sap, sap business one, s4/hana, sap4, sap4/hana, s4hana, s4hana erp",
-      child: PopScope(
-        canPop: true,
-        onPopInvoked: (value) {
-          if (value) {
-            return;
-          } else {
-            Navigator.of(context).pop();
-          }
-        },
-        child: ImprovedScrolling(
-          scrollController: scroller,
-          enableMMBScrolling: true,
-          enableKeyboardScrolling: true,
-          child: Scaffold(
-            body: ListView(
-              controller: scroller,
-              physics: const RangeMaintainingScrollPhysics(),
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                  child: sw >= 1280
-                      ? const WebHeader()
-                      : sw < 1280 && sw >= 768
-                          ? TabletHeader(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            )
-                          : const MobileHeader(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                  child: sw >= 1280
-                      ? const WebSAPBody()
-                      : sw < 1280 && sw >= 768
-                          ? const SizedBox()
-                          : const SizedBox(),
-                ),
-                sw >= 1280
-                    ? const WebFooter()
-                    : sw < 1280 && sw >= 768
-                        ? TabletFooter(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          )
-                        : MobileFooter(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          ),
-              ],
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (value) {
+        if (value) {
+          return;
+        } else {
+          Navigator.of(context).pop();
+        }
+      },
+      child: ImprovedScrolling(
+        scrollController: scroller,
+        enableMMBScrolling: true,
+        enableKeyboardScrolling: true,
+        child: Scaffold(
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: AppTheme.darkest,
+              onPressed: () {},
+              child: const Icon(
+                Icons.chat_rounded,
+                color: Colors.white70,
+              ),
             ),
-          ),
-        ),
+            body: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(
+                  opacity: 0.05,
+                  child: SvgPicture.asset(
+                    'assets/icons/ttten.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView(
+                  controller: scroller,
+                  physics: const RangeMaintainingScrollPhysics(),
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
+                      child: sw >= 1280
+                          ? const WebHeader()
+                          : sw < 1280 && sw >= 768
+                              ? TabletHeader(
+                                  sw: sw,
+                                  sh: sh,
+                                  ar: ar,
+                                )
+                              : const MobileHeader(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      child: sw >= 1280
+                          ? const WebSAPBody()
+                          : sw < 1280 && sw >= 768
+                              ? const SizedBox()
+                              : const SizedBox(),
+                    ),
+                    sw >= 1280
+                        ? const WebFooter()
+                        : sw < 1280 && sw >= 768
+                            ? TabletFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              )
+                            : MobileFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              ),
+                  ],
+                ),
+              ],
+            )),
       ),
     );
   }

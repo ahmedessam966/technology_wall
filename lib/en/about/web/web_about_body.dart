@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
 
@@ -19,55 +18,43 @@ class WebAboutBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
-        SlideInUp(
+        SlideInDown(
           duration: const Duration(milliseconds: 1000),
           child: SizedBox(
             height: 400,
             width: double.infinity,
-            child: Stack(
-              alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Opacity(
-                  opacity: 0.05,
-                  child: SvgPicture.asset(
-                    'assets/icons/ttten.svg',
-                    fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
+                  child: Center(
+                    child: Text(
+                      'Meet',
+                      style: context.headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
+                    ),
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
-                      child: Center(
-                        child: Text(
-                          'Meet',
-                          style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
-                        ),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: Center(
+                    child: Text(
+                      'Technology Wall',
+                      style: context.headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
-                      child: Center(
-                        child: Text(
-                          'Technology Wall',
-                          style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
-                        ),
-                      ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: Center(
+                    child: Text(
+                      'About Us',
+                      style: context.headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
-                      child: Center(
-                        child: Text(
-                          'About Us',
-                          style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
@@ -167,7 +154,7 @@ class WebAboutBody extends StatelessWidget {
                         border: Border.all(width: 1, color: Colors.black45),
                         borderRadius: const BorderRadius.all(Radius.zero),
                         image: const DecorationImage(
-                            image: AssetImage('assets/images/aspire.webp'), fit: BoxFit.cover),
+                            image: AssetImage('assets/images/finance.webp'), fit: BoxFit.cover),
                         boxShadow: const [
                           BoxShadow(color: Colors.black26, offset: Offset(5, 5), blurRadius: 2),
                         ],
@@ -188,7 +175,7 @@ class WebAboutBody extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'In line with the vision of the Kingdom of Saudi Arabia for the year 2030, we aim to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
+                          'In line with the vision of the Kingdom of Saudi Arabia for the year 2030, Technology Wall aims to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
                           style: context.bodyLarge,
                         ),
                       ],

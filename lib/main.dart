@@ -3,6 +3,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/routing_maps.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
+import 'package:technology_wall/core/controllers/software_controllers.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 import 'en/controller_index.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HomePageControllers()),
         ChangeNotifierProvider(create: (_) => CartControllers()),
         ChangeNotifierProvider(create: (_) => SAPPageControllers()),
+        ChangeNotifierProvider(create: (_) => SoftwareControllers()),
       ],
       builder: (context, _) {
         final themeNotifier = context.watch<ThemeModeServices>();

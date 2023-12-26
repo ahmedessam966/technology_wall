@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/metadata_controllers.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
-import '../../../../config/themes/app_theme.dart';
-import '../../../../core/controllers/app_controllers.dart';
+import 'package:technology_wall/core/models/microsoft_model.dart';
 import '../../../../core/controllers/cart_controllers.dart';
 import '../../../shared/web/web_printer_order_form.dart';
 
-class PrinterCardWidget extends StatelessWidget {
-  final PrinterModel? printer;
-  const PrinterCardWidget({super.key, required this.printer});
+class MicrosoftCard extends StatelessWidget {
+  final MicrosoftModel? microsoft;
+  const MicrosoftCard({super.key, required this.microsoft});
 
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
     metadataControllers.injectPageSpecificContent(
-        '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.brand} Printer, ${printer?.model} Printer',
+        '${microsoft?.title}, ${microsoft?.edition} software solutions for personal and enterprise utility.',
         'en');
     return Container(
       padding: const EdgeInsets.all(30),
@@ -30,21 +28,19 @@ class PrinterCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            flex: 10,
+            flex: 15,
             child: Center(
               child: Image.network(
-                printer!.snapshot,
-                height: 150,
-                width: 200,
+                microsoft!.snapshot,
               ),
             ),
           ),
           const Spacer(),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Center(
               child: SelectableText(
-                printer!.title,
+                microsoft!.title,
                 style: context.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -57,29 +53,24 @@ class PrinterCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Printing Capability: ${printer?.ppm} papers/minute',
+                  '• Edition: ${microsoft?.edition}',
                   textAlign: TextAlign.justify,
-                  style: context.bodyMedium,
+                  style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Printer Family: ${printer?.family}',
+                  '• License: ${microsoft?.license}',
                   textAlign: TextAlign.justify,
-                  style: context.bodyMedium,
+                  style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Printer Type: ${printer?.type}',
+                  '• Language Support: ${microsoft?.language}',
                   textAlign: TextAlign.justify,
-                  style: context.bodyMedium,
+                  style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Network Module: ${printer?.network}',
+                  '• User Support: ${microsoft?.users}',
                   textAlign: TextAlign.justify,
-                  style: context.bodyMedium,
-                ),
-                SelectableText(
-                  '• Ideal Utility: ${printer?.utility}',
-                  textAlign: TextAlign.justify,
-                  style: context.bodyMedium,
+                  style: context.bodyLarge,
                 ),
               ],
             ),
@@ -141,11 +132,11 @@ class PrinterCardWidget extends StatelessWidget {
                       }),
                     ),
                     onPressed: () {
-                      cart.cart.containsKey(printer?.id)
-                          ? cart.removeFromCart(printer!.id)
-                          : cart.addToCart(printer);
+                      cart.cart.containsKey(microsoft?.id)
+                          ? cart.removeFromCart(microsoft!.id)
+                          : cart.addToCart(microsoft);
                     },
-                    child: cart.cart.containsKey(printer?.id)
+                    child: cart.cart.containsKey(microsoft?.id)
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -169,24 +160,6 @@ class PrinterCardWidget extends StatelessWidget {
                   );
                 }),
               ],
-            ),
-          ),
-          const Spacer(),
-          Center(
-            child: TextButton(
-              style: ButtonStyle(
-                shape: MaterialStatePropertyAll(
-                  LinearBorder.bottom(side: const BorderSide(color: AppTheme.darkest)),
-                ),
-              ),
-              onPressed: () {
-                Provider.of<AppControllers>(context, listen: false)
-                    .changePage('Printers | ${printer?.brand} ${printer?.model}');
-              },
-              child: Text(
-                'Printer Details',
-                style: context.bodyMedium,
-              ),
             ),
           ),
         ],
