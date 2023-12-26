@@ -21,7 +21,8 @@ class SoftwareControllers extends ChangeNotifier {
           cost: element.data()['Cost'],
           price: element.data()['Selling Price'],
           maxDiscounted: element.data()['Max Discounted Price'],
-          users: element.data()['Users']);
+          users: element.data()['Users'],
+          officeFeatures: element.data()['Features']);
       _microsoftList.add(product);
     }
   }

@@ -13,8 +13,9 @@ class CartWidget extends StatelessWidget {
       return Dialog(
         backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
         surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
         child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             border: Border.all(color: Colors.black),
@@ -24,35 +25,31 @@ class CartWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                color: const Color(0xaaf7f7f7).withOpacity(1),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Your Cart',
-                      style: context.headlineSmall,
-                    ),
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: const Icon(Icons.close),
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Your Cart',
+                    style: context.headlineLarge,
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.close),
+                  ),
+                ],
               ),
+              const Divider(),
               SizedBox(
-                height: provider.cart.isEmpty ? 300 : 50,
+                height: provider.cart.isEmpty ? 300 : 25,
               ),
               provider.cart.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
                   : SizedBox(
                       height: 380,
                       child: ListView.separated(
-                        padding: const EdgeInsets.symmetric(horizontal: 50),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 10,
                         ),
@@ -62,10 +59,16 @@ class CartWidget extends StatelessWidget {
                           final item = provider.cart[key];
                           return ListTile(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(1),
                                 side: const BorderSide(color: Colors.black)),
-                            title: Text(item.title),
-                            subtitle: Text(item.brand),
+                            title: Text(
+                              item.title,
+                              style: context.headlineSmall?.copyWith(fontWeight: FontWeight.w500),
+                            ),
+                            subtitle: Text(
+                              'Product ID: ${item.id}',
+                              style: context.bodyLarge,
+                            ),
                             trailing: IconButton(
                               tooltip: 'Remove From Cart',
                               onPressed: () {

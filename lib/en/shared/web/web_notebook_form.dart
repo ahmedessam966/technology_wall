@@ -50,7 +50,7 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
       return Dialog(
         backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
         surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
           child: Form(

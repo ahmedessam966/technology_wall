@@ -12,7 +12,7 @@ class MetadataControllers {
       ..innerHtml = h2
       ..hidden = true);
     h3 != null
-        ? html.document.body?.append(html.HeadingElement.h1()
+        ? html.document.body?.append(html.HeadingElement.h3()
           ..innerHtml = h3
           ..hidden = true)
         : null;
@@ -121,7 +121,7 @@ class MetadataControllers {
         ..lang = lang
         ..hidden = true
         ..title = child.title
-        ..innerHtml = '${child.brand} ${child.title} (${child.model})');
+        ..innerHtml = '${child.title}');
     }
   }
 

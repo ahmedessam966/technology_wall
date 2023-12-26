@@ -9,6 +9,7 @@ class MicrosoftModel {
   final num price;
   final num maxDiscounted;
   final String users;
+  final String? officeFeatures;
 
   MicrosoftModel(
       {required this.id,
@@ -20,5 +21,6 @@ class MicrosoftModel {
       required this.cost,
       required this.price,
       required this.maxDiscounted,
-      required this.users});
+      required this.users,
+      this.officeFeatures});
 }
