@@ -143,7 +143,7 @@ class WebSoftwareBody extends StatelessWidget {
         ),
         Consumer<SoftwareControllers>(builder: (context, provider, _) {
           return Container(
-            color: const Color(0xaaf7f7f7).withOpacity(1),
+            color: const Color(0xaaf1f1f1).withOpacity(1),
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             width: double.infinity,
             child: Column(
