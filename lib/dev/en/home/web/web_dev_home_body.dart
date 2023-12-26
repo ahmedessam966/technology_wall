@@ -183,11 +183,18 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf3f3f3).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(5, -5), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/brainstorm.svg',
                         fit: BoxFit.contain,
@@ -396,11 +403,18 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf3f3f3).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(-5, 10), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/analyze.svg',
                         fit: BoxFit.contain,
@@ -425,11 +439,18 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf3f3f3).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(5, -5), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/design.svg',
                         fit: BoxFit.contain,
@@ -566,10 +587,16 @@ class WebDevHomeBody extends StatelessWidget {
                     flex: 4,
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf0f0f0).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(5, -5), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/maintenance.svg',
                         fit: BoxFit.contain,
@@ -778,11 +805,18 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf3f3f3).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(-5, 10), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/domain.svg',
                         fit: BoxFit.contain,
@@ -807,11 +841,18 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: const BorderDirectional(
-                              start: BorderSide(color: Colors.white30),
-                              end: BorderSide(color: Colors.white30))),
+                        color: const Color(0xaaf3f3f3).withOpacity(1),
+                        borderRadius: BorderRadius.circular(10),
+                        border: const BorderDirectional(
+                          start: BorderSide(color: Colors.white30),
+                          end: BorderSide(color: Colors.white30),
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, offset: Offset(5, -5), blurRadius: 5),
+                        ],
+                      ),
                       child: SvgPicture.asset(
                         'assets/dev_icons/mail.svg',
                         fit: BoxFit.contain,
@@ -913,6 +954,9 @@ class WebDevHomeBody extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          const SizedBox(
+            height: 200,
           ),
         ],
       ),
