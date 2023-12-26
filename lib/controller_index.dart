@@ -1,12 +1,12 @@
 export '../core/controllers/cart_controllers.dart';
 export '../core/controllers/inventory_controllers.dart';
-export 'en/home/controllers/home_page_controllers.dart';
-export 'ar/home/controllers/ar_home_page_controllers.dart';
+export 'base/en/home/controllers/home_page_controllers.dart';
+export 'base/ar/home/controllers/ar_home_page_controllers.dart';
 export '../core/controllers/app_controllers.dart';
 export '../core/controllers/auth_controllers.dart';
 export '../config/navigator_observer.dart';
 export '../config/themes/app_theme.dart';
 export '../config/themes/theme_mode_services.dart';
-export 'en/software/sap/controllers/sap_page_controllers.dart';
-export 'ar/software/sap/controllers/ar_sap_page_controllers.dart';
+export 'base/en/software/sap/controllers/sap_page_controllers.dart';
+export 'base/ar/software/sap/controllers/ar_sap_page_controllers.dart';
 export 'core/controllers/software_controllers.dart';

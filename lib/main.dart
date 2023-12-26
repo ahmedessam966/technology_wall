@@ -6,7 +6,7 @@ import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:technology_wall/core/controllers/software_controllers.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
-import 'en/controller_index.dart';
+import 'base/en/controller_index.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'config/firebase_options.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

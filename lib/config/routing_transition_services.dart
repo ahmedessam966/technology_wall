@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:technology_wall/facebook_redirect.dart';
-import '../en/pages_index.dart';
+import '../base/en/pages_index.dart';
 
 class RoutingTransitionServices {
   static Route Transition(page) {
