@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:technology_wall/base/en/shared/dev_redirect.dart';
 import 'package:technology_wall/facebook_redirect.dart';
 import '../base/en/pages_index.dart';
 
@@ -83,6 +84,8 @@ class RoutingTransitionServices {
           return const PrivacyPolicyPage();
         case '/not-found':
           return const NotFoundPage();
+        case '/dev/en':
+          return const DevRedirect();
         default:
           return const NotFoundPage();
       }

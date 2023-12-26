@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technology_wall/base/en/pages_index.dart';
 
 import '../pages_index.dart';
 
@@ -61,5 +62,11 @@ class RoutingMaps {
     '/ar/software/zoho': (context) => const ARZohoPage(),
     '/ar/privacy': (context) => const ARPrivacyPolicyPage(),
     '/ar/not-found': (context) => const ARNotFoundPage(),
+
+    /////////////////////////////////////////////////////////////
+    ///Development Center Routing Map
+    /////////////////////////////////////////////////////////////
+
+    '/dev/en': (context) => const DevHomePage()
   };
 }

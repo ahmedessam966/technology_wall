@@ -25,3 +25,4 @@ export 'software/sap/sap_page.dart';
 export 'software/tally/tally_page.dart';
 export 'software/zoho/zoho_page.dart';
 export 'privacy/privacy_policy_page.dart.dart';
+export '../../dev/en/home/dev_home_page.dart';

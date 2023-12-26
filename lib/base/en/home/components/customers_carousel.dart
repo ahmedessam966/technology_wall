@@ -18,9 +18,10 @@ class CustomersCarousel extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                  child: SpinKitCubeGrid(
-                color: Color(0xaaf7f7f7),
-              ));
+                child: SpinKitCubeGrid(
+                  color: Color(0xaaf7f7f7),
+                ),
+              );
             } else {
               return FlutterCarousel.builder(
                 itemCount: snapshot.data?.length,

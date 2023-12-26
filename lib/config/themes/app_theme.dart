@@ -31,6 +31,11 @@ class AppTheme extends ChangeNotifier {
           displayLarge: GoogleFonts.notoKufiArabic(fontSize: 13.sp),
           displayMedium: GoogleFonts.notoKufiArabic(fontSize: 11.5.sp),
           displaySmall: GoogleFonts.notoKufiArabic(fontSize: 9.sp),
+
+          //Dev Center Fonts
+          labelLarge: GoogleFonts.spaceGrotesk(fontSize: 12.sp),
+          labelMedium: GoogleFonts.spaceGrotesk(fontSize: 10.5.sp),
+          labelSmall: GoogleFonts.spaceGrotesk(fontSize: 8.sp),
         ),
       );
 
