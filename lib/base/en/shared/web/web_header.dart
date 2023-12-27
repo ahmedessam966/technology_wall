@@ -2,12 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/base/en/shared/dev_redirect.dart';
-import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../../ar/shared/language_redirect.dart';
-
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../core/controllers/auth_controllers.dart';
 import 'dart:html' as html;
 
@@ -19,7 +17,7 @@ class WebHeader extends StatelessWidget {
     return Consumer<AppControllers>(
       builder: (context, app, _) {
         return SizedBox(
-          height: 120,
+          height: 15.h,
           width: double.infinity,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,7 +30,7 @@ class WebHeader extends StatelessWidget {
                     },
                     child: Image.asset(
                       'assets/images/logo1.webp',
-                      height: 90,
+                      height: 12.h,
                     ),
                   ),
                   Text(
@@ -45,8 +43,8 @@ class WebHeader extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                height: 300,
-                padding: const EdgeInsets.all(20),
+                height: 35.h,
+                padding: EdgeInsets.all(20.px),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -280,10 +278,7 @@ class WebHeader extends StatelessWidget {
                         }),
                       ),
                       onPressed: () {
-                        app.pageTitle.endsWith('Development Center')
-                            ? null
-                            : Navigator.push(
-                                context, RoutingTransitionServices.Transition(const DevRedirect()));
+                        html.window.open('https://techwall.com.sa/dev', 'Technology Wall Development Center');
                       },
                       child: Text('Dev Center', style: context.bodyLarge?.copyWith(color: Colors.white)),
                     ),
@@ -297,13 +292,13 @@ class WebHeader extends StatelessWidget {
                 button: true,
                 label: 'Zoho Customer Portal Login Button',
                 child: IconButton(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(10.px),
                   tooltip: 'Zoho Customer Portal',
                   style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
                       elevation: const MaterialStatePropertyAll(0),
                       shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.px)))),
                   onPressed: () {
                     Navigator.pushNamed(context, '/en/portal');
                   },

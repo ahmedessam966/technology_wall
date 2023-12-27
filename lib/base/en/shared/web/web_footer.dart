@@ -1,4 +1,5 @@
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class WebFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(50),
+            padding: EdgeInsets.all(50.px),
             child: Flex(
               direction: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +31,7 @@ class WebFooter extends StatelessWidget {
                       Center(
                         child: Image.asset(
                           'assets/images/logo1.webp',
-                          height: 80,
+                          height: 12.h,
                         ),
                       ),
                       Center(
@@ -39,8 +40,8 @@ class WebFooter extends StatelessWidget {
                           style: context.bodyLarge?.copyWith(color: Colors.white70),
                         ),
                       ),
-                      const SizedBox(
-                        height: 40,
+                      SizedBox(
+                        height: 4.h,
                       ),
                       Flex(
                         direction: Axis.horizontal,
@@ -54,10 +55,10 @@ class WebFooter extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   'assets/images/prorays.png',
-                                  height: 40,
+                                  height: 4.5.h,
                                 ),
-                                const SizedBox(
-                                  height: 10,
+                                SizedBox(
+                                  height: 1.h,
                                 ),
                                 Row(
                                   children: [
@@ -69,7 +70,7 @@ class WebFooter extends StatelessWidget {
                                       width: 5,
                                     ),
                                     SizedBox(
-                                      width: 250,
+                                      width: 15.w,
                                       child: Text(
                                         'Al Madinah - Al Arid District - P. Muhammed Bin Abdulaziz St.',
                                         overflow: TextOverflow.clip,
@@ -84,8 +85,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.link,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     GestureDetector(
                                       onTap: () async {
@@ -105,8 +106,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.phone,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     Text(
                                       '+9722335228',
@@ -120,8 +121,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.email,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     Text(
                                       'info@prorays.techwall.com.sa',
@@ -135,24 +136,24 @@ class WebFooter extends StatelessWidget {
                                       onPressed: () {},
                                       icon: SvgPicture.asset(
                                         'assets/icons/facebook.svg',
-                                        height: 30,
-                                        width: 30,
+                                        height: 3.5.h,
+                                        width: 3.5.h,
                                       ),
                                     ),
                                     IconButton(
                                       onPressed: () {},
                                       icon: SvgPicture.asset(
                                         'assets/icons/instagram.svg',
-                                        height: 30,
-                                        width: 30,
+                                        height: 3.5.h,
+                                        width: 3.5.h,
                                       ),
                                     ),
                                     IconButton(
                                       onPressed: () {},
                                       icon: Image.asset(
                                         'assets/images/x.png',
-                                        height: 40,
-                                        width: 40,
+                                        height: 4.h,
+                                        width: 4.h,
                                       ),
                                     ),
                                   ],
@@ -170,10 +171,10 @@ class WebFooter extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   'assets/images/prorays.png',
-                                  height: 40,
+                                  height: 4.h,
                                 ),
-                                const SizedBox(
-                                  height: 10,
+                                SizedBox(
+                                  height: 1.h,
                                 ),
                                 Row(
                                   children: [
@@ -181,8 +182,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.location_on,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     Text(
                                       'Dubai - United Arab Emirates',
@@ -196,8 +197,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.link,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     GestureDetector(
                                       onTap: () async {
@@ -217,8 +218,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.phone,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     Text(
                                       '+9722335228',
@@ -232,8 +233,8 @@ class WebFooter extends StatelessWidget {
                                       Icons.email,
                                       color: Colors.white54,
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                    SizedBox(
+                                      width: 0.5.w,
                                     ),
                                     Text(
                                       'info@prorays.tech-wall.me',
@@ -247,24 +248,24 @@ class WebFooter extends StatelessWidget {
                                       onPressed: () {},
                                       icon: SvgPicture.asset(
                                         'assets/icons/facebook.svg',
-                                        height: 30,
-                                        width: 30,
+                                        height: 3.5.h,
+                                        width: 3.5.h,
                                       ),
                                     ),
                                     IconButton(
                                       onPressed: () {},
                                       icon: SvgPicture.asset(
                                         'assets/icons/instagram.svg',
-                                        height: 30,
-                                        width: 30,
+                                        height: 3.5.h,
+                                        width: 3.5.h,
                                       ),
                                     ),
                                     IconButton(
                                       onPressed: () {},
                                       icon: Image.asset(
                                         'assets/images/x.png',
-                                        height: 40,
-                                        width: 40,
+                                        height: 4.h,
+                                        width: 4.h,
                                       ),
                                     ),
                                   ],
@@ -290,7 +291,7 @@ class WebFooter extends StatelessWidget {
                             },
                             child: Image.asset(
                               'assets/images/hcc.png',
-                              height: 80,
+                              height: 8.h,
                             ),
                           ),
                         ],
@@ -299,9 +300,9 @@ class WebFooter extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                const SizedBox(
-                  height: 450,
-                  child: VerticalDivider(
+                SizedBox(
+                  height: 50.h,
+                  child: const VerticalDivider(
                     color: Colors.white70,
                   ),
                 ),
@@ -321,8 +322,8 @@ class WebFooter extends StatelessWidget {
                             'Software',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           TextButton(
                             onPressed: () {
@@ -369,15 +370,15 @@ class WebFooter extends StatelessWidget {
                               style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           Text(
                             'Hardware',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           TextButton(
                             onPressed: () {
@@ -444,8 +445,8 @@ class WebFooter extends StatelessWidget {
                             'Company',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           TextButton(
                             onPressed: () {},
@@ -468,15 +469,15 @@ class WebFooter extends StatelessWidget {
                               style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           Text(
                             'Legal',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           TextButton(
                             onPressed: () {
@@ -501,15 +502,15 @@ class WebFooter extends StatelessWidget {
                               style: context.bodyMedium?.copyWith(color: Colors.white54),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           Text(
                             'Contact Us',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 1.h,
                           ),
                           Text(
                             '+966542575808',
@@ -520,7 +521,7 @@ class WebFooter extends StatelessWidget {
                             style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
                           Text(
-                            'B233, Office 37, Olaya District Computer Market',
+                            'B233, Office 27, Olaya District Computer Market',
                             overflow: TextOverflow.clip,
                             style: context.bodyMedium?.copyWith(color: Colors.white54),
                           ),
@@ -537,8 +538,8 @@ class WebFooter extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 3.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -547,30 +548,30 @@ class WebFooter extends StatelessWidget {
                 onPressed: () {},
                 icon: SvgPicture.asset(
                   'assets/icons/facebook.svg',
-                  height: 40,
-                  width: 40,
+                  height: 4.h,
+                  width: 4.h,
                 ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: SvgPicture.asset(
                   'assets/icons/instagram.svg',
-                  height: 40,
-                  width: 40,
+                  height: 4.h,
+                  width: 4.h,
                 ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: Image.asset(
                   'assets/images/x.png',
-                  height: 45,
-                  width: 45,
+                  height: 4.5.h,
+                  width: 4.5.h,
                 ),
               ),
             ],
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            padding: EdgeInsets.symmetric(vertical: 2.h),
             width: double.infinity,
             color: AppTheme.darkest.withOpacity(0.5),
             child: Center(
