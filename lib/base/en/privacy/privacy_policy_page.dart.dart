@@ -54,6 +54,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
           scrollController: scroller,
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
+          keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
           child: Scaffold(
             body: ListView(
               controller: scroller,

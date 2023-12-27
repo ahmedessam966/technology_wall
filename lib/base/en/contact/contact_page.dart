@@ -49,6 +49,7 @@ class _ContactPageState extends State<ContactPage> {
         scrollController: scroller,
         enableMMBScrolling: true,
         enableKeyboardScrolling: false,
+        keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppTheme.darkest,

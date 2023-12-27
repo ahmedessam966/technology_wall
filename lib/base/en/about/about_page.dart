@@ -51,6 +51,7 @@ class _AboutPageState extends State<AboutPage> {
         scrollController: scroller,
         enableMMBScrolling: true,
         enableKeyboardScrolling: true,
+        keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
             floatingActionButton: FloatingActionButton(
               backgroundColor: AppTheme.darkest,

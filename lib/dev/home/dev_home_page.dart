@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:technology_wall/dev/en/home/mobile/mobile_dev_home_body.dart';
-import 'package:technology_wall/dev/en/home/tablet/tablet_dev_home_body.dart';
-import 'package:technology_wall/dev/en/home/web/web_dev_home_body.dart';
+import 'package:technology_wall/dev/home/mobile/mobile_dev_home_body.dart';
+import 'package:technology_wall/dev/home/tablet/tablet_dev_home_body.dart';
+import 'package:technology_wall/dev/home/web/web_dev_home_body.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 
 class DevHomePage extends StatefulWidget {

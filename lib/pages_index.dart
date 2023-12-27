@@ -25,6 +25,7 @@ export 'base/en/software/sap/sap_page.dart';
 export 'base/en/software/tally/tally_page.dart';
 export 'base/en/software/zoho/zoho_page.dart';
 export 'base/en/privacy/privacy_policy_page.dart.dart';
+export 'dev/home/dev_home_page.dart';
 
 //////////////////////////////////////////////////
 ///Arabic Index

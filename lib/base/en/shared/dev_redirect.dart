@@ -14,7 +14,7 @@ class _DevRedirectState extends State<DevRedirect> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, '/dev/en');
+      Navigator.pushReplacementNamed(context, '/dev');
     });
   }
 

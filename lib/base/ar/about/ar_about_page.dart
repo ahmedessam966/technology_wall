@@ -50,6 +50,7 @@ class _ARAboutPageState extends State<ARAboutPage> {
           scrollController: scroller,
           enableMMBScrolling: true,
           enableKeyboardScrolling: true,
+          keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
           child: Scaffold(
             body: ListView(
               controller: scroller,

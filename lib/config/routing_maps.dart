@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:technology_wall/base/en/pages_index.dart';
 
 import '../pages_index.dart';
 
@@ -67,6 +66,6 @@ class RoutingMaps {
     ///Development Center Routing Map
     /////////////////////////////////////////////////////////////
 
-    '/dev/en': (context) => const DevHomePage()
+    '/dev': (context) => const DevHomePage()
   };
 }

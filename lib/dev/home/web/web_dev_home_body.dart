@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/dev/en/home/components/dev_coustomer_carousel.dart';
+import 'package:technology_wall/dev/home/components/dev_coustomer_carousel.dart';
 
 import '../../../../core/controllers/metadata_controllers.dart';
 

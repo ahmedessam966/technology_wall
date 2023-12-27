@@ -55,6 +55,7 @@ class _ARPrivacyPolicyPageState extends State<ARPrivacyPolicyPage> {
             scrollController: scroller,
             enableMMBScrolling: true,
             enableKeyboardScrolling: true,
+            keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
             child: Scaffold(
               body: ListView(
                 controller: scroller,
