@@ -32,7 +32,7 @@ class _DevRedirectState extends State<DevRedirect> {
               height: 10,
             ),
             Text(
-              'Redirecting to Developer Center',
+              'Redirecting to Development Center',
               style: TextStyle(color: Colors.white, fontSize: 28),
             ),
           ],

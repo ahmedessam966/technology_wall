@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../../config/themes/app_theme.dart';
@@ -19,16 +20,16 @@ class ProductCategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 60.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+          padding: MaterialStatePropertyAll(EdgeInsets.symmetric(vertical: 3.h, horizontal: 1.w)),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
           surfaceTintColor: const MaterialStatePropertyAll(AppTheme.darkest),
           overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(2),
+                borderRadius: BorderRadius.circular(5.px),
                 side: BorderSide(color: const Color(0xaaaaaeb6).withOpacity(1))),
           ),
           elevation: MaterialStateProperty.resolveWith((states) {
@@ -48,7 +49,7 @@ class ProductCategoryCard extends StatelessWidget {
               flex: 4,
               child: Image.network(
                 imagePath,
-                height: 200,
+                height: 20.h,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress?.cumulativeBytesLoaded != loadingProgress?.expectedTotalBytes) {
                     return const SpinKitFadingCircle(

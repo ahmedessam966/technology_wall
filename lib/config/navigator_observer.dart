@@ -13,7 +13,6 @@ class TitleObserver extends NavigatorObserver {
     super.didPush(route, previousRoute);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       updateTitle(route.settings.name);
-      updateJsonKeywordMap();
     });
   }
 
@@ -22,7 +21,6 @@ class TitleObserver extends NavigatorObserver {
     super.didPop(route, previousRoute);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       updateTitle(previousRoute?.settings.name);
-      updateJsonKeywordMap();
     });
   }
 
@@ -32,6 +30,8 @@ class TitleObserver extends NavigatorObserver {
       String pageTitle = '';
       if (pathSegments.isEmpty || pathSegments.last == 'en' || pathSegments.last == 'ar') {
         pageTitle = 'Home';
+      } else if (pathSegments.last == 'dev') {
+        pageTitle = 'Development Center';
       } else {
         pageTitle = pathSegments.last;
       }

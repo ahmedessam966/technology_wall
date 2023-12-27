@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 
 class DevCustomersCarousel extends StatelessWidget {
@@ -29,7 +30,7 @@ class DevCustomersCarousel extends StatelessWidget {
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 autoPlayInterval: const Duration(milliseconds: 50),
                 autoPlay: true,
-                height: 400.0,
+                height: 40.h,
                 showIndicator: false,
               ),
               itemBuilder: (context, index, _) {
@@ -37,7 +38,7 @@ class DevCustomersCarousel extends StatelessWidget {
                 return Image.network(
                   path,
                   color: Colors.white,
-                  width: 120,
+                  width: 10.w,
                 );
               },
             );

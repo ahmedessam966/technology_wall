@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/base/en/shared/dev_redirect.dart';
+import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../../ar/shared/language_redirect.dart';
@@ -255,6 +257,35 @@ class WebHeader extends StatelessWidget {
                             : Navigator.pushNamed(context, '/en/contact-us');
                       },
                       child: Text('Contact Us', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        overlayColor: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return Colors.white10;
+                          } else {
+                            return null;
+                          }
+                        }),
+                        shape: MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.hovered)) {
+                            return LinearBorder.bottom(
+                              side: const BorderSide(color: Colors.white54),
+                            );
+                          } else {
+                            return const LinearBorder(
+                              side: BorderSide(color: Colors.transparent),
+                            );
+                          }
+                        }),
+                      ),
+                      onPressed: () {
+                        app.pageTitle.endsWith('Development Center')
+                            ? null
+                            : Navigator.push(
+                                context, RoutingTransitionServices.Transition(const DevRedirect()));
+                      },
+                      child: Text('Dev Center', style: context.bodyLarge?.copyWith(color: Colors.white)),
                     ),
                   ],
                 ),

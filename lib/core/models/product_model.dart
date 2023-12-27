@@ -1,4 +1,5 @@
 class ProductModel {
+  final String category;
   final String id;
   final String title;
   final String brand;
@@ -24,7 +25,8 @@ class ProductModel {
   final String? network;
 
   ProductModel(
-      {required this.id,
+      {required this.category,
+      required this.id,
       required this.title,
       required this.brand,
       this.color,

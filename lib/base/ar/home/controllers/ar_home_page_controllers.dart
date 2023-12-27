@@ -26,6 +26,7 @@ class ARHomePageControllers extends ChangeNotifier {
     final snapshot = await db.where('Title', isGreaterThanOrEqualTo: query).get();
     for (final element in snapshot.docs) {
       final product = ProductModel(
+          category: _productSearchController.text,
           id: element.id,
           title: element.data()['Title'],
           brand: element.data()['Brand'],

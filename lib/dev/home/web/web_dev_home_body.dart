@@ -17,7 +17,7 @@ class WebDevHomeBody extends StatelessWidget {
         'en');
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 1.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,44 +25,35 @@ class WebDevHomeBody extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 650,
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+            height: 85.h,
+            padding: EdgeInsets.symmetric(vertical: 3.h),
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10.px),
+                bottomRight: Radius.circular(10.px),
               ),
               gradient: LinearGradient(colors: [
                 const Color(0xaa26344b).withOpacity(1),
-                const Color(0xaa246af3),
+                const Color(0xaa246af3).withOpacity(1),
               ], begin: AlignmentDirectional.topCenter, end: AlignmentDirectional.bottomCenter),
-              boxShadow: const [BoxShadow(color: Colors.black87, offset: Offset(5, 5), blurRadius: 10)],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/dev_images/code.png',
-                      height: 150,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Welcome to Development Center',
-                      style: context.labelLarge
-                          ?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.w700, color: Colors.white),
-                    ),
-                  ],
+                Image.asset(
+                  'assets/dev_images/code.png',
+                  height: 15.h,
                 ),
-                const SizedBox(
-                  height: 25,
+                Text(
+                  'Welcome to Development Center',
+                  style: context.labelLarge
+                      ?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.w700, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 2.5.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Text(
                     'Boost digital business presence.',
                     style: context.labelLarge
@@ -70,36 +61,37 @@ class WebDevHomeBody extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Text(
                     'Design, pace, implement, and affirm your digital print.',
                     style: context.labelLarge
                         ?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.w700, color: Colors.white),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 1.5.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 200),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    'All the tools and technologies needed to create your degital entity. Reach out to your clients through our comprehensive web development kit plans.',
+                    'All the tools and technologies needed to create your digital entity. Reach out to your clients through our comprehensive web development kit plans.',
                     textAlign: TextAlign.center,
                     style:
                         context.headlineSmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.white70),
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 5.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(15.px),
                         backgroundColor: const Color(0xaaf5f5f5).withOpacity(1),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5.px),
                         ),
                       ),
                       onPressed: () {},
@@ -110,8 +102,8 @@ class WebDevHomeBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 1.w,
                     ),
                     TextButton(
                       style: ButtonStyle(
@@ -124,7 +116,7 @@ class WebDevHomeBody extends StatelessWidget {
                         }),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(5.px),
                           ),
                         ),
                       ),
@@ -135,30 +127,30 @@ class WebDevHomeBody extends StatelessWidget {
                             Icons.play_arrow_rounded,
                             color: Colors.white,
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           Text(
                             'Showcases',
                             style: context.labelLarge?.copyWith(
                               color: Colors.white,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                   ],
                 ),
                 const Spacer(),
-                const SizedBox(
-                  height: 150,
-                  child: DevCustomersCarousel(),
+                SizedBox(
+                  height: 15.h,
+                  child: const DevCustomersCarousel(),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           Center(
             child: Text(
@@ -169,13 +161,13 @@ class WebDevHomeBody extends StatelessWidget {
                   color: const Color(0xaa246af3).withOpacity(1)),
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -183,10 +175,10 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.px),
                       decoration: BoxDecoration(
                         color: const Color(0xaaf3f3f3).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -227,8 +219,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Technology Wall helps you identify potential client base that would boost your enterprise\'s income.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -236,8 +228,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Market scanning forecast.',
@@ -251,8 +243,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Surveys & polls to validate feasibility.',
@@ -266,8 +258,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Comprehensive stakeholder mapping.',
@@ -281,8 +273,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Create measurable SWOT analysis.',
@@ -297,13 +289,13 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -331,8 +323,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Filter out or include core stakeholders and prioritize business logic objectives.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -340,8 +332,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Analyze functionalities.',
@@ -355,8 +347,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Prioritize objectives based on the scope.',
@@ -370,8 +362,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Measure timeframes and revenue points.',
@@ -385,8 +377,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Create success metrics and KPIs.',
@@ -403,10 +395,10 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.px),
                       decoration: BoxDecoration(
                         color: const Color(0xaaf3f3f3).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -425,13 +417,13 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -439,10 +431,10 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.px),
                       decoration: BoxDecoration(
                         color: const Color(0xaaf3f3f3).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -483,8 +475,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Implementation of software requirements in accordance with standardized, effecient quality control.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -492,8 +484,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Implement backend module.',
@@ -507,8 +499,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Implement web services portal.',
@@ -522,8 +514,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Implement mobile services solution.',
@@ -537,8 +529,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Integrate into one enterprise-grade digital solution.',
@@ -553,15 +545,15 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
-          const Divider(
-            indent: 100,
-            endIndent: 100,
+          Divider(
+            indent: 5.w,
+            endIndent: 5.w,
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           Center(
             child: Text(
@@ -572,13 +564,13 @@ class WebDevHomeBody extends StatelessWidget {
                   color: const Color(0xaa246af3).withOpacity(1)),
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -588,7 +580,7 @@ class WebDevHomeBody extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xaaf0f0f0).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -629,8 +621,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Reliable, expert support teams for any system issues.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -638,8 +630,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'On-demand or dedicated teams.',
@@ -653,8 +645,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Remote and on-site support.',
@@ -668,8 +660,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Quick and effecient maintenance.',
@@ -683,8 +675,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Support for platform-specific systems.',
@@ -699,13 +691,13 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -733,8 +725,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Match your enterprise identity with a unique domain name.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -742,8 +734,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Establish a tailored domain name.',
@@ -757,8 +749,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Migrate an existing domain.',
@@ -772,8 +764,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Create new subdomains for business expansion.',
@@ -787,8 +779,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Yearly or monthly subscription plans.',
@@ -805,10 +797,10 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.px),
                       decoration: BoxDecoration(
                         color: const Color(0xaaf3f3f3).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -827,13 +819,13 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           SizedBox(
-            height: 300,
+            height: 40.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Flex(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 direction: Axis.horizontal,
@@ -841,10 +833,10 @@ class WebDevHomeBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.px),
                       decoration: BoxDecoration(
                         color: const Color(0xaaf3f3f3).withOpacity(1),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.px),
                         border: const BorderDirectional(
                           start: BorderSide(color: Colors.white30),
                           end: BorderSide(color: Colors.white30),
@@ -885,8 +877,8 @@ class WebDevHomeBody extends StatelessWidget {
                           'Extend your domain name\'s utility to serve as an email provider.',
                           style: context.labelLarge?.copyWith(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -894,8 +886,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Professional email addresses.',
@@ -909,8 +901,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Administration panel for management.',
@@ -924,8 +916,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Swift email server speeds.',
@@ -939,8 +931,8 @@ class WebDevHomeBody extends StatelessWidget {
                               Icons.check_rounded,
                               color: const Color(0xaa2af598).withOpacity(1),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'Integrate with renowned providers.',
@@ -955,8 +947,8 @@ class WebDevHomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 200,
+          SizedBox(
+            height: 20.h,
           ),
         ],
       ),
