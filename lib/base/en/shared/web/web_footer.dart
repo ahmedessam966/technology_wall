@@ -29,7 +29,7 @@ class WebFooter extends StatelessWidget {
                     children: [
                       Center(
                         child: Image.asset(
-                          'assets/images/logo1.png',
+                          'assets/images/logo1.webp',
                           height: 80,
                         ),
                       ),

@@ -31,7 +31,7 @@ class WebHeader extends StatelessWidget {
                       Navigator.pushNamed(context, '/en');
                     },
                     child: Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/logo1.webp',
                       height: 90,
                     ),
                   ),
