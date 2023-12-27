@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import '../components/printer_card_widget.dart';
@@ -22,20 +23,15 @@ class PrintersBuilderWidget extends StatelessWidget {
               );
             }
             if (provider.printerSearchController.text.isEmpty) {
-              return Semantics(
-                label: 'Printers, All-In-One Printers, All-In-One',
-                value:
-                    'HP, Canon, Zebra, Epson, Dot Matrix, Epson Dot Maxtrix, Epson Printers, HP Laserjet, HP Deskjet, HP Printer, HP All-In-One, Canon All-In-One, Canon Printer, Canon Laserjet, Canon Copier',
-                child: GridView.builder(
-                    physics: const RangeMaintainingScrollPhysics(),
-                    itemCount: provider.printersList.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
-                    itemBuilder: (context, index) {
-                      final printer = provider.printersList[index];
-                      return PrinterCardWidget(printer: printer);
-                    }),
-              );
+              return GridView.builder(
+                  physics: const RangeMaintainingScrollPhysics(),
+                  itemCount: provider.printersList.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
+                  itemBuilder: (context, index) {
+                    final printer = provider.printersList[index];
+                    return PrinterCardWidget(printer: printer);
+                  });
             } else {
               return FutureBuilder(
                   future: provider.searchPrinters(),
@@ -50,10 +46,10 @@ class PrintersBuilderWidget extends StatelessWidget {
                       return GridView.builder(
                           physics: const RangeMaintainingScrollPhysics(),
                           itemCount: snapshot.data?.length,
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 4,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 2.w,
+                              mainAxisSpacing: 2.w,
                               childAspectRatio: 0.7),
                           itemBuilder: (context, index) {
                             final printer = snapshot.data?[index];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/models/microsoft_model.dart';
 import 'package:technology_wall/base/en/software/software/components/microsoft_order_form.dart';
@@ -12,7 +13,7 @@ class MicrosoftCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.px),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1),
         border: Border.all(color: Colors.black87),
@@ -49,22 +50,18 @@ class MicrosoftCard extends StatelessWidget {
               children: [
                 SelectableText(
                   '• Edition: ${microsoft?.edition}',
-                  textAlign: TextAlign.justify,
                   style: context.bodyLarge,
                 ),
                 SelectableText(
                   '• License: ${microsoft?.license}',
-                  textAlign: TextAlign.justify,
                   style: context.bodyLarge,
                 ),
                 SelectableText(
                   '• Language Support: ${microsoft?.language}',
-                  textAlign: TextAlign.justify,
                   style: context.bodyLarge,
                 ),
                 SelectableText(
                   '• User Support: ${microsoft?.users}',
-                  textAlign: TextAlign.justify,
                   style: context.bodyLarge,
                 ),
                 Builder(builder: (ctx) {
@@ -73,8 +70,8 @@ class MicrosoftCard extends StatelessWidget {
                   } else {
                     return SelectableText(
                       '• Included Products: ${microsoft?.officeFeatures}',
-                      textAlign: TextAlign.justify,
-                      style: context.bodyLarge?.copyWith(fontStyle: FontStyle.italic),
+                      textAlign: TextAlign.left,
+                      style: context.bodyLarge,
                     );
                   }
                 })
@@ -129,6 +126,7 @@ class MicrosoftCard extends StatelessWidget {
                     final cart = Provider.of<CartControllers>(context, listen: true);
                     return ElevatedButton(
                       style: ButtonStyle(
+                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                         elevation: const MaterialStatePropertyAll(0),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(
@@ -157,8 +155,8 @@ class MicrosoftCard extends StatelessWidget {
                                   Icons.check,
                                   color: Colors.white70,
                                 ),
-                                const SizedBox(
-                                  width: 5,
+                                SizedBox(
+                                  width: 1.w,
                                 ),
                                 Text(
                                   'Added',

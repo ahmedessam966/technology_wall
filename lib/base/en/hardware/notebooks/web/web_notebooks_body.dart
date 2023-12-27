@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
@@ -29,7 +30,7 @@ class WebNotebooksBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,8 +47,8 @@ class WebNotebooksBody extends StatelessWidget {
                         style: context.headlineMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -55,8 +56,8 @@ class WebNotebooksBody extends StatelessWidget {
                             'For Personal Use',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -68,8 +69,8 @@ class WebNotebooksBody extends StatelessWidget {
                         'Supplying primary hardware and up to complex servers.',
                         style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Row(
                         children: [
@@ -77,8 +78,8 @@ class WebNotebooksBody extends StatelessWidget {
                             'For Business Use',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -90,8 +91,8 @@ class WebNotebooksBody extends StatelessWidget {
                         'Licensed, supported software soultions required for business intelligence',
                         style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Text(
                         'Save valuable time and effort. Explore our integrated solutions plan.',
@@ -100,29 +101,29 @@ class WebNotebooksBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 50,
+                SizedBox(
+                  width: 5.w,
                 ),
                 Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a',
-                  height: 250,
+                  height: 35.h,
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
-          const Divider(
-            indent: 50,
-            endIndent: 50,
+          Divider(
+            indent: 3.w,
+            endIndent: 3.w,
             color: Colors.white70,
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           SizedBox(
-            height: 100,
+            height: 12.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -145,14 +146,14 @@ class WebNotebooksBody extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
             child: SizedBox(
-              height: 1000,
+              height: 120.h,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,8 +164,8 @@ class WebNotebooksBody extends StatelessWidget {
                       style: context.headlineMedium,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 1.5.h,
                   ),
                   Center(
                     child: Text(
@@ -172,8 +173,8 @@ class WebNotebooksBody extends StatelessWidget {
                       style: context.bodyLarge,
                     ),
                   ),
-                  const SizedBox(
-                    height: 25,
+                  SizedBox(
+                    height: 2.5.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -199,7 +200,7 @@ class WebNotebooksBody extends StatelessWidget {
                         backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(2.px),
                           ),
                         ),
                       ),
@@ -210,7 +211,7 @@ class WebNotebooksBody extends StatelessWidget {
                             style: context.bodyLarge,
                           ),
                           value: provider.notebookFilterSelection,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(5.px),
                           style: context.bodyLarge,
                           items: const [
                             DropdownMenuItem(
@@ -269,8 +270,8 @@ class WebNotebooksBody extends StatelessWidget {
                               Icons.shopping_cart_outlined,
                               color: Colors.white70,
                             ),
-                            const SizedBox(
-                              width: 5,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Text(
                               'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
@@ -281,8 +282,8 @@ class WebNotebooksBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Expanded(
                     child:
@@ -290,8 +291,8 @@ class WebNotebooksBody extends StatelessWidget {
                             ? const NotebooksBuilderWidget()
                             : const RefinedNotebooksBuilderWidget(),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Center(
                     child: TextButton(
@@ -325,8 +326,8 @@ class WebNotebooksBody extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 100,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Center(
                     child: Text(
@@ -334,12 +335,13 @@ class WebNotebooksBody extends StatelessWidget {
                       style: context.bodyLarge,
                     ),
                   ),
-                  const SizedBox(
-                    height: 25,
+                  SizedBox(
+                    height: 2.5.h,
                   ),
                   Center(
                     child: ElevatedButton(
                       style: ButtonStyle(
+                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                         elevation: const MaterialStatePropertyAll(0),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(

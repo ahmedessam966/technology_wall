@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
@@ -14,9 +15,9 @@ class NotebookCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(30),
+      padding: EdgeInsets.all(30.px),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(2.px),
         border: Border.all(color: Colors.black87),
         color: Colors.white38,
       ),
@@ -29,8 +30,7 @@ class NotebookCardWidget extends StatelessWidget {
             child: Center(
               child: Image.network(
                 notebook!.snapshot,
-                height: 150,
-                width: 200,
+                width: 15.w,
               ),
             ),
           ),
@@ -86,6 +86,7 @@ class NotebookCardWidget extends StatelessWidget {
               children: [
                 ElevatedButton(
                   style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                     elevation: const MaterialStatePropertyAll(0),
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(
@@ -147,8 +148,8 @@ class NotebookCardWidget extends StatelessWidget {
                                 Icons.check,
                                 color: Colors.white70,
                               ),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 1.w,
                               ),
                               Text(
                                 'Added',

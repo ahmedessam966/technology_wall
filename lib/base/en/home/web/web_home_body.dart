@@ -149,7 +149,7 @@ class WebHomeBody extends StatelessWidget {
                 style: context.headlineMedium?.copyWith(color: const Color(0xaaf7f7f7))),
           ),
           Container(
-            height: 15.h,
+            height: 20.h,
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: AppTheme.darkest),
@@ -273,6 +273,7 @@ class WebHomeBody extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     style: ButtonStyle(
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                       elevation: const MaterialStatePropertyAll(0),
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
@@ -321,7 +322,7 @@ class WebHomeBody extends StatelessWidget {
                       const Spacer(),
                       Image.asset(
                         'assets/images/hcc.png',
-                        height: 80,
+                        height: 8.h,
                       ),
                     ],
                   ),

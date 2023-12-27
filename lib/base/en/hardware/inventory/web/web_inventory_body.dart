@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
@@ -19,7 +20,7 @@ class WebInventoryBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,8 +37,8 @@ class WebInventoryBody extends StatelessWidget {
                         style: context.headlineMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -45,8 +46,8 @@ class WebInventoryBody extends StatelessWidget {
                             'For Personal Use',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -58,8 +59,8 @@ class WebInventoryBody extends StatelessWidget {
                         'Supplying primary hardware and up to complex servers.',
                         style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Row(
                         children: [
@@ -67,8 +68,8 @@ class WebInventoryBody extends StatelessWidget {
                             'For Business Use',
                             style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -80,8 +81,8 @@ class WebInventoryBody extends StatelessWidget {
                         'Licensed, supported software soultions required for business intelligence',
                         style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Text(
                         'Save valuable time and effort. Explore our integrated solutions plan.',
@@ -90,21 +91,21 @@ class WebInventoryBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 50,
+                SizedBox(
+                  width: 5.w,
                 ),
                 Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdevices.png?alt=media&token=cae21d15-de1a-4e45-b1a1-bfe2f11fdfde',
-                  height: 250,
+                  height: 35.h,
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
             child: SizedBox(
               height: 1100,
@@ -112,8 +113,8 @@ class WebInventoryBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Center(
                     child: Text(
@@ -121,17 +122,17 @@ class WebInventoryBody extends StatelessWidget {
                       style: context.headlineMedium,
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   provider.generalHardwareSearchController.text.isEmpty
                       ? Expanded(
                           child: GridView(
                             physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 5,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 1.w,
+                                mainAxisSpacing: 1.w,
                                 childAspectRatio: 1),
                             children: [
                               InventoryCategoryCard(
@@ -228,10 +229,10 @@ class WebInventoryBody extends StatelessWidget {
                                 return GridView.builder(
                                     physics: const NeverScrollableScrollPhysics(),
                                     itemCount: snapshot.data?.length,
-                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 4,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 20,
+                                        crossAxisSpacing: 2.w,
+                                        mainAxisSpacing: 2.w,
                                         childAspectRatio: 0.7),
                                     itemBuilder: (context, index) {
                                       final product = snapshot.data?[index];

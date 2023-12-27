@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../../../config/themes/app_theme.dart';
@@ -12,15 +13,15 @@ class InventoryCategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 50.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+          padding: MaterialStatePropertyAll(EdgeInsets.all(20.px)),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
           overlayColor: MaterialStatePropertyAll(const Color(0xaaf7f7f7).withOpacity(1)),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(2.px),
                 side: BorderSide(color: const Color(0xaaaaaeb6).withOpacity(1))),
           ),
           elevation: MaterialStateProperty.resolveWith((states) {
@@ -40,7 +41,7 @@ class InventoryCategoryCard extends StatelessWidget {
               flex: 6,
               child: Image.network(
                 imagePath,
-                height: 200,
+                height: 25.h,
               ),
             ),
             const Spacer(),

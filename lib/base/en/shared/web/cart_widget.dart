@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
@@ -11,13 +12,13 @@ class CartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CartControllers>(builder: (context, provider, _) {
       return Dialog(
-        backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
-        surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
+        backgroundColor: const Color(0xaaf3f3f3).withOpacity(1),
+        surfaceTintColor: const Color(0xaaf3f3f3).withOpacity(1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+          padding: EdgeInsets.symmetric(horizontal: 5.h, vertical: 3.w),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(2.px),
             border: Border.all(color: Colors.black),
           ),
           child: Column(
@@ -43,15 +44,15 @@ class CartWidget extends StatelessWidget {
               ),
               const Divider(),
               SizedBox(
-                height: provider.cart.isEmpty ? 300 : 25,
+                height: provider.cart.isEmpty ? 30.h : 2.5.h,
               ),
               provider.cart.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
                   : SizedBox(
-                      height: 380,
+                      height: 45.h,
                       child: ListView.separated(
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 10,
+                        separatorBuilder: (context, index) => SizedBox(
+                          height: 1.h,
                         ),
                         itemCount: provider.cart.keys.length,
                         itemBuilder: (context, index) {
@@ -87,11 +88,12 @@ class CartWidget extends StatelessWidget {
               provider.cart.isEmpty
                   ? const SizedBox.shrink()
                   : Container(
-                      color: const Color(0xaaf7f7f7).withOpacity(1),
-                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+                      color: const Color(0xaaf3f3f3).withOpacity(1),
+                      padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
                       child: Center(
                         child: ElevatedButton(
                           style: ButtonStyle(
+                            padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                             elevation: const MaterialStatePropertyAll(0),
                             shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(

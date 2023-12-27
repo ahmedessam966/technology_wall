@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/metadata_controllers.dart';
 import 'package:technology_wall/core/models/printer_model.dart';
 import '../../../../../config/themes/app_theme.dart';
 import '../../../../../core/controllers/app_controllers.dart';
@@ -14,14 +14,10 @@ class PrinterCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.brand} Printer, ${printer?.model} Printer',
-        'en');
     return Container(
-      padding: const EdgeInsets.all(30),
+      padding: EdgeInsets.all(30.px),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(2.px),
         border: Border.all(color: Colors.black87),
         color: Colors.white38,
       ),
@@ -34,8 +30,7 @@ class PrinterCardWidget extends StatelessWidget {
             child: Center(
               child: Image.network(
                 printer!.snapshot,
-                height: 150,
-                width: 200,
+                width: 15.w,
               ),
             ),
           ),
@@ -92,6 +87,7 @@ class PrinterCardWidget extends StatelessWidget {
               children: [
                 ElevatedButton(
                   style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                     elevation: const MaterialStatePropertyAll(0),
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(
@@ -125,6 +121,7 @@ class PrinterCardWidget extends StatelessWidget {
                   final cart = Provider.of<CartControllers>(context, listen: true);
                   return ElevatedButton(
                     style: ButtonStyle(
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                       elevation: const MaterialStatePropertyAll(0),
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
@@ -153,8 +150,8 @@ class PrinterCardWidget extends StatelessWidget {
                                 Icons.check,
                                 color: Colors.white70,
                               ),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 1.w,
                               ),
                               Text(
                                 'Added',

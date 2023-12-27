@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../components/notebook_card_widget.dart';
 
 import '../../../../../config/themes/app_theme.dart';
@@ -22,21 +23,15 @@ class RefinedNotebooksBuilderWidget extends StatelessWidget {
                 ),
               );
             } else {
-              return Semantics(
-                label: 'Notebooks, Laptops, Portable PC',
-                value:
-                    'HP, Dell, Lenovo, MacBook, Apple, Acer, Asus, Toshiba, HP Notebooks, HP Laptops, Dell Notebooks, Dell Laptops, Lenovo Laptops, Lenovo Notebooks, MacBook Pro, MacBook Notebooks, MacBook Laptops, MacBook Pro Laptops, MacBook Pro Notebooks, Apple Laptops, Apple Notebooks, Acer Laptops, Acer Notebooks, Asus Laptops, Asus Notebooks, Toshiba Laptops, Toshiba Notebooks',
-                child: GridView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: snapshot.data?.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: 0.7),
-                    itemBuilder: (context, index) {
-                      final notebook = snapshot.data?[index];
-                      return NotebookCardWidget(notebook: notebook);
-                    }),
-              );
+              return GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: snapshot.data?.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
+                  itemBuilder: (context, index) {
+                    final notebook = snapshot.data?[index];
+                    return NotebookCardWidget(notebook: notebook);
+                  });
             }
           });
     });

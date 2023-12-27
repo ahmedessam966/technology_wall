@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/core/controllers/metadata_controllers.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../shared/mobile/mobile_footer.dart';
@@ -52,6 +53,7 @@ class _InventoryPageState extends State<InventoryPage> {
         scrollController: scroller,
         enableMMBScrolling: true,
         enableKeyboardScrolling: true,
+        keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
             floatingActionButton: FloatingActionButton(
               backgroundColor: AppTheme.darkest,
@@ -76,10 +78,10 @@ class _InventoryPageState extends State<InventoryPage> {
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebHeader()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? TabletHeader(
                                   sw: sw,
                                   sh: sh,
@@ -88,16 +90,16 @@ class _InventoryPageState extends State<InventoryPage> {
                               : const MobileHeader(),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebInventoryBody()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? const TabletInventoryBody()
                               : const MobileInventoryBody(),
                     ),
-                    sw >= 1280
+                    sw >= 1080
                         ? const WebFooter()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1080 && sw >= 568
                             ? TabletFooter(
                                 sw: sw,
                                 sh: sh,

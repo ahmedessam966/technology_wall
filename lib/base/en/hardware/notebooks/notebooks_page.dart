@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../config/themes/app_theme.dart';
+import '../../../../core/controllers/inventory_controllers.dart';
+import '../../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';
@@ -18,6 +22,21 @@ class NotebooksPage extends StatefulWidget {
 }
 
 class _NotebooksPageState extends State<NotebooksPage> {
+  final MetadataControllers metadataFunctions = MetadataControllers();
+  @override
+  void initState() {
+    super.initState();
+    metadataFunctions.updateMetaData('Technology Wall | Notebooks - Laptops',
+        'All printing purposes available. Available types: color laserjet, monochrome laserjet, dot-matrix, heavy-duty office printer, all-in-one printers. Available brands: HP, Canon, Zebra, and Epson');
+    metadataFunctions.updateHeaderMetaData();
+  }
+
+  @override
+  void dispose() {
+    Provider.of<InventoryControllers>(context, listen: false).notebooksList.clear();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -62,10 +81,10 @@ class _NotebooksPageState extends State<NotebooksPage> {
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebHeader()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? TabletHeader(
                                   sw: sw,
                                   sh: sh,
@@ -74,16 +93,16 @@ class _NotebooksPageState extends State<NotebooksPage> {
                               : const MobileHeader(),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
                       child: sw >= 1280
                           ? const WebNotebooksBody()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1280 && sw >= 568
                               ? const SizedBox()
                               : const SizedBox(),
                     ),
                     sw >= 1280
                         ? const WebFooter()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1280 && sw >= 568
                             ? TabletFooter(
                                 sw: sw,
                                 sh: sh,

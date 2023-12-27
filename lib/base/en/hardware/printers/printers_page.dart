@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/base/en/hardware/printers/mobile/mobile_printers_body.dart';
 import '../../../../config/themes/app_theme.dart';
@@ -12,7 +13,7 @@ import '../../shared/tablet/tablet_footer.dart';
 import '../../shared/tablet/tablet_header.dart';
 import '../../shared/web/web_footer.dart';
 import '../../shared/web/web_header.dart';
-import 'web/printers_web_body.dart';
+import 'web/web_printers_body.dart';
 
 class PrintersPage extends StatefulWidget {
   final String? category;
@@ -59,65 +60,66 @@ class _PrintersPageState extends State<PrintersPage> {
         enableKeyboardScrolling: true,
         keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: AppTheme.darkest,
-              onPressed: () {},
-              child: const Icon(
-                Icons.chat_rounded,
-                color: Colors.white70,
-              ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: AppTheme.darkest,
+            onPressed: () {},
+            child: const Icon(
+              Icons.chat_rounded,
+              color: Colors.white70,
             ),
-            body: Stack(
-              alignment: Alignment.center,
-              children: [
-                Opacity(
-                  opacity: 0.05,
-                  child: SvgPicture.asset(
-                    'assets/icons/ttten.svg',
-                    fit: BoxFit.cover,
-                  ),
+          ),
+          body: Stack(
+            alignment: Alignment.center,
+            children: [
+              Opacity(
+                opacity: 0.05,
+                child: SvgPicture.asset(
+                  'assets/icons/ttten.svg',
+                  fit: BoxFit.cover,
                 ),
-                ListView(
-                  controller: scroller,
-                  physics: const RangeMaintainingScrollPhysics(),
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
-                      child: sw >= 1280
-                          ? const WebHeader()
-                          : sw < 1280 && sw >= 768
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
-                              : const MobileHeader(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                      child: sw >= 1280
-                          ? const WebPrintersBody()
-                          : sw < 1280 && sw >= 768
-                              ? const SizedBox()
-                              : const MobilePrintersBody(),
-                    ),
-                    sw >= 1280
-                        ? const WebFooter()
-                        : sw < 1280 && sw >= 768
-                            ? TabletFooter(
+              ),
+              ListView(
+                controller: scroller,
+                physics: const RangeMaintainingScrollPhysics(),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                    child: sw >= 1080
+                        ? const WebHeader()
+                        : sw < 1080 && sw >= 568
+                            ? TabletHeader(
                                 sw: sw,
                                 sh: sh,
                                 ar: ar,
                               )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
-                  ],
-                ),
-              ],
-            )),
+                            : const MobileHeader(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
+                    child: sw >= 1080
+                        ? const WebPrintersBody()
+                        : sw < 1080 && sw >= 568
+                            ? const SizedBox()
+                            : const MobilePrintersBody(),
+                  ),
+                  sw >= 1080
+                      ? const WebFooter()
+                      : sw < 1080 && sw >= 568
+                          ? TabletFooter(
+                              sw: sw,
+                              sh: sh,
+                              ar: ar,
+                            )
+                          : MobileFooter(
+                              sw: sw,
+                              sh: sh,
+                              ar: ar,
+                            ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../../../core/controllers/email_controller.dart';
@@ -46,7 +47,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
           surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+            padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
             child: Form(
               key: _formKey,
               child: Column(
@@ -72,8 +73,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -111,8 +112,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       style: ElevatedButton.styleFrom(
                                           enableFeedback: true,
                                           backgroundColor: AppTheme.darkest,
-                                          shape:
-                                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(2.px))),
                                       onPressed: () {
                                         if (_formKey.currentState!.validate()) {
                                           provider.changeFormStep(provider.orderFormStep + 1);
@@ -127,7 +128,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     TextButton(
                                       style: ButtonStyle(
                                           shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(5)))),
+                                              borderRadius: BorderRadius.circular(2.px)))),
                                       onPressed: () {
                                         provider.changeFormStep(provider.orderFormStep - 1);
                                       },
@@ -145,8 +146,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       style: ElevatedButton.styleFrom(
                                           enableFeedback: true,
                                           backgroundColor: AppTheme.darkest,
-                                          shape:
-                                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(2.px))),
                                       onPressed: () async {
                                         setState(() {
                                           _isLoading = !_isLoading;
@@ -167,20 +168,20 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                         });
                                       },
                                       child: _isLoading
-                                          ? const SpinKitThreeBounce(
-                                              size: 14,
+                                          ? SpinKitThreeBounce(
+                                              size: 15.px,
                                               color: Colors.white,
                                             )
                                           : Text('Submit Purchase Order',
                                               style: context.bodyLarge?.copyWith(color: Colors.white70)),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
+                                    SizedBox(
+                                      width: 2.w,
                                     ),
                                     TextButton(
                                       style: ButtonStyle(
                                           shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(5)))),
+                                              borderRadius: BorderRadius.circular(2.px)))),
                                       onPressed: () {
                                         provider.changeFormStep(provider.orderFormStep - 1);
                                       },
@@ -211,7 +212,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   'You can also search for specific products by visiting the sections of the website that corresponds to your desired product type.',
                                   style: context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)),
                               content: SizedBox(
-                                height: 300,
+                                height: 40.h,
                                 width: double.infinity,
                                 child: Column(
                                   children: [
@@ -301,25 +302,25 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                               content: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: 2.h,
                                   ),
                                   TextFormField(
                                     controller: _nameController,
                                     validator: (value) => InputValidationServices.validateName(name: value),
                                     decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -329,8 +330,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: 2.h,
                                   ),
                                   TextFormField(
                                     controller: _emailController,
@@ -338,17 +339,17 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     decoration: InputDecoration(
                                       hintText: 'email@example.com',
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -358,8 +359,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: 2.h,
                                   ),
                                   TextFormField(
                                     controller: _phoneController,
@@ -376,17 +377,17 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     decoration: InputDecoration(
                                       hintText: '00966XXXXXXXXX or 05XXXXXXXX',
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                         borderSide: const BorderSide(color: AppTheme.prohibit),
                                       ),
                                       floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -404,16 +405,16 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     maxLines: 5,
                                     decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(2.px),
                                       ),
                                       floatingLabelBehavior: FloatingLabelBehavior.always,
                                       label: Text(
@@ -422,8 +423,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 30,
+                                  SizedBox(
+                                    height: 3.h,
                                   ),
                                 ],
                               ),
@@ -443,7 +444,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                 style: context.headlineMedium,
                               ),
                               content: SizedBox(
-                                height: 300,
+                                height: 40.h,
                                 width: double.infinity,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -467,8 +468,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(
-                                      height: 5,
+                                    SizedBox(
+                                      height: 0.5.h,
                                     ),
                                     const Flex(
                                       direction: Axis.horizontal,
@@ -478,8 +479,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                         Expanded(flex: 1, child: Divider()),
                                       ],
                                     ),
-                                    const SizedBox(
-                                      height: 5,
+                                    SizedBox(
+                                      height: 0.5.h,
                                     ),
                                     Expanded(
                                       child: ListView.builder(

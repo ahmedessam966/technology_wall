@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/software_controllers.dart';
 import 'package:technology_wall/base/en/software/software/components/microsoft_products_builder.dart';
@@ -28,7 +29,7 @@ class WebSoftwareBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
             child: Flex(
               direction: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,13 +43,13 @@ class WebSoftwareBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
+                        SelectableText(
                           'Boost Your Digital Entity With Powerful Software Solutions',
                           style: context.headlineMedium?.copyWith(
                               color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 2.h,
                         ),
                         Row(
                           children: [
@@ -57,8 +58,8 @@ class WebSoftwareBody extends StatelessWidget {
                               style:
                                   context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             const Icon(
                               Icons.arrow_right_alt_sharp,
@@ -71,8 +72,8 @@ class WebSoftwareBody extends StatelessWidget {
                           style:
                               context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 1.h,
                         ),
                         Row(
                           children: [
@@ -81,8 +82,8 @@ class WebSoftwareBody extends StatelessWidget {
                               style:
                                   context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             const Icon(
                               Icons.arrow_right_alt_sharp,
@@ -95,8 +96,8 @@ class WebSoftwareBody extends StatelessWidget {
                           style:
                               context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 2.h,
                         ),
                         Text(
                           'Save valuable time and effort. Explore our integrated solutions plan.',
@@ -109,55 +110,49 @@ class WebSoftwareBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 Expanded(
-                  flex: 6,
+                  flex: 5,
                   child: Image.asset(
                     'assets/images/software.webp',
-                    cacheHeight: 250,
-                    height: 250,
+                    height: 35.h,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3',
-                height: 120,
-                width: 150,
+                height: 12.h,
               ),
               Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fs4hana.png?alt=media&token=79b3e395-e676-4d2b-b36f-cb9b746281c2',
-                height: 120,
-                width: 150,
+                height: 12.h,
               ),
               Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsone.png?alt=media&token=bf4eb120-1472-410c-8d21-c43f587d98cd',
-                height: 120,
-                width: 150,
+                height: 12.h,
               ),
               Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsage.png?alt=media&token=71be32ed-48c6-4633-b054-de0f42288e93',
-                height: 100,
-                width: 120,
+                height: 10.h,
               ),
               Image.network(
                 'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ftally.png?alt=media&token=cc2a18b7-5796-4ad5-96e6-a5503ed1b65e',
-                height: 120,
-                width: 150,
+                height: 12.h,
               ),
             ],
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 5.h,
           ),
           Container(
             color: const Color(0xaaf1f1f1).withOpacity(1),
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+            padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 5.h),
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,10 +162,11 @@ class WebSoftwareBody extends StatelessWidget {
                   children: [
                     Image.network(
                       'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FMicrosoft%2Fmicrosoft.webp?alt=media&token=9f55e60e-2280-468c-8247-7159ed9d2a0e',
-                      width: 400,
+                      width: 25.w,
                     ),
                     ElevatedButton(
                       style: ButtonStyle(
+                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                         elevation: const MaterialStatePropertyAll(0),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(
@@ -200,8 +196,8 @@ class WebSoftwareBody extends StatelessWidget {
                             Icons.shopping_cart_outlined,
                             color: Colors.white70,
                           ),
-                          const SizedBox(
-                            width: 5,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           Text(
                             'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
@@ -212,18 +208,21 @@ class WebSoftwareBody extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 2.5.h,
+                ),
                 Center(
                   child: Text(
                     'Popular Microsoft Products',
                     style: context.headlineMedium,
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: 5.h,
                 ),
-                const SizedBox(height: 550, child: MicrosoftProductsBuilder()),
-                const SizedBox(
-                  height: 50,
+                SizedBox(height: 75.h, child: const MicrosoftProductsBuilder()),
+                SizedBox(
+                  height: 5.h,
                 ),
                 Center(
                   child: Text(
@@ -231,12 +230,13 @@ class WebSoftwareBody extends StatelessWidget {
                     style: context.bodyLarge,
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: 5.h,
                 ),
                 Center(
                   child: ElevatedButton(
                     style: ButtonStyle(
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
                       elevation: const MaterialStatePropertyAll(0),
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
@@ -261,16 +261,19 @@ class WebSoftwareBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 5.h,
                 ),
                 const Divider(),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 5.h,
                 ),
                 Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FFortinet%2Ffortinet.webp?alt=media&token=0b7d7ad7-159d-4355-8660-8257c4f1ab7c',
-                  width: 400,
+                  width: 25.w,
+                ),
+                SizedBox(
+                  height: 5.h,
                 ),
                 Center(
                   child: Text(

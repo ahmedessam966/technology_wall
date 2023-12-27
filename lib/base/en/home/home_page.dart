@@ -75,10 +75,10 @@ class _HomePageState extends State<HomePage> {
                 physics: const RangeMaintainingScrollPhysics(),
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: sh * 0.04),
-                    child: sw >= 1280
+                    padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                    child: sw >= 1080
                         ? const WebHeader()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1080 && sw >= 568
                             ? TabletHeader(
                                 sw: sw,
                                 sh: sh,
@@ -87,10 +87,10 @@ class _HomePageState extends State<HomePage> {
                             : const MobileHeader(),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0.1.h),
-                    child: sw >= 1280
+                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
+                    child: sw >= 1080
                         ? const WebHomeBody()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1080 && sw >= 568
                             ? TabletHomeBody(
                                 sw: sw,
                                 sh: sh,
@@ -98,9 +98,9 @@ class _HomePageState extends State<HomePage> {
                               )
                             : const MobileHomeBody(),
                   ),
-                  sw >= 1280
+                  sw >= 1080
                       ? const WebFooter()
-                      : sw < 1280 && sw >= 768
+                      : sw < 1080 && sw >= 568
                           ? TabletFooter(
                               sw: sw,
                               sh: sh,

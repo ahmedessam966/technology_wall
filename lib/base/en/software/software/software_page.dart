@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/base/en/software/software/mobile/mobile_software_body.dart';
 import 'package:technology_wall/base/en/software/software/tablet/tablet_software_body.dart';
 import 'package:technology_wall/base/en/software/software/web/web_software_body.dart';
@@ -75,7 +76,7 @@ class _SoftwarePageState extends State<SoftwarePage> {
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: 20),
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 3.w : 6.w, vertical: 2.h),
                       child: sw >= 1280
                           ? const WebHeader()
                           : sw < 1280 && sw >= 768
@@ -87,7 +88,7 @@ class _SoftwarePageState extends State<SoftwarePage> {
                               : const MobileHeader(),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
                       child: sw >= 1280
                           ? const WebSoftwareBody()
                           : sw < 1280 && sw >= 768
