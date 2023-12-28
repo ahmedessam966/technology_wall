@@ -541,14 +541,228 @@ class WebDevHomeBody extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 5.h,
+          height: 15.h,
         ),
-        Divider(
-          indent: 5.w,
-          endIndent: 5.w,
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(20.px),
+          margin: EdgeInsets.symmetric(horizontal: 1.w),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.px),
+              bottomRight: Radius.circular(20.px),
+            ),
+            gradient: LinearGradient(colors: [
+              const Color(0xaa26344b).withOpacity(1),
+              const Color(0xaa246af3).withOpacity(1),
+            ], begin: AlignmentDirectional.topCenter, end: AlignmentDirectional.bottomCenter),
+            boxShadow: const [
+              BoxShadow(offset: Offset(0, 0), blurRadius: 3, color: Colors.black38),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SelectableText(
+                'Success Metrics',
+                style: context.labelLarge?.copyWith(color: Colors.white, fontSize: 18.sp),
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Icon(
+                  Icons.hotel_class_rounded,
+                  color: const Color(0xaaffc947).withOpacity(1),
+                ),
+                Icon(
+                  Icons.hotel_class_rounded,
+                  color: const Color(0xaaffc947).withOpacity(1),
+                ),
+                Icon(
+                  Icons.hotel_class_rounded,
+                  color: const Color(0xaaffc947).withOpacity(1),
+                ),
+                Icon(
+                  Icons.hotel_class_rounded,
+                  color: const Color(0xaaffc947).withOpacity(1),
+                ),
+                Icon(
+                  Icons.hotel_class_rounded,
+                  color: const Color(0xaaffc947).withOpacity(1),
+                )
+              ]),
+              SizedBox(
+                height: 5.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: 13.w,
+                    padding: EdgeInsets.all(10.px),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white60),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.px), bottomRight: Radius.circular(10.px)),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white30,
+                          offset: Offset(0, 0),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          '23',
+                          style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 16.sp),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Icon(
+                          Icons.phone_iphone_rounded,
+                          color: Colors.white,
+                          size: 60.px,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          'Mobile Applications',
+                          style: context.labelLarge?.copyWith(color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 13.w,
+                    padding: EdgeInsets.all(10.px),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white60),
+                      borderRadius: BorderRadius.circular(10.px),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white30,
+                          offset: Offset(0, 0),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          '11',
+                          style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 16.sp),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Icon(
+                          Icons.web,
+                          color: Colors.white,
+                          size: 60.px,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          'Custom Websites',
+                          style: context.labelLarge?.copyWith(color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 13.w,
+                    padding: EdgeInsets.all(10.px),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white60),
+                      borderRadius: BorderRadius.circular(10.px),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white30,
+                          offset: Offset(0, 0),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          '12',
+                          style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 16.sp),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Icon(
+                          Icons.move_up_rounded,
+                          color: Colors.white,
+                          size: 60.px,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          'Hosting Projects',
+                          style: context.labelLarge?.copyWith(color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 13.w,
+                    padding: EdgeInsets.all(10.px),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white60),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10.px), bottomLeft: Radius.circular(10.px)),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white30,
+                          offset: Offset(0, 0),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          '6',
+                          style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 16.sp),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Icon(
+                          Icons.phone_iphone_rounded,
+                          color: Colors.white,
+                          size: 60.px,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          'Integrated Solutions',
+                          style: context.labelLarge?.copyWith(color: Colors.white70),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         SizedBox(
-          height: 5.h,
+          height: 15.h,
         ),
         Center(
           child: Text(
@@ -558,7 +772,7 @@ class WebDevHomeBody extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 5.h,
+          height: 15.h,
         ),
         SizedBox(
           height: 40.h,

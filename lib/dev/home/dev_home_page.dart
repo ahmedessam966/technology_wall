@@ -28,7 +28,6 @@ class _DevHomePageState extends State<DevHomePage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
