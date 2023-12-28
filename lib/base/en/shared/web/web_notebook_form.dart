@@ -8,7 +8,7 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/email_controller.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
-import 'package:another_flushbar/flushbar.dart';
+import 'package:quickalert/quickalert.dart';
 
 class WebNotebookOrderForm extends StatefulWidget {
   final dynamic item;
@@ -163,16 +163,24 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                         _isLoading = !_isLoading;
                                       });
                                       if (value == 200) {
-                                        Flushbar(
-                                          title: 'Purchase Order Received',
-                                          leftBarIndicatorColor: Colors.green.shade600,
-                                          borderRadius: BorderRadius.circular(10),
-                                          titleColor: Colors.green,
-                                          flushbarPosition: FlushbarPosition.BOTTOM,
-                                          duration: const Duration(seconds: 5),
-                                          message:
-                                              'Your purchase order for ${notebook.title} has been sent successfully. You will receive email confirmation shortly.',
-                                        ).show(context).whenComplete(() => Navigator.pop(context));
+                                        showAdaptiveDialog(
+                                            context: ctx,
+                                            builder: (ctx) {
+                                              return const AlertDialog.adaptive(
+                                                icon: Icon(Icons.done_outline_rounded),
+                                                iconColor: Colors.green,
+                                                title: Text('Purchase Order Submitted'),
+                                                content: Text(
+                                                    'Purchase order sent successfully. Expect a confirmation email from Technology Wall soon.'),
+                                              );
+                                            });
+                                        Future.delayed(const Duration(seconds: 5), () {
+                                          Navigator.pop(ctx);
+                                          Navigator.pop(context);
+                                        });
+                                        setState(() {
+                                          _isLoading = !_isLoading;
+                                        });
                                       }
                                     });
                                   },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
@@ -161,6 +162,21 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                                 items)
                                             .then((value) {
                                           if (value == 200) {
+                                            showAdaptiveDialog(
+                                                context: ctx,
+                                                builder: (ctx) {
+                                                  return const AlertDialog.adaptive(
+                                                    icon: Icon(Icons.done_outline_rounded),
+                                                    iconColor: Colors.green,
+                                                    title: Text('Purchase Order Submitted'),
+                                                    content: Text(
+                                                        'Purchase order sent successfully. Expect a confirmation email from Technology Wall soon.'),
+                                                  );
+                                                });
+                                            Future.delayed(const Duration(seconds: 5), () {
+                                              Navigator.pop(ctx);
+                                              Navigator.pop(context);
+                                            });
                                             setState(() {
                                               _isLoading = !_isLoading;
                                             });

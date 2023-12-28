@@ -87,7 +87,7 @@ class PrinterCardWidget extends StatelessWidget {
               children: [
                 ElevatedButton(
                   style: ButtonStyle(
-                    padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(10.px)),
                     elevation: const MaterialStatePropertyAll(0),
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(

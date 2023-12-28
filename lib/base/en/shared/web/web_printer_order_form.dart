@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:technology_wall/config/input_validation_services.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
@@ -160,19 +161,24 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                             int.parse(_quantityController.text))
                                         .then((value) {
                                       if (value == 200) {
+                                        showAdaptiveDialog(
+                                            context: ctx,
+                                            builder: (ctx) {
+                                              return const AlertDialog.adaptive(
+                                                icon: Icon(Icons.done_outline_rounded),
+                                                iconColor: Colors.green,
+                                                title: Text('Purchase Order Submitted'),
+                                                content: Text(
+                                                    'Purchase order sent successfully. Expect a confirmation email from Technology Wall soon.'),
+                                              );
+                                            });
+                                        Future.delayed(const Duration(seconds: 5), () {
+                                          Navigator.pop(ctx);
+                                          Navigator.pop(context);
+                                        });
                                         setState(() {
                                           _isLoading = !_isLoading;
                                         });
-                                        Flushbar(
-                                          title: 'Purchase Order Received',
-                                          leftBarIndicatorColor: Colors.green.shade600,
-                                          borderRadius: BorderRadius.circular(10),
-                                          titleColor: Colors.green,
-                                          flushbarPosition: FlushbarPosition.BOTTOM,
-                                          duration: const Duration(seconds: 5),
-                                          message:
-                                              'Your purchase order for ${printer.title} has been sent successfully. You will receive email confirmation shortly.',
-                                        ).show(context).whenComplete(() => Navigator.pop(context));
                                       }
                                     });
                                   },

@@ -71,7 +71,7 @@ class EmailController {
 
     for (int i = 0; i < items.length; i++) {
       String itemRow = '${items[i][0]}: ${items[i][1]} Piece(s)\n';
-      template += itemRow;
+      template += '${'\n\n'} $itemRow';
     }
     return template.toString();
   }
