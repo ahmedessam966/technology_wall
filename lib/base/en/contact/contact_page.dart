@@ -25,6 +25,10 @@ class _ContactPageState extends State<ContactPage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall Contact Page',
+        'Contact Technology Wall via the email or the phone number in this page.',
+        'email: info@techwall.com.sa | Phone: +966542575808');
     metadataFunctions.updateMetaData('Technology Wall | Contact Us',
         'We always value your feedback and opinions. You can contact us via the contact information listed here, or by filling the contact form and we\'ll reach out to you!. You can also check the frequently asked questions section of this page to get assistance faster.');
     metadataFunctions.updateHeaderMetaData();
@@ -63,10 +67,10 @@ class _ContactPageState extends State<ContactPage> {
             controller: scroller,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 3.w : 80, vertical: 3.h),
-                child: sw >= 1280
+                padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                child: sw >= 1080
                     ? const WebHeader()
-                    : sw < 1280 && sw >= 768
+                    : sw < 1080 && sw >= 568
                         ? TabletHeader(
                             sw: sw,
                             sh: sh,
@@ -75,16 +79,16 @@ class _ContactPageState extends State<ContactPage> {
                         : const MobileHeader(),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                child: sw >= 1280
+                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2.h),
+                child: sw >= 1080
                     ? const WebContactBody()
-                    : sw < 1280 && sw >= 768
+                    : sw < 1080 && sw >= 568
                         ? const TabletContactBody()
                         : const MobileContactBody(),
               ),
-              sw >= 1280
+              sw >= 1080
                   ? const WebFooter()
-                  : sw < 1280 && sw >= 768
+                  : sw < 1080 && sw >= 568
                       ? TabletFooter(
                           sw: sw,
                           sh: sh,

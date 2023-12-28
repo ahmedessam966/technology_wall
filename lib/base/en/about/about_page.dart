@@ -27,8 +27,12 @@ class _AboutPageState extends State<AboutPage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall About Technology Wall',
+        'Discover how Technology Wall was started, Technology Wall success factors, and meet Technology Wall founding and opearational teams.',
+        null);
     metadataFunctions.updateMetaData('Technology Wall | About',
-        'Technology Wall Accreditation Page. Learn more about our partnership with HCC Middle East for implementing SAP ERP Solutions.');
+        'Since 2000, Technology Wall has made an impact in the IT services field. The founding members, possess extensive technology and IT experience that allow them to pave the way to establishing a successful and impactful entity.');
     metadataFunctions.updateHeaderMetaData();
   }
 
@@ -76,10 +80,10 @@ class _AboutPageState extends State<AboutPage> {
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 30 : 80, vertical: sh * 0.04),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebHeader()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? TabletHeader(
                                   sw: sw,
                                   sh: sh,
@@ -88,16 +92,16 @@ class _AboutPageState extends State<AboutPage> {
                               : const MobileHeader(),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebAboutBody()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? const TabletAboutBody()
                               : const MobileAboutBody(),
                     ),
-                    sw >= 1280
+                    sw >= 1080
                         ? const WebFooter()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1080 && sw >= 568
                             ? TabletFooter(
                                 sw: sw,
                                 sh: sh,

@@ -28,6 +28,10 @@ class _PrintersPageState extends State<PrintersPage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall | Printers',
+        'A colloection of daily utility personal and enterprise-level printers.',
+        'You can explore, search, and find renowned brands such as HP, Canon, Fujitsu, and Ricoh.');
     metadataFunctions.updateMetaData('Technology Wall | Printers',
         'All printing purposes available. Available types: color laserjet, monochrome laserjet, dot-matrix, heavy-duty office printer, all-in-one printers. Available brands: HP, Canon, Zebra, and Epson');
     metadataFunctions.updateHeaderMetaData();

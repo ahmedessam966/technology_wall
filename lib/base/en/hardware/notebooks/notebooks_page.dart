@@ -26,8 +26,12 @@ class _NotebooksPageState extends State<NotebooksPage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall Notebooks Page',
+        'Home to renowned, best-performing, and cost-effective laptops, notebooks, and portable computers.',
+        null);
     metadataFunctions.updateMetaData('Technology Wall | Notebooks - Laptops',
-        'All printing purposes available. Available types: color laserjet, monochrome laserjet, dot-matrix, heavy-duty office printer, all-in-one printers. Available brands: HP, Canon, Zebra, and Epson');
+        'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired portable computer here, offered with best prices.');
     metadataFunctions.updateHeaderMetaData();
   }
 

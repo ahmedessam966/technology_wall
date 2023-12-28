@@ -18,8 +18,7 @@ class WebNotebooksBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.updateHElement('Technology Wall | Notebooks and Laptops',
-        'Available brands: HP, Dell, Lenovo, Acer, Asus, Macbook, Toshiba, and much more.', null);
+
     metadataControllers.injectPageSpecificContent(
         'Find and explore our unqiue collection of dependable and versatile portable computers, suitable for every use and every individual',
         'en');

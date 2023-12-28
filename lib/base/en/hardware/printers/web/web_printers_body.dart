@@ -19,10 +19,7 @@ class WebPrintersBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.updateHElement(
-        'Technology Wall | Printers',
-        'A colloection of daily utility personal and enterprise-level printers.',
-        'You can explore, search, and find renowned brands such as HP, Canon, Fujitsu, and Ricoh.');
+
     metadataControllers.injectPageSpecificContent(
         'Explore or search for your desired printer. Explore the types of printers available: Color laserjet, dot-matrix, monochrome laserjet, deskjet, heavy-duty office utility, network printers, and all-in-one printer models. Guaranteed brands; HP, Canon, Epson, and Zebra printers.',
         'en');

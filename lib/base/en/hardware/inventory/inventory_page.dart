@@ -29,8 +29,10 @@ class _InventoryPageState extends State<InventoryPage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement('Technology Wall Hardware Page',
+        'Browse and search for your desired hardware products from renowned IT hardware suppliers.', null);
     metadataFunctions.updateMetaData('Technology Wall | Hardware',
-        'A wide selection of hardware and devices that are essential for driving your digital business forward. Offering brands such as HP, Dell, Canon, and much more.');
+        'A wide selection of hardware and devices that are essential for driving your digital business forward. Offering brands such as HP, Dell, Canon, Cisco, TP-Link, and much more. Find all your personal or enterprise hardware needs based on your utility or price.');
     metadataFunctions.updateHeaderMetaData();
   }
 

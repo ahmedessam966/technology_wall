@@ -15,10 +15,7 @@ class WebSoftwareBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.updateHElement(
-        'Technology Wall | Software and ERP',
-        'A colloection of daily utility personal and enterprise-level fundamental software products.',
-        'You can explore, search, and find information on Microsoft, Fortinet, Sage, SAP, Tally, and Zoho softwre products.');
+
     metadataControllers.injectPageSpecificContent(
         'Find your desired personal or enterprise level software here. All licensed and maintainable. Available software essentials include Microsof Office, Microsoft 365, Microsoft Windows 11, Microsoft Windows 10, SAP Business One ERP Solution, Tally ERP Solution, Sage ERP, Zoho ERP Solutions, Fortinet Security Software, and much more.',
         'en');

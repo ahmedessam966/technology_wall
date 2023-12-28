@@ -26,6 +26,10 @@ class _SoftwarePageState extends State<SoftwarePage> {
   @override
   void initState() {
     super.initState();
+    metadataFunctions.updateHElement(
+        'Technology Wall Software Page',
+        'All necessary software products for personal leisure or enterprise performance. Explore our exclusive, powered by HCC, SAP ERP solutions.',
+        'Best offers on Microsoft, Sage, Zoho, Tally, and Fortinet software products.');
     metadataFunctions.updateMetaData('Technology Wall | Software',
         'Boost your enterprise perfomance with fundamental software products with competitive pricing ranges, only at Technology Wall. You can explore Microsoft, Fortinet, SAP, Sage, Tally, Zoho products, and much more.');
     metadataFunctions.updateHeaderMetaData();
