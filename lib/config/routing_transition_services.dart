@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:technology_wall/base/en/shared/dev_redirect.dart';
 import 'package:technology_wall/facebook_redirect.dart';
 import '../pages_index.dart';
 
@@ -85,7 +84,7 @@ class RoutingTransitionServices {
         case '/not-found':
           return const NotFoundPage();
         case '/dev':
-          return const DevRedirect();
+          return const DevHomePage();
         default:
           return const NotFoundPage();
       }

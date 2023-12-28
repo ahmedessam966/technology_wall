@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'package:quickalert/quickalert.dart';
 import 'package:technology_wall/config/input_validation_services.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/email_controller.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:another_flushbar/flushbar.dart';
 import 'package:technology_wall/core/models/product_model.dart';
 
 class WebOrderForm extends StatefulWidget {
