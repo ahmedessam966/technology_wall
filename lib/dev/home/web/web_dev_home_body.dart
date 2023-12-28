@@ -545,7 +545,7 @@ class WebDevHomeBody extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          padding: EdgeInsets.all(20.px),
+          padding: EdgeInsets.all(30.px),
           margin: EdgeInsets.symmetric(horizontal: 1.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -722,7 +722,7 @@ class WebDevHomeBody extends StatelessWidget {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white60),
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10.px), bottomLeft: Radius.circular(10.px)),
+                          topLeft: Radius.circular(10.px), bottomRight: Radius.circular(10.px)),
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.white30,
@@ -742,7 +742,7 @@ class WebDevHomeBody extends StatelessWidget {
                           height: 1.h,
                         ),
                         Icon(
-                          Icons.phone_iphone_rounded,
+                          Icons.integration_instructions_rounded,
                           color: Colors.white,
                           size: 60.px,
                         ),
@@ -755,6 +755,65 @@ class WebDevHomeBody extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              SelectableText(
+                'Customized each and every project',
+                style: context.labelLarge?.copyWith(color: Colors.white, fontSize: 14.sp),
+              ),
+              SizedBox(height: 2.h),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.check_rounded,
+                        color: const Color(0xaa2af598).withOpacity(1),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      SelectableText(
+                        'No duplicates',
+                        style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 14.sp),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.check_rounded,
+                        color: const Color(0xaa2af598).withOpacity(1),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      SelectableText(
+                        'No templates',
+                        style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 14.sp),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.check_rounded,
+                        color: const Color(0xaa2af598).withOpacity(1),
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      SelectableText(
+                        'Nothing reused',
+                        style: context.labelLarge?.copyWith(color: Colors.white70, fontSize: 14.sp),
+                      ),
+                    ],
                   ),
                 ],
               ),
