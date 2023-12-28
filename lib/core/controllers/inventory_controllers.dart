@@ -361,41 +361,47 @@ class InventoryControllers extends ChangeNotifier {
 
   Future<List<ProductModel>> getFeaturedProducts() async {
     final List<ProductModel> feeatured = [];
-    final db = await FirebaseFirestore.instance.collection('Index').get();
-    for (final category in db.docs) {
-      final subcat = FirebaseFirestore.instance.collection(category.id);
-      final entry = await subcat.where('Featured', isEqualTo: true).get();
-      for (final element in entry.docs) {
-        final product = ProductModel(
-          category: category.id,
-          id: element.id,
-          title: element.data()['Title'],
-          brand: element.data()['Brand'],
-          cost: element.data()['Cost'],
-          maxDiscounted: element.data()['Max Discounted Price'],
-          model: element.data()['Model'].toString().toUpperCase(),
-          snapshot: element.data()['Snapshot'],
-          price: element.data()['Selling Price'],
-          /////////////////////////////////////////////////////////
-          ///Variable Data Based On Fetched Product Type
-          /////////////////////////////////////////////////////////
-          ppm: element.data()['PPM'],
-          family: element.data()['Family'],
-          network: element.data()['Network'],
-          type: element.data()['Type'],
-          utility: element.data()['Utility'],
-          color: element.data()['Color'],
-          display: element.data()['Display'],
-          graphics: element.data()['Graphics'],
-          memory: element.data()['Memory'],
-          os: element.data()['Operating System'],
-          processor: element.data()['Processor'],
-          series: element.data()['Series'],
-          storage: element.data()['Storage'],
-          toner: element.data()['Toner'],
-          warranty: element.data()['Warranty'] ?? 'Not Applicable',
-        );
-        feeatured.add(product);
+    try {
+      final db = await FirebaseFirestore.instance.collection('Index').get();
+      for (final category in db.docs) {
+        final subcat = FirebaseFirestore.instance.collection(category.id);
+        final entry = await subcat.where('Featured', isEqualTo: true).get();
+        for (final element in entry.docs) {
+          final product = ProductModel(
+            category: category.id,
+            id: element.id,
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
+            cost: element.data()['Cost'],
+            maxDiscounted: element.data()['Max Discounted Price'],
+            model: element.data()['Model'].toString().toUpperCase(),
+            snapshot: element.data()['Snapshot'],
+            price: element.data()['Selling Price'],
+            /////////////////////////////////////////////////////////
+            ///Variable Data Based On Fetched Product Type
+            /////////////////////////////////////////////////////////
+            ppm: element.data()['PPM'],
+            family: element.data()['Family'],
+            network: element.data()['Network'],
+            type: element.data()['Type'],
+            utility: element.data()['Utility'],
+            color: element.data()['Color'],
+            display: element.data()['Display'],
+            graphics: element.data()['Graphics'],
+            memory: element.data()['Memory'],
+            os: element.data()['Operating System'],
+            processor: element.data()['Processor'],
+            series: element.data()['Series'],
+            storage: element.data()['Storage'],
+            toner: element.data()['Toner'],
+            warranty: element.data()['Warranty'] ?? 'Not Applicable',
+          );
+          feeatured.add(product);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
       }
     }
     return feeatured;
