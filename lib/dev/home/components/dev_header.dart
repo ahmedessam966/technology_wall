@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
-import 'dev_coustomer_carousel.dart';
+import 'dev_customer_carousel.dart';
 
 class DevHeader extends StatelessWidget {
   const DevHeader({super.key});

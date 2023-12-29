@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
 import '../../../config/input_validation_services.dart';
 import '../../../config/themes/app_theme.dart';
 
@@ -18,9 +18,8 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _activityController = TextEditingController();
-  final TextEditingController _layoutController = TextEditingController();
-  final TextEditingController _servicesController = TextEditingController();
-  List<String> selectedServices = [];
+  final TextEditingController _emailController = TextEditingController();
+  final List<String> _selectedServices = [];
 
   @override
   void dispose() {
@@ -104,9 +103,10 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
                     ),
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 3.h,
                   ),
                   DropdownButtonFormField(
+                    style: context.labelLarge,
                     onChanged: (value) {
                       if (value != null) {
                         _activityController.text = value;
@@ -140,6 +140,7 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
                       DropdownMenuItem(
                           value: 'Technology and Information Systems',
                           child: Text('Technology and Information Systems')),
+                      DropdownMenuItem(value: 'Other', child: Text('Other')),
                     ],
                     validator: (value) => InputValidationServices.validateName(name: value),
                     decoration: InputDecoration(
@@ -167,24 +168,206 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
                     ),
                   ),
                   SizedBox(
+                    height: 5.h,
+                  ),
+                  Text(
+                    'Select the services you would like to build...',
+                    style: context.labelLarge,
+                  ),
+                  SizedBox(
                     height: 2.h,
                   ),
-                  DropdownButtonFormField(
-                    onChanged: (value) {
-                      if (value != null) {
-                        _layoutController.text = value;
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.hovered) ? 2 : 0),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
+                    ),
+                    onPressed: () {
+                      if (_selectedServices.contains('Mobile Application')) {
+                        setState(() {
+                          _selectedServices.remove('Mobile Application');
+                        });
+                      } else {
+                        setState(() {
+                          _selectedServices.add('Mobile Application');
+                        });
                       }
                     },
-                    items: const [
-                      DropdownMenuItem(
-                          value: 'Professional and Concise', child: Text('Professional and Concise')),
-                      DropdownMenuItem(value: 'Stylish and Trendy', child: Text('Stylish and Trendy')),
-                      DropdownMenuItem(
-                          value: 'Informative and Colorful', child: Text('Informative and Colorful')),
-                    ],
-                    validator: (value) => InputValidationServices.validateName(name: value),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Mobile Application',
+                          style: context.labelLarge,
+                        ),
+                        Checkbox.adaptive(
+                            fillColor: MaterialStateProperty.resolveWith(
+                                (states) => states.contains(MaterialState.selected) ? Colors.green : null),
+                            value: _selectedServices.contains('Mobile Application'),
+                            onChanged: (newValue) {}),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.hovered) ? 2 : 0),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
+                    ),
+                    onPressed: () {
+                      if (_selectedServices.contains('Website')) {
+                        setState(() {
+                          _selectedServices.remove('Website');
+                        });
+                      } else {
+                        setState(() {
+                          _selectedServices.add('Website');
+                        });
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Website',
+                          style: context.labelLarge,
+                        ),
+                        Checkbox.adaptive(
+                            fillColor: MaterialStateProperty.resolveWith(
+                                (states) => states.contains(MaterialState.selected) ? Colors.green : null),
+                            value: _selectedServices.contains('Website'),
+                            onChanged: (newValue) {}),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.hovered) ? 2 : 0),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
+                    ),
+                    onPressed: () {
+                      if (_selectedServices.contains('Hosting Services')) {
+                        setState(() {
+                          _selectedServices.remove('Hosting Services');
+                        });
+                      } else {
+                        setState(() {
+                          _selectedServices.add('Hosting Services');
+                        });
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Hosting Services',
+                          style: context.labelLarge,
+                        ),
+                        Checkbox.adaptive(
+                            fillColor: MaterialStateProperty.resolveWith(
+                                (states) => states.contains(MaterialState.selected) ? Colors.green : null),
+                            value: _selectedServices.contains('Hosting Services'),
+                            onChanged: (newValue) {}),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.hovered) ? 2 : 0),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
+                    ),
+                    onPressed: () {
+                      if (_selectedServices.contains('Mail Server Services')) {
+                        setState(() {
+                          _selectedServices.remove('Mail Server Services');
+                        });
+                      } else {
+                        setState(() {
+                          _selectedServices.add('Mail Server Services');
+                        });
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Mail Server Services',
+                          style: context.labelLarge,
+                        ),
+                        Checkbox.adaptive(
+                            fillColor: MaterialStateProperty.resolveWith(
+                                (states) => states.contains(MaterialState.selected) ? Colors.green : null),
+                            value: _selectedServices.contains('Mail Server Services'),
+                            onChanged: (newValue) {}),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.resolveWith(
+                          (states) => states.contains(MaterialState.hovered) ? 2 : 0),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
+                    ),
+                    onPressed: () {
+                      if (_selectedServices.contains('Integrated Solution')) {
+                        setState(() {
+                          _selectedServices.remove('Integrated Solution');
+                        });
+                      } else {
+                        setState(() {
+                          _selectedServices.removeWhere((element) => element != 'Integrated Solution');
+                          _selectedServices.add('Integrated Solution');
+                        });
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Integrated Solution (All Inclusive)',
+                          style: context.labelLarge,
+                        ),
+                        Checkbox.adaptive(
+                            fillColor: MaterialStateProperty.resolveWith(
+                                (states) => states.contains(MaterialState.selected) ? Colors.green : null),
+                            value: _selectedServices.contains('Integrated Solution'),
+                            onChanged: (newValue) {}),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  TextFormField(
+                    controller: _emailController,
+                    validator: (value) => InputValidationServices.validateEmail(email: value),
                     decoration: InputDecoration(
-                      hintText: 'Choose how would you like your platform to look like...',
+                      hintText: 'We\'ll use this email to follow up with you...',
                       hintStyle: context.bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2.px),
@@ -202,55 +385,30 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       label: Text(
-                        'Layout and Style',
+                        'Contact Email Address',
                         style: context.bodyLarge,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 5.h,
                   ),
-                  DropdownButtonFormField(
-                    onChanged: (value) {
-                      if (value != null) {
-                        _layoutController.text = value;
-                      }
-                    },
-                    items: const [
-                      DropdownMenuItem(value: 'Mobile Application', child: Text('Mobile Application')),
-                      DropdownMenuItem(value: 'Website', child: Text('Website')),
-                      DropdownMenuItem(value: 'Hosting Service', child: Text('Hosting Service')),
-                      DropdownMenuItem(value: 'Domain Service', child: Text('Domain Service')),
-                      DropdownMenuItem(value: 'Hosting Service', child: Text('Hosting Service')),
-                      DropdownMenuItem(value: 'Mail Servers', child: Text('Mail Servers')),
-                      DropdownMenuItem(
-                          value: 'Integrated Solution (All Above Services)',
-                          child: Text('Integrated Solution (All Above Services)')),
-                    ],
-                    validator: (value) => InputValidationServices.validateName(name: value),
-                    decoration: InputDecoration(
-                      hintText: 'Select the type of service you us to build...',
-                      hintStyle: context.bodyMedium,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(2.px),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(2.px),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(2.px),
-                        borderSide: const BorderSide(color: AppTheme.prohibit),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(2.px),
-                        borderSide: const BorderSide(color: AppTheme.prohibit),
-                      ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      label: Text(
-                        'Your Platform Services',
-                        style: context.bodyLarge,
-                      ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: const MaterialStatePropertyAll(Color(0xaa246af3)),
+                      shape: const MaterialStatePropertyAll(LinearBorder()),
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
+                      overlayColor: const MaterialStatePropertyAll(Colors.white38),
                     ),
+                    child: _isLoading
+                        ? const SpinKitThreeBounce(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            'Submit',
+                            style: context.labelLarge?.copyWith(color: Colors.white),
+                          ),
                   ),
                 ],
               ),
