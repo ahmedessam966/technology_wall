@@ -5,14 +5,22 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class AppTheme extends ChangeNotifier {
   AppTheme();
 
-  static const Color darkest = Color(0xaa071923);
-  static const Color second = Color(0XAA7C9CC1);
-  static const Color hint = Color(0XAAF7B318);
+  static const Color darkest = Color(0XAA130D33);
+  static const Color second = Color(0XAA231955);
+  static const Color third = Color(0XAA1F4690);
+  static const Color hint = Color(0XAAE8AA42);
+  static const Color light = Color(0XAAFFE5B4);
   static const Color prohibit = Color(0XAAF85118);
 
   ThemeData get lightTheme => ThemeData(
-        scaffoldBackgroundColor: const Color(0xaa071923).withOpacity(1),
-        scrollbarTheme: const ScrollbarThemeData(thumbColor: MaterialStatePropertyAll(Colors.grey)),
+        scaffoldBackgroundColor: darkest.withOpacity(1),
+        scrollbarTheme: ScrollbarThemeData(
+            interactive: true,
+            thumbColor: const MaterialStatePropertyAll(Colors.grey),
+            trackColor: MaterialStatePropertyAll(Colors.grey.shade300),
+            trackBorderColor: const MaterialStatePropertyAll(Colors.black54),
+            radius: const Radius.circular(1),
+            trackVisibility: const MaterialStatePropertyAll(true)),
         textSelectionTheme:
             TextSelectionThemeData(cursorColor: Colors.black, selectionColor: Colors.grey.shade300),
         textTheme: TextTheme(

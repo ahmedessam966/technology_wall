@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 class DevMetricsContainer extends StatelessWidget {
@@ -22,8 +23,8 @@ class DevMetricsContainer extends StatelessWidget {
           bottomRight: Radius.circular(20.px),
         ),
         gradient: LinearGradient(colors: [
-          const Color(0xaa26344b).withOpacity(1),
-          const Color(0xaa246af3).withOpacity(1),
+          AppTheme.darkest.withOpacity(1),
+          AppTheme.second.withOpacity(1),
         ], begin: AlignmentDirectional.topCenter, end: AlignmentDirectional.bottomCenter),
         boxShadow: const [
           BoxShadow(offset: Offset(0, 0), blurRadius: 3, color: Colors.black38),

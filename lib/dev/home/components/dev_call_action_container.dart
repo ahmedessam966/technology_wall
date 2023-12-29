@@ -1,9 +1,13 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import '../../../config/input_validation_services.dart';
 import '../../../config/themes/app_theme.dart';
+import 'dart:html' as html;
 
 class DevCallToActionContainer extends StatefulWidget {
   const DevCallToActionContainer({super.key});
@@ -12,13 +16,14 @@ class DevCallToActionContainer extends StatefulWidget {
   State<DevCallToActionContainer> createState() => _DevCallToActionContainerState();
 }
 
-bool _isLoading = false;
-
 class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+  bool _isAgreement = false;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _activityController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final List<String> _selectedServices = [];
 
   @override
@@ -35,8 +40,8 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1),
         gradient: LinearGradient(colors: [
-          const Color(0xaa26344b).withOpacity(1),
-          const Color(0xaa246af3).withOpacity(1),
+          AppTheme.second.withOpacity(1),
+          AppTheme.darkest.withOpacity(1),
         ], begin: AlignmentDirectional.topCenter, end: AlignmentDirectional.bottomCenter),
         boxShadow: const [
           BoxShadow(offset: Offset(0, 0), blurRadius: 3, color: Colors.black38),
@@ -69,7 +74,7 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
             padding: EdgeInsets.all(50.px),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(1),
-              color: const Color(0xaaf3f3f3).withOpacity(1),
+              color: const Color(0xaaf0f0f0).withOpacity(1),
             ),
             child: Form(
               key: _formKey,
@@ -391,12 +396,97 @@ class _DevCallToActionContainerState extends State<DevCallToActionContainer> {
                     ),
                   ),
                   SizedBox(
+                    height: 3.h,
+                  ),
+                  TextFormField(
+                    controller: _phoneController,
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value != null) {
+                        if (value.length < 10) {
+                          return 'Invalid Phone Number';
+                        }
+                      }
+                      return null;
+                    },
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                      hintText: '00966XXXXXXXXX or 05XXXXXXXX',
+                      hintStyle: context.bodyMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.px),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.px),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.px),
+                        borderSide: const BorderSide(color: AppTheme.prohibit),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(2.px),
+                        borderSide: const BorderSide(color: AppTheme.prohibit),
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      label: Text(
+                        'Contact Phone Number',
+                        style: context.bodyLarge,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Row(
+                    children: [
+                      Checkbox.adaptive(
+                          fillColor: MaterialStateProperty.resolveWith((states) =>
+                              states.contains(MaterialState.selected) ? const Color(0xaa246af3) : null),
+                          value: _isAgreement,
+                          onChanged: (newValue) {
+                            if (newValue != null) {
+                              setState(() {
+                                _isAgreement = newValue;
+                              });
+                            }
+                          }),
+                      SizedBox(
+                        width: 1.w,
+                      ),
+                      Text(
+                        'By checking this box you agree to Technology Wall\'s Terms of Service. ',
+                        style: context.labelLarge,
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                            padding: const MaterialStatePropertyAll(EdgeInsets.all(0.5)),
+                            shape: MaterialStatePropertyAll(LinearBorder.bottom()),
+                            overlayColor: const MaterialStatePropertyAll(Colors.transparent)),
+                        onPressed: () {
+                          html.window.open('https://techwall.com.sa/en/privacy', '_about');
+                        },
+                        child: Text(
+                          'Learn More ',
+                          style: context.labelLarge?.copyWith(color: Colors.blue),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Text(
+                    'As Technology Wall is committed to providing unqiue designs for each and every client, we\'ll use the email address or phone number to reach out to you in order to gather the system requirements so that clients can have a tailored and personalized service. Technology Wall will NOT keep a record of your data provided here without your consent.',
+                    style: context.labelLarge,
+                  ),
+                  SizedBox(
                     height: 5.h,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _isAgreement ? () {} : null,
                     style: ButtonStyle(
-                      backgroundColor: const MaterialStatePropertyAll(Color(0xaa246af3)),
+                      backgroundColor: MaterialStateProperty.resolveWith((states) =>
+                          states.contains(MaterialState.disabled) ? Colors.grey : const Color(0xaa246af3)),
                       shape: const MaterialStatePropertyAll(LinearBorder()),
                       padding: MaterialStatePropertyAll(EdgeInsets.all(1.w)),
                       overlayColor: const MaterialStatePropertyAll(Colors.white38),

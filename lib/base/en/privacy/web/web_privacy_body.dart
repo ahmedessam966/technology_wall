@@ -12,7 +12,7 @@ class WebPrivacyBody extends StatelessWidget {
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
     metadataControllers.injectPageSpecificContent(
-        'This page contains acknowledgements, terms of service, and Technology Wall\'s privacy policy.',
+        'We respect your privacy and take the safety of your online shopping seriously. However, in order to be able to provide you with better products, more effective customer service, and personalized updates, we may record a set of information from your visit to the our website. For disclosure and transparency, the following statemnts describe policies and procedures, and how and why your information is collected and used.',
         'en');
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

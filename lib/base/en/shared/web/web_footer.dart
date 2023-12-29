@@ -1,9 +1,12 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'dart:html' as html;
 
 class WebFooter extends StatelessWidget {
   const WebFooter({super.key});
@@ -133,7 +136,9 @@ class WebFooter extends StatelessWidget {
                                 Row(
                                   children: [
                                     IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        html.window.open('https:facebook.com/techwall.sa', 'about:blank');
+                                      },
                                       icon: SvgPicture.asset(
                                         'assets/icons/facebook.svg',
                                         height: 3.5.h,

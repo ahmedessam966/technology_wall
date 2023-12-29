@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/dev/home/components/dev_call_action_container.dart';
+import 'package:technology_wall/dev/home/components/dev_footer.dart';
 import 'package:technology_wall/dev/home/components/dev_header.dart';
 import 'package:technology_wall/dev/home/components/dev_left_feature_block.dart';
 import 'package:technology_wall/dev/home/components/dev_metrics_container.dart';
@@ -32,7 +34,7 @@ class WebDevHomeBody extends StatelessWidget {
           child: Text(
             'How It Works',
             style: context.labelLarge?.copyWith(
-                fontWeight: FontWeight.w600, fontSize: 18.sp, color: const Color(0xaa246af3).withOpacity(1)),
+                fontWeight: FontWeight.w600, fontSize: 18.sp, color: AppTheme.third.withOpacity(1)),
           ),
         ),
         SizedBox(
@@ -84,7 +86,7 @@ class WebDevHomeBody extends StatelessWidget {
           child: Text(
             'Additional Features',
             style: context.labelLarge?.copyWith(
-                fontWeight: FontWeight.w600, fontSize: 18.sp, color: const Color(0xaa246af3).withOpacity(1)),
+                fontWeight: FontWeight.w600, fontSize: 18.sp, color: AppTheme.third.withOpacity(1)),
           ),
         ),
         SizedBox(
@@ -129,7 +131,8 @@ class WebDevHomeBody extends StatelessWidget {
         const DevCallToActionContainer(),
         SizedBox(
           height: 10.h,
-        )
+        ),
+        const DevFooter()
       ],
     );
   }
