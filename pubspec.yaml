@@ -36,7 +36,6 @@ dependencies:
   flutter_carousel_widget: ^2.1.2
   flutter_improved_scrolling: ^0.0.3
   flutter_launcher_icons: ^0.13.1
-  flutter_multi_select_items: ^0.4.2
   flutter_spinkit: ^5.2.0
   flutter_svg: ^2.0.9
   flutter_web_plugins:
