@@ -2,17 +2,24 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:technology_wall/config/cookies_manager.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 
 class AppControllers extends ChangeNotifier {
+  static final CookiesManager _cookiesManager = CookiesManager();
   String _pageTitle = 'Technology Wall | Home';
   String get pageTitle => _pageTitle;
 
-  bool _isHovered = false;
-  bool get isHovered => _isHovered;
+  bool _isCookieConsent = _cookiesManager.checkCookieConsent();
+  bool get isCookieConsent => _isCookieConsent;
 
   bool _isEnglish = true;
   bool get isEnglish => _isEnglish;
+
+  void setCookieConsent(bool value) {
+    _isCookieConsent = value;
+    notifyListeners();
+  }
 
   void changeLocale(bool isEnglish) {
     _isEnglish = isEnglish;
@@ -27,11 +34,6 @@ class AppControllers extends ChangeNotifier {
     } else {
       _pageTitle = 'Technology Wall | $page';
     }
-    notifyListeners();
-  }
-
-  void showSubMenu() {
-    _isHovered = !_isHovered;
     notifyListeners();
   }
 

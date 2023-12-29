@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/base/en/shared/web/cookie_popup.dart';
 import 'package:technology_wall/config/routing_maps.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) {
         final themeNotifier = context.watch<ThemeModeServices>();
         final themeConstants = context.watch<AppTheme>();
+        final cookieWatcher = context.watch<AppControllers>();
         final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
         return ResponsiveSizer(builder: (context, orientation, deviceType) {
@@ -58,6 +60,20 @@ class MyApp extends StatelessWidget {
               TitleObserver.updateJsonKeywordMap();
               return MaterialPageRoute(
                 builder: (context) => RoutingTransitionServices.generateRoute(settings),
+              );
+            },
+            builder: (context, child) {
+              return Stack(
+                children: [
+                  child!,
+                  Builder(builder: (ctx) {
+                    if (cookieWatcher.isCookieConsent) {
+                      return const SizedBox.shrink();
+                    } else {
+                      return const CookiePopup();
+                    }
+                  }),
+                ],
               );
             },
           );
