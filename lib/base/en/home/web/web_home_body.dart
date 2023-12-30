@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/base/en/shared/base_rect_button.dart';
+import 'package:technology_wall/base/en/shared/web/web_purchase_order.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +10,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import 'package:technology_wall/base/en/home/components/featured_carousel.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
-import '../../shared/web/web_purchase_order.dart';
 import '../components/customers_carousel.dart';
 import '../components/product_category_card.dart';
 
@@ -99,34 +100,15 @@ class WebHomeBody extends StatelessWidget {
                       SizedBox(
                         height: 2.h,
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                          elevation: const MaterialStatePropertyAll(0),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1),
-                              side: const BorderSide(color: Colors.white70),
-                            ),
-                          ),
-                          backgroundColor: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return const Color(0xaa7c9cc1).withOpacity(1);
-                            } else {
-                              return const Color(0xaa071923).withOpacity(1);
-                            }
-                          }),
-                        ),
-                        onPressed: () async {
+                      BaseRectButton(
+                        title: 'Create Purchase Order',
+                        action: () async {
                           await showAdaptiveDialog(
                               context: context,
-                              builder: (context) {
+                              builder: (ctx) {
                                 return const WebPurchaseOrder();
                               });
                         },
-                        child: Text('Create Purchase Order',
-                            style: context.bodyLarge?.copyWith(
-                                color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                       ),
                     ],
                   ),
@@ -271,29 +253,11 @@ class WebHomeBody extends StatelessWidget {
                   height: 2.h,
                 ),
                 Center(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                      elevation: const MaterialStatePropertyAll(0),
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(1),
-                          side: const BorderSide(color: Colors.white70),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.resolveWith((states) {
-                        if (states.contains(MaterialState.hovered)) {
-                          return const Color(0xaa7c9cc1).withOpacity(1);
-                        } else {
-                          return const Color(0xaa071923).withOpacity(1);
-                        }
-                      }),
-                    ),
-                    onPressed: () {
+                  child: BaseRectButton(
+                    title: 'Explore Inventory',
+                    action: () {
                       Navigator.pushNamed(context, '/en/hardware');
                     },
-                    child:
-                        Text('Explore Inventory', style: context.bodyLarge?.copyWith(color: Colors.white70)),
                   ),
                 ),
                 SizedBox(
@@ -414,29 +378,11 @@ class WebHomeBody extends StatelessWidget {
                                 'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:',
                                 style: context.bodyLarge,
                               ),
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                                  elevation: const MaterialStatePropertyAll(0),
-                                  shape: MaterialStatePropertyAll(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      side: const BorderSide(color: Colors.white70),
-                                    ),
-                                  ),
-                                  backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                    if (states.contains(MaterialState.hovered)) {
-                                      return const Color(0xaa7c9cc1).withOpacity(1);
-                                    } else {
-                                      return const Color(0xaa071923).withOpacity(1);
-                                    }
-                                  }),
-                                ),
-                                onPressed: () {
+                              BaseRectButton(
+                                title: 'Contact Pre-Sales',
+                                action: () {
                                   Navigator.pushNamed(context, '/en/software/sap');
                                 },
-                                child: Text('Contact Pre-Sales',
-                                    style: context.bodyLarge?.copyWith(color: Colors.white70)),
                               ),
                             ],
                           ),

@@ -6,7 +6,7 @@ class PrinterModel {
   final num price;
   final num cost;
   final num discounted;
-  final int stock;
+  final int? stock;
   final String family;
   final String toner;
   final double ppm;
@@ -23,7 +23,7 @@ class PrinterModel {
       required this.price,
       required this.cost,
       required this.discounted,
-      required this.stock,
+      this.stock,
       required this.family,
       required this.toner,
       required this.ppm,

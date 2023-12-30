@@ -2,6 +2,7 @@ class MicrosoftModel {
   final String id;
   final String title;
   final String language;
+  final int? stock;
   final String license;
   final String snapshot;
   final String edition;
@@ -15,6 +16,7 @@ class MicrosoftModel {
       {required this.id,
       required this.title,
       required this.language,
+      this.stock,
       required this.license,
       required this.snapshot,
       required this.edition,

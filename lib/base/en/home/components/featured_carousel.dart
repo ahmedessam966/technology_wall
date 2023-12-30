@@ -3,6 +3,7 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/base/en/shared/web/web_printer_order_form.dart';
@@ -19,9 +20,10 @@ class FeaturedCarousel extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-                child: SpinKitCubeGrid(
-              color: Color(0xaaf7f7f7),
-            ));
+              child: SpinKitCircle(
+                color: AppTheme.darkest,
+              ),
+            );
           } else {
             return FlutterCarousel.builder(
               itemCount: snapshot.data?.length,
@@ -53,12 +55,10 @@ class FeaturedCarousel extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(1),
                       borderRadius: BorderRadiusDirectional.circular(5),
-                      gradient: const RadialGradient(
-                        radius: 1.5,
-                        colors: [
-                          Color(0xaa004e92),
-                          Color(0xaa000428),
-                        ],
+                      gradient: const LinearGradient(
+                        begin: AlignmentDirectional.topCenter,
+                        end: AlignmentDirectional.bottomCenter,
+                        colors: [AppTheme.darkest, AppTheme.second, AppTheme.third],
                       ),
                       boxShadow: const [
                         BoxShadow(

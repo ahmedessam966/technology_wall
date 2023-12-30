@@ -8,6 +8,7 @@ class ProductModel {
   final String? display;
   final String? graphics;
   final num maxDiscounted;
+  final int? stock;
   final String? memory;
   final String? model;
   final String? os;
@@ -34,6 +35,7 @@ class ProductModel {
       this.display,
       this.graphics,
       required this.maxDiscounted,
+      this.stock,
       this.memory,
       required this.model,
       this.os,

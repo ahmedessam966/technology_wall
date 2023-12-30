@@ -7,7 +7,7 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../../../core/controllers/email_controller.dart';
 import '../../../en/home/controllers/home_page_controllers.dart';
-
+import 'dart:html' as html;
 import '../../../../config/input_validation_services.dart';
 import '../../../../config/themes/app_theme.dart';
 
@@ -42,7 +42,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
       return Dialog(
         backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
         surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.px)),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
           child: Form(
@@ -90,7 +90,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                   style: ElevatedButton.styleFrom(
                                       enableFeedback: true,
                                       backgroundColor: AppTheme.darkest,
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+                                      shape:
+                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.px))),
                                   onPressed: () async {
                                     // ignore: prefer_is_empty
                                     if (items.length >= 1 && items[0][0] != '') {
@@ -118,8 +119,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     child: Text('Continue',
                                         style: context.bodyLarge?.copyWith(color: Colors.white70)),
                                   ),
-                                  const SizedBox(
-                                    width: 20,
+                                  SizedBox(
+                                    width: 1.w,
                                   ),
                                   TextButton(
                                     style: ButtonStyle(
@@ -221,7 +222,7 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                             ),
                             subtitle: Text(
                                 'You can also search for specific products by visiting the sections of the website that corresponds to your desired product type.',
-                                style: context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)),
+                                style: context.bodyMedium),
                             content: SizedBox(
                               height: 40.h,
                               width: double.infinity,
@@ -272,6 +273,9 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                         items.add(['', '']);
                                       });
                                     },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+                                    ),
                                     child: Text(
                                       'Add Item',
                                       style: context.bodyLarge,
@@ -302,7 +306,10 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                           'Your business / personal information. Learn how we process your information by visiting ',
                                           style: context.bodyMedium?.copyWith(fontStyle: FontStyle.italic)),
                                       TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          html.window
+                                              .open('https://techwall.com.sa/en/privacy', '_about:blank');
+                                        },
                                         child: Text('Privacy Center',
                                             style: context.bodyMedium?.copyWith(color: Colors.blue.shade700)),
                                       ),
@@ -407,8 +414,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                     ),
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height: 2.h,
                                 ),
                                 TextField(
                                   controller: _notesController,
@@ -522,8 +529,8 @@ class _WebPurchaseOrderState extends State<WebPurchaseOrder> {
                                       style: context.bodyLarge),
                                   Text('Additional Notes (Optional):   ${_notesController.text}',
                                       style: context.bodyLarge),
-                                  const SizedBox(
-                                    height: 50,
+                                  SizedBox(
+                                    height: 5.h,
                                   )
                                 ],
                               ),

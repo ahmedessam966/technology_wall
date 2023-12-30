@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
 
 class WebPrivacyBody extends StatelessWidget {
@@ -22,7 +22,7 @@ class WebPrivacyBody extends StatelessWidget {
         SlideInUp(
           duration: const Duration(milliseconds: 1000),
           child: SizedBox(
-            height: 400,
+            height: 45.h,
             width: double.infinity,
             child: Stack(
               alignment: Alignment.center,
@@ -43,17 +43,17 @@ class WebPrivacyBody extends StatelessWidget {
                         child: Text(
                           'Privacy Center',
                           style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
+                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 24.sp),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
                       child: Center(
                         child: Text(
                           'Privacy Policy & Terms of Service',
                           style: context.headlineLarge
-                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
+                              ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 20.sp),
                         ),
                       ),
                     ),
@@ -64,8 +64,8 @@ class WebPrivacyBody extends StatelessWidget {
           ),
         ),
         Container(
-          color: const Color(0xaaf7f7f7).withOpacity(1),
-          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
+          color: const Color(0xaaf3f3f3).withOpacity(1),
+          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 8.h),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,19 +77,19 @@ class WebPrivacyBody extends StatelessWidget {
                   style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 5.h,
               ),
               Text(
-                'Technology Wall is a provider for renowned branded products - software, hardware, or otherwise indicated in the displayed products - and as such is displaying trademarks and logos for the respective brands, trademarks, and companies. Consequently, Technology Wall is using the trademark names and logos for promoting sales and business needs of the respctive entities and does not own or promote any brand as its own. All brands, trademarks, logos, and names of the promoted products and services are property of their respective entities and are used in this website for describing and annotating the product\'s or service\'s manufacturer. Technology Wall does not authorize or allow the use of the displayed brands, trademarks, logos, and names of the trademark owners without prior consent, written or otherwise indicated, by the owner of said trademark.',
+                'Technology Wall is a provider for renowned branded products - software, hardware, or otherwise indicated in the displayed products - and as such is displaying trademarks and logos for the respective brands, trademarks, and companies. Consequently, Technology Wall is using the trademark names and logos for promoting sales and business needs of the respective entities and does not own or promote any brand as its own. All brands, trademarks, logos, and names of the promoted products and services are property of their respective entities and are used in this website for describing and annotating the product\'s or service\'s manufacturer. Technology Wall does not authorize or allow the use of the displayed brands, trademarks, logos, and names of the trademark owners without prior consent, written or otherwise indicated, by the owner of said trademark.',
                 style: context.bodyLarge,
               ),
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 5.h,
               ),
               const Divider(),
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 5.h,
               ),
               Center(
                 child: Text(
@@ -98,22 +98,22 @@ class WebPrivacyBody extends StatelessWidget {
                   style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 5.h,
               ),
               Text(
                 'We respect your privacy and take the safety of your online shopping seriously. However, in order to be able to provide you with better products, more effective customer service, and personalized updates, we may record a set of information from your visit to the our website. For disclosure and transparency, the following statemnts describe policies and procedures, and how and why your information is collected and used.',
                 style: context.bodyLarge,
               ),
-              const SizedBox(
-                height: 50,
+              SizedBox(
+                height: 5.h,
               ),
               Text(
                 'Why we may need your personal information:',
                 style: context.headlineSmall,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 '• Facilitating utility of the site for you so you won\'t be required to repetitively insert your information for each and  every transaction.',
@@ -159,15 +159,15 @@ class WebPrivacyBody extends StatelessWidget {
                 '• To administer incentive programs and fulfill your requests for these incentives, to allow you to participate in competitions and to notify you with that event\'s status updates.',
                 style: context.bodyLarge,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 'Registration and orders:',
                 style: context.headlineSmall,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 '• Before you use certain parts of the site or use it to place your order, you must complete the registration process on our site, where you will be requested for some personal of your information including, but not limited to: email address, physical address, phone number, full name, payment card details, and work organization credentials.',
@@ -181,15 +181,15 @@ class WebPrivacyBody extends StatelessWidget {
                 '• If we encounter any problem in completing your request, we may use the personal information you provided to us to contact you.',
                 style: context.bodyLarge,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 'Email address:',
                 style: context.headlineSmall,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 '• Some sections of this website require you to enter your email address for purposes of free promotional campaigns and, in case you have requested, respond to your requests of notifying you about new brands, products, or latest models, or to participate in our newsletter.',
@@ -203,15 +203,15 @@ class WebPrivacyBody extends StatelessWidget {
                 '• We may list the names, account names, or aliases of the participants in any, or all competitions organized by our entity on our website, or any of our entity\'s subsidiary websites.',
                 style: context.bodyLarge,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 'Cookies and other online trackers:',
                 style: context.headlineSmall,
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: 2.5.h,
               ),
               Text(
                 '• We employ cookies and web beacons, also known as clear GIF technology or action tags, to speed up the navigation process on the site, recognize you and your access privileges, and track your use of the site.',

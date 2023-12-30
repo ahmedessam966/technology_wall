@@ -1,11 +1,9 @@
-class NotebookModel {
+class DekstopModel {
   final String id;
   final String title;
   final String brand;
-  final String color;
-  final num cost;
   final int? stock;
-  final String display;
+  final num cost;
   final String graphics;
   final num maxDiscounted;
   final String memory;
@@ -18,14 +16,12 @@ class NotebookModel {
   final num price;
   final String warranty;
 
-  NotebookModel(
+  DekstopModel(
       {required this.id,
       required this.title,
       required this.brand,
-      required this.color,
-      required this.cost,
       this.stock,
-      required this.display,
+      required this.cost,
       required this.graphics,
       required this.maxDiscounted,
       required this.memory,
