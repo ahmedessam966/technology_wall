@@ -10,22 +10,22 @@ import 'package:technology_wall/core/controllers/email_controller.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/core/models/product_model.dart';
 
-class WebOrderForm extends StatefulWidget {
-  final dynamic item;
-  const WebOrderForm({super.key, required this.item});
+class WebPrinterOrderForm extends StatefulWidget {
+  final ProductModel printer;
+  const WebPrinterOrderForm({super.key, required this.printer});
 
   @override
-  State<WebOrderForm> createState() => _WebOrderFormState();
+  State<WebPrinterOrderForm> createState() => _WebPrinterOrderFormState();
 }
 
 late ProductModel printer;
 bool _isLoading = false;
 
-class _WebOrderFormState extends State<WebOrderForm> {
+class _WebPrinterOrderFormState extends State<WebPrinterOrderForm> {
   @override
   void initState() {
     super.initState();
-    printer = widget.item;
+    printer = widget.printer;
   }
 
   @override
@@ -235,31 +235,31 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                   SizedBox(
                                     height: 2.h,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Printer Brand: ${printer.brand}',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Printer Model: ${printer.model}',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Printer Type: ${printer.type}',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Printer Family: ${printer.family}',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Printing Capacity: Up to ${printer.ppm} Papers/Minute',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Recommended Toners: ${printer.toner}',
                                     style: context.bodyLarge,
                                   ),
-                                  Text(
+                                  SelectableText(
                                     '  - Recommended Utility: ${printer.utility}',
                                     style: context.bodyLarge,
                                   ),
@@ -472,31 +472,31 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                       SizedBox(
                                         height: 2.h,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Printer Brand: ${printer.brand}',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Printer Model: ${printer.model}',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Printer Type: ${printer.type}',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Printer Family: ${printer.family}',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Printing Capacity: Up to ${printer.ppm} Papers/Minute',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Recommended Toners: ${printer.toner}',
                                         style: context.bodyLarge,
                                       ),
-                                      Text(
+                                      SelectableText(
                                         '  - Recommended Utility: ${printer.utility}',
                                         style: context.bodyLarge,
                                       ),
@@ -509,11 +509,11 @@ class _WebOrderFormState extends State<WebOrderForm> {
                                   ),
                                 ],
                               ),
-                              Text('Company/Client Name:   ${_nameController.text}'),
-                              Text('Company/Client Contact Email:   ${_emailController.text}'),
-                              Text('Company/Client Contact Phone:   ${_phoneController.text}'),
-                              Text('Company/Client Req. Quantity:   ${_quantityController.text}'),
-                              Text('Company/Client Additional Notes:   ${_notesController.text}'),
+                              SelectableText('Company/Client Name:   ${_nameController.text}'),
+                              SelectableText('Company/Client Contact Email:   ${_emailController.text}'),
+                              SelectableText('Company/Client Contact Phone:   ${_phoneController.text}'),
+                              SelectableText('Company/Client Req. Quantity:   ${_quantityController.text}'),
+                              SelectableText('Company/Client Additional Notes:   ${_notesController.text}'),
                               SizedBox(
                                 height: 5.h,
                               ),

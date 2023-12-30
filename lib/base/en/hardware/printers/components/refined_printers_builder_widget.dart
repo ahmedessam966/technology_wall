@@ -30,7 +30,7 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
                       crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
                     final printer = snapshot.data?[index];
-                    return PrinterCardWidget(printer: printer);
+                    return PrinterCardWidget(printer: printer!);
                   });
             }
           });

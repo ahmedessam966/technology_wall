@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 import '../../../../../config/themes/app_theme.dart';
 import '../../../../../core/controllers/app_controllers.dart';
 import '../../../../../core/controllers/cart_controllers.dart';
 import '../../../shared/web/web_printer_order_form.dart';
 
 class PrinterCardWidget extends StatelessWidget {
-  final PrinterModel? printer;
+  final ProductModel printer;
   const PrinterCardWidget({super.key, required this.printer});
 
   @override
@@ -29,7 +29,7 @@ class PrinterCardWidget extends StatelessWidget {
             flex: 10,
             child: Center(
               child: Image.network(
-                printer!.snapshot,
+                printer.snapshot,
                 width: 15.w,
               ),
             ),
@@ -39,7 +39,7 @@ class PrinterCardWidget extends StatelessWidget {
             flex: 4,
             child: Center(
               child: SelectableText(
-                printer!.title,
+                printer.title,
                 style: context.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -52,27 +52,27 @@ class PrinterCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Printing Capability: ${printer?.ppm} papers/minute',
+                  '• Printing Capability: ${printer.ppm} papers/minute',
                   textAlign: TextAlign.justify,
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Printer Family: ${printer?.family}',
+                  '• Printer Family: ${printer.family}',
                   textAlign: TextAlign.justify,
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Printer Type: ${printer?.type}',
+                  '• Printer Type: ${printer.type}',
                   textAlign: TextAlign.justify,
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Network Module: ${printer?.network}',
+                  '• Network Module: ${printer.network}',
                   textAlign: TextAlign.justify,
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Ideal Utility: ${printer?.utility}',
+                  '• Ideal Utility: ${printer.utility}',
                   textAlign: TextAlign.justify,
                   style: context.bodyMedium,
                 ),
@@ -107,8 +107,8 @@ class PrinterCardWidget extends StatelessWidget {
                     await showAdaptiveDialog(
                         context: context,
                         builder: (context) {
-                          return WebOrderForm(
-                            item: printer,
+                          return WebPrinterOrderForm(
+                            printer: printer,
                           );
                         });
                   },
@@ -138,11 +138,11 @@ class PrinterCardWidget extends StatelessWidget {
                       }),
                     ),
                     onPressed: () {
-                      cart.cart.containsKey(printer?.id)
-                          ? cart.removeFromCart(printer!.id)
+                      cart.cart.containsKey(printer.id)
+                          ? cart.removeFromCart(printer.id)
                           : cart.addToCart(printer);
                     },
-                    child: cart.cart.containsKey(printer?.id)
+                    child: cart.cart.containsKey(printer.id)
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -178,7 +178,7 @@ class PrinterCardWidget extends StatelessWidget {
               ),
               onPressed: () {
                 Provider.of<AppControllers>(context, listen: false)
-                    .changePage('Printers | ${printer?.brand} ${printer?.model}');
+                    .changePage('Printers | ${printer.brand} ${printer.model}');
               },
               child: Text(
                 'Printer Details',

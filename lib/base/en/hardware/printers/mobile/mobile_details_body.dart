@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 class MobilePrinterDetailsBody extends StatelessWidget {
   final double sw;
   final double sh;
   final double ar;
-  final PrinterModel? printer;
+  final ProductModel printer;
   const MobilePrinterDetailsBody(
       {super.key, required this.sw, required this.sh, required this.ar, required this.printer});
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 import '../../../shared/mobile/mobile_footer.dart';
 import '../../../shared/tablet/tablet_footer.dart';
 import '../../../shared/web/web_footer.dart';
@@ -9,14 +9,14 @@ import '../tablet/tablet_details_body.dart';
 import '../web/web_printer_details_body.dart';
 
 class PrinterDetailsPage extends StatefulWidget {
-  final PrinterModel? printer;
+  final ProductModel printer;
   const PrinterDetailsPage({super.key, required this.printer});
 
   @override
   State<PrinterDetailsPage> createState() => _PrinterDetailsPageState();
 }
 
-late PrinterModel? printer;
+late ProductModel printer;
 
 class _PrinterDetailsPageState extends State<PrinterDetailsPage> {
   @override
@@ -32,8 +32,8 @@ class _PrinterDetailsPageState extends State<PrinterDetailsPage> {
     final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return Semantics(
-      label: '${printer?.brand} ${printer?.model}',
-      value: '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.type}, printer',
+      label: '${printer.brand} ${printer.model}',
+      value: '${printer.brand}, ${printer.model}, ${printer.family}, ${printer.type}, printer',
       child: PopScope(
         canPop: true,
         onPopInvoked: (value) {

@@ -3,6 +3,7 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/base/en/shared/web/web_desktop_order_form.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
@@ -45,9 +46,12 @@ class FeaturedCarousel extends StatelessWidget {
                     await showAdaptiveDialog(
                         context: context,
                         builder: (context) {
-                          return WebOrderForm(
-                            item: product,
-                          );
+                          switch (product.category) {
+                            case 'Desktops':
+                              return WebDesktopOrderForm(desktop: product);
+                            default:
+                              return WebPrinterOrderForm(printer: product);
+                          }
                         });
                   },
                   child: Container(
@@ -74,10 +78,13 @@ class FeaturedCarousel extends StatelessWidget {
                         Expanded(
                           flex: 4,
                           child: Builder(builder: (ctx) {
-                            if (product!.category == 'Printers') {
-                              return Printer(product: product);
-                            } else {
-                              return Notebook(product: product);
+                            switch (product!.category) {
+                              case 'Desktops':
+                                return Desktop(product: product);
+                              case 'Notebooks':
+                                return Notebook(product: product);
+                              default:
+                                return Printer(product: product);
                             }
                           }),
                         ),
@@ -112,8 +119,8 @@ class Printer extends StatelessWidget {
           product.title,
           style: context.headlineLarge?.copyWith(color: Colors.white),
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: 2.h,
         ),
         SelectableText(
           '• Type: ${product.type}',
@@ -188,8 +195,8 @@ class Notebook extends StatelessWidget {
           product.title,
           style: context.headlineLarge?.copyWith(color: Colors.white),
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: 2.h,
         ),
         SelectableText(
           '• Processor: ${product.processor}',
@@ -213,6 +220,82 @@ class Notebook extends StatelessWidget {
         ),
         SelectableText(
           '• Display: ${product.display}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '• Warranty: ${product.warranty}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        const Spacer(),
+        Row(
+          children: [
+            Text(
+              'Orginal Price: ',
+              style: context.headlineSmall?.copyWith(
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              '${product.price} ',
+              style: context.headlineSmall?.copyWith(
+                  color: Colors.white, decoration: TextDecoration.lineThrough, decorationColor: Colors.white),
+            ),
+            Text(
+              'SAR',
+              style: context.headlineSmall?.copyWith(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        Text(
+          'Discount Price: ONLY ${product.maxDiscounted} SAR (VAT Exclusive)',
+          style: context.headlineSmall?.copyWith(color: Colors.white),
+        ),
+        const Spacer(),
+        Text(
+          '* Offer Valid Till: January 1, 2024',
+          style: context.bodyMedium?.copyWith(color: Colors.white70),
+        ),
+      ],
+    );
+  }
+}
+
+class Desktop extends StatelessWidget {
+  final ProductModel product;
+  const Desktop({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SelectableText(
+          product.title,
+          style: context.headlineLarge?.copyWith(color: Colors.white),
+        ),
+        SizedBox(
+          height: 2.h,
+        ),
+        SelectableText(
+          '• Processor: ${product.processor}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '• Operating System: ${product.os}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '• Graphics: ${product.graphics}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '• Memory: ${product.memory}',
+          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '• Storage: ${product.storage}',
           style: context.bodyLarge?.copyWith(color: Colors.white70),
         ),
         SelectableText(

@@ -3,26 +3,26 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/metadata_controllers.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 import '../../../../../core/controllers/cart_controllers.dart';
 import '../../../shared/web/web_printer_order_form.dart';
 
 class MobilePrinterCard extends StatelessWidget {
-  final PrinterModel? printer;
+  final ProductModel printer;
   const MobilePrinterCard({super.key, required this.printer});
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: '${printer?.title}',
+      label: printer.title,
       value:
-          '${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.brand} Printer, ${printer?.model} Printer',
+          '${printer.brand}, ${printer.model}, ${printer.family}, ${printer.brand} Printer, ${printer.model} Printer',
       child: ExpansionTile(
         onExpansionChanged: (value) {
           MetadataControllers metadataControllers = MetadataControllers();
           if (value) {
             metadataControllers.injectProductSpecs(
-                '${printer?.title}: ${printer?.brand}, ${printer?.model}, ${printer?.family}, ${printer?.brand} Printer, ${printer?.model} Printer',
+                '${printer.title}: ${printer.brand}, ${printer.model}, ${printer.family}, ${printer.brand} Printer, ${printer.model} Printer',
                 'en');
           } else {
             metadataControllers.clearInjectedProduct();
@@ -35,39 +35,39 @@ class MobilePrinterCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.px), side: const BorderSide(color: Colors.black87)),
         title: Text(
-          printer!.title,
+          printer.title,
           style: context.headlineMedium,
         ),
         children: [
           Center(
             child: Image.network(
-              printer!.snapshot,
+              printer.snapshot,
               height: 150.px,
               width: 150.px,
             ),
           ),
           SelectableText(
-            '• Printing Capability: ${printer?.ppm} papers/minute',
+            '• Printing Capability: ${printer.ppm} papers/minute',
             textAlign: TextAlign.justify,
             style: context.headlineSmall,
           ),
           SelectableText(
-            '• Printer Family: ${printer?.family}',
+            '• Printer Family: ${printer.family}',
             textAlign: TextAlign.justify,
             style: context.headlineSmall,
           ),
           SelectableText(
-            '• Printer Type: ${printer?.type}',
+            '• Printer Type: ${printer.type}',
             textAlign: TextAlign.justify,
             style: context.headlineSmall,
           ),
           SelectableText(
-            '• Network Module: ${printer?.network}',
+            '• Network Module: ${printer.network}',
             textAlign: TextAlign.justify,
             style: context.headlineSmall,
           ),
           SelectableText(
-            '• Ideal Utility: ${printer?.utility}',
+            '• Ideal Utility: ${printer.utility}',
             textAlign: TextAlign.justify,
             style: context.headlineSmall,
           ),
@@ -98,8 +98,8 @@ class MobilePrinterCard extends StatelessWidget {
                   await showAdaptiveDialog(
                       context: context,
                       builder: (context) {
-                        return WebOrderForm(
-                          item: printer,
+                        return WebPrinterOrderForm(
+                          printer: printer,
                         );
                       });
                 },
@@ -128,11 +128,11 @@ class MobilePrinterCard extends StatelessWidget {
                     }),
                   ),
                   onPressed: () {
-                    cart.cart.containsKey(printer?.id)
-                        ? cart.removeFromCart(printer!.id)
+                    cart.cart.containsKey(printer.id)
+                        ? cart.removeFromCart(printer.id)
                         : cart.addToCart(printer);
                   },
-                  child: cart.cart.containsKey(printer?.id)
+                  child: cart.cart.containsKey(printer.id)
                       ? Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

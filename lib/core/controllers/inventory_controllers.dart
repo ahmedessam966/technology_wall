@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:technology_wall/core/models/notebook_model.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
 import 'package:technology_wall/core/models/product_model.dart';
 
 class InventoryControllers extends ChangeNotifier {
@@ -14,8 +13,8 @@ class InventoryControllers extends ChangeNotifier {
 
   final TextEditingController _printerSearchController = TextEditingController();
   TextEditingController get printerSearchController => _printerSearchController;
-  final List<PrinterModel> _printersList = [];
-  List<PrinterModel> get printersList => _printersList;
+  final List<ProductModel> _printersList = [];
+  List<ProductModel> get printersList => _printersList;
 
   final TextEditingController _notebookSearchController = TextEditingController();
   TextEditingController get notebookSearchController => _notebookSearchController;
@@ -122,14 +121,15 @@ class InventoryControllers extends ChangeNotifier {
       }
 
       for (final element in snapshot.docs) {
-        final printer = PrinterModel(
+        final printer = ProductModel(
+            category: 'Printers',
             id: element.id,
             title: element.data()['Title'],
             brand: element.data()['Brand'],
             model: element.data()['Model'],
             price: element.data()['Selling Price'],
             cost: element.data()['Cost'],
-            discounted: element.data()['Max Discounted Price'],
+            maxDiscounted: element.data()['Max Discounted Price'],
             stock: element.data()['Stock'],
             family: element.data()['Family'],
             toner: element.data()['Toners'],
@@ -152,20 +152,21 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
-  Future<List<PrinterModel>> getBrandFilteredPrinters(String? brand) async {
-    final List<PrinterModel> results = [];
+  Future<List<ProductModel>> getBrandFilteredPrinters(String? brand) async {
+    final List<ProductModel> results = [];
     final db = FirebaseFirestore.instance.collection('Printers');
     final snapshot = await db.where('Brand', isEqualTo: printerFilterSelection?.toLowerCase()).get();
     try {
       for (final element in snapshot.docs) {
-        final printer = PrinterModel(
+        final printer = ProductModel(
+            category: 'Printers',
             id: element.id,
             title: element.data()['Title'],
             brand: element.data()['Brand'],
             model: element.data()['Model'],
             price: element.data()['Selling Price'],
             cost: element.data()['Cost'],
-            discounted: element.data()['Max Discounted Price'],
+            maxDiscounted: element.data()['Max Discounted Price'],
             stock: element.data()['Stock'],
             family: element.data()['Family'],
             toner: element.data()['Toners'],
@@ -186,22 +187,23 @@ class InventoryControllers extends ChangeNotifier {
     return results;
   }
 
-  Future<List<PrinterModel>> searchPrinters() async {
-    final List<PrinterModel> results = [];
+  Future<List<ProductModel>> searchPrinters() async {
+    final List<ProductModel> results = [];
     final db = FirebaseFirestore.instance.collection('Printers');
     final query = _printerSearchController.text.toLowerCase();
     final String path = _searchByBrand ? 'Brand' : 'Model';
     final snapshot = await db.where(path, isGreaterThanOrEqualTo: query).get();
 
     for (final element in snapshot.docs) {
-      final printer = PrinterModel(
+      final printer = ProductModel(
+          category: 'Printers',
           id: element.id,
           title: element.data()['Title'],
           brand: element.data()['Brand'],
           model: element.data()['Model'],
           price: element.data()['Selling Price'],
           cost: element.data()['Cost'],
-          discounted: element.data()['Max Discounted Price'],
+          maxDiscounted: element.data()['Max Discounted Price'],
           stock: element.data()['Stock'],
           family: element.data()['Family'],
           toner: element.data()['Toners'],
@@ -212,7 +214,7 @@ class InventoryControllers extends ChangeNotifier {
           network: element.data()['Network']);
 
       // Convert field value to lowercase and check for a case-insensitive match
-      if (printer.model.toLowerCase().contains(query)) {
+      if (printer.model!.toLowerCase().contains(query)) {
         results.add(printer);
       }
       if (printer.brand.toLowerCase().contains(query)) {

@@ -35,7 +35,7 @@ class MobileRefinedPrintersBuilder extends StatelessWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
                       final printer = snapshot.data?[index];
-                      return PrinterCardWidget(printer: printer);
+                      return PrinterCardWidget(printer: printer!);
                     }),
               );
             }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 import '../../../shared/web/web_printer_order_form.dart';
 
 class WebPrinterDetailsBody extends StatelessWidget {
-  final PrinterModel? printer;
+  final ProductModel printer;
   const WebPrinterDetailsBody({super.key, required this.printer});
 
   @override
@@ -19,28 +20,28 @@ class WebPrinterDetailsBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            margin: const EdgeInsets.only(bottom: 50),
+            padding: EdgeInsets.symmetric(vertical: 1.h),
+            margin: EdgeInsets.only(bottom: 5.h),
             width: double.infinity,
             color: AppTheme.darkest,
             child: Center(
               child: Text(
-                '${printer?.brand} Printers / ${printer?.family} / ${printer?.brand} ${printer?.model}',
+                '${printer.brand} Printers / ${printer.family} / ${printer.brand} ${printer.model}',
                 style: context.titleMedium,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
+            padding: EdgeInsets.symmetric(horizontal: 6.w),
             child: Text(
-              '${printer?.brand} ${printer?.model} Overview',
+              '${printer.brand} ${printer.model} Overview',
               style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 50),
-            margin: const EdgeInsets.symmetric(vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 5.h),
+            margin: EdgeInsets.symmetric(vertical: 2.h),
             child: Flex(
               direction: Axis.horizontal,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,10 +53,10 @@ class WebPrinterDetailsBody extends StatelessWidget {
                     margin: EdgeInsets.zero,
                     color: AppTheme.darkest,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(2.px),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(20.px),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -64,11 +65,11 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             style: context.headlineSmall?.copyWith(color: Colors.white70),
                             overflow: TextOverflow.clip,
                           ),
-                          const SizedBox(
-                            height: 25,
+                          SizedBox(
+                            height: 2.5.h,
                           ),
                           Text(
-                            'Print Speed: Up to ${printer?.ppm} pages/minute',
+                            'Print Speed: Up to ${printer.ppm} pages/minute',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -76,7 +77,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Printer Family: ${printer?.family}',
+                            'Printer Family: ${printer.family}',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -84,7 +85,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Printer Type: ${printer?.type}',
+                            'Printer Type: ${printer.type}',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -92,7 +93,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Ideal For: ${printer?.utility} Use',
+                            'Ideal For: ${printer.utility} Use',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -100,7 +101,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Connectivity (Wi-Fi/LAN): ${printer?.network}',
+                            'Connectivity (Wi-Fi/LAN): ${printer.network}',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -108,7 +109,7 @@ class WebPrinterDetailsBody extends StatelessWidget {
                             color: Colors.white30,
                           ),
                           Text(
-                            'Supported Toners: ${printer?.toner}',
+                            'Supported Toners: ${printer.toner}',
                             style: context.bodyLarge?.copyWith(color: Colors.white54),
                             overflow: TextOverflow.clip,
                           ),
@@ -120,9 +121,9 @@ class WebPrinterDetailsBody extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: Image.network(
-                    printer!.snapshot,
+                    printer.snapshot,
                     filterQuality: FilterQuality.high,
-                    height: 400,
+                    height: 45.h,
                   ),
                 ),
               ],
@@ -131,12 +132,12 @@ class WebPrinterDetailsBody extends StatelessWidget {
           Container(
             width: double.infinity,
             color: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: 1.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  '${printer?.price} SR (VAT Exclusive)',
+                  '${printer.price} SR (VAT Exclusive)',
                   style: context.headlineSmall,
                 ),
                 ElevatedButton(
@@ -160,8 +161,8 @@ class WebPrinterDetailsBody extends StatelessWidget {
                     await showAdaptiveDialog(
                         context: context,
                         builder: (context) {
-                          return WebOrderForm(
-                            item: printer,
+                          return WebPrinterOrderForm(
+                            printer: printer,
                           );
                         });
                   },

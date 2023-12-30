@@ -57,7 +57,7 @@ class PrintersBuilderWidget extends StatelessWidget {
                               childAspectRatio: 0.7),
                           itemBuilder: (context, index) {
                             final printer = snapshot.data?[index];
-                            return ARPrinterCardWidget(printer: printer);
+                            return ARPrinterCardWidget(printer: printer!);
                           });
                     }
                   });
