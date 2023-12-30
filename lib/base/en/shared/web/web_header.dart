@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/config/cookies_manager.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
 import '../../../ar/shared/language_redirect.dart';
@@ -27,9 +26,7 @@ class WebHeader extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      // Navigator.pushNamed(context, '/en');
-                      CookiesManager cookiesManager = CookiesManager();
-                      cookiesManager.clearCookies();
+                      Navigator.pushNamed(context, '/en');
                     },
                     child: Image.asset(
                       'assets/images/logo1.webp',

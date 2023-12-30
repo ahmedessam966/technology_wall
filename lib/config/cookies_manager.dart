@@ -3,6 +3,7 @@
 import 'dart:html' as html;
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class CookiesManager {
@@ -85,7 +86,7 @@ class CookiesManager {
   }
 
   Future<void> getCityAndCountry(double latitude, double longitude) async {
-    const apiKey = 'AIzaSyB2_ZO4SXu50ee74oiay3olCUYfeTQVKFY';
+    String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
     final apiUrl =
         'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=$apiKey';
 

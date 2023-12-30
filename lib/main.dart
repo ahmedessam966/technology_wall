@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/base/en/shared/web/cookie_popup.dart';
@@ -17,6 +18,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await dotenv.load();
   setUrlStrategy(PathUrlStrategy());
   runApp(const MyApp());
 }
