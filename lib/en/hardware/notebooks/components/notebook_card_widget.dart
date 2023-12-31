@@ -3,13 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
-import 'package:technology_wall/core/models/notebook_model.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 import '../../../../config/themes/app_theme.dart';
 import '../../../shared/web/web_notebook_form.dart';
 
 class NotebookCardWidget extends StatelessWidget {
-  final NotebookModel? notebook;
+  final ProductModel notebook;
   const NotebookCardWidget({super.key, required this.notebook});
 
   @override
@@ -29,7 +29,7 @@ class NotebookCardWidget extends StatelessWidget {
             flex: 10,
             child: Center(
               child: Image.network(
-                notebook!.snapshot,
+                notebook.snapshot,
                 width: 15.w,
               ),
             ),
@@ -39,7 +39,7 @@ class NotebookCardWidget extends StatelessWidget {
             flex: 2,
             child: Center(
               child: SelectableText(
-                notebook!.title,
+                notebook.title,
                 style: context.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -52,27 +52,27 @@ class NotebookCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Processor: ${notebook?.processor}',
+                  '• Processor: ${notebook.processor}',
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Operating System: ${notebook?.os}',
+                  '• Operating System: ${notebook.os}',
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Graphics: ${notebook?.graphics}',
+                  '• Graphics: ${notebook.graphics}',
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Memory: ${notebook?.memory}',
+                  '• Memory: ${notebook.memory}',
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Storage: ${notebook?.storage}',
+                  '• Storage: ${notebook.storage}',
                   style: context.bodyMedium,
                 ),
                 SelectableText(
-                  '• Display: ${notebook?.display}',
+                  '• Display: ${notebook.display}',
                   style: context.bodyMedium,
                 ),
               ],
@@ -136,11 +136,11 @@ class NotebookCardWidget extends StatelessWidget {
                       }),
                     ),
                     onPressed: () {
-                      cart.cart.containsKey(notebook?.id)
-                          ? cart.removeFromCart(notebook!.id)
+                      cart.cart.containsKey(notebook.id)
+                          ? cart.removeFromCart(notebook.id)
                           : cart.addToCart(notebook);
                     },
-                    child: cart.cart.containsKey(notebook?.id)
+                    child: cart.cart.containsKey(notebook.id)
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [

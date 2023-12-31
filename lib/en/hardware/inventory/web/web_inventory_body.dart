@@ -21,82 +21,92 @@ class WebInventoryBody extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Row(
+            child: Flex(
+              direction: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SlideInLeft(
-                  duration: const Duration(milliseconds: 1000),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'One-Stop Shop for Any Portable Computer',
-                        style: context.headlineMedium?.copyWith(
-                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'For Personal Use',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Supplying primary hardware and up to complex servers.',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'For Business Use',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Licensed, supported software soultions required for business intelligence',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Text(
-                        'Save valuable time and effort. Explore our integrated solutions plan.',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                    ],
+                Expanded(
+                  flex: 5,
+                  child: SlideInLeft(
+                    duration: const Duration(milliseconds: 1000),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'Hardware Hub - The Place to Go for All Your Device Needs',
+                          style: context.headlineMedium?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'Diversity',
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Delivering fundamental equipment and complex server networks.',
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'Reliability',
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Empowering your business with authentic and supported hardware solutions.',
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text(
+                          'All hardware services, for business and personal purposes, in Hardware Hub.',
+                          style:
+                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdevices.png?alt=media&token=cae21d15-de1a-4e45-b1a1-bfe2f11fdfde',
-                  height: 35.h,
+                const Spacer(),
+                Expanded(
+                  flex: 5,
+                  child: Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdevices.png?alt=media&token=cae21d15-de1a-4e45-b1a1-bfe2f11fdfde',
+                    height: 45.h,
+                  ),
                 ),
               ],
             ),
@@ -108,7 +118,7 @@ class WebInventoryBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
             child: SizedBox(
-              height: 1100,
+              height: 140.h,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

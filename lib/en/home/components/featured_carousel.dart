@@ -34,7 +34,7 @@ class FeaturedCarousel extends StatelessWidget {
                   viewportFraction: 0.9,
                   enableInfiniteScroll: true,
                   autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayInterval: const Duration(seconds: 10),
                   autoPlay: true,
                   height: 70.h,
                   slideIndicator: CircularWaveSlideIndicator(

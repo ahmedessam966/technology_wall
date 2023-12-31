@@ -27,11 +27,11 @@ class _ARAccreditationPageState extends State<ARAccreditationPage> {
   void initState() {
     super.initState();
     metadataFunctions.updateHElement(
-        'Technology Wall Accreditation Page',
-        'Discover and learn about our partnership with HCC Middle East FZCO for SAP ERP Solutions retail and implementation services.',
+        'صفحة اعتماد سور التكنولوجيا',
+        'اكتشف وتعرف على شراكتنا مع HCC Middle East FZCO لخدمات البيع بالتجزئة والتنفيذ لـ SAP ERP Solutions.',
         null);
-    metadataFunctions.updateMetaData('Technology Wall | Accreditation',
-        'Technology Wall Accreditation Page. Learn more about our partnership with HCC Middle East for implementing SAP ERP Solutions.');
+    metadataFunctions.updateMetaData('سور التكنولوجيا | الأعتمادات',
+        'صفحة اعتماد سور التكنولوجيا. تعرف على المزيد حول شراكتنا مع شركة HCC الشرق الأوسط لتنفيذ حلول SAP ERP.');
     metadataFunctions.updateHeaderMetaData();
   }
 

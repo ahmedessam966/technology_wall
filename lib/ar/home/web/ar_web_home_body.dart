@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/ar/home/components/ar_featured_carousel.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:technology_wall/core/controllers/app_controllers.dart';
+import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_customers_carousel.dart';
 import '../components/ar_product_category_card.dart';
@@ -14,6 +17,10 @@ class ARWebHomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MetadataControllers metadataControllers = MetadataControllers();
+    metadataControllers.injectPageSpecificContent(
+        'العروض والمنتجات المميزة \n Enterprise Essentials\n ERP Essentials \n بدعم من HCC، شريك حلول SAP المعتمد، يقدم Technology Wall حلول SAP فريدة لأي عمل تجاري. تقديم تنبؤات توقعات مجدية واحترافية، وتحديد النطاق المطلوب لحل تخطيط موارد المؤسسات (ERP)، والتنفيذ ونشر النظام من خلال عمليات CI/CD المخصصة للعميل، وعقد صيانة سنوي اختياري ينفذه مستشارو SAP الخبراء المعتمدون لدينا. \n تم ترخيص Technology Wall مباشرة من قبل Sage ERP System Corporation لاقتراح وتصميم وتنفيذ حلول Sage ERP. بوجود فريق متخصص من خبراء Sage Solutions، تقدم Technology Wall أيضًا خطة دعم تنافسية لما بعد البيع لحلول Sage المنفذة - 24/7.  n يهدف Technology Wall إلى تلبية متطلبات منطق الأعمال للمؤسسات على اختلاف مستوياتها - الصغيرة والمتوسطة والواسعة النطاق بشكل كامل ومهني. ولخدمة هذا الغرض، تقدم شركة Technology Wall خدماتها لشركة Tally Solutions كموزع معتمد.',
+        'ar');
     final provider = Provider.of<AppControllers>(context, listen: true);
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -21,7 +28,7 @@ class ARWebHomeBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,16 +45,16 @@ class ARWebHomeBody extends StatelessWidget {
                         style: context.titleLarge?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       SelectableText(
                         'وسط شامل للخدمات الرقمية',
                         style: context.titleSmall?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 40,
+                      SizedBox(
+                        height: 4.h,
                       ),
                       Row(
                         children: [
@@ -56,8 +63,8 @@ class ARWebHomeBody extends StatelessWidget {
                             style:
                                 context.displayLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -70,8 +77,8 @@ class ARWebHomeBody extends StatelessWidget {
                         style: context.titleSmall?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -80,8 +87,8 @@ class ARWebHomeBody extends StatelessWidget {
                             style:
                                 context.displayLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 1.w,
                           ),
                           const Icon(
                             Icons.arrow_right_alt_sharp,
@@ -94,16 +101,16 @@ class ARWebHomeBody extends StatelessWidget {
                         style: context.titleMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 40,
+                      SizedBox(
+                        height: 4.h,
                       ),
                       SelectableText(
                         'وفر الوقت والجهد الثمين. اكتشف خطة الحلول المتكاملة لدينا',
                         style: context.titleSmall?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
@@ -138,18 +145,18 @@ class ARWebHomeBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 50,
+                SizedBox(
+                  width: 5.w,
                 ),
                 Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fserver-back.png?alt=media&token=f6276371-4a7b-4e89-aa7d-2d6799ff5819',
-                  height: 300,
+                  height: 35.h,
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: 10.h,
           ),
           Center(
             child: Text(
@@ -158,7 +165,7 @@ class ARWebHomeBody extends StatelessWidget {
             ),
           ),
           Container(
-            height: 150,
+            height: 20.h,
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: AppTheme.darkest),
@@ -168,28 +175,40 @@ class ARWebHomeBody extends StatelessWidget {
           ),
           Container(
               color: const Color(0xaaf7f7f7).withOpacity(1),
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 80),
+              padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 8.h),
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
+                    child: Text('العروض والمنتجات المميزة',
+                        style:
+                            context.titleLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600)),
+                  ),
+                  SizedBox(
+                    height: 90.h,
+                    child: const ARFeaturedCarousel(),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Center(
                     child: Text(
-                      'منتجاتنا',
+                      'إستكشف منتاجتنا',
                       style: context.titleLarge?.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Row(
                     children: [
                       SvgPicture.asset(
                         'assets/icons/basics.svg',
-                        height: 50,
+                        height: 5.h,
                       ),
-                      const SizedBox(
-                        width: 20,
+                      SizedBox(
+                        width: 2.w,
                       ),
                       Text(
                         'أساسيات مؤسسية',
@@ -197,8 +216,8 @@ class ARWebHomeBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Flex(
                     direction: Axis.horizontal,

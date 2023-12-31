@@ -2,36 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
-import '../../core/controllers/metadata_controllers.dart';
-import '../shared/mobile/ar_mobile_footer.dart';
-import '../shared/mobile/ar_mobile_header.dart';
-import '../shared/tablet/ar_tablet_footer.dart';
-import '../shared/tablet/ar_tablet_header.dart';
-import '../shared/web/ar_web_footer.dart';
-import '../shared/web/ar_web_header.dart';
-import 'mobile/ar_mobile_contact_body.dart';
-import 'tablet/ar_tablet_contact_body.dart';
-import 'web/ar_web_contact_body.dart';
+import '../../../config/themes/app_theme.dart';
+import '../../../core/controllers/metadata_controllers.dart';
+import '../../shared/mobile/ar_mobile_footer.dart';
+import '../../shared/mobile/ar_mobile_header.dart';
+import '../../shared/tablet/ar_tablet_footer.dart';
+import '../../shared/tablet/ar_tablet_header.dart';
+import '../../shared/web/ar_web_footer.dart';
+import '../../shared/web/ar_web_header.dart';
+import 'mobile/ar_mobile_inventory_body.dart';
+import 'tablet/ar_tablet_inventory_body.dart';
+import 'web/ar_web_inventory_body.dart';
 
-class ARContactPage extends StatefulWidget {
-  const ARContactPage({super.key});
+class ARInventoryPage extends StatefulWidget {
+  const ARInventoryPage({super.key});
 
   @override
-  State<ARContactPage> createState() => _ARContactPageState();
+  State<ARInventoryPage> createState() => _ARInventoryPageState();
 }
 
-class _ARContactPageState extends State<ARContactPage> {
+class _ARInventoryPageState extends State<ARInventoryPage> {
   final MetadataControllers metadataFunctions = MetadataControllers();
   @override
   void initState() {
     super.initState();
-    metadataFunctions.updateHElement(
-        'صفحة الاتصال بسور التكنولوجيا',
-        'اتصل بـ سور التكنولوجيا عبر البريد الإلكتروني أو رقم الهاتف الموجود في هذه الصفحة.',
-        'البريد الألكتروني: info@techwall.com.sa | الهاتف: +966542575808');
-    metadataFunctions.updateMetaData('سور التكنولوجيا | اتصل بنا',
-        'نحن نقدر دائما ملاحظاتك وآرائك. يمكنك الاتصال بنا عبر معلومات الاتصال المذكورة هنا، أو عن طريق ملء نموذج الاتصال وسنتواصل معك! يمكنك أيضًا مراجعة قسم الأسئلة الشائعة في هذه الصفحة للحصول على المساعدة بشكل أسرع.');
+    metadataFunctions.updateHElement('سور التكنولوجيا صفحة الأجهزة',
+        'تصفح وابحث عن منتجات الأجهزة التي تريدها من موردي أجهزة تكنولوجيا المعلومات المشهورين.', null);
+    metadataFunctions.updateMetaData('سور التكنولوجيا | الأجهزة',
+        'مجموعة واسعة من الأجهزة والأجهزة الضرورية لدفع أعمالك الرقمية إلى الأمام. تقدم علامات تجارية مثل HP، وDell، وCanon، وCisco، وTP-Link، وغير ذلك الكثير. ابحث عن جميع احتياجاتك من الأجهزة الشخصية أو الخاصة بمؤسستك بناءً على استخداماتك أو الأسعار.');
     metadataFunctions.updateHeaderMetaData();
   }
 
@@ -55,7 +53,7 @@ class _ARContactPageState extends State<ARContactPage> {
         child: ImprovedScrolling(
           scrollController: scroller,
           enableMMBScrolling: true,
-          enableKeyboardScrolling: false,
+          enableKeyboardScrolling: true,
           keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
           child: Scaffold(
               floatingActionButton: FloatingActionButton(
@@ -78,6 +76,7 @@ class _ARContactPageState extends State<ARContactPage> {
                   ),
                   ListView(
                     controller: scroller,
+                    physics: const RangeMaintainingScrollPhysics(),
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
@@ -96,12 +95,16 @@ class _ARContactPageState extends State<ARContactPage> {
                                   ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2.h),
+                        padding: EdgeInsets.symmetric(vertical: 2.h),
                         child: sw >= 1080
-                            ? const ARWebContactBody()
+                            ? const ARWebInventoryBody()
                             : sw < 1080 && sw >= 568
-                                ? const ARTabletContactBody()
-                                : const ARMobileContactBody(),
+                                ? const ARTabletInventoryBody()
+                                : ARMobileInventoryBody(
+                                    sw: sw,
+                                    sh: sh,
+                                    ar: ar,
+                                  ),
                       ),
                       sw >= 1080
                           ? const ARWebFooter()

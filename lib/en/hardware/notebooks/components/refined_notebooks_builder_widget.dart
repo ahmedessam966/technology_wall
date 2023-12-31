@@ -30,7 +30,7 @@ class RefinedNotebooksBuilderWidget extends StatelessWidget {
                       crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
                   itemBuilder: (context, index) {
                     final notebook = snapshot.data?[index];
-                    return NotebookCardWidget(notebook: notebook);
+                    return NotebookCardWidget(notebook: notebook!);
                   });
             }
           });

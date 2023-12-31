@@ -7,25 +7,25 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/email_controller.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/core/models/notebook_model.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:technology_wall/core/models/product_model.dart';
 
 class ARWebNotebookOrderForm extends StatefulWidget {
-  final dynamic item;
-  const ARWebNotebookOrderForm({super.key, required this.item});
+  final ProductModel product;
+  const ARWebNotebookOrderForm({super.key, required this.product});
 
   @override
   State<ARWebNotebookOrderForm> createState() => _ARWebNotebookOrderFormState();
 }
 
-late NotebookModel notebook;
+late ProductModel notebook;
 bool _isLoading = false;
 
 class _ARWebNotebookOrderFormState extends State<ARWebNotebookOrderForm> {
   @override
   void initState() {
     super.initState();
-    notebook = widget.item;
+    notebook = widget.product;
   }
 
   @override
@@ -237,11 +237,11 @@ class _ARWebNotebookOrderFormState extends State<ARWebNotebookOrderForm> {
                                       style: context.bodyLarge,
                                     ),
                                     Text(
-                                      '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
+                                      '  - Notebook Model: ${notebook.model![0].toUpperCase() + notebook.model!.substring(1)}',
                                       style: context.bodyLarge,
                                     ),
                                     Text(
-                                      '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
+                                      '  - Notebook Series: ${notebook.series![0].toUpperCase() + notebook.series!.substring(1)}',
                                       style: context.bodyLarge,
                                     ),
                                     const SizedBox(
@@ -495,11 +495,11 @@ class _ARWebNotebookOrderFormState extends State<ARWebNotebookOrderForm> {
                                           style: context.bodyLarge,
                                         ),
                                         Text(
-                                          '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
+                                          '  - Notebook Model: ${notebook.model![0].toUpperCase() + notebook.model!.substring(1)}',
                                           style: context.bodyLarge,
                                         ),
                                         Text(
-                                          '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
+                                          '  - Notebook Series: ${notebook.series![0].toUpperCase() + notebook.series!.substring(1)}',
                                           style: context.bodyLarge,
                                         ),
                                         const SizedBox(

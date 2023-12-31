@@ -56,7 +56,7 @@ class NotebooksBuilderWidget extends StatelessWidget {
                                 childAspectRatio: 0.7),
                             itemBuilder: (context, index) {
                               final notebook = snapshot.data?[index];
-                              return NotebookCardWidget(notebook: notebook);
+                              return NotebookCardWidget(notebook: notebook!);
                             });
                       }
                     });

@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                             : const MobileHeader(),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
+                    padding: EdgeInsets.symmetric(vertical: 1.h),
                     child: sw >= 1080
                         ? const WebHomeBody()
                         : sw < 1080 && sw >= 568

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/en/contact/mobile/mobile_contact_body.dart';
@@ -55,53 +56,64 @@ class _ContactPageState extends State<ContactPage> {
         enableKeyboardScrolling: false,
         keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: AppTheme.darkest,
-            onPressed: () {},
-            child: const Icon(
-              Icons.chat_rounded,
-              color: Colors.white70,
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: AppTheme.darkest,
+              onPressed: () {},
+              child: const Icon(
+                Icons.chat_rounded,
+                color: Colors.white70,
+              ),
             ),
-          ),
-          body: ListView(
-            controller: scroller,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
-                child: sw >= 1080
-                    ? const WebHeader()
-                    : sw < 1080 && sw >= 568
-                        ? TabletHeader(
-                            sw: sw,
-                            sh: sh,
-                            ar: ar,
-                          )
-                        : const MobileHeader(),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2.h),
-                child: sw >= 1080
-                    ? const WebContactBody()
-                    : sw < 1080 && sw >= 568
-                        ? const TabletContactBody()
-                        : const MobileContactBody(),
-              ),
-              sw >= 1080
-                  ? const WebFooter()
-                  : sw < 1080 && sw >= 568
-                      ? TabletFooter(
-                          sw: sw,
-                          sh: sh,
-                          ar: ar,
-                        )
-                      : MobileFooter(
-                          sw: sw,
-                          sh: sh,
-                          ar: ar,
-                        ),
-            ],
-          ),
-        ),
+            body: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(
+                  opacity: 0.05,
+                  child: SvgPicture.asset(
+                    'assets/icons/ttten.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView(
+                  controller: scroller,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                      child: sw >= 1080
+                          ? const WebHeader()
+                          : sw < 1080 && sw >= 568
+                              ? TabletHeader(
+                                  sw: sw,
+                                  sh: sh,
+                                  ar: ar,
+                                )
+                              : const MobileHeader(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2.h),
+                      child: sw >= 1080
+                          ? const WebContactBody()
+                          : sw < 1080 && sw >= 568
+                              ? const TabletContactBody()
+                              : const MobileContactBody(),
+                    ),
+                    sw >= 1080
+                        ? const WebFooter()
+                        : sw < 1080 && sw >= 568
+                            ? TabletFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              )
+                            : MobileFooter(
+                                sw: sw,
+                                sh: sh,
+                                ar: ar,
+                              ),
+                  ],
+                ),
+              ],
+            )),
       ),
     );
   }

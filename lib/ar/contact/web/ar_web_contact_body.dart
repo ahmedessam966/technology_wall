@@ -10,15 +10,15 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'dart:html' as html;
 import '../../../core/controllers/metadata_controllers.dart';
 
-class WebContactBody extends StatelessWidget {
-  const WebContactBody({super.key});
+class ARWebContactBody extends StatelessWidget {
+  const ARWebContactBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     final MetadataControllers metadataFunctions = MetadataControllers();
     metadataFunctions.injectPageSpecificContent(
-        'Contact Email Address: info@techwall.com.sa - Contact Phone Number: +966542575808 - Facebook Page: https://facebook.com/techwall.sa - Address: Office 27, Building 233, Jarir Street, Olaya Computer Market, 12211 Riyadh, Saudi Arabia',
-        'en');
+        'عنوان البريد الألكتروني: info@techwall.com.sa - هاتف التواصل: 00966542575808 - صفحة الفيسبوك: https://facebook.com/techwall.sa - العنوان: مكتب 27, مبنى 233, شارع جرير, سوق العليا للحاسب الآلي, 12211 الرياض, المملكة العربية السعودية',
+        'ar');
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,13 +34,13 @@ class WebContactBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Technology Wall',
-                  style: context.headlineLarge
+                  'سور التكنولوجيا',
+                  style: context.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 80),
                 ),
                 Text(
-                  'Contact Us',
-                  style: context.headlineLarge
+                  'تواصل معنا',
+                  style: context.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w600, color: Colors.white70, fontSize: 50),
                 ),
               ],
@@ -81,30 +81,30 @@ class WebContactBody extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Contact Us',
-                            style: context.headlineSmall?.copyWith(color: Colors.white70),
+                            'تواصل معنا',
+                            style: context.titleSmall?.copyWith(color: Colors.white70),
                           ),
                           SizedBox(
                             height: 2.5.h,
                           ),
                           Text(
-                            'We\'d love to hear from you',
-                            style: context.headlineMedium
+                            'يسعدنا أن نسمع منك',
+                            style: context.titleMedium
                                 ?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
                           ),
                           SizedBox(
                             height: 2.5.h,
                           ),
                           Text(
-                            'We always value your feedback and opinions. You can contact us via the contact information listed here, or by filling the contact form and we\'ll reach out to you! You can also check the frequently asked questions section of this page to get assistance faster.',
-                            style: context.bodyLarge?.copyWith(color: Colors.white70),
+                            'نحن نقدر دائما ملاحظاتك وآرائك. يمكنك الاتصال بنا عبر معلومات الاتصال المذكورة هنا، أو عن طريق ملء نموذج الاتصال وسنتواصل معك! يمكنك أيضًا مراجعة قسم الأسئلة الشائعة في هذه الصفحة للحصول على المساعدة بشكل أسرع.',
+                            style: context.displayLarge?.copyWith(color: Colors.white70),
                           ),
                           SizedBox(
                             height: 2.5.h,
                           ),
                           Text(
-                            'Fill in the form and we\'ll make sure to contact you regarding your questions, suggestions, proposals, or concerns as soon as possible.',
-                            style: context.bodyLarge?.copyWith(color: Colors.white70),
+                            'املأ النموذج وسنتأكد من الاتصال بك بخصوص أسئلتك أو اقتراحاتك في أقرب وقت ممكن.',
+                            style: context.displayLarge?.copyWith(color: Colors.white70),
                           ),
                           SizedBox(
                             height: 2.5.h,
@@ -118,8 +118,8 @@ class WebContactBody extends StatelessWidget {
                             height: 25,
                           ),
                           Text(
-                            'You can also reach out to us via',
-                            style: context.headlineSmall?.copyWith(color: Colors.white70),
+                            'يمكنك أيضًا التواصل معنا عبر',
+                            style: context.titleSmall?.copyWith(color: Colors.white70),
                           ),
                           SizedBox(
                             height: 1.5.h,
@@ -128,7 +128,9 @@ class WebContactBody extends StatelessWidget {
                             children: [
                               const Icon(CupertinoIcons.phone_down_fill, color: Colors.white),
                               SizedBox(width: 1.w),
-                              Text('+966542575808', style: context.bodyLarge?.copyWith(color: Colors.white)),
+                              Text('+۹٦٦٥٤۲٥۷٥۸۰۸',
+                                  textDirection: TextDirection.ltr,
+                                  style: context.bodyLarge?.copyWith(color: Colors.white)),
                             ],
                           ),
                           SizedBox(
@@ -180,7 +182,7 @@ class WebContactBody extends StatelessWidget {
                                         decoration: InputDecoration(
                                           floatingLabelBehavior: FloatingLabelBehavior.always,
                                           floatingLabelStyle: context.bodyLarge,
-                                          label: const Text('Full Name'),
+                                          label: Text('الأسم الكامل', style: context.displayMedium),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(1),
                                             borderSide: const BorderSide(color: Colors.black54),
@@ -202,7 +204,7 @@ class WebContactBody extends StatelessWidget {
                                         decoration: InputDecoration(
                                           floatingLabelBehavior: FloatingLabelBehavior.always,
                                           floatingLabelStyle: context.bodyLarge,
-                                          label: const Text('Email Address'),
+                                          label: Text('البريد الألكتروني', style: context.displayMedium),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(1),
                                             borderSide: const BorderSide(color: Colors.black54),
@@ -224,7 +226,7 @@ class WebContactBody extends StatelessWidget {
                                         decoration: InputDecoration(
                                           floatingLabelBehavior: FloatingLabelBehavior.always,
                                           floatingLabelStyle: context.bodyLarge,
-                                          label: const Text('Phone Number'),
+                                          label: Text('رقم الجوال', style: context.displayMedium),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(1),
                                             borderSide: const BorderSide(color: Colors.black54),
@@ -247,7 +249,7 @@ class WebContactBody extends StatelessWidget {
                                           decoration: InputDecoration(
                                             floatingLabelBehavior: FloatingLabelBehavior.always,
                                             floatingLabelStyle: context.bodyLarge,
-                                            label: const Text('Subject'),
+                                            label: Text('الموضوع', style: context.displayMedium),
                                             enabledBorder: OutlineInputBorder(
                                               borderRadius: BorderRadius.circular(1),
                                               borderSide: const BorderSide(color: Colors.black54),
@@ -261,42 +263,42 @@ class WebContactBody extends StatelessWidget {
                                               borderSide: const BorderSide(color: Colors.black54),
                                             ),
                                           ),
-                                          items: const [
+                                          items: [
                                             DropdownMenuItem(
-                                              value: 'General Query',
-                                              child: Text('General Query'),
+                                              value: 'إستفسار عام',
+                                              child: Text('إستفسار عام', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Purchases',
-                                              child: Text('Purchases'),
+                                              value: 'المشتريات',
+                                              child: Text('المشتريات', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Refunds',
-                                              child: Text('Refunds'),
+                                              value: 'المستردات',
+                                              child: Text('المستردات', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Warranty',
-                                              child: Text('Warranty'),
+                                              value: 'الضمان',
+                                              child: Text('الضمان', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Post-Sales',
-                                              child: Text('Post-Sales'),
+                                              value: 'خدمات ما بعد البيع',
+                                              child: Text('خدمات ما بعد البيع', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Pre-Sales',
-                                              child: Text('Pre-Sales'),
+                                              value: 'خدمات ما قبل البيع',
+                                              child: Text('خدمات ما قبل البيع', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Feedback',
-                                              child: Text('Feedback'),
+                                              value: 'تعليق',
+                                              child: Text('تعليق', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Complaint',
-                                              child: Text('Complaint'),
+                                              value: 'شكوى',
+                                              child: Text('شكوى', style: context.displayMedium),
                                             ),
                                             DropdownMenuItem(
-                                              value: 'Other',
-                                              child: Text('Other'),
+                                              value: 'اخرى',
+                                              child: Text('اخرى', style: context.displayMedium),
                                             ),
                                           ],
                                           onChanged: (newValue) {}),
@@ -308,7 +310,7 @@ class WebContactBody extends StatelessWidget {
                                         decoration: InputDecoration(
                                           floatingLabelBehavior: FloatingLabelBehavior.always,
                                           floatingLabelStyle: context.bodyLarge,
-                                          label: const Text('Your Message'),
+                                          label: Text('رسالتك', style: context.displayMedium),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(1),
                                             borderSide: const BorderSide(color: Colors.black54),
@@ -331,7 +333,7 @@ class WebContactBody extends StatelessWidget {
                                           style: ElevatedButton.styleFrom(
                                               shape: const LinearBorder(), foregroundColor: Colors.black),
                                           onPressed: () {},
-                                          child: const Text('Send'),
+                                          child: Text('ارسل', style: context.displayMedium),
                                         ),
                                       ),
                                     ],
@@ -344,14 +346,14 @@ class WebContactBody extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Text('Learn more about how we process your personal information ',
-                                    style: context.bodyMedium?.copyWith(color: Colors.white70)),
+                                Text('تعرف على المزيد حول كيفية معالجتنا لمعلوماتك الشخصية ',
+                                    style: context.displayMedium?.copyWith(color: Colors.white70)),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/en/privacy');
+                                    Navigator.pushNamed(context, '/ar/privacy');
                                   },
-                                  child: Text('Privacy Center',
-                                      style: context.bodyMedium?.copyWith(color: Colors.white)),
+                                  child: Text('مركز الخصوصية',
+                                      style: context.displayMedium?.copyWith(color: Colors.white)),
                                 )
                               ],
                             ),
@@ -364,16 +366,16 @@ class WebContactBody extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  'Frequently Asked Questions',
-                  style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
+                  'الأسئلة والأجوبة المتداولة',
+                  style: context.titleLarge?.copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(
                 height: 5.h,
               ),
               SelectableText(
-                'Q: It has been more than 3 days since I requested to contact and I haven\'t received anything from your side.',
-                style: context.headlineSmall,
+                'س: لقد مر أكثر من ٣ أيام منذ أن طلبت الاتصال ولم أتلق أي شيء من جانبكم.',
+                style: context.titleSmall,
               ),
               SizedBox(
                 width: double.infinity,
@@ -386,8 +388,8 @@ class WebContactBody extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(20.px),
                     child: SelectableText(
-                      'A: We apologize for any inconvenience and we always appreciate our clients\' engagements. If it has been 3 BUSINESS DAYS, we advise you to check your spam/junk folder for any emails from Technology Wall. If you still didn\'t recieve an email, please submit another contact request or call us directly at +966542575808.',
-                      style: context.bodyLarge,
+                      'ج: نعتذر عن أي إزعاج ونقدر دائمًا تفاعلات عملائنا. إذا مرت ٣ أيام عمل، فننصحك بالتحقق من مجلد الرسائل غير المرغوب فيها/البريد العشوائي بحثًا عن أي رسائل بريد إلكتروني من "Technology Wall". إذا لم تتلق بريدًا إلكترونيًا بعد، فيرجى تقديم طلب اتصال آخر أو الاتصال بنا مباشرة على الرقم ٠٠٩٦٦٥٤٢٥٧٥٨٠٨.',
+                      style: context.labelSmall?.copyWith(fontSize: 13.sp),
                     ),
                   ),
                 ),
@@ -396,8 +398,8 @@ class WebContactBody extends StatelessWidget {
                 height: 2.5.h,
               ),
               SelectableText(
-                'Q: When can I expect a callback or reply regarding my complaint/refund?',
-                style: context.headlineSmall,
+                'س: متى يمكنني أن أتوقع معاودة الاتصال أو الرد بخصوص شكواي/استرداد المبالغ؟',
+                style: context.titleSmall,
               ),
               SizedBox(
                 width: double.infinity,
@@ -410,8 +412,8 @@ class WebContactBody extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(20.px),
                     child: SelectableText(
-                      'A: We strive to offer exceptional services to our valued clients and we appreciate your feedback. However, if you have already submitted a complaint or a request for refund, you should hear back from us within 3-5 BUSINESS DAYS.',
-                      style: context.bodyLarge,
+                      'ج: نحن نسعى جاهدين لتقديم خدمات استثنائية لعملائنا الكرام، ونحن نقدر ملاحظاتك. ومع ذلك، إذا كنت قد قدمت بالفعل شكوى أو طلبًا لاسترداد أي مبالغ، فيجب أن تتلقى ردًا منا خلال ٣-٥ أيام عمل.',
+                      style: context.labelSmall?.copyWith(fontSize: 13.sp),
                     ),
                   ),
                 ),
@@ -420,8 +422,8 @@ class WebContactBody extends StatelessWidget {
                 height: 2.5.h,
               ),
               SelectableText(
-                'Q: Does Technology Wall offer maintenance services?',
-                style: context.headlineSmall,
+                'س: هل تقدم سور التكنولوجيا خدمات الصيانة؟',
+                style: context.titleSmall,
               ),
               SizedBox(
                 width: double.infinity,
@@ -434,8 +436,8 @@ class WebContactBody extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(20.px),
                     child: SelectableText(
-                      'A: Yes we do. Technology Wall employs a large number of experienced and dedicated maintenance technicians and engineers that would be more than happy to assist you with maintenance of desktops, notebooks, printers, servers, and almost every other hardware, whether it was bought through us or any other venue.',
-                      style: context.bodyLarge,
+                      'ج: نعم نفعل. يوظف لدى سور التكنولوجيا عددًا كبيرًا من فنيي ومهندسي الصيانة ذوي الخبرة الذين سيكونون أكثر من سعداء بمساعدتك في صيانة أجهزة الكمبيوتر المكتبية وأجهزة الكمبيوتر المحمولة والطابعات والخوادم وكل الأجهزة الأخرى تقريبًا، سواء تم شراؤها من خلالنا أو من أي مكان آخر. .',
+                      style: context.labelSmall?.copyWith(fontSize: 13.sp),
                     ),
                   ),
                 ),
@@ -444,8 +446,8 @@ class WebContactBody extends StatelessWidget {
                 height: 2.5.h,
               ),
               SelectableText(
-                'Q: Do I get to keep the liceneses and license keys of the software products when I make a purchase?',
-                style: context.headlineSmall,
+                'س: هل يمكنني الاحتفاظ بالتراخيص ومفاتيح الترخيص الخاصة بمنتجات البرامج عند إجراء عملية شراء؟',
+                style: context.titleSmall,
               ),
               SizedBox(
                 width: double.infinity,
@@ -458,8 +460,8 @@ class WebContactBody extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(20.px),
                     child: SelectableText(
-                      'A: Most certainly yes. Once you\'ve made a purchase, it implies that you have also paid for its license and thus has become at your disposal and preferred discretion. However, Some software, though you are entitled for to maintain their licenses, can only be implemented and installed with certified professionals, as is the case with, for instance, SAP ERP Solutions as these licenses require further verifications from both SAP and the certified SAP distributor/vendor. Feel free to inquire about the terms and conditions that are allocated for software services prior to your purchase.',
-                      style: context.bodyLarge,
+                      'ج: بكل تأكيد نعم. بمجرد إتمام عملية الشراء، فهذا يعني أنك مالك ترخيص المنتج، وبالتالي أصبح تحت تصرفك. ومع ذلك، لا يمكن تنفيذ بعض البرامج وتثبيتها إلا بواسطة متخصص معتمد، على الرغم من إمتلاكك ترخيصها، كما هو الحال مع SAP ERP Solutions، على سبيل المثال، حيث تتطلب هذه التراخيص مزيدًا من عمليات التحقق من كل من SAP و موزع SAP المعتمد',
+                      style: context.labelSmall?.copyWith(fontSize: 13.sp),
                     ),
                   ),
                 ),

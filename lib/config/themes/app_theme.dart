@@ -43,7 +43,7 @@ class AppTheme extends ChangeNotifier {
           //Dev Center Fonts
           labelLarge: GoogleFonts.spaceGrotesk(fontSize: 12.sp),
           labelMedium: GoogleFonts.spaceGrotesk(fontSize: 10.5.sp),
-          labelSmall: GoogleFonts.spaceGrotesk(fontSize: 8.sp),
+          labelSmall: GoogleFonts.rubik(),
         ),
       );
 

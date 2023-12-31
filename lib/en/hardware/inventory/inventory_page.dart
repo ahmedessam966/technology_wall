@@ -25,7 +25,6 @@ class InventoryPage extends StatefulWidget {
 
 class _InventoryPageState extends State<InventoryPage> {
   final MetadataControllers metadataFunctions = MetadataControllers();
-
   @override
   void initState() {
     super.initState();
