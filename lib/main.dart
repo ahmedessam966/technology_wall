@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/base/en/shared/web/cookie_popup.dart';
+import 'package:technology_wall/en/shared/web/cookie_popup.dart';
 import 'package:technology_wall/config/routing_maps.dart';
 import 'package:technology_wall/config/routing_transition_services.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';

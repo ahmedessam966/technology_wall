@@ -73,8 +73,6 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-    - assets/dev_images/
-    - assets/dev_icons/
     - .env
   # fonts:
   #   - family: Schyler
