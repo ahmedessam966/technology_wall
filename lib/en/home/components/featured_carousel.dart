@@ -122,29 +122,77 @@ class Printer extends StatelessWidget {
         SizedBox(
           height: 2.h,
         ),
-        SelectableText(
-          '• Type: ${product.type}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Type: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.type}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Family: ${product.family}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Family: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.family}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Printing Capacity: ${product.ppm} paper(s) / minute',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Printing Capacity: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.ppm} papers / minute',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Network Module: ${product.network}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Network Module: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.network}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Optimized For: ${product.utility} use',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Optimized For: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.utility} use',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Warranty: ${product.warranty}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Warranty: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.warranty}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
         const Spacer(),
         Row(
@@ -156,25 +204,23 @@ class Printer extends StatelessWidget {
               ),
             ),
             SelectableText(
-              '${product.price} ',
+              '${product.price} SAR',
               style: context.headlineSmall?.copyWith(
                   color: Colors.white, decoration: TextDecoration.lineThrough, decorationColor: Colors.white),
-            ),
-            SelectableText(
-              'SAR',
-              style: context.headlineSmall?.copyWith(
-                color: Colors.white,
-              ),
             ),
           ],
         ),
         SelectableText(
-          'Discount Price: ONLY ${product.maxDiscounted} SAR (VAT Exclusive)',
+          'Discount Price: ONLY ${product.maxDiscounted}*',
           style: context.headlineSmall?.copyWith(color: Colors.white),
         ),
         const Spacer(),
         SelectableText(
           '* Offer Valid Till: January 1, 2024',
+          style: context.bodyMedium?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '* Discounted Prices VAT EXCLUSIVE',
           style: context.bodyMedium?.copyWith(color: Colors.white70),
         ),
       ],
@@ -198,63 +244,117 @@ class Notebook extends StatelessWidget {
         SizedBox(
           height: 2.h,
         ),
-        SelectableText(
-          '• Processor: ${product.processor}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Processor: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.processor}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Operating System: ${product.os}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Operating System: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.os}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Graphics: ${product.graphics}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Graphics: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.graphics}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Memory: ${product.memory}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Memory: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.memory}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Storage: ${product.storage}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Storage: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.storage}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Display: ${product.display}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Display: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.display}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Warranty: ${product.warranty}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Warranty: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.warranty}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
         const Spacer(),
         Row(
           children: [
-            Text(
+            SelectableText(
               'Orginal Price: ',
               style: context.headlineSmall?.copyWith(
                 color: Colors.white,
               ),
             ),
-            Text(
-              '${product.price} ',
+            SelectableText(
+              '${product.price} SAR',
               style: context.headlineSmall?.copyWith(
                   color: Colors.white, decoration: TextDecoration.lineThrough, decorationColor: Colors.white),
-            ),
-            Text(
-              'SAR',
-              style: context.headlineSmall?.copyWith(
-                color: Colors.white,
-              ),
             ),
           ],
         ),
         Text(
-          'Discount Price: ONLY ${product.maxDiscounted} SAR (VAT Exclusive)',
+          'Discount Price: ONLY ${product.maxDiscounted}*',
           style: context.headlineSmall?.copyWith(color: Colors.white),
         ),
         const Spacer(),
-        Text(
+        SelectableText(
           '* Offer Valid Till: January 1, 2024',
+          style: context.bodyMedium?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '* Discounted Prices VAT EXCLUSIVE',
           style: context.bodyMedium?.copyWith(color: Colors.white70),
         ),
       ],
@@ -278,59 +378,105 @@ class Desktop extends StatelessWidget {
         SizedBox(
           height: 2.h,
         ),
-        SelectableText(
-          '• Processor: ${product.processor}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Processor: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.processor}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Operating System: ${product.os}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Operating System: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.os}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Graphics: ${product.graphics}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Graphics: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.graphics}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Memory: ${product.memory}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Memory: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.memory}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Storage: ${product.storage}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Storage: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.storage}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
-        SelectableText(
-          '• Warranty: ${product.warranty}',
-          style: context.bodyLarge?.copyWith(color: Colors.white70),
+        Row(
+          children: [
+            SelectableText(
+              '• Warranty: ',
+              style: context.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            SelectableText(
+              '${product.warranty}',
+              style: context.bodyLarge?.copyWith(color: Colors.white70),
+            ),
+          ],
         ),
         const Spacer(),
         Row(
           children: [
-            Text(
+            SelectableText(
               'Orginal Price: ',
               style: context.headlineSmall?.copyWith(
                 color: Colors.white,
               ),
             ),
-            Text(
-              '${product.price} ',
+            SelectableText(
+              '${product.price} SAR',
               style: context.headlineSmall?.copyWith(
                   color: Colors.white, decoration: TextDecoration.lineThrough, decorationColor: Colors.white),
-            ),
-            Text(
-              'SAR',
-              style: context.headlineSmall?.copyWith(
-                color: Colors.white,
-              ),
             ),
           ],
         ),
         Text(
-          'Discount Price: ONLY ${product.maxDiscounted} SAR (VAT Exclusive)',
+          'Discount Price: ONLY ${product.maxDiscounted}*',
           style: context.headlineSmall?.copyWith(color: Colors.white),
         ),
         const Spacer(),
-        Text(
+        SelectableText(
           '* Offer Valid Till: January 1, 2024',
+          style: context.bodyMedium?.copyWith(color: Colors.white70),
+        ),
+        SelectableText(
+          '* Discounted Prices VAT EXCLUSIVE',
           style: context.bodyMedium?.copyWith(color: Colors.white70),
         ),
       ],

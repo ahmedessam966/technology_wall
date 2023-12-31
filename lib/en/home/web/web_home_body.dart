@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/shared/base_rect_button.dart';
 import 'package:technology_wall/en/shared/web/web_purchase_order.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
@@ -103,6 +104,7 @@ class WebHomeBody extends StatelessWidget {
                       BaseRectButton(
                         title: 'Create Purchase Order',
                         action: () async {
+                          // await Provider.of<InventoryControllers>(context, listen: false).bulkPush();
                           await showAdaptiveDialog(
                               context: context,
                               builder: (ctx) {

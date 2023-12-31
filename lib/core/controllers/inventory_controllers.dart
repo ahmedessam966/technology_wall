@@ -803,4 +803,164 @@ class InventoryControllers extends ChangeNotifier {
     }
     return feeatured;
   }
+
+  Future<void> bulkPush() async {
+    final Map data = {
+      "7MD73A": {
+        "Brand": "hp",
+        "Cost": 470,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": false,
+        "Max Discounted Price": 495,
+        "Model": "141a",
+        "Network": "N/A",
+        "PPM": 20,
+        "Selling Price": 520,
+        "Serial Number": "7MD73A",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2Fm141a.webp?alt=media&token=86c434e4-8ef1-4e22-a2df-72057c331c21",
+        "Stock": 22,
+        "Title": "HP Laserjet MFP M141A",
+        "Toners": "150A (Black)",
+        "Type": "Monochrome Laserjet",
+        "Utility": "Business"
+      },
+      "4A8D4A": {
+        "Brand": "hp",
+        "Cost": 490,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": true,
+        "Max Discounted Price": 515,
+        "Model": "581",
+        "Network": "Wi-Fi",
+        "PPM": 12,
+        "Selling Price": 540,
+        "Serial Number": "4A8D4A",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2F581.webp?alt=media&token=038fef0c-3359-4db5-8757-4a1b86cbf9af",
+        "Stock": 9,
+        "Title": "HP Smart Tank 581 All-In-One Printer",
+        "Toners": "GT53 (Black) - GT52 (Cyan) - GT52 (Magenta) - GT52 (Yellow)",
+        "Type": "Color Inkjet",
+        "Utility": "Small Business / Home"
+      },
+      "1KR64B": {
+        "Brand": "hp",
+        "Cost": 500,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": false,
+        "Max Discounted Price": 525,
+        "Model": "8023",
+        "Network": "Wi-Fi",
+        "PPM": 15,
+        "Selling Price": 550,
+        "Serial Number": "1KR64B",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2F8023.webp?alt=media&token=3a089abc-121d-4eea-b759-3a56b74ae62d",
+        "Stock": 9,
+        "Title": "HP OfficeJet Pro 8023 All-in-One Printer",
+        "Toners": "912 (Black) - 912 (Cyan) - 912 (Magenta) - 912 (Yellow)",
+        "Type": "Color Inkjet",
+        "Utility": "Business"
+      },
+      "4ZB82A": {
+        "Brand": "hp",
+        "Cost": 540,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": true,
+        "Max Discounted Price": 570,
+        "Model": "m135a",
+        "Network": "N/A",
+        "PPM": 21,
+        "Selling Price": 600,
+        "Serial Number": "4ZB82A",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2Fmfp%20135a.webp?alt=media&token=c2cf7b1e-bfce-41fc-b11d-f373c6b1dffb",
+        "Stock": 7,
+        "Title": "HP Laser MFP 135A",
+        "Toners": "105A (Black)",
+        "Type": "Monochrome Laserjet",
+        "Utility": "Business"
+      },
+      "4ZB83A": {
+        "Brand": "hp",
+        "Cost": 610,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": true,
+        "Max Discounted Price": 640,
+        "Model": "m135w",
+        "Network": "Wi-Fi",
+        "PPM": 20,
+        "Selling Price": 600,
+        "Serial Number": "4ZB83A",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2F135w.webp?alt=media&token=c620dd9b-5dff-4555-94a4-30e42ce91395",
+        "Stock": 9,
+        "Title": "HP Laser MFP 135W",
+        "Toners": "105A (Black)",
+        "Type": "Monochrome Laserjet",
+        "Utility": "Business"
+      },
+      "1KR49B": {
+        "Brand": "hp",
+        "Cost": 630,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": false,
+        "Max Discounted Price": 665,
+        "Model": "9013",
+        "Network": "Ethernet / Wi-Fi",
+        "PPM": 22,
+        "Selling Price": 700,
+        "Serial Number": "1KR49B",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2F9013.webp?alt=media&token=4f1ec0ea-a51f-4968-b257-a68e938c2bc8",
+        "Stock": 5,
+        "Title": "HP OfficeJet Pro 9013 All-in-One",
+        "Toners": "963 (Black) - 963 (Magenta) - 963 (Cyan) - 963 (Yellow)",
+        "Type": "Color Inkjet",
+        "Utility": "Business"
+      },
+      "Y0S18A": {
+        "Brand": "hp",
+        "Cost": 660,
+        "Description": "Description",
+        "Family": "All-In-One",
+        "Featured": true,
+        "Max Discounted Price": 700,
+        "Model": "7720",
+        "Network": "Ethernet / Wi-Fi",
+        "PPM": 23.4,
+        "Selling Price": 730,
+        "Serial Number": "Y0S18A",
+        "Snapshot":
+            "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FPrinters%2FHP%2F7720.webp?alt=media&token=f3a8ece0-fec6-496e-a506-4cf2505b0f31",
+        "Stock": 6,
+        "Title": "HP OfficeJet Pro 7720 Wide Format All-in-One",
+        "Toners": "952 (Black) - 952 (Tri-Color)",
+        "Type": "Color Inkjet",
+        "Utility": "Business"
+      },
+    };
+
+    CollectionReference collection = FirebaseFirestore.instance.collection('Printers');
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    data.forEach((customId, printerData) {
+      DocumentReference docRef = collection.doc(customId);
+
+      // Set the data if the document doesn't exist, otherwise use update
+      batch.set(docRef, printerData, SetOptions(merge: true));
+    });
+    try {
+      await batch.commit();
+      print("Bulk push completed successfully.");
+    } catch (e) {
+      print("Error during bulk push: $e");
+    }
+  }
 }
