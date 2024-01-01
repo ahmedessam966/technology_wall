@@ -25,6 +25,11 @@ class InventoryControllers extends ChangeNotifier {
   final List<ProductModel> _notebooksList = [];
   List<ProductModel> get notebooksList => _notebooksList;
 
+  final TextEditingController _desktopSearchController = TextEditingController();
+  TextEditingController get desktopSearchController => _desktopSearchController;
+  final List<ProductModel> _desktopsList = [];
+  List<ProductModel> get desktopsList => _desktopsList;
+
   String? _hardwareFilterSelection;
   String? get hardwareFilterSelection => _hardwareFilterSelection;
 
@@ -34,8 +39,13 @@ class InventoryControllers extends ChangeNotifier {
   String? _notebookFilterSelection;
   String? get notebookFilterSelection => _notebookFilterSelection;
 
+  String? _desktopFilterSelection;
+  String? get desktopFilterSelection => _desktopFilterSelection;
+
   DocumentSnapshot? _lastDocument;
   DocumentSnapshot? _lastNBDocument;
+  DocumentSnapshot? _lastDesktopDocument;
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -67,6 +77,11 @@ class InventoryControllers extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setDesktopFilter(String? selection) {
+    _desktopFilterSelection = selection;
+    notifyListeners();
+  }
+
   void setGeneralSearchController(String value) {
     _generalHardwareSearchController.text = value;
     notifyListeners();
@@ -79,6 +94,11 @@ class InventoryControllers extends ChangeNotifier {
 
   void setPrinterSearchController(String value) {
     _printerSearchController.text = value;
+    notifyListeners();
+  }
+
+  void setDesktopSearchController(String value) {
+    _desktopSearchController.text = value;
     notifyListeners();
   }
 
@@ -368,6 +388,133 @@ class InventoryControllers extends ChangeNotifier {
     }
   }
 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Future<void> getDesktops() async {
+    try {
+      final db = FirebaseFirestore.instance.collection('Desktops');
+      Query<Map<String, dynamic>> query = db.orderBy(FieldPath.documentId).limit(5);
+
+      if (_lastDesktopDocument != null) {
+        query = query.startAfterDocument(_lastDesktopDocument!);
+      }
+
+      final snapshot = await query.get();
+      if (_lastDesktopDocument == null) {
+        _desktopsList.clear();
+      }
+
+      for (final element in snapshot.docs) {
+        final desktop = ProductModel(
+            category: 'Desktops',
+            id: element.id,
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
+            cost: element.data()['Cost'],
+            graphics: element.data()['Graphics'],
+            maxDiscounted: element.data()['Max Discounted Price'],
+            memory: element.data()['Memory'],
+            model: element.data()['Model'],
+            os: element.data()['Operating System'],
+            processor: element.data()['Processor'],
+            series: element.data()['Series'],
+            snapshot: element.data()['Snapshot'],
+            storage: element.data()['Storage'],
+            price: element.data()['Selling Price'],
+            warranty: element.data()['Warranty']);
+
+        if (!_desktopsList.any((p) => p.id == desktop.id)) {
+          _desktopsList.add(desktop);
+        }
+      }
+      if (snapshot.docs.isNotEmpty) {
+        _lastDesktopDocument = snapshot.docs.last;
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error retrieving data: $e");
+      }
+    }
+  }
+
+  Future<List<ProductModel>> getBrandFilteredDesktops() async {
+    final List<ProductModel> results = [];
+    final db = FirebaseFirestore.instance.collection('Desktops');
+    final snapshot = await db.where('Brand', isEqualTo: _desktopFilterSelection?.toLowerCase()).get();
+    try {
+      for (final element in snapshot.docs) {
+        final desktop = ProductModel(
+            category: 'Desktops',
+            id: element.id,
+            title: element.data()['Title'],
+            brand: element.data()['Brand'],
+            color: element.data()['Colors'],
+            cost: element.data()['Cost'],
+            graphics: element.data()['Graphics'],
+            maxDiscounted: element.data()['Max Discounted Price'],
+            memory: element.data()['Memory'],
+            model: element.data()['Model'],
+            os: element.data()['Operating System'],
+            processor: element.data()['Processor'],
+            series: element.data()['Series'],
+            snapshot: element.data()['Snapshot'],
+            storage: element.data()['Storage'],
+            price: element.data()['Selling Price'],
+            warranty: element.data()['Warranty']);
+
+        if (!results.any((p) => p.id == desktop.id)) {
+          results.add(desktop);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return results;
+  }
+
+  Future<List<ProductModel>> searchDesktops() async {
+    final List<ProductModel> results = [];
+    final db = FirebaseFirestore.instance.collection('Desktops');
+    final query = _desktopSearchController.text.toLowerCase();
+    final String path = _searchByBrand ? 'Brand' : 'Model';
+    final snapshot = await db.where(path, isGreaterThanOrEqualTo: query).get();
+
+    for (final element in snapshot.docs) {
+      final desktop = ProductModel(
+          category: 'Desktops',
+          id: element.id,
+          title: element.data()['Title'],
+          brand: element.data()['Brand'],
+          color: element.data()['Colors'],
+          cost: element.data()['Cost'],
+          graphics: element.data()['Graphics'],
+          maxDiscounted: element.data()['Max Discounted Price'],
+          memory: element.data()['Memory'],
+          model: element.data()['Model'],
+          os: element.data()['Operating System'],
+          processor: element.data()['Processor'],
+          series: element.data()['Series'],
+          snapshot: element.data()['Snapshot'],
+          storage: element.data()['Storage'],
+          price: element.data()['Selling Price'],
+          warranty: element.data()['Warranty']);
+
+      if (desktop.model!.toLowerCase().contains(query)) {
+        results.add(desktop);
+      }
+      if (desktop.brand.toLowerCase().contains(query)) {
+        results.add(desktop);
+      }
+    }
+
+    return results;
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   Future<List<ProductModel>> getFeaturedProducts() async {
     final List<ProductModel> feeatured = [];
     try {
@@ -438,6 +585,11 @@ class InventoryControllers extends ChangeNotifier {
   final List<ProductModel> _arNotebooksList = [];
   List<ProductModel> get arNotebooksList => _arNotebooksList;
 
+  final TextEditingController _arDesktopSearchController = TextEditingController();
+  TextEditingController get arDesktopSearchController => _arDesktopSearchController;
+  final List<ProductModel> _arDesktopsList = [];
+  List<ProductModel> get arDesktopsList => _arDesktopsList;
+
   String? _arHardwareFilterSelection;
   String? get arHardwareFilterSelection => _arHardwareFilterSelection;
 
@@ -447,8 +599,12 @@ class InventoryControllers extends ChangeNotifier {
   String? _arNotebookFilterSelection;
   String? get arNotebookFilterSelection => _arNotebookFilterSelection;
 
+  String? _arDesktopFilterSelection;
+  String? get arDesktopFilterSelection => _arDesktopFilterSelection;
+
   DocumentSnapshot? _arLastDocument;
   DocumentSnapshot? _arLastNBDocument;
+  DocumentSnapshot? _arLastDesktopDocument;
 
   void arChangeFormStep(int index) {
     _arOrderFormStep = index;
@@ -467,6 +623,11 @@ class InventoryControllers extends ChangeNotifier {
 
   void arSetNBFilter(String? selection) {
     _arNotebookFilterSelection = selection;
+    notifyListeners();
+  }
+
+  void arSetDesktopFilter(String? selection) {
+    _arDesktopFilterSelection = selection;
     notifyListeners();
   }
 
@@ -756,6 +917,129 @@ class InventoryControllers extends ChangeNotifier {
     return results;
   }
 
+  Future<void> arGetDesktops() async {
+    try {
+      final db = FirebaseFirestore.instance.collection('الحواسب المكتبية');
+      Query<Map<String, dynamic>> query = db.orderBy(FieldPath.documentId).limit(5);
+
+      if (_arLastDesktopDocument != null) {
+        query = query.startAfterDocument(_arLastDesktopDocument!);
+      }
+
+      final snapshot = await query.get();
+      if (_arLastDesktopDocument == null) {
+        _arDesktopsList.clear();
+      }
+
+      for (final element in snapshot.docs) {
+        final desktop = ProductModel(
+            category: 'الحواسب المكتبية',
+            id: element.id,
+            title: element.data()['العنوان'],
+            brand: element.data()['الماركة'],
+            cost: element.data()['التكلفة'],
+            graphics: element.data()['الرسومات'],
+            maxDiscounted: element.data()['سعر الخصم'],
+            memory: element.data()['الذاكرة'],
+            model: element.data()['الموديل'],
+            os: element.data()['نظام التشغيل'],
+            processor: element.data()['المعالج'],
+            series: element.data()['السلسلة'],
+            snapshot: element.data()['الصورة'],
+            storage: element.data()['التخزين'],
+            price: element.data()['سعر البيع'],
+            warranty: element.data()['الضمان'],
+            stock: element.data()['المخزون']);
+
+        if (!_arDesktopsList.any((p) => p.id == desktop.id)) {
+          _arDesktopsList.add(desktop);
+        }
+      }
+      if (snapshot.docs.isNotEmpty) {
+        _arLastDesktopDocument = snapshot.docs.last;
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error retrieving data: $e");
+      }
+    }
+  }
+
+  Future<List<ProductModel>> arGetBrandFilteredDesktops() async {
+    final List<ProductModel> results = [];
+    final db = FirebaseFirestore.instance.collection('الحواسب المكتبية');
+    final snapshot = await db.where('الماركة', isEqualTo: _arDesktopFilterSelection?.toLowerCase()).get();
+    try {
+      for (final element in snapshot.docs) {
+        final desktop = ProductModel(
+            category: 'الحواسب المكتبية',
+            id: element.id,
+            title: element.data()['العنوان'],
+            brand: element.data()['الماركة'],
+            cost: element.data()['التكلفة'],
+            graphics: element.data()['الرسومات'],
+            maxDiscounted: element.data()['سعر الخصم'],
+            memory: element.data()['الذاكرة'],
+            model: element.data()['الموديل'],
+            os: element.data()['نظام التشغيل'],
+            processor: element.data()['المعالج'],
+            series: element.data()['السلسلة'],
+            snapshot: element.data()['الصورة'],
+            storage: element.data()['التخزين'],
+            price: element.data()['سعر البيع'],
+            warranty: element.data()['الضمان'],
+            stock: element.data()['المخزون']);
+
+        if (!results.any((p) => p.id == desktop.id)) {
+          results.add(desktop);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return results;
+  }
+
+  Future<List<ProductModel>> arSearchDesktops() async {
+    final List<ProductModel> results = [];
+    final db = FirebaseFirestore.instance.collection('الحواسب المكبية');
+    final query = _arDesktopSearchController.text.toLowerCase();
+    final String path = _searchByBrand ? 'الماركة' : 'الموديل';
+    final snapshot = await db.where(path, isGreaterThanOrEqualTo: query).get();
+
+    for (final element in snapshot.docs) {
+      final desktop = ProductModel(
+          category: 'الحواسب المكتبية',
+          id: element.id,
+          title: element.data()['العنوان'],
+          brand: element.data()['الماركة'],
+          cost: element.data()['التكلفة'],
+          graphics: element.data()['الرسومات'],
+          maxDiscounted: element.data()['سعر الخصم'],
+          memory: element.data()['الذاكرة'],
+          model: element.data()['الموديل'],
+          os: element.data()['نظام التشغيل'],
+          processor: element.data()['المعالج'],
+          series: element.data()['السلسلة'],
+          snapshot: element.data()['الصورة'],
+          storage: element.data()['التخزين'],
+          price: element.data()['سعر البيع'],
+          warranty: element.data()['الضمان'],
+          stock: element.data()['المخزون']);
+
+      if (desktop.model!.toLowerCase().contains(query)) {
+        results.add(desktop);
+      }
+      if (desktop.brand.toLowerCase().contains(query)) {
+        results.add(desktop);
+      }
+    }
+
+    return results;
+  }
+
   Future<List<ProductModel>> arGetFeaturedProducts() async {
     final List<ProductModel> feeatured = [];
     try {
@@ -807,122 +1091,122 @@ class InventoryControllers extends ChangeNotifier {
   Future<void> bulkPush() async {
     final Map data = {
       "N014O7010MTPEMEA_VP": {
-        "Brand": "dell",
-        "Cost": 2370,
-        "Featured": false,
-        "Graphics": "Integrated Intel® Graphics",
-        "Max Discounted Price": 2310,
-        "Memory": "8 GB - DDR4",
-        "Model": "optiplex 7010",
-        "Operating System": "DOS",
-        "Processor": "13th Gen Intel® Core™ i7-13700",
-        "Selling Price": 2450,
-        "Series": "OptiPlex",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 2370,
+        "عرض": false,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 2310,
+        "الذاكرة": "8 GB - DDR4",
+        "الموديل": "optiplex 7010",
+        "نظام التشغيل": "DOS",
+        "المعالج": "13th Gen Intel® Core™ i7-13700",
+        "سعر البيع": 2450,
+        "السلسلة": "OptiPlex",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell-7010.webp?alt=media&token=ff54a1f5-9933-4651-9176-e65376a5ae8a",
-        "Stock": 10,
-        "Storage": "512 GB SSD",
-        "Title": "Dell OpitPlex 7010 Small Form Factor vPro",
-        "Warranty": "1 Year Limited Warranty"
+        "المخزون": 10,
+        "التخزين": "512 GB SSD",
+        "العنوان": "Dell OpitPlex 7010 Small Form Factor vPro",
+        "الضمان": "ضمان الوكيل المحدود لمدة 1 سنة"
       },
       "OPTI–7000–I7": {
-        "Brand": "dell",
-        "Cost": 2270,
-        "Featured": false,
-        "Graphics": "Integrated Intel® UHD Graphics",
-        "Max Discounted Price": 2385,
-        "Memory": "8 GB - DDR4",
-        "Model": "optiplex 7000",
-        "Operating System": "DOS",
-        "Processor": "12th Gen Intel® Core™ i7-12700",
-        "Selling Price": 2500,
-        "Series": "Optiplex",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 2270,
+        "عرض": false,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 2385,
+        "الذاكرة": "8 GB - DDR4",
+        "الموديل": "optiplex 7000",
+        "نظام التشغيل": "DOS",
+        "المعالج": "12th Gen Intel® Core™ i7-12700",
+        "سعر البيع": 2500,
+        "السلسلة": "Optiplex",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell-7000.webp?alt=media&token=6e27e8c6-9a8f-464c-ba8a-8878dc234e49",
-        "Stock": 12,
-        "Storage": "512GB SSD",
-        "Title": "Dell OptiPlex 7000 Small Form Factor",
-        "Warranty": "N/A"
+        "المخزون": 12,
+        "التخزين": "512GB SSD",
+        "العنوان": "Dell OptiPlex 7000 Small Form Factor",
+        "الضمان": "لا يوجد"
       },
       "N011O7000MT_AC_EM_VP": {
-        "Brand": "dell",
-        "Cost": 2270,
-        "Featured": false,
-        "Graphics": "Integrated Intel® UHD Graphics",
-        "Max Discounted Price": 2385,
-        "Memory": "8 GB - DDR4",
-        "Model": "optiplex 7000",
-        "Operating System": "DOS",
-        "Processor": "12th Gen Intel® Core™ i7-12700",
-        "Selling Price": 2500,
-        "Series": "Optiplex",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 2270,
+        "عرض": false,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 2385,
+        "الذاكرة": "8 GB - DDR4",
+        "الموديل": "optiplex 7000",
+        "نظام التشغيل": "DOS",
+        "المعالج": "12th Gen Intel® Core™ i7-12700",
+        "سعر البيع": 2500,
+        "السلسلة": "Optiplex",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell-mt-7000.webp?alt=media&token=64694194-c851-4dfd-a040-855f604b5ad5",
-        "Stock": 14,
-        "Storage": "512GB SSD",
-        "Title": "Dell OptiPlex 7000 Micro Tower",
-        "Warranty": "N/A"
+        "المخزون": 14,
+        "التخزين": "512GB SSD",
+        "العنوان": "Dell OptiPlex 7000 Micro Tower",
+        "الضمان": "لا يوجد"
       },
       "N7305VDT3910EMEA01": {
-        "Brand": "dell",
-        "Cost": 2100,
-        "Featured": true,
-        "Graphics": "Integrated Intel® UHD Graphics",
-        "Max Discounted Price": 2205,
-        "Memory": "8 GB - DDR4",
-        "Model": "vostro 3910",
-        "Operating System": "DOS",
-        "Processor": "12th Gen Intel® Core™ i7-12700",
-        "Selling Price": 2640,
-        "Series": "Vostro",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 2100,
+        "عرض": true,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 2205,
+        "الذاكرة": "8 GB - DDR4",
+        "الموديل": "vostro 3910",
+        "نظام التشغيل": "DOS",
+        "المعالج": "12th Gen Intel® Core™ i7-12700",
+        "سعر البيع": 2640,
+        "السلسلة": "Vostro",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell%20vostro%203910.png?alt=media&token=c4f59ab7-658c-4b60-a56d-98becc6e2f4c",
-        "Stock": 14,
-        "Storage": "512 GB SSD",
-        "Title": "Dell Vostro Tower 3910 ",
-        "Warranty": "N/A"
+        "المخزون": 14,
+        "التخزين": "512 GB SSD",
+        "العنوان": "Dell Vostro Tower 3910 ",
+        "الضمان": "لا يوجد"
       },
       "41024400": {
-        "Brand": "dell",
-        "Cost": 1700,
-        "Featured": false,
-        "Graphics": "Integrated Intel® UHD Graphics",
-        "Max Discounted Price": 1785,
-        "Memory": "8 GB - DDR4",
-        "Model": "optiplex 3000",
-        "Operating System": "DOS",
-        "Processor": "12th Gen Intel® Core™ i5-12500",
-        "Selling Price": 1870,
-        "Series": "OptiPlex",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 1700,
+        "عرض": false,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 1785,
+        "الذاكرة": "8 GB - DDR4",
+        "الموديل": "optiplex 3000",
+        "نظام التشغيل": "DOS",
+        "المعالج": "12th Gen Intel® Core™ i5-12500",
+        "سعر البيع": 1870,
+        "السلسلة": "OptiPlex",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell-opt-3000.webp?alt=media&token=5079268b-f709-475b-9dee-0a8250b0173f",
-        "Stock": 8,
-        "Storage": "512 GB SSD",
-        "Title": "Dell OptiPlex 3000",
-        "Warranty": "1 Year Limited Warranty"
+        "المخزون": 8,
+        "التخزين": "512 GB SSD",
+        "العنوان": "Dell OptiPlex 3000",
+        "الضمان": "ضمان الوكيل المحدود لمدة 1 سنة"
       },
       "41024399": {
-        "Brand": "dell",
-        "Cost": 1520,
-        "Featured": true,
-        "Graphics": "Integrated Intel® UHD Graphics",
-        "Max Discounted Price": 1600,
-        "Memory": "4 GB - DDR4",
-        "Model": "optiplex 3000",
-        "Operating System": "DOS",
-        "Processor": "12th Gen Intel® Core™ i5-12500",
-        "Selling Price": 1675,
-        "Series": "OptiPlex",
-        "Snapshot":
+        "الماركة": "dell",
+        "التكلفة": 1520,
+        "عرض": true,
+        "الرسومات": "Intel® UHD Graphics مدمج",
+        "سعر الخصم": 1600,
+        "الذاكرة": "4 GB - DDR4",
+        "الموديل": "optiplex 3000",
+        "نظام التشغيل": "DOS",
+        "المعالج": "12th Gen Intel® Core™ i5-12500",
+        "سعر البيع": 1675,
+        "السلسلة": "OptiPlex",
+        "الصورة":
             "https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Products%2FDesktops%2FDell%2Fdell-opt-3000.webp?alt=media&token=5079268b-f709-475b-9dee-0a8250b0173f",
-        "Stock": 8,
-        "Storage": "256 GB SSD",
-        "Title": "Dell OptiPlex 3000",
-        "Warranty": "N/A"
+        "المخزون": 8,
+        "التخزين": "256 GB SSD",
+        "العنوان": "Dell OptiPlex 3000",
+        "الضمان": "لا يوجد"
       },
     };
 
-    CollectionReference collection = FirebaseFirestore.instance.collection('Desktops');
+    CollectionReference collection = FirebaseFirestore.instance.collection('الحواسب المكتبية');
     WriteBatch batch = FirebaseFirestore.instance.batch();
     data.forEach((customId, printerData) {
       DocumentReference docRef = collection.doc(customId);

@@ -24,10 +24,10 @@ class RefinedNotebooksBuilderWidget extends StatelessWidget {
               );
             } else {
               return GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const RangeMaintainingScrollPhysics(),
                   itemCount: snapshot.data?.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
+                      crossAxisCount: 3, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
                   itemBuilder: (context, index) {
                     final notebook = snapshot.data?[index];
                     return NotebookCardWidget(notebook: notebook!);

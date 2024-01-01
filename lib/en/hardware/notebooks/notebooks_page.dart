@@ -98,15 +98,15 @@ class _NotebooksPageState extends State<NotebooksPage> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                      child: sw >= 1280
+                      child: sw >= 1080
                           ? const WebNotebooksBody()
-                          : sw < 1280 && sw >= 568
+                          : sw < 1080 && sw >= 568
                               ? const SizedBox()
                               : const SizedBox(),
                     ),
-                    sw >= 1280
+                    sw >= 1080
                         ? const WebFooter()
-                        : sw < 1280 && sw >= 568
+                        : sw < 1080 && sw >= 568
                             ? TabletFooter(
                                 sw: sw,
                                 sh: sh,

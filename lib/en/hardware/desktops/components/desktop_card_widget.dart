@@ -5,13 +5,11 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/models/product_model.dart';
 import 'package:technology_wall/en/shared/base_rect_button.dart';
-
 import '../../../../config/themes/app_theme.dart';
-import '../../../shared/web/web_notebook_form.dart';
 
-class NotebookCardWidget extends StatelessWidget {
-  final ProductModel notebook;
-  const NotebookCardWidget({super.key, required this.notebook});
+class DesktopCardWidget extends StatelessWidget {
+  final ProductModel desktop;
+  const DesktopCardWidget({super.key, required this.desktop});
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +25,11 @@ class NotebookCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            flex: 8,
+            flex: 9,
             child: Center(
               child: Image.network(
-                notebook.snapshot,
-                width: 20.w,
+                desktop.snapshot,
+                width: 25.w,
               ),
             ),
           ),
@@ -40,7 +38,7 @@ class NotebookCardWidget extends StatelessWidget {
             flex: 3,
             child: Center(
               child: SelectableText(
-                notebook.title,
+                desktop.title,
                 style: context.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -53,27 +51,23 @@ class NotebookCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Processor: ${notebook.processor}',
+                  '• Processor: ${desktop.processor}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Operating System: ${notebook.os}',
+                  '• Operating System: ${desktop.os}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Graphics: ${notebook.graphics}',
+                  '• Graphics: ${desktop.graphics}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Memory: ${notebook.memory}',
+                  '• Memory: ${desktop.memory}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Storage: ${notebook.storage}',
-                  style: context.bodyLarge,
-                ),
-                SelectableText(
-                  '• Display: ${notebook.display}',
+                  '• Storage: ${desktop.storage}',
                   style: context.bodyLarge,
                 ),
               ],
@@ -91,13 +85,13 @@ class NotebookCardWidget extends StatelessWidget {
                   child: BaseRectButton(
                     title: 'Order Now',
                     action: () async {
-                      await showAdaptiveDialog(
-                          context: context,
-                          builder: (context) {
-                            return WebNotebookOrderForm(
-                              item: notebook,
-                            );
-                          });
+                      // await showAdaptiveDialog(
+                      //     context: context,
+                      //     builder: (context) {
+                      //       return WebNotebookOrderForm(
+                      //         item: desktop,
+                      //       );
+                      //     });
                     },
                   ),
                 ),
@@ -125,11 +119,11 @@ class NotebookCardWidget extends StatelessWidget {
                         }),
                       ),
                       onPressed: () {
-                        cart.cart.containsKey(notebook.id)
-                            ? cart.removeFromCart(notebook.id)
-                            : cart.addToCart(notebook);
+                        cart.cart.containsKey(desktop.id)
+                            ? cart.removeFromCart(desktop.id)
+                            : cart.addToCart(desktop);
                       },
-                      child: cart.cart.containsKey(notebook.id)
+                      child: cart.cart.containsKey(desktop.id)
                           ? Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [

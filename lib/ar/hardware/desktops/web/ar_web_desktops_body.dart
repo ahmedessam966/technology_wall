@@ -5,23 +5,21 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import '../../../shared/web/cart_widget.dart';
-import '../../../shared/web/web_purchase_order.dart';
-import '../components/notebooks_builder_widget.dart';
-import '../components/refined_notebooks_builder_widget.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../shared/web/ar_cart_widget.dart';
+import '../../../shared/web/ar_web_purchase_order.dart';
+import '../components/ar_desktops_builder_widget.dart';
 
-class WebNotebooksBody extends StatelessWidget {
-  const WebNotebooksBody({super.key});
+class ARWebDesktopsBody extends StatelessWidget {
+  const ARWebDesktopsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-
     metadataControllers.injectPageSpecificContent(
-        'Find and explore our unqiue collection of dependable and versatile portable computers, suitable for every use and every individual',
-        'en');
+        'ابحث عن مجموعتنا الفريدة من أجهزة الكمبيوتر المكتبية متعددة الاستخدامات والتي يمكن الاعتماد عليها واستكشفها، والمناسبة لكل استخدام ولكل فرد',
+        'ar');
     return Consumer<InventoryControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +40,7 @@ class WebNotebooksBody extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'One-Stop Shop for Any Portable Computer',
+                        'One-Stop Shop for Any Desktop Computer',
                         style: context.headlineMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
@@ -104,7 +102,7 @@ class WebNotebooksBody extends StatelessWidget {
                   width: 5.w,
                 ),
                 Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a',
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b',
                   height: 35.h,
                 ),
               ],
@@ -159,7 +157,7 @@ class WebNotebooksBody extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      'Notebooks and Portable Computers',
+                      'Desktop Computers & Work Stations',
                       style: context.headlineMedium,
                     ),
                   ),
@@ -206,16 +204,16 @@ class WebNotebooksBody extends StatelessWidget {
                       DropdownButton(
                           underline: const SizedBox.shrink(),
                           hint: Text(
-                            'Select brand',
-                            style: context.bodyLarge,
+                            'اختر الماركة',
+                            style: context.displayLarge,
                           ),
                           value: provider.notebookFilterSelection,
                           borderRadius: BorderRadius.circular(5.px),
                           style: context.bodyLarge,
                           items: const [
                             DropdownMenuItem(
-                              value: 'All',
-                              child: Text('All'),
+                              value: 'الكل',
+                              child: Text('الكل'),
                             ),
                             DropdownMenuItem(
                               value: 'HP',
@@ -231,10 +229,10 @@ class WebNotebooksBody extends StatelessWidget {
                             ),
                           ],
                           onChanged: (newValue) {
-                            if (newValue != null && newValue != 'All') {
+                            if (newValue != null && newValue != 'الكل') {
                               provider.setNBFilter(newValue);
                             }
-                            if (newValue == 'All') {
+                            if (newValue == 'الكل') {
                               provider.setNBFilter(null);
                             }
                           }),
@@ -259,7 +257,7 @@ class WebNotebooksBody extends StatelessWidget {
                           await showAdaptiveDialog(
                               context: context,
                               builder: (context) {
-                                return const CartWidget();
+                                return const ARCartWidget();
                               });
                         },
                         child: Row(
@@ -273,7 +271,7 @@ class WebNotebooksBody extends StatelessWidget {
                               width: 1.w,
                             ),
                             Text(
-                              'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                              'السلة (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
                               style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                           ],
@@ -285,10 +283,10 @@ class WebNotebooksBody extends StatelessWidget {
                     height: 5.h,
                   ),
                   Expanded(
-                    child:
-                        provider.notebookFilterSelection == null || provider.notebookFilterSelection == 'All'
-                            ? const NotebooksBuilderWidget()
-                            : const RefinedNotebooksBuilderWidget(),
+                    child: provider.arDesktopFilterSelection == null ||
+                            provider.arDesktopFilterSelection == 'الكل'
+                        ? const ARDesktopsBuilderWidget()
+                        : const SizedBox(),
                   ),
                   SizedBox(
                     height: 5.h,
@@ -360,7 +358,7 @@ class WebNotebooksBody extends StatelessWidget {
                         await showAdaptiveDialog(
                             context: context,
                             builder: (context) {
-                              return const WebPurchaseOrder();
+                              return const ARWebPurchaseOrder();
                             });
                       },
                       child: Text(

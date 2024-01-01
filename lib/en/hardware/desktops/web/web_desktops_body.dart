@@ -5,22 +5,20 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
 import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/en/hardware/desktops/components/desktops_builder_widget.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
-import '../components/notebooks_builder_widget.dart';
-import '../components/refined_notebooks_builder_widget.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
 
-class WebNotebooksBody extends StatelessWidget {
-  const WebNotebooksBody({super.key});
+class WebDesktopsBody extends StatelessWidget {
+  const WebDesktopsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-
     metadataControllers.injectPageSpecificContent(
-        'Find and explore our unqiue collection of dependable and versatile portable computers, suitable for every use and every individual',
+        'Find and explore our unqiue collection of dependable and versatile desktop computers, suitable for every use and every individual',
         'en');
     return Consumer<InventoryControllers>(builder: (context, provider, _) {
       return Column(
@@ -42,7 +40,7 @@ class WebNotebooksBody extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'One-Stop Shop for Any Portable Computer',
+                        'One-Stop Shop for Any Desktop Computer',
                         style: context.headlineMedium?.copyWith(
                             color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                       ),
@@ -104,7 +102,7 @@ class WebNotebooksBody extends StatelessWidget {
                   width: 5.w,
                 ),
                 Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Flaptops.png?alt=media&token=d70f1ad2-cb33-4f0c-9e43-9c028c7b4b4a',
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b',
                   height: 35.h,
                 ),
               ],
@@ -159,7 +157,7 @@ class WebNotebooksBody extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      'Notebooks and Portable Computers',
+                      'Desktop Computers & Work Stations',
                       style: context.headlineMedium,
                     ),
                   ),
@@ -285,10 +283,9 @@ class WebNotebooksBody extends StatelessWidget {
                     height: 5.h,
                   ),
                   Expanded(
-                    child:
-                        provider.notebookFilterSelection == null || provider.notebookFilterSelection == 'All'
-                            ? const NotebooksBuilderWidget()
-                            : const RefinedNotebooksBuilderWidget(),
+                    child: provider.desktopFilterSelection == null || provider.desktopFilterSelection == 'All'
+                        ? const DesktopsBuilderWidget()
+                        : const SizedBox(),
                   ),
                   SizedBox(
                     height: 5.h,

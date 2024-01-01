@@ -27,7 +27,7 @@ class PrintersBuilderWidget extends StatelessWidget {
                   physics: const RangeMaintainingScrollPhysics(),
                   itemCount: provider.printersList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
+                      crossAxisCount: 3, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
                   itemBuilder: (context, index) {
                     final printer = provider.printersList[index];
                     return PrinterCardWidget(printer: printer);
@@ -47,7 +47,7 @@ class PrintersBuilderWidget extends StatelessWidget {
                           physics: const RangeMaintainingScrollPhysics(),
                           itemCount: snapshot.data?.length,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
+                              crossAxisCount: 3,
                               crossAxisSpacing: 2.w,
                               mainAxisSpacing: 2.w,
                               childAspectRatio: 0.7),

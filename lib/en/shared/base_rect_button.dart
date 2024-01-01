@@ -24,7 +24,7 @@ class BaseRectButton extends StatelessWidget {
           if (states.contains(MaterialState.hovered)) {
             return const Color(0xaa7c9cc1).withOpacity(1);
           } else {
-            return Color(0xaa1a374d).withOpacity(1);
+            return const Color(0xaa1a374d).withOpacity(1);
           }
         }),
       ),

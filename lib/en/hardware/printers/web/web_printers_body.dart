@@ -148,9 +148,7 @@ class WebPrintersBody extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
-            height: provider.printerFilterSelection != null && provider.printerFilterSelection!.isNotEmpty
-                ? 130.h
-                : 180.h,
+            height: provider.printersList.length <= 5 ? 260.h : 300.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

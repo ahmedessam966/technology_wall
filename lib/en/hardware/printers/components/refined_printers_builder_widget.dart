@@ -24,10 +24,10 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
             } else {
               return GridView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 0),
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const RangeMaintainingScrollPhysics(),
                   itemCount: snapshot.data?.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.8),
+                      crossAxisCount: 3, crossAxisSpacing: 2.w, mainAxisSpacing: 2.w, childAspectRatio: 0.7),
                   itemBuilder: (context, index) {
                     final printer = snapshot.data?[index];
                     return PrinterCardWidget(printer: printer!);
