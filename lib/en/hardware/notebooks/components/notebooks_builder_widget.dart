@@ -27,7 +27,7 @@ class NotebooksBuilderWidget extends StatelessWidget {
                     physics: const RangeMaintainingScrollPhysics(),
                     itemCount: provider.notebooksList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
+                        crossAxisCount: 3,
                         crossAxisSpacing: 2.w,
                         mainAxisSpacing: 2.w,
                         childAspectRatio: 0.7),
@@ -50,7 +50,7 @@ class NotebooksBuilderWidget extends StatelessWidget {
                             physics: const RangeMaintainingScrollPhysics(),
                             itemCount: snapshot.data?.length,
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
+                                crossAxisCount: 3,
                                 crossAxisSpacing: 2.w,
                                 mainAxisSpacing: 2.w,
                                 childAspectRatio: 0.7),
