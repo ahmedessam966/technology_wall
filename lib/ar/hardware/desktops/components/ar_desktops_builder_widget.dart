@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/ar/hardware/desktops/controllers/ar_desktops_controllers.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'ar_desktops_card_widget.dart';
 
 class ARDesktopsBuilderWidget extends StatelessWidget {
@@ -11,7 +11,7 @@ class ARDesktopsBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<ARDesktopsControllers>(builder: (context, provider, _) {
       return FutureBuilder(
           future: provider.arGetDesktops(),
           builder: (context, snapshot) {

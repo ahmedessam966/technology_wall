@@ -3,11 +3,11 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/en/hardware/desktops/controllers/desktops_controllers.dart';
 import 'package:technology_wall/en/hardware/desktops/mobile/mobile_desktops_body.dart';
 import 'package:technology_wall/en/hardware/desktops/tablet/tablet_desktops_body.dart';
 import 'package:technology_wall/en/hardware/desktops/web/web_desktops_body.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../../core/controllers/inventory_controllers.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
@@ -39,7 +39,7 @@ class _DesktopsPageState extends State<DesktopsPage> {
 
   @override
   void dispose() {
-    Provider.of<InventoryControllers>(context, listen: false).notebooksList.clear();
+    Provider.of<DekstopsControllers>(context, listen: false).desktopsList.clear();
     super.dispose();
   }
 

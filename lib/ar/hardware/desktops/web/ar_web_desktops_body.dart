@@ -2,11 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/ar/hardware/desktops/controllers/ar_desktops_controllers.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../shared/ar_base_rect_button.dart';
 import '../../../shared/web/ar_cart_widget.dart';
 import '../../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_desktops_builder_widget.dart';
@@ -20,7 +21,7 @@ class ARWebDesktopsBody extends StatelessWidget {
     metadataControllers.injectPageSpecificContent(
         'ابحث عن مجموعتنا الفريدة من أجهزة الكمبيوتر المكتبية متعددة الاستخدامات والتي يمكن الاعتماد عليها واستكشفها، والمناسبة لكل استخدام ولكل فرد',
         'ar');
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<ARDesktopsControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,82 +29,89 @@ class ARWebDesktopsBody extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Row(
+            child: Flex(
+              direction: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SlideInLeft(
-                  duration: const Duration(milliseconds: 1000),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'One-Stop Shop for Any Desktop Computer',
-                        style: context.headlineMedium?.copyWith(
-                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'For Personal Use',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Supplying primary hardware and up to complex servers.',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'For Business Use',
-                            style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Licensed, supported software soultions required for business intelligence',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Text(
-                        'Save valuable time and effort. Explore our integrated solutions plan.',
-                        style: context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                      ),
-                    ],
+                Expanded(
+                  flex: 6,
+                  child: SlideInLeft(
+                    duration: const Duration(milliseconds: 1000),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'متجر متكامل لأي كمبيوتر مكتبي',
+                          style: context.titleMedium?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'للإستخدام الشخصي',
+                              style: context.displayLarge
+                                  ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'مجموعات بسيطة وعصرية وبأسعار معقولة',
+                          style: context.titleSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'للاستخدام التجاري',
+                              style: context.displayLarge
+                                  ?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color(0xaaffffff),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'اختيارات مرنة وقابلة للتخصيص لأداء قوي',
+                          style: context.titleSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text(
+                          'اكتشف أحدث الموديلات من الشركات المصنعة الشهيرة. مصممة لأغراض التصميم والرسومات والألعاب والتطوير',
+                          style: context.titleSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b',
-                  height: 35.h,
+                const Spacer(),
+                Expanded(
+                  flex: 5,
+                  child: Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fimac.webp?alt=media&token=b2f1e6e9-8666-4a5f-87d3-bc61dd946663',
+                    height: 35.h,
+                  ),
                 ),
               ],
             ),
@@ -150,15 +158,15 @@ class ARWebDesktopsBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
             child: SizedBox(
-              height: provider.notebooksList.length <= 5 ? 260.h : 300.h,
+              height: provider.arDesktopsList.length <= 5 ? 260.h : 300.h,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Text(
-                      'Desktop Computers & Work Stations',
-                      style: context.headlineMedium,
+                      'أجهزة الكمبيوتر المكتبية ومحطات العمل',
+                      style: context.titleMedium,
                     ),
                   ),
                   SizedBox(
@@ -166,8 +174,8 @@ class ARWebDesktopsBody extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'A selection of renowned brands and diverse utilites to serve your personal, entertainment, or business needs',
-                      style: context.bodyLarge,
+                      'مجموعة مختارة من العلامات التجارية الشهيرة لخدمة احتياجاتك الشخصية أو الترفيهية أو التجارية',
+                      style: context.displayLarge,
                     ),
                   ),
                   SizedBox(
@@ -177,11 +185,11 @@ class ARWebDesktopsBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SearchBar(
-                        controller: provider.notebookSearchController,
+                        controller: provider.arDesktopSearchController,
                         trailing: [
                           Text(
-                            'search by brand',
-                            style: context.bodyMedium,
+                            'البحث حسب العلامة التجارية',
+                            style: context.displayMedium,
                           ),
                           Checkbox.adaptive(
                               value: provider.searchByBrand,
@@ -189,9 +197,10 @@ class ARWebDesktopsBody extends StatelessWidget {
                                 provider.searchType();
                               }),
                         ],
-                        hintText: 'Search by brand or model',
+                        hintText: 'البحث حسب العلامة التجارية أو الموديل',
+                        hintStyle: MaterialStatePropertyAll(context.bodyLarge),
                         onSubmitted: (value) {
-                          provider.setNBSearchController(value);
+                          provider.arSetDesktopSearchController(value);
                         },
                         elevation: const MaterialStatePropertyAll(0),
                         backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
@@ -207,7 +216,7 @@ class ARWebDesktopsBody extends StatelessWidget {
                             'اختر الماركة',
                             style: context.displayLarge,
                           ),
-                          value: provider.notebookFilterSelection,
+                          value: provider.arDesktopFilterSelection,
                           borderRadius: BorderRadius.circular(5.px),
                           style: context.bodyLarge,
                           items: const [
@@ -230,10 +239,10 @@ class ARWebDesktopsBody extends StatelessWidget {
                           ],
                           onChanged: (newValue) {
                             if (newValue != null && newValue != 'الكل') {
-                              provider.setNBFilter(newValue);
+                              provider.arSetDesktopFilter(newValue);
                             }
                             if (newValue == 'الكل') {
-                              provider.setNBFilter(null);
+                              provider.arSetDesktopFilter(null);
                             }
                           }),
                       ElevatedButton(
@@ -272,7 +281,7 @@ class ARWebDesktopsBody extends StatelessWidget {
                             ),
                             Text(
                               'السلة (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                           ],
                         ),
@@ -314,12 +323,12 @@ class ARWebDesktopsBody extends StatelessWidget {
                           ? null
                           : () async {
                               provider.setLoading();
-                              await provider.loadMoreItems(provider.getNotebooks());
+                              await provider.loadMoreItems();
                               provider.setLoading();
                             },
                       child: Text(
-                        'Show More',
-                        style: context.bodyLarge?.copyWith(color: AppTheme.darkest),
+                        'عرض المزيد',
+                        style: context.displayLarge?.copyWith(color: AppTheme.darkest),
                       ),
                     ),
                   ),
@@ -328,45 +337,25 @@ class ARWebDesktopsBody extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Couldn\'t find your product? Submit a requsition form and we will find it for you',
-                      style: context.bodyLarge,
+                      'لم تتمكن من العثور على المنتج الخاص بك؟ أرسل نموذج الطلب وسنجده لك',
+                      style: context.displayLarge,
                     ),
                   ),
                   SizedBox(
                     height: 2.5.h,
                   ),
                   Center(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                        elevation: const MaterialStatePropertyAll(0),
-                        shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(1),
-                            side: const BorderSide(color: Colors.white70),
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return const Color(0xaa7c9cc1).withOpacity(1);
-                          } else {
-                            return const Color(0xaa071923).withOpacity(1);
-                          }
-                        }),
-                      ),
-                      onPressed: () async {
+                    child: ARBaseRectButton(
+                      title: 'إنشاء طلب',
+                      action: () async {
                         await showAdaptiveDialog(
                             context: context,
                             builder: (context) {
                               return const ARWebPurchaseOrder();
                             });
                       },
-                      child: Text(
-                        'Create Requisition Request',
-                        style: context.bodyLarge?.copyWith(color: Colors.white70),
-                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

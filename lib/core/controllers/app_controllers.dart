@@ -7,6 +7,10 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 
 class AppControllers extends ChangeNotifier {
   static final CookiesManager _cookiesManager = CookiesManager();
+
+  int _cookiePrompt = 0;
+  int get cookiePrompt => _cookiePrompt;
+
   String _pageTitle = 'Technology Wall | Home';
   String get pageTitle => _pageTitle;
 
@@ -16,8 +20,14 @@ class AppControllers extends ChangeNotifier {
   bool _isEnglish = true;
   bool get isEnglish => _isEnglish;
 
-  void setCookieConsent(bool value) {
-    _isCookieConsent = value;
+  void setCookieConsent() {
+    _isCookieConsent = true;
+    notifyListeners();
+  }
+
+  void setCookieDecline() {
+    _isCookieConsent = false;
+    _cookiePrompt = 1;
     notifyListeners();
   }
 

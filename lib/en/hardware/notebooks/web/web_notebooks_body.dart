@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/en/hardware/notebooks/controllers/notebooks_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
 import '../components/notebooks_builder_widget.dart';
@@ -18,11 +18,10 @@ class WebNotebooksBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MetadataControllers metadataControllers = MetadataControllers();
-
     metadataControllers.injectPageSpecificContent(
         'Find and explore our unqiue collection of dependable and versatile portable computers, suitable for every use and every individual',
         'en');
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<NotebooksControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -316,7 +315,7 @@ class WebNotebooksBody extends StatelessWidget {
                           ? null
                           : () async {
                               provider.setLoading();
-                              await provider.loadMoreItems(provider.getNotebooks());
+                              await provider.loadMoreItems();
                               provider.setLoading();
                             },
                       child: Text(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/hardware/printers/components/mobile_printers_builder.dart';
 import 'package:technology_wall/en/hardware/printers/components/mobile_refined_builder.dart';
+import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
 
 import '../../../../config/themes/app_theme.dart';
 import '../../../../core/controllers/cart_controllers.dart';
@@ -22,7 +22,7 @@ class MobilePrintersBody extends StatelessWidget {
     metadataControllers.injectPageSpecificContent(
         'Explore or search for your desired printer. Explore the types of printers available: Color laserjet, dot-matrix, monochrome laserjet, deskjet, heavy-duty office utility, network printers, and all-in-one printer models. Guaranteed brands; HP, Canon, Epson, and Zebra printers.',
         'en');
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<PrintersControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,7 +186,7 @@ class MobilePrintersBody extends StatelessWidget {
                               ? null
                               : () async {
                                   provider.setLoading();
-                                  await provider.loadMoreItems(provider.getPrinters());
+                                  await provider.loadMoreItems();
                                   provider.setLoading();
                                 },
                           child: Text(

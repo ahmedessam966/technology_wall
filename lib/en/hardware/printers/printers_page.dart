@@ -3,7 +3,7 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
 import 'package:technology_wall/en/hardware/printers/mobile/mobile_printers_body.dart';
 import '../../../config/themes/app_theme.dart';
 import '../../../core/controllers/metadata_controllers.dart';
@@ -39,7 +39,7 @@ class _PrintersPageState extends State<PrintersPage> {
 
   @override
   void dispose() {
-    Provider.of<InventoryControllers>(context, listen: false).printersList.clear();
+    Provider.of<PrintersControllers>(context, listen: false).printersList.clear();
     super.dispose();
   }
 

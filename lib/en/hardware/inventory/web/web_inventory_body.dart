@@ -165,7 +165,7 @@ class WebInventoryBody extends StatelessWidget {
                                   },
                                   category: 'Desktop PC',
                                   imagePath:
-                                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdesktops.png?alt=media&token=1c5aee7f-01db-4b7d-aba9-41fd4e58ed4b'),
+                                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fimac.webp?alt=media&token=b2f1e6e9-8666-4a5f-87d3-bc61dd946663'),
                               InventoryCategoryCard(
                                   onPressed: () {
                                     Navigator.pushNamed(context, '/en/hardware/firewalls');

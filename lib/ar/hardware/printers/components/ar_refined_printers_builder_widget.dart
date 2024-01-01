@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import '../controllers/ar_printers_controllers.dart';
 import 'ar_printer_card_widget.dart';
 
 class RefinedPrintersBuilderWidget extends StatelessWidget {
@@ -10,9 +10,9 @@ class RefinedPrintersBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<ARPrintersControllers>(builder: (context, provider, _) {
       return FutureBuilder(
-          future: provider.getBrandFilteredPrinters(provider.printerFilterSelection),
+          future: provider.arGetBrandFilteredPrinters(provider.arPrinterFilterSelection),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

@@ -94,7 +94,7 @@ class _CookiePopupState extends State<CookiePopup> with SingleTickerProviderStat
                       ),
                       onPressed: () {
                         cookies.onAcceptCookies();
-                        Provider.of<AppControllers>(context, listen: false).setCookieConsent(true);
+                        Provider.of<AppControllers>(context, listen: false).setCookieConsent();
                       },
                       child: Text(
                         'Accept Cookies',
@@ -102,10 +102,22 @@ class _CookiePopupState extends State<CookiePopup> with SingleTickerProviderStat
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      style: ButtonStyle(
+                        elevation: const MaterialStatePropertyAll(0),
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.px),
+                            side: BorderSide(color: AppTheme.darkest.withOpacity(1)),
+                          ),
+                        ),
+                        backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
+                      ),
+                      onPressed: () {
+                        Provider.of<AppControllers>(context, listen: false).setCookieDecline();
+                      },
                       child: Text(
                         'Reject Cookies',
-                        style: context.bodyLarge,
+                        style: context.bodyLarge?.copyWith(color: AppTheme.darkest.withOpacity(1)),
                       ),
                     ),
                   ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/ar_mobile_footer.dart';
 import '../../shared/mobile/ar_mobile_header.dart';
@@ -9,6 +8,7 @@ import '../../shared/tablet/ar_tablet_footer.dart';
 import '../../shared/tablet/ar_tablet_header.dart';
 import '../../shared/web/ar_web_footer.dart';
 import '../../shared/web/ar_web_header.dart';
+import 'controllers/ar_printers_controllers.dart';
 import 'web/ar_printers_web_body.dart';
 
 class ARPrintersPage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _ARPrintersPageState extends State<ARPrintersPage> {
 
   @override
   void dispose() {
-    Provider.of<InventoryControllers>(context, listen: false).printersList.clear();
+    Provider.of<ARPrintersControllers>(context, listen: false).arPrintersList.clear();
     super.dispose();
   }
 

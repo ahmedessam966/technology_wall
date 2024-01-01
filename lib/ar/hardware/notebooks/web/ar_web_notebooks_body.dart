@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/core/controllers/cart_controllers.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import '../../../shared/web/ar_cart_widget.dart';
 import '../../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_notebooks_builder_widget.dart';
 import '../components/ar_refined_notebooks_builder_widget.dart';
 import '../../../../config/themes/app_theme.dart';
+import '../controllers/ar_notebooks_controllers.dart';
 
 class ARWebNotebooksBody extends StatelessWidget {
   const ARWebNotebooksBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<ARNotebooksControllers>(builder: (context, provider, _) {
       return Semantics(
         label: 'Notebooks, Laptops, Portable PC',
         value:
@@ -178,7 +178,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SearchBar(
-                          controller: provider.notebookSearchController,
+                          controller: provider.arNotebookSearchController,
                           trailing: [
                             const Text('search by brand'),
                             Checkbox.adaptive(
@@ -189,7 +189,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                           ],
                           hintText: 'Search by brand or model',
                           onSubmitted: (value) {
-                            provider.setNBSearchController(value);
+                            provider.arSetNBSearchController(value);
                           },
                           elevation: const MaterialStatePropertyAll(0),
                           backgroundColor: MaterialStatePropertyAll(Colors.grey.shade300),
@@ -202,7 +202,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                         DropdownButton(
                             underline: const SizedBox.shrink(),
                             hint: const Text('select brand'),
-                            value: provider.notebookFilterSelection,
+                            value: provider.arNotebookFilterSelection,
                             borderRadius: BorderRadius.circular(10),
                             items: const [
                               DropdownMenuItem(
@@ -224,10 +224,10 @@ class ARWebNotebooksBody extends StatelessWidget {
                             ],
                             onChanged: (newValue) {
                               if (newValue != null && newValue != 'All') {
-                                provider.setNBFilter(newValue);
+                                provider.arSetNBFilter(newValue);
                               }
                               if (newValue == 'All') {
-                                provider.setNBFilter(null);
+                                provider.arSetNBFilter(null);
                               }
                             }),
                         ElevatedButton(
@@ -277,8 +277,8 @@ class ARWebNotebooksBody extends StatelessWidget {
                       height: 50,
                     ),
                     Expanded(
-                      child: provider.notebookFilterSelection == null ||
-                              provider.notebookFilterSelection == 'All'
+                      child: provider.arNotebookFilterSelection == null ||
+                              provider.arNotebookFilterSelection == 'All'
                           ? const ARNotebooksBuilderWidget()
                           : const ARRefinedNotebooksBuilderWidget(),
                     ),
@@ -308,7 +308,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                             ? null
                             : () async {
                                 provider.setLoading();
-                                await provider.loadMoreItems(provider.getNotebooks());
+                                await provider.loadMoreItems();
                                 provider.setLoading();
                               },
                         child: Text(

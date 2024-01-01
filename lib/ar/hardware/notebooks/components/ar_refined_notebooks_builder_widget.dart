@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import '../controllers/ar_notebooks_controllers.dart';
 import 'ar_notebook_card_widget.dart';
-
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/controllers/inventory_controllers.dart';
 
 class ARRefinedNotebooksBuilderWidget extends StatelessWidget {
   const ARRefinedNotebooksBuilderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<ARNotebooksControllers>(builder: (context, provider, _) {
       return FutureBuilder(
-          future: provider.getBrandFilteredNotebooks(),
+          future: provider.arGetBrandFilteredNotebooks(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

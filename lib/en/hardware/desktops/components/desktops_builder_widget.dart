@@ -3,15 +3,15 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/hardware/desktops/components/desktop_card_widget.dart';
+import 'package:technology_wall/en/hardware/desktops/controllers/desktops_controllers.dart';
 
 class DesktopsBuilderWidget extends StatelessWidget {
   const DesktopsBuilderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InventoryControllers>(builder: (context, provider, _) {
+    return Consumer<DekstopsControllers>(builder: (context, provider, _) {
       return FutureBuilder(
           future: provider.getDesktops(),
           builder: (context, snapshot) {

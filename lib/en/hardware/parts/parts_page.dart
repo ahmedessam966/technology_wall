@@ -3,7 +3,9 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/en/hardware/notebooks/controllers/notebooks_controllers.dart';
+import 'package:technology_wall/en/hardware/parts/mobile/mobile_parts_body.dart';
+import 'package:technology_wall/en/hardware/parts/tablet/tablet_parts_body.dart';
+import 'package:technology_wall/en/hardware/parts/web/web_parts_body.dart';
 import '../../../config/themes/app_theme.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
@@ -12,32 +14,31 @@ import '../../shared/tablet/tablet_footer.dart';
 import '../../shared/tablet/tablet_header.dart';
 import '../../shared/web/web_footer.dart';
 import '../../shared/web/web_header.dart';
-import 'web/web_notebooks_body.dart';
 
-class NotebooksPage extends StatefulWidget {
-  const NotebooksPage({super.key});
+class PartsPage extends StatefulWidget {
+  const PartsPage({super.key});
 
   @override
-  State<NotebooksPage> createState() => _NotebooksPageState();
+  State<PartsPage> createState() => _PartsPageState();
 }
 
-class _NotebooksPageState extends State<NotebooksPage> {
+class _PartsPageState extends State<PartsPage> {
   final MetadataControllers metadataFunctions = MetadataControllers();
   @override
   void initState() {
     super.initState();
     metadataFunctions.updateHElement(
-        'Technology Wall Notebooks Page',
-        'Home to renowned, best-performing, and cost-effective laptops, notebooks, and portable computers.',
-        null);
-    metadataFunctions.updateMetaData('Technology Wall | Notebooks - Laptops',
-        'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired portable computer here, offered with best prices.');
+        'Technology Wall Spare Parts Page',
+        'Indispensable desktop computers demanded by every business, serving a wide range of requirements and puroposes.',
+        'Offering renowned desktop computers brands: HP, Dell, Lenovo, and iMac. A vast variety of specifications, models, and prices  tailored to suit each and every business need; pushing business progress and innovation forward.');
+    metadataFunctions.updateMetaData('Technology Wall | Dekstop Computers',
+        'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired desktop computer here, offered with best prices. Explore Dell Microtower series, Dell OptiPlex series, HP Workstation series, and Lenovo ThinkCentre series.');
     metadataFunctions.updateHeaderMetaData();
   }
 
   @override
   void dispose() {
-    Provider.of<NotebooksControllers>(context, listen: false).notebooksList.clear();
+    // Provider.of<InventoryControllers>(context, listen: false).notebooksList.clear();
     super.dispose();
   }
 
@@ -99,10 +100,10 @@ class _NotebooksPageState extends State<NotebooksPage> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
                       child: sw >= 1080
-                          ? const WebNotebooksBody()
+                          ? const WebPartsBody()
                           : sw < 1080 && sw >= 568
-                              ? const SizedBox()
-                              : const SizedBox(),
+                              ? const TabletPartsBody()
+                              : const MobilePartsBody(),
                     ),
                     sw >= 1080
                         ? const WebFooter()

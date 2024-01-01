@@ -39,6 +39,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartControllers()),
         ChangeNotifierProvider(create: (_) => SAPPageControllers()),
         ChangeNotifierProvider(create: (_) => SoftwareControllers()),
+        ChangeNotifierProvider(create: (_) => DekstopsControllers()),
+        ChangeNotifierProvider(create: (_) => NotebooksControllers()),
+        ChangeNotifierProvider(create: (_) => ARDesktopsControllers()),
+        ChangeNotifierProvider(create: (_) => ARNotebooksControllers()),
+        ChangeNotifierProvider(create: (_) => ARPrintersControllers()),
       ],
       builder: (context, _) {
         final themeNotifier = context.watch<ThemeModeServices>();
@@ -69,10 +74,15 @@ class MyApp extends StatelessWidget {
                 children: [
                   child!,
                   Builder(builder: (ctx) {
+                    final int count = cookieWatcher.cookiePrompt;
                     if (cookieWatcher.isCookieConsent) {
                       return const SizedBox.shrink();
                     } else {
-                      return const CookiePopup();
+                      if (count < 1) {
+                        return const CookiePopup();
+                      } else {
+                        return const SizedBox.shrink();
+                      }
                     }
                   }),
                 ],

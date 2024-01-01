@@ -3,8 +3,8 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/ar/hardware/desktops/controllers/ar_desktops_controllers.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../../core/controllers/inventory_controllers.dart';
 import '../../../core/controllers/metadata_controllers.dart';
 import '../../shared/mobile/ar_mobile_footer.dart';
 import '../../shared/mobile/ar_mobile_header.dart';
@@ -39,7 +39,7 @@ class _ARDesktopsPageState extends State<ARDesktopsPage> {
 
   @override
   void dispose() {
-    Provider.of<InventoryControllers>(context, listen: false).notebooksList.clear();
+    Provider.of<ARDesktopsControllers>(context, listen: false).arDesktopsList.clear();
     super.dispose();
   }
 
