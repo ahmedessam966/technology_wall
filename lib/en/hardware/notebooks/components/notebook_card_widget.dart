@@ -95,7 +95,7 @@ class NotebookCardWidget extends StatelessWidget {
                           context: context,
                           builder: (context) {
                             return WebNotebookOrderForm(
-                              item: notebook,
+                              notebook: notebook,
                             );
                           });
                     },

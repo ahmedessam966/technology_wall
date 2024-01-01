@@ -4,28 +4,28 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/inventory_controllers.dart';
-import 'package:technology_wall/global/models/microsoft_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 import '../../../../config/input_validation_services.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../global/controllers/email_controller.dart';
 
 class MicrosoftOrderForm extends StatefulWidget {
-  final dynamic item;
-  const MicrosoftOrderForm({super.key, this.item});
+  final ProductModel microsoft;
+  const MicrosoftOrderForm({super.key, required this.microsoft});
 
   @override
   State<MicrosoftOrderForm> createState() => _MicrosoftOrderFormState();
 }
 
-late MicrosoftModel microsoft;
+late ProductModel microsoft;
 bool _isLoading = false;
 
 class _MicrosoftOrderFormState extends State<MicrosoftOrderForm> {
   @override
   void initState() {
     super.initState();
-    microsoft = widget.item;
+    microsoft = widget.microsoft;
   }
 
   @override

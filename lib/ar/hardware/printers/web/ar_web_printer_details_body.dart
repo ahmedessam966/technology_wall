@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/global/models/printer_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 import '../../../shared/web/ar_web_printer_order_form.dart';
 
 class ARWebPrinterDetailsBody extends StatelessWidget {
-  final PrinterModel? printer;
+  final ProductModel printer;
   const ARWebPrinterDetailsBody({super.key, required this.printer});
 
   @override
@@ -27,7 +27,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
               color: AppTheme.darkest,
               child: Center(
                 child: Text(
-                  '${printer?.brand} Printers / ${printer?.family} / ${printer?.brand} ${printer?.model}',
+                  '${printer.brand} Printers / ${printer.family} / ${printer.brand} ${printer.model}',
                   style: context.titleMedium,
                 ),
               ),
@@ -35,7 +35,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 100),
               child: Text(
-                '${printer?.brand} ${printer?.model} Overview',
+                '${printer.brand} ${printer.model} Overview',
                 style: context.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
               ),
             ),
@@ -70,7 +70,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               height: 25,
                             ),
                             Text(
-                              'Print Speed: Up to ${printer?.ppm} pages/minute',
+                              'Print Speed: Up to ${printer.ppm} pages/minute',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -78,7 +78,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               color: Colors.white30,
                             ),
                             Text(
-                              'Printer Family: ${printer?.family}',
+                              'Printer Family: ${printer.family}',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -86,7 +86,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               color: Colors.white30,
                             ),
                             Text(
-                              'Printer Type: ${printer?.type}',
+                              'Printer Type: ${printer.type}',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -94,7 +94,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               color: Colors.white30,
                             ),
                             Text(
-                              'Ideal For: ${printer?.utility} Use',
+                              'Ideal For: ${printer.utility} Use',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -102,7 +102,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               color: Colors.white30,
                             ),
                             Text(
-                              'Connectivity (Wi-Fi/LAN): ${printer?.network}',
+                              'Connectivity (Wi-Fi/LAN): ${printer.network}',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -110,7 +110,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                               color: Colors.white30,
                             ),
                             Text(
-                              'Supported Toners: ${printer?.toner}',
+                              'Supported Toners: ${printer.toner}',
                               style: context.bodyLarge?.copyWith(color: Colors.white54),
                               overflow: TextOverflow.clip,
                             ),
@@ -122,7 +122,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Image.network(
-                      printer!.snapshot,
+                      printer.snapshot,
                       filterQuality: FilterQuality.high,
                       height: 400,
                     ),
@@ -138,7 +138,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    '${printer?.price} SR (VAT Exclusive)',
+                    '${printer.price} SR (VAT Exclusive)',
                     style: context.headlineSmall,
                   ),
                   ElevatedButton(
@@ -163,7 +163,7 @@ class ARWebPrinterDetailsBody extends StatelessWidget {
                           context: context,
                           builder: (context) {
                             return ARWebOrderForm(
-                              item: printer,
+                              printer: printer,
                             );
                           });
                     },

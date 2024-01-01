@@ -24,31 +24,41 @@ class ProductModel {
   final String? type;
   final String? utility;
   final String? network;
+  final String? users;
+  final String? officeFeatures;
+  final String? edition;
+  final String? license;
+  final String? language;
 
   ProductModel(
       {required this.category,
       required this.id,
       required this.title,
       required this.brand,
-      this.color,
+      required this.price,
       required this.cost,
+      required this.maxDiscounted,
+      required this.snapshot,
+      this.model,
+      this.color,
       this.display,
       this.graphics,
-      required this.maxDiscounted,
       this.stock,
       this.memory,
-      required this.model,
       this.os,
       this.processor,
       this.series,
-      required this.snapshot,
       this.storage,
-      required this.price,
       this.warranty,
       this.family,
       this.toner,
       this.ppm,
       this.type,
       this.utility,
-      this.network});
+      this.network,
+      this.users,
+      this.officeFeatures,
+      this.edition,
+      this.license,
+      this.language});
 }

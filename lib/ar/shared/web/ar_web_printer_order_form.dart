@@ -7,25 +7,25 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/email_controller.dart';
 import 'package:technology_wall/global/controllers/inventory_controllers.dart';
-import 'package:technology_wall/global/models/printer_model.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class ARWebOrderForm extends StatefulWidget {
-  final dynamic item;
-  const ARWebOrderForm({super.key, required this.item});
+  final ProductModel printer;
+  const ARWebOrderForm({super.key, required this.printer});
 
   @override
   State<ARWebOrderForm> createState() => _ARWebOrderFormState();
 }
 
-late PrinterModel printer;
+late ProductModel printer;
 bool _isLoading = false;
 
 class _ARWebOrderFormState extends State<ARWebOrderForm> {
   @override
   void initState() {
     super.initState();
-    printer = widget.item;
+    printer = widget.printer;
   }
 
   @override
@@ -257,7 +257,7 @@ class _ARWebOrderFormState extends State<ARWebOrderForm> {
                                             height: 5,
                                           ),
                                           SelectableText(
-                                            '• موديل الطابعة: ${printer.model.toUpperCase()}',
+                                            '• موديل الطابعة: ${printer.model?.toUpperCase()}',
                                             style: context.displayLarge,
                                           ),
                                           const SizedBox(
@@ -545,7 +545,7 @@ class _ARWebOrderFormState extends State<ARWebOrderForm> {
                                                 height: 5,
                                               ),
                                               SelectableText(
-                                                '• موديل الطابعة: ${printer.model.toUpperCase()}',
+                                                '• موديل الطابعة: ${printer.model?.toUpperCase()}',
                                                 style: context.displayLarge,
                                               ),
                                               const SizedBox(

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/global/models/microsoft_model.dart';
 import 'package:technology_wall/en/software/software/components/microsoft_order_form.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 import '../../../../global/controllers/cart_controllers.dart';
 
 class MicrosoftCard extends StatelessWidget {
-  final MicrosoftModel? microsoft;
+  final ProductModel microsoft;
   const MicrosoftCard({super.key, required this.microsoft});
 
   @override
@@ -27,7 +27,7 @@ class MicrosoftCard extends StatelessWidget {
             flex: 8,
             child: Center(
               child: Image.network(
-                microsoft!.snapshot,
+                microsoft.snapshot,
               ),
             ),
           ),
@@ -36,7 +36,7 @@ class MicrosoftCard extends StatelessWidget {
             flex: 3,
             child: Center(
               child: SelectableText(
-                microsoft!.title,
+                microsoft.title,
                 style: context.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -44,32 +44,32 @@ class MicrosoftCard extends StatelessWidget {
           ),
           const Spacer(),
           Expanded(
-            flex: microsoft?.officeFeatures == null ? 6 : 8,
+            flex: microsoft.officeFeatures == null ? 6 : 8,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '• Edition: ${microsoft?.edition}',
+                  '• Edition: ${microsoft.edition}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• License: ${microsoft?.license}',
+                  '• License: ${microsoft.license}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• Language Support: ${microsoft?.language}',
+                  '• Language Support: ${microsoft.language}',
                   style: context.bodyLarge,
                 ),
                 SelectableText(
-                  '• User Support: ${microsoft?.users}',
+                  '• User Support: ${microsoft.users}',
                   style: context.bodyLarge,
                 ),
                 Builder(builder: (ctx) {
-                  if (microsoft?.officeFeatures == null) {
+                  if (microsoft.officeFeatures == null) {
                     return const SizedBox.shrink();
                   } else {
                     return SelectableText(
-                      '• Included Products: ${microsoft?.officeFeatures}',
+                      '• Included Products: ${microsoft.officeFeatures}',
                       textAlign: TextAlign.left,
                       style: context.bodyLarge,
                     );
@@ -108,7 +108,7 @@ class MicrosoftCard extends StatelessWidget {
                           context: context,
                           builder: (context) {
                             return MicrosoftOrderForm(
-                              item: microsoft,
+                              microsoft: microsoft,
                             );
                           });
                     },
@@ -143,11 +143,11 @@ class MicrosoftCard extends StatelessWidget {
                         }),
                       ),
                       onPressed: () {
-                        cart.cart.containsKey(microsoft?.id)
-                            ? cart.removeFromCart(microsoft!.id)
+                        cart.cart.containsKey(microsoft.id)
+                            ? cart.removeFromCart(microsoft.id)
                             : cart.addToCart(microsoft);
                       },
-                      child: cart.cart.containsKey(microsoft?.id)
+                      child: cart.cart.containsKey(microsoft.id)
                           ? Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [

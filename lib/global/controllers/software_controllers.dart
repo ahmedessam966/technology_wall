@@ -1,17 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:technology_wall/global/models/microsoft_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class SoftwareControllers extends ChangeNotifier {
-  final List<MicrosoftModel> _microsoftList = [];
-  List<MicrosoftModel> get microsoftList => _microsoftList;
+  final List<ProductModel> _microsoftList = [];
+  List<ProductModel> get microsoftList => _microsoftList;
 
   Future getMicrosoft() async {
     final db = FirebaseFirestore.instance.collection('Microsoft');
     final snapshot = await db.get();
 
     for (final element in snapshot.docs) {
-      final product = MicrosoftModel(
+      final product = ProductModel(
+          category: 'Software',
+          brand: db.id,
           id: element.id,
           title: element.data()['Title'],
           language: element.data()['Language'],

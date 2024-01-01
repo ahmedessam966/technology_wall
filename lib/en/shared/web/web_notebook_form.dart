@@ -7,24 +7,24 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/email_controller.dart';
 import 'package:technology_wall/global/controllers/inventory_controllers.dart';
-import 'package:technology_wall/global/models/notebook_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class WebNotebookOrderForm extends StatefulWidget {
-  final dynamic item;
-  const WebNotebookOrderForm({super.key, required this.item});
+  final ProductModel notebook;
+  const WebNotebookOrderForm({super.key, required this.notebook});
 
   @override
   State<WebNotebookOrderForm> createState() => _WebNotebookOrderFormState();
 }
 
-late NotebookModel notebook;
+late ProductModel notebook;
 bool _isLoading = false;
 
 class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
   @override
   void initState() {
     super.initState();
-    notebook = widget.item;
+    notebook = widget.notebook;
   }
 
   @override
@@ -240,11 +240,11 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                     style: context.bodyLarge,
                                   ),
                                   Text(
-                                    '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
+                                    '  - Notebook Model: ${notebook.model![0].toUpperCase() + notebook.model!.substring(1)}',
                                     style: context.bodyLarge,
                                   ),
                                   Text(
-                                    '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
+                                    '  - Notebook Series: ${notebook.series![0].toUpperCase() + notebook.series!.substring(1)}',
                                     style: context.bodyLarge,
                                   ),
                                   const SizedBox(
@@ -498,11 +498,11 @@ class _WebNotebookOrderFormState extends State<WebNotebookOrderForm> {
                                         style: context.bodyLarge,
                                       ),
                                       Text(
-                                        '  - Notebook Model: ${notebook.model[0].toUpperCase() + notebook.model.substring(1)}',
+                                        '  - Notebook Model: ${notebook.model![0].toUpperCase() + notebook.model!.substring(1)}',
                                         style: context.bodyLarge,
                                       ),
                                       Text(
-                                        '  - Notebook Series: ${notebook.series[0].toUpperCase() + notebook.series.substring(1)}',
+                                        '  - Notebook Series: ${notebook.series![0].toUpperCase() + notebook.series!.substring(1)}',
                                         style: context.bodyLarge,
                                       ),
                                       const SizedBox(
