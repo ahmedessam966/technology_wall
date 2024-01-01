@@ -8,7 +8,7 @@ import 'package:technology_wall/en/hardware/desktops/mobile/mobile_desktops_body
 import 'package:technology_wall/en/hardware/desktops/tablet/tablet_desktops_body.dart';
 import 'package:technology_wall/en/hardware/desktops/web/web_desktops_body.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
+import 'package:technology_wall/global/controllers/app_controllers.dart';
 
 class CustomersCarousel extends StatelessWidget {
   const CustomersCarousel({super.key});

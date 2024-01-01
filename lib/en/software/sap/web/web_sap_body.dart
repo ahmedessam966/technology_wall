@@ -7,7 +7,7 @@ import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'dart:html' as html;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:technology_wall/en/software/sap/components/sap_product_details.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 import '../controllers/sap_page_controllers.dart';
 
 class WebSAPBody extends StatelessWidget {

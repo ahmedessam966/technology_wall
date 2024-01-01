@@ -6,7 +6,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/cookies_manager.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
+import 'package:technology_wall/global/controllers/app_controllers.dart';
 
 class CookiePopup extends StatefulWidget {
   const CookiePopup({super.key});

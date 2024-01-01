@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/controllers/app_controllers.dart';
-import '../../../../core/controllers/cart_controllers.dart';
+import '../../../../global/controllers/app_controllers.dart';
+import '../../../../global/controllers/cart_controllers.dart';
 import '../../../shared/web/ar_web_printer_order_form.dart';
 
 class ARPrinterCardWidget extends StatelessWidget {

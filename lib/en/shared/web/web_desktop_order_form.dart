@@ -6,9 +6,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/input_validation_services.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/email_controller.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/controllers/email_controller.dart';
+import 'package:technology_wall/global/controllers/inventory_controllers.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class WebDesktopOrderForm extends StatefulWidget {
   final ProductModel desktop;

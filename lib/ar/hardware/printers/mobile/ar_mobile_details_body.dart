@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/global/models/printer_model.dart';
 
 class ARMobilePrinterDetailsBody extends StatelessWidget {
   final double sw;

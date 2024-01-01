@@ -1,7 +1,7 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 import 'package:flutter/material.dart';
-import '../core/controllers/app_controllers.dart';
+import '../global/controllers/app_controllers.dart';
 
 class TitleObserver extends NavigatorObserver {
   final AppControllers appControllers;

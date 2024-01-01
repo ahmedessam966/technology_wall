@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 
 class TabletSoftwareBody extends StatelessWidget {
   const TabletSoftwareBody({super.key});

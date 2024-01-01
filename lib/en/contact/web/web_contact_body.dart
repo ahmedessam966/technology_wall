@@ -8,7 +8,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'dart:html' as html;
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 
 class WebContactBody extends StatelessWidget {
   const WebContactBody({super.key});

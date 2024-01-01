@@ -6,9 +6,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/ar/shared/web/ar_web_notebook_form.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/global/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/shared/web/web_printer_order_form.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 import 'package:arabic_numbers/arabic_numbers.dart';
 
 class ARFeaturedCarousel extends StatelessWidget {

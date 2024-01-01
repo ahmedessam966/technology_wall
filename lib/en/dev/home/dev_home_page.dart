@@ -3,7 +3,7 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:technology_wall/en/dev/home/mobile/mobile_dev_home_body.dart';
 import 'package:technology_wall/en/dev/home/tablet/tablet_dev_home_body.dart';
 import 'package:technology_wall/en/dev/home/web/web_dev_home_body.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 
 class DevHomePage extends StatefulWidget {
   const DevHomePage({super.key});

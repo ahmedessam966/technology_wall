@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
-import '../../../core/models/product_model.dart';
+import '../../../global/models/product_model.dart';
 
 class Notebook extends StatelessWidget {
   final ProductModel product;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/metadata_controllers.dart';
-import 'package:technology_wall/core/models/product_model.dart';
-import '../../../../core/controllers/cart_controllers.dart';
+import 'package:technology_wall/global/controllers/metadata_controllers.dart';
+import 'package:technology_wall/global/models/product_model.dart';
+import '../../../../global/controllers/cart_controllers.dart';
 import '../../../shared/web/web_printer_order_form.dart';
 
 class MobilePrinterCard extends StatelessWidget {

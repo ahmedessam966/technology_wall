@@ -6,7 +6,7 @@ import 'package:technology_wall/en/about/mobile/mobile_about_body.dart';
 import 'package:technology_wall/en/about/tablet/tablet_about_body.dart';
 import 'package:technology_wall/en/about/web/web_about_body.dart';
 
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../global/controllers/metadata_controllers.dart';
 import '../../config/themes/app_theme.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';

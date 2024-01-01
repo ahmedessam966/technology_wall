@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/models/product_model.dart';
+import '../../../../global/models/product_model.dart';
 
 class NotebooksControllers extends ChangeNotifier {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////

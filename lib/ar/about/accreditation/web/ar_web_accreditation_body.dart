@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 
 class ARWebAccreditationBody extends StatelessWidget {
   const ARWebAccreditationBody({super.key});

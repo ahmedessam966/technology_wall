@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/cart_controllers.dart';
+import 'package:technology_wall/global/controllers/cart_controllers.dart';
 
 class CartWidget extends StatelessWidget {
   const CartWidget({super.key});

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/cart_controllers.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/controllers/cart_controllers.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 import 'package:technology_wall/en/shared/base_rect_button.dart';
 import '../../../../config/themes/app_theme.dart';
 

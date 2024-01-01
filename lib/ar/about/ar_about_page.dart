@@ -5,7 +5,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/ar/about/mobile/ar_mobile_about_body.dart';
 import 'package:technology_wall/ar/about/tablet/ar_tablet_about_body.dart';
 import 'package:technology_wall/ar/about/web/ar_web_about_body.dart';
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../global/controllers/metadata_controllers.dart';
 import '../shared/mobile/ar_mobile_footer.dart';
 import '../shared/mobile/ar_mobile_header.dart';
 import '../shared/tablet/ar_tablet_footer.dart';

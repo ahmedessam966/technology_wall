@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 import '../../../shared/web/web_printer_order_form.dart';
 

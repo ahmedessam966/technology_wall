@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
+import 'package:technology_wall/global/controllers/app_controllers.dart';
 import '../../../ar/shared/language_redirect.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../../../core/controllers/auth_controllers.dart';
+import '../../../global/controllers/auth_controllers.dart';
 import 'dart:html' as html;
 
 class WebHeader extends StatelessWidget {

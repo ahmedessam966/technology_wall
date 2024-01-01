@@ -2,14 +2,14 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 import '../../../shared/web/ar_cart_widget.dart';
 import '../../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_printers_builder_widget.dart';
 import '../components/ar_refined_printers_builder_widget.dart';
 
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/controllers/cart_controllers.dart';
+import '../../../../global/controllers/cart_controllers.dart';
 import '../controllers/ar_printers_controllers.dart';
 
 class ARWebHardwareBody extends StatelessWidget {

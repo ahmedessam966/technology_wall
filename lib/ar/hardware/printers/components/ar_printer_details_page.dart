@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/global/models/printer_model.dart';
 import '../../../shared/mobile/ar_mobile_footer.dart';
 import '../../../shared/tablet/ar_tablet_footer.dart';
 import '../../../shared/web/ar_web_footer.dart';

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/global/controllers/inventory_controllers.dart';
 import '../components/ar_inventory_category_card.dart';
 
 class ARWebInventoryBody extends StatelessWidget {

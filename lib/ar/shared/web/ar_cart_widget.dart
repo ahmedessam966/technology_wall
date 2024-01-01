@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/cart_controllers.dart';
+import 'package:technology_wall/global/controllers/cart_controllers.dart';
 
 class ARCartWidget extends StatelessWidget {
   const ARCartWidget({super.key});

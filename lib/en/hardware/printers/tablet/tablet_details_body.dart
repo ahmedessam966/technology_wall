@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class TabletPrinterDetailsBody extends StatelessWidget {
   final double sw;

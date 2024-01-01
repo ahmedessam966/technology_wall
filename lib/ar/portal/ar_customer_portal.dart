@@ -4,7 +4,7 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
-import '../../core/controllers/metadata_controllers.dart';
+import '../../global/controllers/metadata_controllers.dart';
 
 class ARCustomerPortal extends StatefulWidget {
   const ARCustomerPortal({super.key});

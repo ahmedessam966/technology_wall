@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/controllers/auth_controllers.dart';
+import '../../../global/controllers/auth_controllers.dart';
 
 class TabletHeader extends StatelessWidget {
   final double sw;

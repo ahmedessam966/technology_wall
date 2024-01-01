@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/cart_controllers.dart';
+import 'package:technology_wall/global/controllers/cart_controllers.dart';
 import '../../../shared/web/ar_cart_widget.dart';
 import '../../../shared/web/ar_web_purchase_order.dart';
 import '../components/ar_notebooks_builder_widget.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/printer_model.dart';
+import 'package:technology_wall/global/models/printer_model.dart';
 
 import '../../../shared/web/ar_web_printer_order_form.dart';
 

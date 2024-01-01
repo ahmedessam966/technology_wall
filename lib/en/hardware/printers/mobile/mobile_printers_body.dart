@@ -7,8 +7,8 @@ import 'package:technology_wall/en/hardware/printers/components/mobile_refined_b
 import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
 
 import '../../../../config/themes/app_theme.dart';
-import '../../../../core/controllers/cart_controllers.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/cart_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
 

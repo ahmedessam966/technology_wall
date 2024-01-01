@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 
 class ARWebPrivacyBody extends StatelessWidget {
   const ARWebPrivacyBody({super.key});

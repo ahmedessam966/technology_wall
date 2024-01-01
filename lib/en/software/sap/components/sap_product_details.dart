@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/controllers/metadata_controllers.dart';
+import 'package:technology_wall/global/controllers/metadata_controllers.dart';
 
 class SAPProductDetails extends StatelessWidget {
   final String product;

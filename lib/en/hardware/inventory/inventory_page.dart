@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/core/controllers/metadata_controllers.dart';
+import 'package:technology_wall/global/controllers/metadata_controllers.dart';
 import '../../../config/themes/app_theme.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';

@@ -9,7 +9,7 @@ import 'package:technology_wall/en/dev/home/components/dev_left_feature_block.da
 import 'package:technology_wall/en/dev/home/components/dev_metrics_container.dart';
 import 'package:technology_wall/en/dev/home/components/dev_right_feature_block.dart';
 
-import '../../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 
 class WebDevHomeBody extends StatelessWidget {
   const WebDevHomeBody({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
-import '../../core/controllers/metadata_controllers.dart';
+import '../../global/controllers/metadata_controllers.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';

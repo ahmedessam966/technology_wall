@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/core/models/microsoft_model.dart';
+import 'package:technology_wall/global/models/microsoft_model.dart';
 import 'package:technology_wall/en/software/software/components/microsoft_order_form.dart';
-import '../../../../core/controllers/cart_controllers.dart';
+import '../../../../global/controllers/cart_controllers.dart';
 
 class MicrosoftCard extends StatelessWidget {
   final MicrosoftModel? microsoft;

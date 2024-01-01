@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
-import '../../../../core/controllers/metadata_controllers.dart';
+import '../../../../global/controllers/metadata_controllers.dart';
 import 'mobile_printer_card.dart';
 
 class MobilePrintersBuilder extends StatelessWidget {

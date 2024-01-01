@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:provider/provider.dart';
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 import '../../shared/mobile/ar_mobile_footer.dart';
 import '../../shared/mobile/ar_mobile_header.dart';
 import '../../shared/tablet/ar_tablet_footer.dart';

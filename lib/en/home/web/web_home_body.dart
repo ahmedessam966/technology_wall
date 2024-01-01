@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/core/controllers/inventory_controllers.dart';
+import 'package:technology_wall/global/controllers/inventory_controllers.dart';
 import 'package:technology_wall/en/shared/base_rect_button.dart';
 import 'package:technology_wall/en/shared/web/web_purchase_order.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:technology_wall/core/controllers/app_controllers.dart';
+import 'package:technology_wall/global/controllers/app_controllers.dart';
 import 'package:technology_wall/en/home/components/featured_carousel.dart';
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 import '../components/customers_carousel.dart';
 import '../components/product_category_card.dart';
 

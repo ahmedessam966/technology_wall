@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:technology_wall/core/models/product_model.dart';
+import 'package:technology_wall/global/models/product_model.dart';
 
 class InventoryControllers extends ChangeNotifier {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////

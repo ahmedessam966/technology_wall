@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/en/hardware/notebooks/controllers/notebooks_controllers.dart';
 import '../../../config/themes/app_theme.dart';
-import '../../../core/controllers/metadata_controllers.dart';
+import '../../../global/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';

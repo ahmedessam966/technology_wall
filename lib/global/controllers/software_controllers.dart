@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:technology_wall/core/models/microsoft_model.dart';
+import 'package:technology_wall/global/models/microsoft_model.dart';
 
 class SoftwareControllers extends ChangeNotifier {
   final List<MicrosoftModel> _microsoftList = [];
