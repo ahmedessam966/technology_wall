@@ -10,10 +10,6 @@ class WebContactBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MetadataControllers metadataFunctions = MetadataControllers();
-    metadataFunctions.injectPageSpecificContent(
-        'Contact Email Address: info@techwall.com.sa - Contact Phone Number: +966542575808 - Facebook Page: https://facebook.com/techwall.sa - Address: Office 27, Building 233, Jarir Street, Olaya Computer Market, 12211 Riyadh, Saudi Arabia',
-        'en');
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

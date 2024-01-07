@@ -24,7 +24,7 @@ class DevMetricsContainer extends StatelessWidget {
         ),
         gradient: LinearGradient(colors: [
           AppTheme.darkest.withOpacity(1),
-          AppTheme.second.withOpacity(1),
+          AppTheme.third.withOpacity(1),
         ], begin: AlignmentDirectional.topCenter, end: AlignmentDirectional.bottomCenter),
         boxShadow: const [
           BoxShadow(offset: Offset(0, 0), blurRadius: 3, color: Colors.black38),

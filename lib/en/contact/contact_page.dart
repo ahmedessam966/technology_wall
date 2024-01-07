@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/en/contact/mobile/mobile_contact_body.dart';
 import 'package:technology_wall/en/contact/tablet/tablet_contact_body.dart';
 import 'package:technology_wall/en/contact/web/web_contact_body.dart';
-import '../../global/controllers/metadata_controllers.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
 import '../shared/tablet/tablet_header.dart';
 import '../shared/web/web_footer.dart';
 import '../shared/web/web_header.dart';
+import '../shared/web/direct_dependencies_index.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -33,6 +30,9 @@ class _ContactPageState extends State<ContactPage> {
     metadataFunctions.updateMetaData('Technology Wall | Contact Us',
         'We always value your feedback and opinions. You can contact us via the contact information listed here, or by filling the contact form and we\'ll reach out to you!. You can also check the frequently asked questions section of this page to get assistance faster.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'Contact Email Address: info@techwall.com.sa - Contact Phone Number: +966542575808 - Facebook Page: https://facebook.com/techwall.sa - Address: Office 27, Building 233, Jarir Street, Olaya Computer Market, 12211 Riyadh, Saudi Arabia',
+        'en');
   }
 
   @override

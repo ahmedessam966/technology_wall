@@ -35,6 +35,9 @@ class _DesktopsPageState extends State<DesktopsPage> {
     metadataFunctions.updateMetaData('Technology Wall | Dekstop Computers',
         'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired desktop computer here, offered with best prices. Explore Dell Microtower series, Dell OptiPlex series, HP Workstation series, and Lenovo ThinkCentre series.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'Find and explore our unqiue collection of dependable and versatile desktop computers, suitable for every use and every individual',
+        'en');
   }
 
   @override

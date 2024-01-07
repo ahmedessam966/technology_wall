@@ -9,18 +9,11 @@ import 'package:technology_wall/en/dev/home/components/dev_left_feature_block.da
 import 'package:technology_wall/en/dev/home/components/dev_metrics_container.dart';
 import 'package:technology_wall/en/dev/home/components/dev_right_feature_block.dart';
 
-import '../../../../global/controllers/metadata_controllers.dart';
-
 class WebDevHomeBody extends StatelessWidget {
   const WebDevHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        'Explore our sample customizations for web development projects, and mobile and desktop applications. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise on the web, computers, and phones.',
-        'en');
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

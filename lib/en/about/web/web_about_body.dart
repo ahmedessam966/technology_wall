@@ -2,18 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import '../../../global/controllers/metadata_controllers.dart';
 
 class WebAboutBody extends StatelessWidget {
   const WebAboutBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        'About Page\n  Discover what drives Technology Wall. Our motivation, vision, and goals. \n The beginning of Technology Wall; how it started. \n Founded by Muhib Marghilani, Technology Wall\'s General Director, and Essameldin Ahmed, Technology Wall\'s Regional MENA Director, the origins of Technology Wall extend back to 2000, which have then transformed to establish a pioneering entity in the field of technology and information systems. Technology Wall has maintained sustainable and feasible expansion strategies that have allowed for the entity\'s growth for the past 23 years, providing unparalleled quality services for more than 50 clients. \n Technology Wall aims to be a major contributor in the digitization initiative in Saudi Arabia. \n In line with the vision of the Kingdom of Saudi Arabia for the year 2030, we aim to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
-        'en');
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

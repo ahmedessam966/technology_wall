@@ -13,11 +13,6 @@ class WebPrintersBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-
-    metadataControllers.injectPageSpecificContent(
-        'Explore or search for your desired printer. Explore the types of printers available: Color laserjet, dot-matrix, monochrome laserjet, deskjet, heavy-duty office utility, network printers, and all-in-one printer models. Guaranteed brands; HP, Canon, Epson, and Zebra printers.',
-        'en');
     return Consumer<PrintersControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,

@@ -12,10 +12,6 @@ class WebDesktopsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        'Find and explore our unqiue collection of dependable and versatile desktop computers, suitable for every use and every individual',
-        'en');
     return Consumer<DekstopsControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,

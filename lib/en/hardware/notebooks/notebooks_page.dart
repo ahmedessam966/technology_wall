@@ -33,6 +33,9 @@ class _NotebooksPageState extends State<NotebooksPage> {
     metadataFunctions.updateMetaData('Technology Wall | Notebooks - Laptops',
         'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired portable computer here, offered with best prices.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'Find and explore our unqiue collection of dependable and versatile portable computers, suitable for every use and every individual',
+        'en');
   }
 
   @override

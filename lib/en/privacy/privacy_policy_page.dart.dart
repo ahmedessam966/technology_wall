@@ -8,7 +8,6 @@ import 'package:technology_wall/global/controllers/metadata_controllers.dart';
 import 'package:technology_wall/en/privacy/mobile/mobile_privacy_body.dart';
 import 'package:technology_wall/en/privacy/tablet/tablet_privacy_body.dart';
 import 'package:technology_wall/en/privacy/web/web_privacy_body.dart';
-
 import '../../config/themes/app_theme.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
@@ -34,6 +33,9 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
     metadataFunctions.updateMetaData('Technology Wall | Privacy',
         'Technology Wall\'s privacy policy and terms of service. This page contains all the essential acknowledgments, waivers, and data collection and processing procedures that may be of any interest to our clients and website visitors.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'We respect your privacy and take the safety of your online shopping seriously. However, in order to be able to provide you with better products, more effective customer service, and personalized updates, we may record a set of information from your visit to the our website. For disclosure and transparency, the following statemnts describe policies and procedures, and how and why your information is collected and used.',
+        'en');
   }
 
   @override

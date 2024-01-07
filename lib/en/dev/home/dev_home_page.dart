@@ -23,6 +23,9 @@ class _DevHomePageState extends State<DevHomePage> {
         'Explore our sample customizations for web development projects. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise online.');
     metadataFunctions.updateMetaData('Technology Wall | Development Center',
         'Develop your custom software or web kits with Technology Wall.');
+    metadataFunctions.injectPageSpecificContent(
+        'Explore our sample customizations for web development projects, and mobile and desktop applications. Technology Wall offers a comprehensive and customized services for designing, implementing, and hosting your enterprise on the web, computers, and phones.',
+        'en');
   }
 
   @override

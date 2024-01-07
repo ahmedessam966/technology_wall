@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/en/about/mobile/mobile_about_body.dart';
 import 'package:technology_wall/en/about/tablet/tablet_about_body.dart';
 import 'package:technology_wall/en/about/web/web_about_body.dart';
-
-import '../../global/controllers/metadata_controllers.dart';
-import '../../config/themes/app_theme.dart';
+import '../shared/web/direct_dependencies_index.dart';
 import '../shared/mobile/mobile_footer.dart';
 import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
@@ -34,6 +30,9 @@ class _AboutPageState extends State<AboutPage> {
     metadataFunctions.updateMetaData('Technology Wall | About',
         'Since 2000, Technology Wall has made an impact in the IT services field. The founding members, possess extensive technology and IT experience that allow them to pave the way to establishing a successful and impactful entity.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'About Page\n  Discover what drives Technology Wall. Our motivation, vision, and goals. \n The beginning of Technology Wall; how it started. \n Founded by Muhib Marghilani, Technology Wall\'s General Director, and Essameldin Ahmed, Technology Wall\'s Regional MENA Director, the origins of Technology Wall extend back to 2000, which have then transformed to establish a pioneering entity in the field of technology and information systems. Technology Wall has maintained sustainable and feasible expansion strategies that have allowed for the entity\'s growth for the past 23 years, providing unparalleled quality services for more than 50 clients. \n Technology Wall aims to be a major contributor in the digitization initiative in Saudi Arabia. \n In line with the vision of the Kingdom of Saudi Arabia for the year 2030, we aim to contribute in the digital infrastructure development; keeping pace with developments in the field of technology is one of our paramount priorities. Technology Wall thrives to achieve customer satisfaction and providing comprehensive services stemming from our philosophy represented by placing the client in the first place.',
+        'en');
   }
 
   @override
