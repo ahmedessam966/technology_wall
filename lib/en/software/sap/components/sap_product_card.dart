@@ -5,12 +5,12 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/en/software/sap/controllers/sap_page_controllers.dart';
 import '../../../../config/themes/app_theme.dart';
-import 'sap_product_details.dart';
 
 class SAPProductCard extends StatelessWidget {
   final String image;
   final String title;
-  const SAPProductCard({super.key, required this.image, required this.title});
+  final Widget destination;
+  const SAPProductCard({super.key, required this.image, required this.title, required this.destination});
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +35,8 @@ class SAPProductCard extends StatelessWidget {
           ),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
           surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-      onPressed: () async {
-        await showAdaptiveDialog(
-            context: context,
-            builder: (context) {
-              return SAPProductDetails(
-                product: title,
-              );
-            });
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => destination));
       },
       child: Flex(
         direction: Axis.vertical,

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:flutter_svg/svg.dart';
-import '../../../config/themes/app_theme.dart';
-import '../../../global/controllers/metadata_controllers.dart';
 import '../../shared/mobile/mobile_footer.dart';
 import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';
@@ -10,6 +7,7 @@ import '../../shared/tablet/tablet_header.dart';
 import '../../shared/web/web_footer.dart';
 import '../../shared/web/web_header.dart';
 import 'web/web_sap_body.dart';
+import '../../shared/web/direct_dependencies_index.dart';
 
 class SAPPage extends StatefulWidget {
   const SAPPage({super.key});
@@ -26,6 +24,9 @@ class _SAPPageState extends State<SAPPage> {
     metadataFunctions.updateMetaData('Technology Wall | SAP',
         'Explore the realm of SAP Enterprise Resource Planning solutions, services, and products. Get to know the aspects that makes SAP stand out among the top-tier ERP solutions in the world.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'SAP Business One Solutions: ERP system that is specialized and tailored for small to medium-sized enterprises. Providing unparalleled modules and solutions including, Cloud ERP, Business Technology Plarform, Artificial Intelligence, Supply Chain Management, Financial Management, and much more.\n\n\n Get your certified SAP solutions with Technology Wall.',
+        'en');
   }
 
   @override

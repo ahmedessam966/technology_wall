@@ -2,7 +2,17 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technology_wall/en/software/sap/components/ai_hero.dart';
+import 'package:technology_wall/en/software/sap/components/business_network_hero.dart';
+import 'package:technology_wall/en/software/sap/components/business_tech_hero.dart';
+import 'package:technology_wall/en/software/sap/components/cloud_hero.dart';
+import 'package:technology_wall/en/software/sap/components/crm_hero.dart';
+import 'package:technology_wall/en/software/sap/components/financial_hero.dart';
+import 'package:technology_wall/en/software/sap/components/human_capital_hero.dart';
+import 'package:technology_wall/en/software/sap/components/industry_hero.dart';
 import 'package:technology_wall/en/software/sap/components/sap_intro_card.dart';
+import 'package:technology_wall/en/software/sap/components/spend_hero.dart';
+import 'package:technology_wall/en/software/sap/components/supply_chain_hero.dart';
 import '../components/sap_product_card.dart';
 import '../controllers/sap_page_controllers.dart';
 import '../../../shared/web/direct_dependencies_index.dart';
@@ -12,123 +22,28 @@ class WebSAPBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        'SAP Business One Solutions: ERP system that is specialized and tailored for small to medium-sized enterprises. Providing unparalleled modules and solutions including, Cloud ERP, Business Technology Plarform, Artificial Intelligence, Supply Chain Management, Financial Management, and much more.\n\n\n Get your certified SAP solutions with Technology Wall.',
-        'en');
     return Consumer<SAPPageControllers>(builder: (context, provider, _) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Flex(
-              direction: Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 10,
-                  child: SlideInLeft(
-                    duration: const Duration(milliseconds: 1000),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        SelectableText(
-                          'SAP Enterprise Resource Planning (ERP)',
-                          style: context.headlineMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        SelectableText(
-                          'SAP is one of the world’s leading producers of software for the management of business processes.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Row(
-                          children: [
-                            SelectableText(
-                              'Financial Management',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        SelectableText(
-                          'A core and vital enterprise management module, required for every business entity.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Row(
-                          children: [
-                            SelectableText(
-                              'CRM & Customer Experience',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        SelectableText(
-                          'Customer feedback moderation is essential for the growth of the enterprise.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        SelectableText(
-                          'Discover the realm of SAP services.',
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        BaseRectButton(
-                          title: 'Discover at Sap.com',
-                          action: () {
-                            html.window.open('https://www.sap.com/', 'SAP Website');
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Expanded(
-                  flex: 8,
-                  child: Opacity(
-                    opacity: 0.7,
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          WebBlueHero(
+              titleBig: 'SAP Enterprise Resource Planning (ERP)',
+              titleSmall:
+                  'SAP is one of the world’s leading producers of software for the management of business processes.',
+              firstHead: 'Financial Management',
+              firstSub: 'A core and vital enterprise management module, required for every business entity.',
+              secondHead: 'CRM & Customer Experience',
+              secondSub: 'Customer feedback moderation is essential for the growth of the enterprise.',
+              actionPhrase: 'Discover the realm of SAP services.',
+              hasButton: true,
+              buttonTitle: 'Discover at sap.com',
+              buttonAction: () {
+                html.window.open('https://www.sap.com/', 'SAP Website');
+              },
+              image:
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsap.png?alt=media&token=13ea2871-e588-48ea-a230-8d37d9d79db3'),
           Container(
             padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
@@ -241,21 +156,85 @@ class WebSAPBody extends StatelessWidget {
                             mainAxisSpacing: 2.w,
                             childAspectRatio: 1),
                         children: const [
-                          SAPProductCard(image: 'assets/icons/cloud.svg', title: 'Cloud ERP'),
-                          SAPProductCard(
+                          Hero(
+                              tag: 'cloud_hero',
+                              child: SAPProductCard(
+                                image: 'assets/icons/cloud.svg',
+                                title: 'Cloud ERP',
+                                destination: CloudERPHero(),
+                              )),
+                          Hero(
+                            tag: 'business_tech_hero',
+                            child: SAPProductCard(
                               image: 'assets/icons/business-tech-platform.svg',
-                              title: 'Business Technology Platform'),
-                          SAPProductCard(image: 'assets/icons/ai.svg', title: 'Artificial Intelligence'),
-                          SAPProductCard(
-                              image: 'assets/icons/supply-chain.svg', title: 'Supply Chain Management'),
-                          SAPProductCard(image: 'assets/icons/financial.svg', title: 'Financial Management'),
-                          SAPProductCard(image: 'assets/icons/crm.svg', title: 'CRM & Customer Experience'),
-                          SAPProductCard(image: 'assets/icons/spend.svg', title: 'Spend Management'),
-                          SAPProductCard(
-                              image: 'assets/icons/human-capital.svg', title: 'Human Capital Management'),
-                          SAPProductCard(image: 'assets/icons/industry.svg', title: 'Industry Solutions'),
-                          SAPProductCard(
-                              image: 'assets/icons/business-network.svg', title: 'Business Netowrk'),
+                              title: 'Business Technology Platform',
+                              destination: BusinessTechHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'ai_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/ai.svg',
+                              title: 'Artificial Intelligence',
+                              destination: ArtificialIntelligenceHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'supply_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/supply-chain.svg',
+                              title: 'Supply Chain Management',
+                              destination: SupplyChainHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'financial_management_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/financial.svg',
+                              title: 'Financial Management',
+                              destination: FinancialManagementHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'crm_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/crm.svg',
+                              title: 'CRM & Customer Experience',
+                              destination: CRMHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'spend_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/spend.svg',
+                              title: 'Spend Management',
+                              destination: SpendManagementHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'human_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/human-capital.svg',
+                              title: 'Human Capital Management',
+                              destination: HumanCapitalHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'industry_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/industry.svg',
+                              title: 'Industry Solutions',
+                              destination: IndustrySolutionsHero(),
+                            ),
+                          ),
+                          Hero(
+                            tag: 'business_net_hero',
+                            child: SAPProductCard(
+                              image: 'assets/icons/business-network.svg',
+                              title: 'Business Netowrk',
+                              destination: BusinessNetworkHero(),
+                            ),
+                          ),
                         ],
                       ),
                     ),
