@@ -1,14 +1,9 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
 
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
+import '../../shared/web/direct_dependencies_index.dart';
 import 'dart:html' as html;
-import '../../../global/controllers/metadata_controllers.dart';
 
 class WebContactBody extends StatelessWidget {
   const WebContactBody({super.key});

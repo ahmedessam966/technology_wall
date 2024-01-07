@@ -1,16 +1,12 @@
-import 'package:animate_do/animate_do.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/cart_controllers.dart';
 import 'package:technology_wall/en/hardware/notebooks/controllers/notebooks_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
 import '../components/notebooks_builder_widget.dart';
 import '../components/refined_notebooks_builder_widget.dart';
-import '../../../../config/themes/app_theme.dart';
-import '../../../../global/controllers/metadata_controllers.dart';
 
 class WebNotebooksBody extends StatelessWidget {
   const WebNotebooksBody({super.key});

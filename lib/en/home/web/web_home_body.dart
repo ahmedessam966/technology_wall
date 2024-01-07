@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../shared/web/direct_dependencies_index.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/en/shared/base_rect_button.dart';
 import 'package:technology_wall/en/shared/web/web_purchase_order.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:animate_do/animate_do.dart';
 import 'package:technology_wall/global/controllers/app_controllers.dart';
 import 'package:technology_wall/en/home/components/featured_carousel.dart';
-import '../../../global/controllers/metadata_controllers.dart';
 import '../components/customers_carousel.dart';
 import '../components/product_category_card.dart';
 
@@ -28,101 +22,25 @@ class WebHomeBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SlideInLeft(
-                  duration: const Duration(milliseconds: 1000),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      SelectableText('Integrated Solutions - Easy and Reliable',
-                          style: context.headlineMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      SelectableText('All-Round Medium of Digitized Services',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Row(
-                        children: [
-                          SelectableText('Hardware Services',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      SelectableText('Supplying primary hardware and up to complex servers',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        children: [
-                          SelectableText('Software Services',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          const Icon(
-                            Icons.arrow_right_alt_sharp,
-                            color: Color(0xaaffffff),
-                          ),
-                        ],
-                      ),
-                      SelectableText(
-                          'Licensed, supported software solutions required for business intelligence',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      SelectableText('Save valuable time and effort. Explore our integrated solutions plan',
-                          style: context.headlineSmall?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      BaseRectButton(
-                        title: 'Create Purchase Order',
-                        action: () async {
-                          await showAdaptiveDialog(
-                              context: context,
-                              builder: (ctx) {
-                                return const WebPurchaseOrder();
-                              });
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fserver-back.png?alt=media&token=f6276371-4a7b-4e89-aa7d-2d6799ff5819',
-                  height: 35.h,
-                ),
-              ],
-            ),
-          ),
+          WebBlueHero(
+              titleBig: 'Integrated Solutions - Easy and Reliable',
+              titleSmall: 'All-Round Medium of Digitized Services',
+              firstHead: 'Hardware Services',
+              firstSub: 'Supplying primary hardware and up to complex servers',
+              secondHead: 'Software Services',
+              secondSub: 'Licensed, supported software solutions required for business intelligence',
+              actionPhrase: 'Save valuable time and effort. Explore our integrated solutions plan',
+              hasButton: true,
+              buttonTitle: 'Create Purchase Order',
+              buttonAction: () async {
+                await showAdaptiveDialog(
+                    context: context,
+                    builder: (ctx) {
+                      return const WebPurchaseOrder();
+                    });
+              },
+              image:
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fserver-back.png?alt=media&token=f6276371-4a7b-4e89-aa7d-2d6799ff5819'),
           SizedBox(
             height: 10.h,
           ),
@@ -359,6 +277,9 @@ class WebHomeBody extends StatelessWidget {
                                     width: 1.w,
                                   ),
                                   GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/en/software/sap');
+                                    },
                                     child: Text('Learn More',
                                         style: context.bodyLarge?.copyWith(color: Colors.blue.shade700)),
                                   )

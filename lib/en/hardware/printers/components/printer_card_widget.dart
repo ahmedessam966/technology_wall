@@ -6,7 +6,7 @@ import 'package:technology_wall/global/models/product_model.dart';
 import '../../../../config/themes/app_theme.dart';
 import '../../../../global/controllers/app_controllers.dart';
 import '../../../../global/controllers/cart_controllers.dart';
-import '../../../shared/base_rect_button.dart';
+import '../../../shared/web/base_rect_button.dart';
 import '../../../shared/web/web_printer_order_form.dart';
 
 class PrinterCardWidget extends StatelessWidget {

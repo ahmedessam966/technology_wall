@@ -1,13 +1,10 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/software_controllers.dart';
 import 'package:technology_wall/en/software/software/components/microsoft_products_builder.dart';
 import '../../../../global/controllers/cart_controllers.dart';
-import '../../../../global/controllers/metadata_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 
 class WebSoftwareBody extends StatelessWidget {
   const WebSoftwareBody({super.key});

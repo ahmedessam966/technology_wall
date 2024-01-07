@@ -1,16 +1,11 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/cart_controllers.dart';
 import 'package:technology_wall/en/hardware/desktops/components/desktops_builder_widget.dart';
 import 'package:technology_wall/en/hardware/desktops/controllers/desktops_controllers.dart';
-import 'package:technology_wall/en/shared/base_rect_button.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
-import '../../../../config/themes/app_theme.dart';
-import '../../../../global/controllers/metadata_controllers.dart';
 
 class WebDesktopsBody extends StatelessWidget {
   const WebDesktopsBody({super.key});
@@ -27,98 +22,18 @@ class WebDesktopsBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Flex(
-              direction: Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 6,
-                  child: SlideInLeft(
-                    duration: const Duration(milliseconds: 1000),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'One-Stop Shop for Any Desktop Computer',
-                          style: context.headlineMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'For Personal Use',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Simple, trendy, and affordable collections',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'For Business Use',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Flexible and customizable selections for a robust performance',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Text(
-                          'Explore the latest models from renowned manufacturers. Tailored for design, graphics, gaming, and development purposes',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Expanded(
-                  flex: 5,
-                  child: Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fimac.webp?alt=media&token=b2f1e6e9-8666-4a5f-87d3-bc61dd946663',
-                    height: 35.h,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const WebBlueHero(
+              titleBig: 'One-Stop Shop for Any Desktop Computer',
+              titleSmall: '',
+              firstHead: 'For Personal Use',
+              firstSub: 'Simple, trendy, and affordable collections',
+              secondHead: 'For Business Use',
+              secondSub: 'Flexible and customizable selections for a robust performance',
+              actionPhrase:
+                  'Explore the latest models from renowned manufacturers. Tailored for design, graphics, gaming, and development purposes',
+              hasButton: false,
+              image:
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fimac.webp?alt=media&token=b2f1e6e9-8666-4a5f-87d3-bc61dd946663'),
           SizedBox(
             height: 10.h,
           ),

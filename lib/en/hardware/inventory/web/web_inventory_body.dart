@@ -1,10 +1,6 @@
-import 'package:animate_do/animate_do.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/global/controllers/inventory_controllers.dart';
 import '../components/inventory_category_card.dart';
 

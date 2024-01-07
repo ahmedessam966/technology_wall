@@ -1,14 +1,11 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:technology_wall/config/themes/app_theme.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:technology_wall/en/software/sap/components/sap_product_details.dart';
-import '../../../../global/controllers/metadata_controllers.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:technology_wall/en/software/sap/components/sap_intro_card.dart';
+import '../components/sap_product_card.dart';
 import '../controllers/sap_page_controllers.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 
 class WebSAPBody extends StatelessWidget {
   const WebSAPBody({super.key});
@@ -26,7 +23,7 @@ class WebSAPBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
             child: Flex(
               direction: Axis.horizontal,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,15 +43,15 @@ class WebSAPBody extends StatelessWidget {
                           style: context.headlineMedium?.copyWith(
                               color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 2.h,
                         ),
                         SelectableText(
                           'SAP is one of the world’s leading producers of software for the management of business processes.',
                           style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 1.h,
                         ),
                         Row(
                           children: [
@@ -63,8 +60,8 @@ class WebSAPBody extends StatelessWidget {
                               style:
                                   context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             const Icon(
                               Icons.arrow_right_alt_sharp,
@@ -76,8 +73,8 @@ class WebSAPBody extends StatelessWidget {
                           'A core and vital enterprise management module, required for every business entity.',
                           style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 1.h,
                         ),
                         Row(
                           children: [
@@ -86,8 +83,8 @@ class WebSAPBody extends StatelessWidget {
                               style:
                                   context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                             ),
-                            const SizedBox(
-                              width: 10,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             const Icon(
                               Icons.arrow_right_alt_sharp,
@@ -99,40 +96,21 @@ class WebSAPBody extends StatelessWidget {
                           'Customer feedback moderation is essential for the growth of the enterprise.',
                           style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 2.h,
                         ),
                         SelectableText(
                           'Discover the realm of SAP services.',
                           style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
                         ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 2.h,
                         ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: const MaterialStatePropertyAll(0),
-                            shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(1),
-                                side: const BorderSide(color: Colors.white70),
-                              ),
-                            ),
-                            backgroundColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return const Color(0xaa7c9cc1).withOpacity(1);
-                              } else {
-                                return const Color(0xaa071923).withOpacity(1);
-                              }
-                            }),
-                          ),
-                          onPressed: () {
+                        BaseRectButton(
+                          title: 'Discover at Sap.com',
+                          action: () {
                             html.window.open('https://www.sap.com/', 'SAP Website');
                           },
-                          child: Text(
-                            'Discover at SAP.com',
-                            style: context.bodyMedium?.copyWith(color: Colors.white70),
-                          ),
                         ),
                       ],
                     ),
@@ -151,11 +129,8 @@ class WebSAPBody extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 100,
-          ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
             color: const Color(0xaaf7f7f7).withOpacity(1),
             child: Stack(
               children: [
@@ -190,8 +165,8 @@ class WebSAPBody extends StatelessWidget {
                         style: context.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: 1.5.h,
                     ),
                     Center(
                       child: SelectableText(
@@ -199,8 +174,8 @@ class WebSAPBody extends StatelessWidget {
                         style: context.bodyLarge,
                       ),
                     ),
-                    const SizedBox(
-                      height: 100,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Center(
                       child: SelectableText(
@@ -208,38 +183,36 @@ class WebSAPBody extends StatelessWidget {
                         style: context.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: 2.5.h,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Flex(
+                      padding: EdgeInsets.symmetric(horizontal: 1.5.w),
+                      child: const Flex(
                         direction: Axis.horizontal,
                         children: [
                           Expanded(
                             flex: 4,
-                            child: SelectableText(
-                              'Traditional business models often decentralize data management, with each business function storing its own operational data in a separate database. This makes it difficult for employees from different business functions to access each other’s information. Furthermore, duplication of data across multiple departments increases IT storage costs and the risk of data errors.',
-                              style: context.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
-                            ),
+                            child: SAPIntroCard(
+                                description:
+                                    'Traditional business models often decentralize data management, with each business function storing its own operational data in a separate database. This makes it difficult for employees from different business functions to access each other’s information. Furthermore, duplication of data across multiple departments increases IT storage costs and the risk of data errors.'),
                           ),
-                          const Spacer(),
+                          Spacer(),
                           Expanded(
                             flex: 4,
-                            child: SelectableText(
-                              'By centralizing data management, SAP software provides multiple business functions with a single view of the truth. This helps companies better manage complex business processes by giving employees of different departments easy access to real-time insights across the enterprise. As a result, businesses can accelerate workflows, improve operational efficiency, raise productivity, enhance customer experiences – and ultimately increase profits.',
-                              style: context.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
-                            ),
+                            child: SAPIntroCard(
+                                description:
+                                    'By centralizing data management, SAP software provides multiple business functions with a single view of the truth. This helps companies better manage complex business processes by giving employees of different departments easy access to real-time insights across the enterprise. As a result, businesses can accelerate workflows, improve operational efficiency, raise productivity, enhance customer experiences – and ultimately increase profits.'),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 50,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     const Divider(),
-                    const SizedBox(
-                      height: 50,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Center(
                       child: SelectableText(
@@ -247,8 +220,8 @@ class WebSAPBody extends StatelessWidget {
                         style: context.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 1.h,
                     ),
                     Center(
                       child: SelectableText(
@@ -256,486 +229,33 @@ class WebSAPBody extends StatelessWidget {
                         style: context.bodyLarge,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 2.h,
                     ),
                     SizedBox(
-                      height: 600,
+                      height: 80.h,
                       child: GridView(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 5,
-                            crossAxisSpacing: 20,
-                            mainAxisSpacing: 20,
+                            crossAxisSpacing: 2.w,
+                            mainAxisSpacing: 2.w,
                             childAspectRatio: 1),
-                        children: [
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () async {
-                              await showAdaptiveDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return const SAPProductDetails(
-                                      product: 'Cloud ERP',
-                                    );
-                                  });
-                            },
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/cloud.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Cloud ERP',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/business-tech-platform.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Business Technology Platform',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/ai.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Artificial Intelligence',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/supply-chain.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Supply Chain Management',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/financial.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Financial Management',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/crm.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'CRM & Customer Experience',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/spend.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Spend Management',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/human-capital.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Human Capital Management',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/industry.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Industry Solutions',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-                                elevation: MaterialStatePropertyAll(provider.isHovered ? 4 : 1),
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return AppTheme.second;
-                                  } else if (states.contains(MaterialState.hovered)) {
-                                    return AppTheme.darkest.withOpacity(0.1);
-                                  } else {
-                                    return null;
-                                  }
-                                }),
-                                shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                                surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-                            onPressed: () {},
-                            child: Flex(
-                              direction: Axis.vertical,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 5,
-                                  child: SvgPicture.asset(
-                                    'assets/icons/business-network.svg',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Business Network',
-                                    textAlign: TextAlign.center,
-                                    style: context.bodyLarge,
-                                  ),
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ),
+                        children: const [
+                          SAPProductCard(image: 'assets/icons/cloud.svg', title: 'Cloud ERP'),
+                          SAPProductCard(
+                              image: 'assets/icons/business-tech-platform.svg',
+                              title: 'Business Technology Platform'),
+                          SAPProductCard(image: 'assets/icons/ai.svg', title: 'Artificial Intelligence'),
+                          SAPProductCard(
+                              image: 'assets/icons/supply-chain.svg', title: 'Supply Chain Management'),
+                          SAPProductCard(image: 'assets/icons/financial.svg', title: 'Financial Management'),
+                          SAPProductCard(image: 'assets/icons/crm.svg', title: 'CRM & Customer Experience'),
+                          SAPProductCard(image: 'assets/icons/spend.svg', title: 'Spend Management'),
+                          SAPProductCard(
+                              image: 'assets/icons/human-capital.svg', title: 'Human Capital Management'),
+                          SAPProductCard(image: 'assets/icons/industry.svg', title: 'Industry Solutions'),
+                          SAPProductCard(
+                              image: 'assets/icons/business-network.svg', title: 'Business Netowrk'),
                         ],
                       ),
                     ),

@@ -1,16 +1,11 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
-import '../../../../global/controllers/metadata_controllers.dart';
 import '../../../shared/web/cart_widget.dart';
 import '../../../shared/web/web_purchase_order.dart';
 import '../components/printers_builder_widget.dart';
 import '../components/refined_printers_builder_widget.dart';
-
-import '../../../../config/themes/app_theme.dart';
+import '../../../shared/web/direct_dependencies_index.dart';
 import '../../../../global/controllers/cart_controllers.dart';
 
 class WebPrintersBody extends StatelessWidget {
