@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ARDesktopsControllers()),
         ChangeNotifierProvider(create: (_) => ARNotebooksControllers()),
         ChangeNotifierProvider(create: (_) => ARPrintersControllers()),
+        ChangeNotifierProvider(create: (_) => PrintersControllers()),
       ],
       builder: (context, _) {
         final themeNotifier = context.watch<ThemeModeServices>();
