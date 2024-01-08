@@ -3,14 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'sap_product_details.dart';
 import 'package:technology_wall/en/software/sap/controllers/sap_page_controllers.dart';
-import '../../../../config/themes/app_theme.dart';
+import '../../../../../config/themes/app_theme.dart';
 
 class SAPProductCard extends StatelessWidget {
   final String image;
   final String title;
-  final Widget destination;
-  const SAPProductCard({super.key, required this.image, required this.title, required this.destination});
+
+  const SAPProductCard({super.key, required this.image, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,20 @@ class SAPProductCard extends StatelessWidget {
           }),
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(2.px),
             ),
           ),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
           surfaceTintColor: const MaterialStatePropertyAll(Colors.white)),
-      onPressed: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => destination));
+      onPressed: () async {
+        await showAdaptiveDialog(
+            context: context,
+            builder: (ctx) {
+              return SAPProductDetails(
+                product: title,
+                image: image,
+              );
+            });
       },
       child: Flex(
         direction: Axis.vertical,

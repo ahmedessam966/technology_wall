@@ -4,7 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:technology_wall/en/software/sap/controllers/sap_page_controllers.dart';
 
-import '../../../../config/themes/app_theme.dart';
+import '../../../../../config/themes/app_theme.dart';
 
 class SAPIntroCard extends StatelessWidget {
   final String description;

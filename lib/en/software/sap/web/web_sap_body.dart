@@ -2,17 +2,7 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technology_wall/en/software/sap/components/ai_hero.dart';
-import 'package:technology_wall/en/software/sap/components/business_network_hero.dart';
-import 'package:technology_wall/en/software/sap/components/business_tech_hero.dart';
-import 'package:technology_wall/en/software/sap/components/cloud_hero.dart';
-import 'package:technology_wall/en/software/sap/components/crm_hero.dart';
-import 'package:technology_wall/en/software/sap/components/financial_hero.dart';
-import 'package:technology_wall/en/software/sap/components/human_capital_hero.dart';
-import 'package:technology_wall/en/software/sap/components/industry_hero.dart';
-import 'package:technology_wall/en/software/sap/components/sap_intro_card.dart';
-import 'package:technology_wall/en/software/sap/components/spend_hero.dart';
-import 'package:technology_wall/en/software/sap/components/supply_chain_hero.dart';
+import '../components/sap_intro_card.dart';
 import '../components/sap_product_card.dart';
 import '../controllers/sap_page_controllers.dart';
 import '../../../shared/web/direct_dependencies_index.dart';
@@ -156,84 +146,45 @@ class WebSAPBody extends StatelessWidget {
                             mainAxisSpacing: 2.w,
                             childAspectRatio: 1),
                         children: const [
-                          Hero(
-                              tag: 'cloud_hero',
-                              child: SAPProductCard(
-                                image: 'assets/icons/cloud.svg',
-                                title: 'Cloud ERP',
-                                destination: CloudERPHero(),
-                              )),
-                          Hero(
-                            tag: 'business_tech_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/business-tech-platform.svg',
-                              title: 'Business Technology Platform',
-                              destination: BusinessTechHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/cloud.svg',
+                            title: 'Cloud ERP',
                           ),
-                          Hero(
-                            tag: 'ai_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/ai.svg',
-                              title: 'Artificial Intelligence',
-                              destination: ArtificialIntelligenceHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/business-tech-platform.svg',
+                            title: 'Business Technology Platform',
                           ),
-                          Hero(
-                            tag: 'supply_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/supply-chain.svg',
-                              title: 'Supply Chain Management',
-                              destination: SupplyChainHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/ai.svg',
+                            title: 'Artificial Intelligence',
                           ),
-                          Hero(
-                            tag: 'financial_management_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/financial.svg',
-                              title: 'Financial Management',
-                              destination: FinancialManagementHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/supply-chain.svg',
+                            title: 'Supply Chain Management',
                           ),
-                          Hero(
-                            tag: 'crm_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/crm.svg',
-                              title: 'CRM & Customer Experience',
-                              destination: CRMHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/financial.svg',
+                            title: 'Financial Management',
                           ),
-                          Hero(
-                            tag: 'spend_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/spend.svg',
-                              title: 'Spend Management',
-                              destination: SpendManagementHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/crm.svg',
+                            title: 'CRM & Customer Experience',
                           ),
-                          Hero(
-                            tag: 'human_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/human-capital.svg',
-                              title: 'Human Capital Management',
-                              destination: HumanCapitalHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/spend.svg',
+                            title: 'Spend Management',
                           ),
-                          Hero(
-                            tag: 'industry_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/industry.svg',
-                              title: 'Industry Solutions',
-                              destination: IndustrySolutionsHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/human-capital.svg',
+                            title: 'Human Capital Management',
                           ),
-                          Hero(
-                            tag: 'business_net_hero',
-                            child: SAPProductCard(
-                              image: 'assets/icons/business-network.svg',
-                              title: 'Business Netowrk',
-                              destination: BusinessNetworkHero(),
-                            ),
+                          SAPProductCard(
+                            image: 'assets/icons/industry.svg',
+                            title: 'Industry Solutions',
+                          ),
+                          SAPProductCard(
+                            image: 'assets/icons/business-network.svg',
+                            title: 'Business Netowrk',
                           ),
                         ],
                       ),

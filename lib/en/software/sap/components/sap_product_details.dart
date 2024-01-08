@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/global/controllers/metadata_controllers.dart';
 
 class SAPProductDetails extends StatelessWidget {
   final String product;
-  const SAPProductDetails({super.key, required this.product});
+  final String image;
+  const SAPProductDetails({super.key, required this.product, required this.image});
 
   @override
   Widget build(BuildContext context) {
-    final MetadataControllers metadata = MetadataControllers();
-    metadata.updateHElement(
-        'SAP S/4HANA Cloud ERP Solution',
-        'A term covering all SAP enterprise resource planning solutions which are delivered via a Cloud or SaaS (software as a service) model.',
-        null);
     return Dialog(
       backgroundColor: const Color(0xaaf7f7f7).withOpacity(1),
       surfaceTintColor: const Color(0xaaf7f7f7).withOpacity(1),
@@ -38,8 +34,8 @@ class SAPProductDetails extends StatelessWidget {
               ],
             ),
             const Divider(),
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: 5.h,
             ),
             Expanded(
               child: ListView(),
