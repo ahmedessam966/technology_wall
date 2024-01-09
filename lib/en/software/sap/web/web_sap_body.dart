@@ -6,7 +6,16 @@ import '../../../shared/web/direct_dependencies_index.dart';
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-part 'package:technology_wall/en/software/sap/components/sap_cloud_erp.g.dart';
+part '../components/sap_cloud_erp.g.dart';
+part '../components/sap_b_tech_platform.g.dart';
+part '../components/sap_ai.g.dart';
+part '../components/sap_supply_chain.g.dart';
+part '../components/sap_financial_management.g.dart';
+part '../components/sap_crm.g.dart';
+part '../components/sap_spend_management.g.dart';
+part '../components/sap_human_capital.g.dart';
+part '../components/sap_industry_solutions.g.dart';
+part '../components/sap_b_network.g.dart';
 
 class WebSAPBody extends StatelessWidget {
   const WebSAPBody({super.key});
@@ -161,38 +170,101 @@ class WebSAPBody extends StatelessWidget {
                           SAPProductCard(
                             image: 'assets/icons/business-tech-platform.svg',
                             title: 'Business Technology Platform',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPBusinessTechnologyPlatform();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/ai.svg',
                             title: 'Artificial Intelligence',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPArtificialIntelligence();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/supply-chain.svg',
                             title: 'Supply Chain Management',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPSupplyChain();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/financial.svg',
                             title: 'Financial Management',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPFinancialManagement();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/crm.svg',
                             title: 'CRM & Customer Experience',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPCRM();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/spend.svg',
                             title: 'Spend Management',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPSpendManagement();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/human-capital.svg',
                             title: 'Human Capital Management',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPHumanCapital();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/industry.svg',
                             title: 'Industry Solutions',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPIndustrySolutions();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/business-network.svg',
                             title: 'Business Netowrk',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPBusinessNetwork();
+                                  });
+                            },
                           ),
                         ],
                       ),
