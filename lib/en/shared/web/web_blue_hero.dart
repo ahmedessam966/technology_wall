@@ -35,91 +35,97 @@ class WebBlueHero extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-      child: Flex(
-        direction: Axis.horizontal,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Expanded(
-            flex: 7,
-            child: SlideInLeft(
-              duration: const Duration(milliseconds: 1000),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SelectableText(titleBig,
-                      style: context.headlineMedium?.copyWith(
-                          color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  SelectableText(titleSmall,
-                      style: context.headlineSmall?.copyWith(
-                          color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  Row(
+          Flex(
+            direction: Axis.horizontal,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 7,
+                child: SlideInLeft(
+                  duration: const Duration(milliseconds: 1000),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      SelectableText(firstHead,
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
+                      SelectableText(titleBig,
+                          style: context.headlineMedium?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                       SizedBox(
-                        width: 1.h,
+                        height: 1.h,
                       ),
-                      const Icon(
-                        Icons.arrow_right_alt_sharp,
-                        color: Color(0xaaffffff),
+                      SelectableText(titleSmall,
+                          style: context.headlineSmall?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SizedBox(
+                        height: 4.h,
                       ),
+                      Row(
+                        children: [
+                          SelectableText(firstHead,
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
+                          SizedBox(
+                            width: 1.h,
+                          ),
+                          const Icon(
+                            Icons.arrow_right_alt_sharp,
+                            color: Color(0xaaffffff),
+                          ),
+                        ],
+                      ),
+                      SelectableText(firstSub,
+                          style: context.headlineSmall?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        children: [
+                          SelectableText(secondHead,
+                              style:
+                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
+                          SizedBox(
+                            width: 1.h,
+                          ),
+                          const Icon(
+                            Icons.arrow_right_alt_sharp,
+                            color: Color(0xaaffffff),
+                          ),
+                        ],
+                      ),
+                      SelectableText(secondSub,
+                          style: context.headlineSmall?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
+                      SizedBox(
+                        height: 4.h,
+                      ),
+                      SelectableText(actionPhrase,
+                          style: context.bodyLarge?.copyWith(color: const Color(0xaad1d7e0).withOpacity(1))),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      hasButton
+                          ? BaseRectButton(title: buttonTitle ?? '', action: buttonAction)
+                          : const SizedBox.shrink(),
                     ],
                   ),
-                  SelectableText(firstSub,
-                      style: context.headlineSmall?.copyWith(
-                          color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Row(
-                    children: [
-                      SelectableText(secondHead,
-                          style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1))),
-                      SizedBox(
-                        width: 1.h,
-                      ),
-                      const Icon(
-                        Icons.arrow_right_alt_sharp,
-                        color: Color(0xaaffffff),
-                      ),
-                    ],
-                  ),
-                  SelectableText(secondSub,
-                      style: context.headlineSmall?.copyWith(
-                          color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  SelectableText(actionPhrase,
-                      style: context.headlineSmall?.copyWith(
-                          color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  hasButton
-                      ? BaseRectButton(title: buttonTitle ?? '', action: buttonAction)
-                      : const SizedBox.shrink(),
-                ],
+                ),
               ),
-            ),
+              const Spacer(),
+              Expanded(
+                flex: 5,
+                child: Image.network(
+                  image,
+                  height: 35.h,
+                ),
+              ),
+            ],
           ),
-          const Spacer(),
-          Expanded(
-            flex: 5,
-            child: Image.network(
-              image,
-              height: 35.h,
-            ),
-          ),
+          SizedBox(height: 10.h)
         ],
       ),
     );

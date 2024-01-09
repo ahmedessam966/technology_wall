@@ -1,11 +1,12 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// ignore_for_file: avoid_web_libraries_in_flutter
 import '../components/sap_intro_card.dart';
 import '../components/sap_product_card.dart';
 import '../controllers/sap_page_controllers.dart';
 import '../../../shared/web/direct_dependencies_index.dart';
+import 'dart:html' as html;
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+part 'package:technology_wall/en/software/sap/components/sap_cloud_erp.g.dart';
 
 class WebSAPBody extends StatelessWidget {
   const WebSAPBody({super.key});
@@ -135,7 +136,7 @@ class WebSAPBody extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 2.h,
+                      height: 4.h,
                     ),
                     SizedBox(
                       height: 80.h,
@@ -144,11 +145,18 @@ class WebSAPBody extends StatelessWidget {
                             crossAxisCount: 5,
                             crossAxisSpacing: 2.w,
                             mainAxisSpacing: 2.w,
-                            childAspectRatio: 1),
-                        children: const [
+                            childAspectRatio: 1.2),
+                        children: [
                           SAPProductCard(
                             image: 'assets/icons/cloud.svg',
                             title: 'Cloud ERP',
+                            action: () async {
+                              await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return const SAPCloudERP();
+                                  });
+                            },
                           ),
                           SAPProductCard(
                             image: 'assets/icons/business-tech-platform.svg',
