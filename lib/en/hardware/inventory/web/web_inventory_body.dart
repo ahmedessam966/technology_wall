@@ -15,98 +15,17 @@ class WebInventoryBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-            child: Flex(
-              direction: Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: SlideInLeft(
-                    duration: const Duration(milliseconds: 1000),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Hardware Hub - The Place to Go for All Your Device Needs',
-                          style: context.headlineMedium?.copyWith(
-                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Diversity',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Delivering fundamental equipment and complex server networks.',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Reliability',
-                              style:
-                                  context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_alt_sharp,
-                              color: Color(0xaaffffff),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Empowering your business with authentic and supported hardware solutions.',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Text(
-                          'All hardware services, for business and personal purposes, in Hardware Hub.',
-                          style:
-                              context.headlineSmall?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Expanded(
-                  flex: 5,
-                  child: Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdevices.png?alt=media&token=cae21d15-de1a-4e45-b1a1-bfe2f11fdfde',
-                    height: 45.h,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const WebBlueHero(
+              titleBig: 'Hardware Hub - The Place to Go for All Your Device Needs',
+              titleSmall: '',
+              firstHead: 'Diversity',
+              firstSub: 'Delivering fundamental equipment and complex server networks.',
+              secondHead: 'Reliability',
+              secondSub: 'Empowering your business with authentic and supported hardware solutions.',
+              actionPhrase: 'All hardware services, for business and personal purposes, in Hardware Hub.',
+              hasButton: false,
+              image:
+                  'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fdevices.png?alt=media&token=cae21d15-de1a-4e45-b1a1-bfe2f11fdfde'),
           SizedBox(
             height: 10.h,
           ),
@@ -141,6 +60,13 @@ class WebInventoryBody extends StatelessWidget {
                                 mainAxisSpacing: 1.w,
                                 childAspectRatio: 1),
                             children: [
+                              InventoryCategoryCard(
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/en/hardware/accessories');
+                                  },
+                                  category: 'Accessories',
+                                  imagePath:
+                                      'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Faccessores.png?alt=media&token=2d106645-7014-4414-ac99-f7ebf1d0277b'),
                               InventoryCategoryCard(
                                   onPressed: () {
                                     Navigator.pushNamed(context, '/en/hardware/cabinets');

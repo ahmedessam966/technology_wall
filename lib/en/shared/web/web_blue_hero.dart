@@ -109,7 +109,7 @@ class WebBlueHero extends StatelessWidget {
                         height: 2.h,
                       ),
                       hasButton
-                          ? BaseRectButton(title: buttonTitle ?? '', action: buttonAction)
+                          ? BaseRectButton(child: buttonTitle ?? const Text(''), action: buttonAction)
                           : const SizedBox.shrink(),
                     ],
                   ),

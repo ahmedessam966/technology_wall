@@ -168,7 +168,9 @@ class WebHomeBody extends StatelessWidget {
                 ),
                 Center(
                   child: BaseRectButton(
-                    title: 'Explore Inventory',
+                    child: Text('Explore Inventory',
+                        style: context.bodyLarge?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                     action: () {
                       Navigator.pushNamed(context, '/en/hardware');
                     },
@@ -296,7 +298,10 @@ class WebHomeBody extends StatelessWidget {
                                 style: context.bodyLarge,
                               ),
                               BaseRectButton(
-                                title: 'Contact Pre-Sales',
+                                child: Text('Contact Pre-Sales',
+                                    style: context.bodyLarge?.copyWith(
+                                        color: const Color(0xaad1d7e0).withOpacity(1),
+                                        fontWeight: FontWeight.w600)),
                                 action: () {
                                   Navigator.pushNamed(context, '/en/software/sap');
                                 },

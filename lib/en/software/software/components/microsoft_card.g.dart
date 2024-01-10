@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/en/software/software/components/microsoft_order_form.dart';
-import 'package:technology_wall/global/models/product_model.dart';
-import '../../../../global/controllers/cart_controllers.dart';
+part of 'microsoft_products_builder.dart';
 
 class MicrosoftCard extends StatelessWidget {
   final ProductModel microsoft;
@@ -86,24 +80,8 @@ class MicrosoftCard extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 9,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      elevation: const MaterialStatePropertyAll(0),
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(1),
-                          side: const BorderSide(color: Colors.white70),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.resolveWith((states) {
-                        if (states.contains(MaterialState.hovered)) {
-                          return const Color(0xaa7c9cc1).withOpacity(1);
-                        } else {
-                          return const Color(0xaa071923).withOpacity(1);
-                        }
-                      }),
-                    ),
-                    onPressed: () async {
+                  child: BaseRectButton(
+                    action: () async {
                       await showAdaptiveDialog(
                           context: context,
                           builder: (context) {
@@ -112,11 +90,9 @@ class MicrosoftCard extends StatelessWidget {
                             );
                           });
                     },
-                    child: Text(
-                      'Order Now',
-                      textAlign: TextAlign.center,
-                      style: context.bodyLarge?.copyWith(color: Colors.white70),
-                    ),
+                    child: Text('Order Now',
+                        style: context.bodyLarge?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                   ),
                 ),
                 const Spacer(),
@@ -124,25 +100,8 @@ class MicrosoftCard extends StatelessWidget {
                   flex: 9,
                   child: Builder(builder: (context) {
                     final cart = Provider.of<CartControllers>(context, listen: true);
-                    return ElevatedButton(
-                      style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                        elevation: const MaterialStatePropertyAll(0),
-                        shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(1),
-                            side: const BorderSide(color: Colors.white70),
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return const Color(0xaa7c9cc1).withOpacity(1);
-                          } else {
-                            return const Color(0xaa071923).withOpacity(1);
-                          }
-                        }),
-                      ),
-                      onPressed: () {
+                    return BaseRectButton(
+                      action: () {
                         cart.cart.containsKey(microsoft.id)
                             ? cart.removeFromCart(microsoft.id)
                             : cart.addToCart(microsoft);

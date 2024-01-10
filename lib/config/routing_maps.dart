@@ -30,6 +30,7 @@ class RoutingMaps {
     '/en/software/zoho': (context) => const ZohoPage(),
     '/en/privacy': (context) => const PrivacyPolicyPage(),
     '/en/not-found': (context) => const NotFoundPage(),
+    '/en/hardware/accessories': (context) => const AccessoriesPage(),
 
     //////////////////////////////////////////////////////
     ///Arabic Routing Map

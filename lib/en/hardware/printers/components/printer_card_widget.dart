@@ -90,7 +90,9 @@ class PrinterCardWidget extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: BaseRectButton(
-                    title: 'Order Now',
+                    child: Text('Order Now',
+                        style: context.bodyLarge?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                     action: () async {
                       await showAdaptiveDialog(
                           context: context,
@@ -107,25 +109,8 @@ class PrinterCardWidget extends StatelessWidget {
                   flex: 4,
                   child: Builder(builder: (context) {
                     final cart = Provider.of<CartControllers>(context, listen: true);
-                    return ElevatedButton(
-                      style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                        elevation: const MaterialStatePropertyAll(0),
-                        shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(1),
-                            side: const BorderSide(color: Colors.white70),
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return const Color(0xaa7c9cc1).withOpacity(1);
-                          } else {
-                            return const Color(0xaa1a374d).withOpacity(1);
-                          }
-                        }),
-                      ),
-                      onPressed: () {
+                    return BaseRectButton(
+                      action: () {
                         cart.cart.containsKey(printer.id)
                             ? cart.removeFromCart(printer.id)
                             : cart.addToCart(printer);

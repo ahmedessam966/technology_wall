@@ -83,7 +83,9 @@ class DesktopCardWidget extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: BaseRectButton(
-                    title: 'Order Now',
+                    child: Text('Order Now',
+                        style: context.bodyLarge?.copyWith(
+                            color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                     action: () async {
                       // await showAdaptiveDialog(
                       //     context: context,

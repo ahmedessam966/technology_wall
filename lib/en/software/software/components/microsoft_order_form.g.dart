@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
-import 'package:technology_wall/config/themes/text_varaiants.dart';
-import 'package:technology_wall/global/controllers/inventory_controllers.dart';
-import 'package:technology_wall/global/models/product_model.dart';
-
-import '../../../../config/input_validation_services.dart';
-import '../../../../config/themes/app_theme.dart';
-import '../../../../global/controllers/email_controller.dart';
+part of 'microsoft_products_builder.dart';
 
 class MicrosoftOrderForm extends StatefulWidget {
   final ProductModel microsoft;

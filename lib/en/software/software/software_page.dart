@@ -33,6 +33,9 @@ class _SoftwarePageState extends State<SoftwarePage> {
     metadataFunctions.updateMetaData('Technology Wall | Software',
         'Boost your enterprise perfomance with fundamental software products with competitive pricing ranges, only at Technology Wall. You can explore Microsoft, Fortinet, SAP, Sage, Tally, Zoho products, and much more.');
     metadataFunctions.updateHeaderMetaData();
+    metadataFunctions.injectPageSpecificContent(
+        'Find your desired personal or enterprise level software here. All licensed and maintainable. Available software essentials include Microsof Office, Microsoft 365, Microsoft Windows 11, Microsoft Windows 10, SAP Business One ERP Solution, Tally ERP Solution, Sage ERP, Zoho ERP Solutions, Fortinet Security Software, and much more.',
+        'en');
   }
 
   @override
@@ -80,10 +83,10 @@ class _SoftwarePageState extends State<SoftwarePage> {
                   physics: const RangeMaintainingScrollPhysics(),
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 768 ? 3.w : 6.w, vertical: 2.h),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                      child: sw >= 1080
                           ? const WebHeader()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? TabletHeader(
                                   sw: sw,
                                   sh: sh,
@@ -92,16 +95,16 @@ class _SoftwarePageState extends State<SoftwarePage> {
                               : const MobileHeader(),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                      child: sw >= 1280
+                      padding: EdgeInsets.symmetric(vertical: 1.h),
+                      child: sw >= 1080
                           ? const WebSoftwareBody()
-                          : sw < 1280 && sw >= 768
+                          : sw < 1080 && sw >= 568
                               ? const TabletSoftwareBody()
                               : const MobileSoftwareBody(),
                     ),
-                    sw >= 1280
+                    sw >= 1080
                         ? const WebFooter()
-                        : sw < 1280 && sw >= 768
+                        : sw < 1080 && sw >= 568
                             ? TabletFooter(
                                 sw: sw,
                                 sh: sh,

@@ -258,7 +258,9 @@ class WebDesktopsBody extends StatelessWidget {
                   ),
                   Center(
                     child: BaseRectButton(
-                      title: 'Create Requisition',
+                      child: Text('Create Requisition',
+                          style: context.bodyLarge?.copyWith(
+                              color: const Color(0xaad1d7e0).withOpacity(1), fontWeight: FontWeight.w600)),
                       action: () async {
                         await showAdaptiveDialog(
                             context: context,

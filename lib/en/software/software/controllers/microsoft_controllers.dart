@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:technology_wall/global/models/product_model.dart';
 
-class SoftwareControllers extends ChangeNotifier {
+class MicrosoftControllers extends ChangeNotifier {
   final List<ProductModel> _microsoftList = [];
   List<ProductModel> get microsoftList => _microsoftList;
 
@@ -25,7 +25,9 @@ class SoftwareControllers extends ChangeNotifier {
           maxDiscounted: element.data()['Max Discounted Price'],
           users: element.data()['Users'],
           officeFeatures: element.data()['Features']);
-      _microsoftList.add(product);
+      if (!_microsoftList.any((p) => p.id == product.id)) {
+        _microsoftList.add(product);
+      }
     }
   }
 }

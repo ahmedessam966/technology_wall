@@ -2,6 +2,7 @@ export 'en/about/about_page.dart';
 export 'en/404/not_found_page.dart';
 export 'en/about/accreditation/accreditation_page.dart';
 export 'en/contact/contact_page.dart';
+export 'en/hardware/accessories/accessories_page.dart';
 export 'en/hardware/cabinets/cabinets_page.dart';
 export 'en/hardware/cctv/cctv_page.dart';
 export 'en/hardware/desktops/desktops_page.dart';

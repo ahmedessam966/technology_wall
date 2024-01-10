@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HomePageControllers()),
         ChangeNotifierProvider(create: (_) => CartControllers()),
         ChangeNotifierProvider(create: (_) => SAPPageControllers()),
-        ChangeNotifierProvider(create: (_) => SoftwareControllers()),
+        ChangeNotifierProvider(create: (_) => MicrosoftControllers()),
         ChangeNotifierProvider(create: (_) => DekstopsControllers()),
         ChangeNotifierProvider(create: (_) => NotebooksControllers()),
         ChangeNotifierProvider(create: (_) => ARDesktopsControllers()),
