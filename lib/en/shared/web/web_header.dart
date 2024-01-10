@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/en/shared/web/web_login_type_selector.dart';
 import 'package:technology_wall/global/controllers/app_controllers.dart';
 import '../../../ar/shared/language_redirect.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -290,37 +291,30 @@ class WebHeader extends StatelessWidget {
               const Spacer(
                 flex: 2,
               ),
-              Semantics(
-                button: true,
-                label: 'Zoho Customer Portal Login Button',
-                child: IconButton(
-                  padding: EdgeInsets.all(10.px),
-                  tooltip: 'Zoho Customer Portal',
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
-                      elevation: const MaterialStatePropertyAll(0),
-                      shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.px)))),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/en/portal');
-                  },
-                  icon: Row(
+              IconButton(
+                padding: EdgeInsets.all(10.px),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(const Color(0xaaf1f1f1).withOpacity(1)),
+                    elevation: const MaterialStatePropertyAll(0),
+                    shape: MaterialStatePropertyAll(
+                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.px)))),
+                onPressed: () async {
+                  await showAdaptiveDialog(
+                      context: context,
+                      builder: (ctx) {
+                        return const WebLoginTypeSelector();
+                      });
+                },
+                icon: Builder(builder: (ctx) {
+                  final String? name =
+                      Provider.of<AuthControllers>(context, listen: true).userModel?.name.split(' ')[0];
+                  return Row(
                     children: [
-                      Builder(builder: (context) {
-                        final String? name = Provider.of<AuthControllers>(context, listen: false)
-                            .staffModel
-                            ?.name
-                            .split('')[0];
-                        return Text(name ?? 'Sign In',
-                            style: context.bodyLarge?.copyWith(color: Colors.black));
-                      }),
-                      const Icon(
-                        Icons.arrow_right_alt_outlined,
-                        color: Colors.black,
-                      ),
+                      Text(name ?? 'Sign In', style: context.bodyLarge?.copyWith(color: Colors.black)),
+                      name == null ? const Icon(Icons.arrow_right_alt_outlined) : const SizedBox.shrink(),
                     ],
-                  ),
-                ),
+                  );
+                }),
               ),
               const Spacer(),
               TextButton(
