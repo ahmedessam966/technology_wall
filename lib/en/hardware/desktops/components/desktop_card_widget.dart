@@ -102,51 +102,33 @@ class DesktopCardWidget extends StatelessWidget {
                   flex: 4,
                   child: Builder(builder: (context) {
                     final cart = Provider.of<CartControllers>(context, listen: true);
-                    return ElevatedButton(
-                      style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                        elevation: const MaterialStatePropertyAll(0),
-                        shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(1),
-                            side: const BorderSide(color: Colors.white70),
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.resolveWith((states) {
-                          if (states.contains(MaterialState.hovered)) {
-                            return const Color(0xaa7c9cc1).withOpacity(1);
-                          } else {
-                            return const Color(0xaa1a374d).withOpacity(1);
-                          }
-                        }),
-                      ),
-                      onPressed: () {
-                        cart.cart.containsKey(desktop.id)
-                            ? cart.removeFromCart(desktop.id)
-                            : cart.addToCart(desktop);
-                      },
-                      child: cart.cart.containsKey(desktop.id)
-                          ? Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Icon(
-                                  Icons.check,
-                                  color: Colors.white70,
-                                ),
-                                SizedBox(
-                                  width: 1.w,
-                                ),
-                                Text(
-                                  'Added',
-                                  style: context.bodyLarge?.copyWith(color: Colors.white70),
-                                ),
-                              ],
-                            )
-                          : Text(
-                              'Add to Cart',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
-                            ),
-                    );
+                    return BaseRectButton(
+                        action: () async {
+                          cart.dbCart.containsKey(desktop.id)
+                              ? await cart.removeFromCart(desktop.id)
+                              : await cart.addToCart(desktop);
+                        },
+                        child: cart.dbCart.containsKey(desktop.id)
+                            ? Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.check,
+                                    color: Colors.white70,
+                                  ),
+                                  SizedBox(
+                                    width: 1.w,
+                                  ),
+                                  Text(
+                                    'Added',
+                                    style: context.bodyLarge?.copyWith(color: Colors.white70),
+                                  ),
+                                ],
+                              )
+                            : Text(
+                                'Add to Cart',
+                                style: context.bodyLarge?.copyWith(color: Colors.white70),
+                              ));
                   }),
                 ),
               ],

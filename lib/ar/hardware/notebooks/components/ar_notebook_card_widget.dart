@@ -135,11 +135,11 @@ class ARNotebookCardWidget extends StatelessWidget {
                       }),
                     ),
                     onPressed: () {
-                      cart.cart.containsKey(notebook.id)
+                      cart.dbCart.containsKey(notebook.id)
                           ? cart.removeFromCart(notebook.id)
                           : cart.addToCart(notebook);
                     },
-                    child: cart.cart.containsKey(notebook.id)
+                    child: cart.dbCart.containsKey(notebook.id)
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [

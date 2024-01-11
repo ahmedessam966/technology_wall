@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/app_theme.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/en/shared/web/base_rect_button.dart';
 import 'package:technology_wall/global/controllers/cart_controllers.dart';
 
 class CartWidget extends StatelessWidget {
@@ -44,9 +45,9 @@ class CartWidget extends StatelessWidget {
               ),
               const Divider(),
               SizedBox(
-                height: provider.cart.isEmpty ? 30.h : 2.5.h,
+                height: provider.dbCart.isEmpty ? 30.h : 2.5.h,
               ),
-              provider.cart.isEmpty
+              provider.dbCart.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
                   : SizedBox(
                       height: 45.h,
@@ -54,10 +55,10 @@ class CartWidget extends StatelessWidget {
                         separatorBuilder: (context, index) => SizedBox(
                           height: 1.h,
                         ),
-                        itemCount: provider.cart.keys.length,
+                        itemCount: provider.dbCart.keys.length,
                         itemBuilder: (context, index) {
-                          String key = provider.cart.keys.elementAt(index);
-                          final item = provider.cart[key];
+                          String key = provider.dbCart.keys.elementAt(index);
+                          final item = provider.dbCart[key];
                           return ListTile(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(1),
@@ -72,8 +73,8 @@ class CartWidget extends StatelessWidget {
                             ),
                             trailing: IconButton(
                               tooltip: 'Remove From Cart',
-                              onPressed: () {
-                                provider.removeFromCart(item.id);
+                              onPressed: () async {
+                                await provider.removeFromCart(item.id);
                               },
                               icon: const Icon(
                                 Icons.delete_forever,
@@ -85,37 +86,19 @@ class CartWidget extends StatelessWidget {
                       ),
                     ),
               const Spacer(),
-              provider.cart.isEmpty
+              provider.dbCart.isEmpty
                   ? const SizedBox.shrink()
                   : Container(
                       color: const Color(0xaaf3f3f3).withOpacity(1),
                       padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
                       child: Center(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            padding: MaterialStatePropertyAll(EdgeInsets.all(15.px)),
-                            elevation: const MaterialStatePropertyAll(0),
-                            shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(1),
-                                side: const BorderSide(color: Colors.white70),
-                              ),
-                            ),
-                            backgroundColor: MaterialStateProperty.resolveWith((states) {
-                              if (states.contains(MaterialState.hovered)) {
-                                return const Color(0xaa7c9cc1).withOpacity(1);
-                              } else {
-                                return const Color(0xaa071923).withOpacity(1);
-                              }
-                            }),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'Proceed To Checkout',
-                            style: context.bodyMedium?.copyWith(color: Colors.white70),
-                          ),
+                          child: BaseRectButton(
+                        action: () {},
+                        child: Text(
+                          'Proceed To Checkout',
+                          style: context.bodyMedium?.copyWith(color: Colors.white70),
                         ),
-                      ),
+                      )),
                     ),
             ],
           ),

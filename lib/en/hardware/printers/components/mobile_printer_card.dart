@@ -128,11 +128,11 @@ class MobilePrinterCard extends StatelessWidget {
                     }),
                   ),
                   onPressed: () {
-                    cart.cart.containsKey(printer.id)
+                    cart.dbCart.containsKey(printer.id)
                         ? cart.removeFromCart(printer.id)
                         : cart.addToCart(printer);
                   },
-                  child: cart.cart.containsKey(printer.id)
+                  child: cart.dbCart.containsKey(printer.id)
                       ? Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

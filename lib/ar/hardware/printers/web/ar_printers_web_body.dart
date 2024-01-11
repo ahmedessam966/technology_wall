@@ -271,7 +271,7 @@ class ARWebHardwareBody extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            'السلة (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                            'السلة (${Provider.of<CartControllers>(context, listen: true).dbCart.keys.length})',
                             style: context.displayMedium?.copyWith(color: Colors.white70),
                           ),
                         ],

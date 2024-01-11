@@ -50,11 +50,10 @@ class MyApp extends StatelessWidget {
         final themeNotifier = context.watch<ThemeModeServices>();
         final themeConstants = context.watch<AppTheme>();
         final cookieWatcher = context.watch<AppControllers>();
-        final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+        final auth = Provider.of<AuthControllers>(context, listen: false);
 
         return ResponsiveSizer(builder: (context, orientation, deviceType) {
           return MaterialApp(
-            scaffoldMessengerKey: scaffoldKey,
             debugShowCheckedModeBanner: false,
             themeMode: themeNotifier.selectedTheme,
             theme: themeNotifier.selectedTheme == ThemeMode.light
@@ -65,7 +64,6 @@ class MyApp extends StatelessWidget {
             initialRoute: '/en',
             routes: RoutingMaps.routingMap,
             onGenerateRoute: (settings) {
-              TitleObserver.updateJsonKeywordMap();
               return MaterialPageRoute(
                 builder: (context) => RoutingTransitionServices.generateRoute(settings),
               );
@@ -77,11 +75,13 @@ class MyApp extends StatelessWidget {
                   Builder(builder: (ctx) {
                     final int count = cookieWatcher.cookiePrompt;
                     if (cookieWatcher.isCookieConsent) {
+                      auth.checkExistingCredentials();
                       return const SizedBox.shrink();
                     } else {
                       if (count < 1) {
                         return const CookiePopup();
                       } else {
+                        auth.checkExistingCredentials();
                         return const SizedBox.shrink();
                       }
                     }

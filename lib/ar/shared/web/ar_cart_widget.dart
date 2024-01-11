@@ -45,9 +45,9 @@ class ARCartWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: provider.cart.isEmpty ? 300 : 50,
+                height: provider.dbCart.isEmpty ? 300 : 50,
               ),
-              provider.cart.isEmpty
+              provider.dbCart.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
                   : SizedBox(
                       height: 380,
@@ -56,10 +56,10 @@ class ARCartWidget extends StatelessWidget {
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 10,
                         ),
-                        itemCount: provider.cart.keys.length,
+                        itemCount: provider.dbCart.keys.length,
                         itemBuilder: (context, index) {
-                          String key = provider.cart.keys.elementAt(index);
-                          final item = provider.cart[key];
+                          String key = provider.dbCart.keys.elementAt(index);
+                          final item = provider.dbCart[key];
                           return ListTile(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -81,7 +81,7 @@ class ARCartWidget extends StatelessWidget {
                       ),
                     ),
               const Spacer(),
-              provider.cart.isEmpty
+              provider.dbCart.isEmpty
                   ? const SizedBox.shrink()
                   : Container(
                       color: const Color(0xaaf7f7f7).withOpacity(1),

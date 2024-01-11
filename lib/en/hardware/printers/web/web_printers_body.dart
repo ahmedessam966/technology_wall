@@ -259,7 +259,7 @@ class WebPrintersBody extends StatelessWidget {
                             width: 1.w,
                           ),
                           Text(
-                            'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                            'View Cart (${Provider.of<CartControllers>(context, listen: true).dbCart.keys.length})',
                             style: context.bodyLarge?.copyWith(color: Colors.white70),
                           ),
                         ],

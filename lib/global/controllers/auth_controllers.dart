@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:technology_wall/config/cookies_manager.dart';
 import 'package:technology_wall/global/models/user_model.dart';
 import '../models/staff_model.dart';
 
@@ -11,6 +13,14 @@ class AuthControllers extends ChangeNotifier {
   UserModel? _userModel;
   UserModel? get userModel => _userModel;
 
+  bool _rememberUser = false;
+  bool get rememberUser => _rememberUser;
+
+  void rememberCreds(bool state) {
+    _rememberUser = state;
+    notifyListeners();
+  }
+
   Future userLogin(String email, String pass) async {
     try {
       final creds = await FirebaseAuth.instance
@@ -18,16 +28,26 @@ class AuthControllers extends ChangeNotifier {
       if (creds.user != null) {
         final ref = FirebaseFirestore.instance.collection('Users');
         final snapshot = await ref.where(FieldPath.documentId, isEqualTo: creds.user?.uid).get();
+        final CookiesManager cookie = CookiesManager();
+        cookie.setCookie('uid', creds.user!.uid);
+        if (_rememberUser) {
+          final prefs = await SharedPreferences.getInstance();
+          prefs.setStringList(creds.user!.uid, [email.trim().toLowerCase(), pass]);
+        }
         for (final element in snapshot.docs) {
           final Map? cart = element.data()['Cart'] as Map;
+          final CookiesManager cookie = CookiesManager();
+          final String? city = cookie.getCookie('city');
+          final String? country = cookie.getCookie('country');
           _userModel = UserModel(
               id: creds.user!.uid,
               email: element.data()['Email Address'],
               name: element.data()['Name'],
               dateCreated: element.data()['Date Created'],
               cart: cart ?? {},
-              location: element.data()['Location']);
+              location: '$city, $country');
         }
+
         notifyListeners();
         return 200;
       } else {
@@ -35,6 +55,32 @@ class AuthControllers extends ChangeNotifier {
       }
     } on FirebaseAuthException catch (e) {
       return e.code;
+    }
+  }
+
+  Future<void> checkExistingCredentials() async {
+    final CookiesManager cookie = CookiesManager();
+    final String? uid = cookie.getUIDCookies('uid');
+    if (uid != null) {
+      final prefs = await SharedPreferences.getInstance();
+      final List? info = prefs.getStringList(uid);
+      if (info != null) {
+        final UserCredential currentUser =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(email: info[0], password: info[1]);
+        final ref = FirebaseFirestore.instance.collection('Users');
+        final snapshot = await ref.where(FieldPath.documentId, isEqualTo: currentUser.user?.uid).get();
+        for (final element in snapshot.docs) {
+          final Map? cart = element.data()['Cart'] as Map;
+          _userModel = UserModel(
+              id: currentUser.user!.uid,
+              email: element.data()['Email Address'],
+              name: element.data()['Name'],
+              dateCreated: element.data()['Date Created'],
+              cart: cart ?? {},
+              location: element.data()['Location']);
+        }
+        notifyListeners();
+      }
     }
   }
 }

@@ -102,11 +102,11 @@ class MicrosoftCard extends StatelessWidget {
                     final cart = Provider.of<CartControllers>(context, listen: true);
                     return BaseRectButton(
                       action: () {
-                        cart.cart.containsKey(microsoft.id)
+                        cart.dbCart.containsKey(microsoft.id)
                             ? cart.removeFromCart(microsoft.id)
                             : cart.addToCart(microsoft);
                       },
-                      child: cart.cart.containsKey(microsoft.id)
+                      child: cart.dbCart.containsKey(microsoft.id)
                           ? Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [

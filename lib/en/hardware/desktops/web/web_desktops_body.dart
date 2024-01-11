@@ -158,47 +158,37 @@ class WebDesktopsBody extends StatelessWidget {
                               provider.setDesktopFilter(null);
                             }
                           }),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          elevation: const MaterialStatePropertyAll(0),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(1),
-                              side: const BorderSide(color: Colors.white70),
-                            ),
-                          ),
-                          backgroundColor: MaterialStateProperty.resolveWith((states) {
-                            if (states.contains(MaterialState.hovered)) {
-                              return const Color(0xaa7c9cc1).withOpacity(1);
-                            } else {
-                              return const Color(0xaa071923).withOpacity(1);
-                            }
-                          }),
-                        ),
-                        onPressed: () async {
-                          await showAdaptiveDialog(
-                              context: context,
-                              builder: (context) {
-                                return const CartWidget();
-                              });
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.shopping_cart_outlined,
-                              color: Colors.white70,
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            Text(
-                              'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
-                              style: context.bodyLarge?.copyWith(color: Colors.white70),
-                            ),
-                          ],
-                        ),
-                      ),
+                      Consumer<CartControllers>(builder: (ctx, cart, _) {
+                        return FutureBuilder(
+                            future: cart.getCartFromDB(),
+                            builder: (context, snapshot) {
+                              return BaseRectButton(
+                                action: () async {
+                                  await showAdaptiveDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return const CartWidget();
+                                      });
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(
+                                      Icons.shopping_cart_outlined,
+                                      color: Colors.white70,
+                                    ),
+                                    SizedBox(
+                                      width: 1.w,
+                                    ),
+                                    Text(
+                                      'View Cart (${cart.dbCart.keys.length})',
+                                      style: context.bodyLarge?.copyWith(color: Colors.white70),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            });
+                      })
                     ],
                   ),
                   SizedBox(

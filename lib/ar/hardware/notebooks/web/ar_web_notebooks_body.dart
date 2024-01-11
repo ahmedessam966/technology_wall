@@ -265,7 +265,7 @@ class ARWebNotebooksBody extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                'View Cart (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                                'View Cart (${Provider.of<CartControllers>(context, listen: true).dbCart.keys.length})',
                                 style: context.bodyMedium?.copyWith(color: Colors.white70),
                               ),
                             ],

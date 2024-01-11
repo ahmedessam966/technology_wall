@@ -280,7 +280,7 @@ class ARWebDesktopsBody extends StatelessWidget {
                               width: 1.w,
                             ),
                             Text(
-                              'السلة (${Provider.of<CartControllers>(context, listen: true).cart.keys.length})',
+                              'السلة (${Provider.of<CartControllers>(context, listen: true).dbCart.keys.length})',
                               style: context.displayLarge?.copyWith(color: Colors.white70),
                             ),
                           ],

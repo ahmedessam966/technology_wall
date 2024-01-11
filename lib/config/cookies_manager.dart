@@ -17,7 +17,7 @@ class CookiesManager {
     html.document.cookie = cookieString;
   }
 
-  String? _getCookie(String name) {
+  String? getCookie(String name) {
     if (html.document.cookie != null) {
       List<String> cookies = html.document.cookie!.split(';');
       for (String cookie in cookies) {
@@ -36,8 +36,8 @@ class CookiesManager {
     _setCookie('accepted_cookies', 'true', expires: 365);
 
     await _requestLocationPermission();
-    final String? lon = _getCookie('longitude');
-    final String? lat = _getCookie('latitude');
+    final String? lon = getCookie('longitude');
+    final String? lat = getCookie('latitude');
     if (lat != null && lon != null) {
       await getCityAndCountry(double.parse(lat), double.parse(lon));
     } else {
@@ -48,7 +48,7 @@ class CookiesManager {
   }
 
   bool checkCookieConsent() {
-    String? consent = _getCookie('accepted_cookies');
+    String? consent = getCookie('accepted_cookies');
     if (consent == null) {
       return false;
     } else {
@@ -89,6 +89,8 @@ class CookiesManager {
     String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
     final apiUrl =
         'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=$apiKey';
+    String city = '';
+    String country = '';
 
     try {
       final response = await http.post(Uri.parse(apiUrl));
@@ -104,13 +106,13 @@ class CookiesManager {
             final types = component['types'];
 
             if (types.contains('locality')) {
-              final city = component['long_name'];
+              city = component['long_name'];
               _setCookie('city', city);
               if (kDebugMode) {
                 print('City: $city');
               }
             } else if (types.contains('country')) {
-              final country = component['long_name'];
+              country = component['long_name'];
               _setCookie('country', country);
               if (kDebugMode) {
                 print('Country: $country');
@@ -145,5 +147,30 @@ class CookiesManager {
         html.document.cookie = '$name=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
       });
     }
+  }
+
+  void setCookie(String name, String value, {int? expires}) {
+    String cookieString = '$name=$value';
+    if (expires != null) {
+      DateTime now = DateTime.now();
+      DateTime expiration = now.add(Duration(days: expires));
+      cookieString += ';expires=${expiration.toUtc().toLocal()}';
+    }
+    html.document.cookie = cookieString;
+  }
+
+  String? getUIDCookies(name) {
+    if (html.document.cookie != null) {
+      List<String> cookies = html.document.cookie!.split(';');
+      for (String cookie in cookies) {
+        List<String> parts = cookie.split('=');
+        String cookieName = parts[0].trim();
+        String cookieValue = parts.length > 1 ? parts[1].trim() : '';
+        if (cookieName == name) {
+          return cookieValue;
+        }
+      }
+    }
+    return null;
   }
 }

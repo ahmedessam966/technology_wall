@@ -110,11 +110,11 @@ class NotebookCardWidget extends StatelessWidget {
                     final cart = Provider.of<CartControllers>(context, listen: true);
                     return BaseRectButton(
                         action: () {
-                          cart.cart.containsKey(notebook.id)
+                          cart.dbCart.containsKey(notebook.id)
                               ? cart.removeFromCart(notebook.id)
                               : cart.addToCart(notebook);
                         },
-                        child: cart.cart.containsKey(notebook.id)
+                        child: cart.dbCart.containsKey(notebook.id)
                             ? Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [

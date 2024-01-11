@@ -104,11 +104,11 @@ class ARDesktopCardWidget extends StatelessWidget {
                     final cart = Provider.of<CartControllers>(context, listen: true);
                     return BaseRectButton(
                         action: () {
-                          cart.cart.containsKey(desktop.id)
+                          cart.dbCart.containsKey(desktop.id)
                               ? cart.removeFromCart(desktop.id)
                               : cart.addToCart(desktop);
                         },
-                        child: cart.cart.containsKey(desktop.id)
+                        child: cart.dbCart.containsKey(desktop.id)
                             ? Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
