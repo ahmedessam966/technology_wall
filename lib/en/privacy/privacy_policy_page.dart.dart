@@ -14,7 +14,7 @@ import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
 import '../shared/tablet/tablet_header.dart';
 import '../shared/web/web_footer.dart';
-import '../shared/web/web_header.dart';
+import '../shared/web/web_header/web_header.dart';
 
 class PrivacyPolicyPage extends StatefulWidget {
   const PrivacyPolicyPage({super.key});

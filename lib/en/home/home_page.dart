@@ -9,7 +9,7 @@ import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
 import '../shared/tablet/tablet_header.dart';
 import '../shared/web/web_footer.dart';
-import '../shared/web/web_header.dart';
+import '../shared/web/web_header/web_header.dart';
 import 'mobile/mobile_home_body.dart';
 import 'tablet/tablet_home_body.dart';
 import 'web/web_home_body.dart';

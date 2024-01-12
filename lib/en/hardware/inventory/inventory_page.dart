@@ -11,7 +11,7 @@ import '../../shared/mobile/mobile_header.dart';
 import '../../shared/tablet/tablet_footer.dart';
 import '../../shared/tablet/tablet_header.dart';
 import '../../shared/web/web_footer.dart';
-import '../../shared/web/web_header.dart';
+import '../../shared/web/web_header/web_header.dart';
 import 'mobile/mobile_inventory_body.dart';
 import 'tablet/tablet_inventory_body.dart';
 import 'web/web_inventory_body.dart';

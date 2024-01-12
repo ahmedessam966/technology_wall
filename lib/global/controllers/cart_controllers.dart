@@ -36,7 +36,8 @@ class CartControllers extends ChangeNotifier {
                 "Brand": item.brand,
                 "Cost": item.cost,
                 "Max Discounted Price": item.maxDiscounted,
-                "Snapshot": item.snapshot
+                "Snapshot": item.snapshot,
+                "Date Added": "${date.day} - ${date.month} - ${date.year} @ ${time.hour}:${time.minute}"
               });
     });
     await ref.update({'Cart': cartMap});

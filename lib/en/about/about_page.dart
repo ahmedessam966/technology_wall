@@ -9,7 +9,7 @@ import '../shared/mobile/mobile_header.dart';
 import '../shared/tablet/tablet_footer.dart';
 import '../shared/tablet/tablet_header.dart';
 import '../shared/web/web_footer.dart';
-import '../shared/web/web_header.dart';
+import '../shared/web/web_header/web_header.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});

@@ -35,7 +35,6 @@ class AuthControllers extends ChangeNotifier {
           prefs.setStringList(creds.user!.uid, [email.trim().toLowerCase(), pass]);
         }
         for (final element in snapshot.docs) {
-          final Map? cart = element.data()['Cart'] as Map;
           final CookiesManager cookie = CookiesManager();
           final String? city = cookie.getCookie('city');
           final String? country = cookie.getCookie('country');
@@ -44,7 +43,7 @@ class AuthControllers extends ChangeNotifier {
               email: element.data()['Email Address'],
               name: element.data()['Name'],
               dateCreated: element.data()['Date Created'],
-              cart: cart ?? {},
+              cart: element.data()['Cart'],
               location: '$city, $country');
         }
 
@@ -70,17 +69,30 @@ class AuthControllers extends ChangeNotifier {
         final ref = FirebaseFirestore.instance.collection('Users');
         final snapshot = await ref.where(FieldPath.documentId, isEqualTo: currentUser.user?.uid).get();
         for (final element in snapshot.docs) {
-          final Map? cart = element.data()['Cart'] as Map;
           _userModel = UserModel(
               id: currentUser.user!.uid,
               email: element.data()['Email Address'],
               name: element.data()['Name'],
               dateCreated: element.data()['Date Created'],
-              cart: cart ?? {},
+              cart: element.data()['Cart'],
               location: element.data()['Location']);
         }
         notifyListeners();
       }
     }
+  }
+
+  void logOut() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove(_userModel!.id);
+      await FirebaseAuth.instance.signOut();
+    } on FirebaseAuthException catch (e) {
+      if (kDebugMode) {
+        print(e.code);
+        print(e.message);
+      }
+    }
+    notifyListeners();
   }
 }
