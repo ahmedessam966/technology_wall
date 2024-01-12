@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../pages_index.dart';
 
 class RoutingMaps {
@@ -31,7 +30,7 @@ class RoutingMaps {
     '/en/privacy': (context) => const PrivacyPolicyPage(),
     '/en/not-found': (context) => const NotFoundPage(),
     '/en/hardware/accessories': (context) => const AccessoriesPage(),
-    '/en/#/account': (context) => const SizedBox(),
+    '/en/#/account': (context) => const AccountPage(),
 
     //////////////////////////////////////////////////////
     ///Arabic Routing Map

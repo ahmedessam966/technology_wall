@@ -85,6 +85,8 @@ class RoutingTransitionServices {
           return const NotFoundPage();
         case '/dev':
           return const DevHomePage();
+        case '/#/account':
+          return const AccountPage();
         default:
           return const NotFoundPage();
       }

@@ -8,9 +8,6 @@ import 'package:technology_wall/config/themes/app_theme.dart';
 class AppControllers extends ChangeNotifier {
   static final CookiesManager _cookiesManager = CookiesManager();
 
-  String? _utilityPage;
-  String? get utilityPage => _utilityPage;
-
   int _cookiePrompt = 0;
   int get cookiePrompt => _cookiePrompt;
 
@@ -22,11 +19,6 @@ class AppControllers extends ChangeNotifier {
 
   bool _isEnglish = true;
   bool get isEnglish => _isEnglish;
-
-  void changeUtilityPage(String page) {
-    _utilityPage = page;
-    notifyListeners();
-  }
 
   void setCookieConsent() {
     _isCookieConsent = true;

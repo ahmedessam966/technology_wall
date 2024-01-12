@@ -1,34 +1,32 @@
-part of '../web_header.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:technology_wall/config/themes/text_varaiants.dart';
+import 'package:technology_wall/global/controllers/auth_controllers.dart';
+
+import '../../../../../global/controllers/app_controllers.dart';
 
 class UserDropdownMenu extends StatelessWidget {
   final String? userName;
-  final dynamic action;
   final AppControllers app;
-  const UserDropdownMenu({super.key, required this.userName, this.action, required this.app});
+  final AuthControllers auth;
+  const UserDropdownMenu({super.key, required this.userName, required this.app, required this.auth});
 
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
+      width: 13.w,
       enableSearch: false,
       requestFocusOnTap: false,
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.never,
         floatingLabelStyle: context.bodyMedium?.copyWith(color: Colors.white70),
-        border: UnderlineInputBorder(
-          borderRadius: BorderRadius.circular(1),
-          borderSide: const BorderSide(color: Colors.white70),
-        ),
-        enabledBorder: UnderlineInputBorder(
-          borderRadius: BorderRadius.circular(1),
-          borderSide: const BorderSide(color: Colors.white70),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderRadius: BorderRadius.circular(1),
-          borderSide: const BorderSide(color: Colors.white70),
-        ),
+        border: InputBorder.none,
+        enabledBorder: InputBorder.none,
+        focusedBorder: InputBorder.none,
       ),
       label: Text(
-        app.utilityPage ?? userName?.split(' ')[0] ?? 'Account',
+        userName?.split(' ')[0] ?? 'Account',
         style: context.bodyMedium?.copyWith(color: Colors.white70),
       ),
       leadingIcon: const Icon(
@@ -60,7 +58,16 @@ class UserDropdownMenu extends StatelessWidget {
           ),
         ),
       ],
-      onSelected: action,
+      onSelected: (value) async {
+        if (value != null) {
+          if (value == 'Account') {
+            Navigator.pushNamed(context, 'en/account');
+          } else if (value == 'Dark Mode') {
+          } else {
+            auth.logOut();
+          }
+        }
+      },
     );
   }
 }

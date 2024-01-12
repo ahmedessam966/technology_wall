@@ -27,7 +27,7 @@ export 'en/software/tally/tally_page.dart';
 export 'en/software/zoho/zoho_page.dart';
 export 'en/privacy/privacy_policy_page.dart.dart';
 export 'en/dev/home/dev_home_page.dart';
-
+export 'en/account/account_page.dart';
 //////////////////////////////////////////////////
 ///Arabic Index
 //////////////////////////////////////////////////

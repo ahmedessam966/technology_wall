@@ -1,42 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:provider/provider.dart';
-import 'package:technology_wall/en/hardware/desktops/controllers/desktops_controllers.dart';
-import 'package:technology_wall/en/hardware/desktops/mobile/mobile_desktops_body.dart';
-import 'package:technology_wall/en/hardware/desktops/tablet/tablet_desktops_body.dart';
-import 'package:technology_wall/en/hardware/desktops/web/web_desktops_body.dart';
-import '../../shared/web/direct_dependencies_index.dart';
+import 'package:technology_wall/en/account/mobile/mobile_account_page_body.dart';
+import 'package:technology_wall/en/account/tablet/tablet_account_page_body.dart';
+import 'package:technology_wall/en/account/web/web_account_page_body.dart';
+import '../shared/web/direct_dependencies_index.dart';
 
-class DesktopsPage extends StatefulWidget {
-  const DesktopsPage({super.key});
+class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
 
   @override
-  State<DesktopsPage> createState() => _DesktopsPageState();
+  State<AccountPage> createState() => _AccountPageState();
 }
 
-class _DesktopsPageState extends State<DesktopsPage> {
-  final MetadataControllers metadataFunctions = MetadataControllers();
-  @override
-  void initState() {
-    super.initState();
-    metadataFunctions.updateHElement(
-        'Technology Wall Desktops Page',
-        'Indispensable desktop computers demanded by every business, serving a wide range of requirements and puroposes.',
-        'Offering renowned desktop computers brands: HP, Dell, Lenovo, and iMac. A vast variety of specifications, models, and prices  tailored to suit each and every business need; pushing business progress and innovation forward.');
-    metadataFunctions.updateMetaData('Technology Wall | Dekstop Computers',
-        'Whether its for graphic design, architecture and AutoCAD utility, or even gaming purposes, you will always find your desired desktop computer here, offered with best prices. Explore Dell Microtower series, Dell OptiPlex series, HP Workstation series, and Lenovo ThinkCentre series.');
-    metadataFunctions.updateHeaderMetaData();
-    metadataFunctions.injectPageSpecificContent(
-        'Find and explore our unqiue collection of dependable and versatile desktop computers, suitable for every use and every individual',
-        'en');
-  }
-
-  @override
-  void dispose() {
-    Provider.of<DekstopsControllers>(context, listen: false).desktopsList.clear();
-    super.dispose();
-  }
-
+class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -95,10 +71,10 @@ class _DesktopsPageState extends State<DesktopsPage> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
                       child: sw >= 1080
-                          ? const WebDesktopsBody()
+                          ? const WebAccountPageBody()
                           : sw < 1080 && sw >= 568
-                              ? const TabletDesktopsBody()
-                              : const MobileDesktopsBody(),
+                              ? const TabletAccountPageBody()
+                              : const MobileAccountPageBody(),
                     ),
                     sw >= 1080
                         ? const WebFooter()

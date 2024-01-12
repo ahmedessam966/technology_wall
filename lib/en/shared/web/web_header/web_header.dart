@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,10 +8,8 @@ import '../../../../ar/shared/language_redirect.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../global/controllers/auth_controllers.dart';
 import 'dart:html' as html;
-
 import 'components/sign_button.dart';
 part 'components/nav_bar_button.g.dart';
-part 'components/user_dropdown_menu.g.dart';
 
 class WebHeader extends StatelessWidget {
   const WebHeader({super.key});
@@ -123,21 +120,60 @@ class WebHeader extends StatelessWidget {
               ),
               Builder(builder: (ctx) {
                 if (auth.userModel?.id != null) {
-                  return UserDropdownMenu(
-                    app: app,
-                    userName: auth.userModel?.name,
-                    action: (value) {
+                  return DropdownMenu(
+                    width: 13.w,
+                    enableSearch: false,
+                    requestFocusOnTap: false,
+                    inputDecorationTheme: InputDecorationTheme(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      floatingLabelStyle: context.bodyMedium?.copyWith(color: Colors.white70),
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
+                    label: Text(
+                      'My Account',
+                      style: context.bodyMedium?.copyWith(color: Colors.white70),
+                    ),
+                    leadingIcon: const Icon(
+                      CupertinoIcons.person_crop_circle,
+                      color: Colors.white70,
+                    ),
+                    trailingIcon: const Icon(Icons.arrow_drop_down, color: Colors.white70),
+                    selectedTrailingIcon: const Icon(Icons.arrow_drop_up, color: Colors.white70),
+                    dropdownMenuEntries: const [
+                      DropdownMenuEntry(
+                        value: 'Account',
+                        label: 'My Account',
+                        leadingIcon: Icon(
+                          CupertinoIcons.person_alt,
+                        ),
+                      ),
+                      DropdownMenuEntry(
+                        value: 'Dark Mode',
+                        label: 'Dark Mode',
+                        leadingIcon: Icon(
+                          CupertinoIcons.moon_fill,
+                        ),
+                      ),
+                      DropdownMenuEntry(
+                        value: 'Log Out',
+                        label: 'Log Out',
+                        leadingIcon: Icon(
+                          CupertinoIcons.power,
+                        ),
+                      ),
+                    ],
+                    onSelected: (value) {
                       if (value != null) {
-                        switch (value) {
-                          case 'Account':
-                            app.changeUtilityPage(value);
-                            Navigator.pushNamed(context, 'en/#/account');
-                            break;
-                          case 'Dark Mode':
-                            break;
-                          case 'Log Out':
-                            auth.logOut();
-                            break;
+                        if (value == 'Account') {
+                          Navigator.pushNamed(context, '/en/#/account');
+                        } else if (value == 'Dark Mode') {
+                        } else {
+                          auth.logOut();
+                          Future.delayed(const Duration(seconds: 3), () {
+                            Navigator.pushNamedAndRemoveUntil(context, '/en', (route) => false);
+                          });
                         }
                       }
                     },

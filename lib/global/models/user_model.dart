@@ -5,6 +5,7 @@ class UserModel {
   final String dateCreated;
   final Map? cart;
   final String? location;
+  final String? profileImage;
 
   UserModel(
       {required this.id,
@@ -12,5 +13,6 @@ class UserModel {
       required this.name,
       required this.dateCreated,
       this.cart,
-      this.location});
+      this.location,
+      this.profileImage});
 }
