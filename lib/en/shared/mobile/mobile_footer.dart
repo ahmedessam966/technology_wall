@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 
 import '../../../config/themes/app_theme.dart';
 
 class MobileFooter extends StatelessWidget {
-  final double sw;
-  final double sh;
-  final double ar;
-  const MobileFooter({super.key, required this.sw, required this.sh, required this.ar});
+  const MobileFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: sw * 0.025),
+      padding: EdgeInsets.symmetric(horizontal: 2.5.w),
       child: Column(children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,14 +168,14 @@ class MobileFooter extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: sh * 0.05,
+          height: 5.h,
         ),
         Text(
           '+966542575808',
           style: context.bodySmall?.copyWith(color: Colors.white54),
         ),
         Text(
-          'info@tech-wall.me',
+          'info@techwall.com.sa',
           style: context.bodySmall?.copyWith(color: Colors.white54),
         ),
         Text(
@@ -185,7 +183,7 @@ class MobileFooter extends StatelessWidget {
           style: context.bodySmall?.copyWith(color: Colors.white54),
         ),
         SizedBox(
-          height: sh * 0.05,
+          height: 5.h,
         ),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 20),

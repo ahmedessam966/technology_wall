@@ -4,12 +4,6 @@ import 'package:technology_wall/en/about/mobile/mobile_about_body.dart';
 import 'package:technology_wall/en/about/tablet/tablet_about_body.dart';
 import 'package:technology_wall/en/about/web/web_about_body.dart';
 import '../shared/web/direct_dependencies_index.dart';
-import '../shared/mobile/mobile_footer.dart';
-import '../shared/mobile/mobile_header.dart';
-import '../shared/tablet/tablet_footer.dart';
-import '../shared/tablet/tablet_header.dart';
-import '../shared/web/web_footer.dart';
-import '../shared/web/web_header/web_header.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -38,8 +32,6 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
@@ -83,11 +75,7 @@ class _AboutPageState extends State<AboutPage> {
                       child: sw >= 1080
                           ? const WebHeader()
                           : sw < 1080 && sw >= 568
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
+                              ? const TabletHeader()
                               : const MobileHeader(),
                     ),
                     Padding(
@@ -101,16 +89,8 @@ class _AboutPageState extends State<AboutPage> {
                     sw >= 1080
                         ? const WebFooter()
                         : sw < 1080 && sw >= 568
-                            ? TabletFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
+                            ? const TabletFooter()
+                            : const MobileFooter(),
                   ],
                 ),
               ],

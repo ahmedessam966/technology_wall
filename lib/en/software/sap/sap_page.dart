@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import '../../shared/mobile/mobile_footer.dart';
-import '../../shared/mobile/mobile_header.dart';
-import '../../shared/tablet/tablet_footer.dart';
-import '../../shared/tablet/tablet_header.dart';
-import '../../shared/web/web_footer.dart';
-import '../../shared/web/web_header/web_header.dart';
 import 'web/web_sap_body.dart';
 import '../../shared/web/direct_dependencies_index.dart';
 
@@ -32,10 +26,7 @@ class _SAPPageState extends State<SAPPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
-
     return PopScope(
       canPop: true,
       onPopInvoked: (value) {
@@ -78,11 +69,7 @@ class _SAPPageState extends State<SAPPage> {
                       child: sw >= 1080
                           ? const WebHeader()
                           : sw < 1080 && sw >= 568
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
+                              ? const TabletHeader()
                               : const MobileHeader(),
                     ),
                     Padding(
@@ -96,16 +83,8 @@ class _SAPPageState extends State<SAPPage> {
                     sw >= 1080
                         ? const WebFooter()
                         : sw < 1080 && sw >= 568
-                            ? TabletFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
+                            ? const TabletFooter()
+                            : const MobileFooter(),
                   ],
                 ),
               ],

@@ -1,22 +1,15 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
-import '../../../global/controllers/metadata_controllers.dart';
 import '../components/horizontal_product_category_card.dart';
 
 class TabletHomeBody extends StatelessWidget {
-  final double sw;
-  final double sh;
-  final double ar;
-  const TabletHomeBody({super.key, required this.sw, required this.ar, required this.sh});
+  const TabletHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    MetadataControllers metadataControllers = MetadataControllers();
-    metadataControllers.injectPageSpecificContent(
-        'Enterprise Essentials\n ERP Essentials \n Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants. \n Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7. \n Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
-        'en');
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +32,7 @@ class TabletHomeBody extends StatelessWidget {
                 style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +42,7 @@ class TabletHomeBody extends StatelessWidget {
                     style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                   ),
                   SizedBox(
-                    width: sw * 0.01,
+                    width: 1.w,
                   ),
                   const Icon(
                     Icons.arrow_right_alt_sharp,
@@ -62,7 +55,7 @@ class TabletHomeBody extends StatelessWidget {
                 style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
               ),
               SizedBox(
-                height: sh * 0.04,
+                height: 4.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +65,7 @@ class TabletHomeBody extends StatelessWidget {
                     style: context.bodyLarge?.copyWith(color: const Color(0xaaffffff).withOpacity(1)),
                   ),
                   SizedBox(
-                    width: sw * 0.01,
+                    width: 1.w,
                   ),
                   const Icon(
                     Icons.arrow_right_alt_sharp,
@@ -85,14 +78,14 @@ class TabletHomeBody extends StatelessWidget {
                 style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
               ),
               SizedBox(
-                height: sh * 0.04,
+                height: 4.h,
               ),
               Text(
                 'Save valuable time and effort. Explore our integrated solutions plan.',
                 style: context.bodyLarge?.copyWith(color: const Color(0xaaaaaeb6).withOpacity(1)),
               ),
               SizedBox(
-                height: sh * 0.04,
+                height: 4.h,
               ),
               ElevatedButton(
                 style: ButtonStyle(
@@ -121,7 +114,7 @@ class TabletHomeBody extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: sh * 0.04,
+          height: 4.h,
         ),
         Container(
           color: const Color(0xaaf7f7f7).withOpacity(1),
@@ -137,16 +130,16 @@ class TabletHomeBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: sh * 0.06,
+                height: 6.h,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/basics.svg',
-                    height: sh * 0.03,
+                    height: 3.h,
                   ),
                   SizedBox(
-                    width: sw * 0.02,
+                    width: 2.w,
                   ),
                   Text(
                     'Enterprise Essentials',
@@ -155,7 +148,7 @@ class TabletHomeBody extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: sh * 0.04,
+                height: 4.h,
               ),
               HorizontalProductCategoryCard(
                   isMobile: false,
@@ -208,7 +201,7 @@ class TabletHomeBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               Center(
                 child: ElevatedButton(
@@ -236,23 +229,23 @@ class TabletHomeBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: sh * 0.05,
+                height: 5.h,
               ),
               Divider(
-                indent: sw * 0.03,
-                endIndent: sw * 0.03,
+                indent: 3.w,
+                endIndent: 3.w,
               ),
               SizedBox(
-                height: sh * 0.05,
+                height: 5.h,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     'assets/icons/erp.svg',
-                    height: sh * 0.03,
+                    height: 3.h,
                   ),
                   SizedBox(
-                    width: sw * 0.02,
+                    width: 2.w,
                   ),
                   Text(
                     'ERP Essentials',
@@ -261,34 +254,34 @@ class TabletHomeBody extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: sh * 0.04,
+                height: 4.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsone.png?alt=media&token=bf4eb120-1472-410c-8d21-c43f587d98cd',
-                    height: sh * 0.1,
+                    height: 10.h,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fs4hana.png?alt=media&token=79b3e395-e676-4d2b-b36f-cb9b746281c2',
-                    height: sh * 0.1,
-                    width: sw * 0.1,
+                    height: 10.h,
+                    width: 10.w,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Fsage.png?alt=media&token=71be32ed-48c6-4633-b054-de0f42288e93',
-                    height: sh * 0.1,
-                    width: sw * 0.1,
+                    height: 10.h,
+                    width: 10.w,
                   ),
                   Image.network(
                     'https://firebasestorage.googleapis.com/v0/b/technology-wall-web.appspot.com/o/Site%20Assets%2Ftally.png?alt=media&token=cc2a18b7-5796-4ad5-96e6-a5503ed1b65e',
-                    height: sh * 0.1,
-                    width: sw * 0.1,
+                    height: 10.h,
+                    width: 10.w,
                   ),
                 ],
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               SelectableText(
                 'Powered by HCC, a certified SAP Solutions Partner, Technology Wall offers unique SAP Solutions for any business. Offering feasible and professional projection forecasts, determining the required scale of the ERP solution, implmentation and system deployments through client-customized CI/CD operations, and an optional annual maintenance contract carried out by our expert certified SAP Consultants.',
@@ -313,7 +306,7 @@ class TabletHomeBody extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               SelectableText(
                 'Technology Wall is directly licensed by Sage ERP System Corporation to propose, design, and implement Sage ERP Solutions. Having a dedicated team of Sage Solutions experts, Technology Wall also offers a competitive post-sales support plan for implemented Sage Solutions - 24/7',
@@ -321,7 +314,7 @@ class TabletHomeBody extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: sh * 0.01,
+                height: 1.h,
               ),
               SelectableText(
                 'Technology Wall aims to fully and professionally serve the business logic requirements of enterprises of all scales - small, medium, and expansive. To serve such purpose, Technology Wall offers its services for Tally Solutions as a certified distributor.',
@@ -329,12 +322,12 @@ class TabletHomeBody extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: sh * 0.02,
+                height: 2.h,
               ),
               const SelectableText(
                   'Assess your business\'s needs - your enterprise can be optimized for Sage, Tally, or SAP Solutions. For more information on how we assess readiness and pricing plans, and which ERP would suit your business requirements:'),
               SizedBox(
-                height: sh * 0.05,
+                height: 5.h,
               ),
               Center(
                 child: ElevatedButton(

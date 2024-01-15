@@ -42,6 +42,7 @@ class AuthControllers extends ChangeNotifier {
               id: creds.user!.uid,
               email: element.data()['Email Address'],
               name: element.data()['Name'],
+              phone: element.data()['Phone'],
               dateCreated: element.data()['Date Created'],
               cart: element.data()['Cart'],
               location: '$city, $country');
@@ -73,6 +74,7 @@ class AuthControllers extends ChangeNotifier {
               id: currentUser.user!.uid,
               email: element.data()['Email Address'],
               name: element.data()['Name'],
+              phone: element.data()['Phone'],
               dateCreated: element.data()['Date Created'],
               cart: element.data()['Cart'],
               location: element.data()['Location']);
@@ -86,6 +88,7 @@ class AuthControllers extends ChangeNotifier {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.remove(_userModel!.id);
+      _userModel = null;
       await FirebaseAuth.instance.signOut();
     } on FirebaseAuthException catch (e) {
       if (kDebugMode) {

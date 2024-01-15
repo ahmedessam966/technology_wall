@@ -3,12 +3,6 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:technology_wall/en/about/accreditation/mobile/mobile_accreditation_body.dart';
 import 'package:technology_wall/en/about/accreditation/tablet/tablet_accrediation_body.dart';
 import 'package:technology_wall/en/about/accreditation/web/web_accreditation_body.dart';
-import '../../shared/mobile/mobile_footer.dart';
-import '../../shared/mobile/mobile_header.dart';
-import '../../shared/tablet/tablet_footer.dart';
-import '../../shared/tablet/tablet_header.dart';
-import '../../shared/web/web_footer.dart';
-import '../../shared/web/web_header/web_header.dart';
 import '../../shared/web/direct_dependencies_index.dart';
 
 class AccreditationPage extends StatefulWidget {
@@ -38,8 +32,6 @@ class _AccreditationPageState extends State<AccreditationPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
@@ -83,11 +75,7 @@ class _AccreditationPageState extends State<AccreditationPage> {
                       child: sw >= 1080
                           ? const WebHeader()
                           : sw < 1080 && sw >= 568
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
+                              ? const TabletHeader()
                               : const MobileHeader(),
                     ),
                     Padding(
@@ -101,16 +89,8 @@ class _AccreditationPageState extends State<AccreditationPage> {
                     sw >= 1080
                         ? const WebFooter()
                         : sw < 1080 && sw >= 568
-                            ? TabletFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
+                            ? const TabletFooter()
+                            : const MobileFooter(),
                   ],
                 ),
               ],

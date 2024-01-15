@@ -16,3 +16,4 @@ export 'en/hardware/printers/controllers/printers_controllers.dart';
 export 'ar/hardware/desktops/controllers/ar_desktops_controllers.dart';
 export 'ar/hardware/notebooks/controllers/ar_notebooks_controllers.dart';
 export 'ar/hardware/printers/controllers/ar_printers_controllers.dart';
+export 'en/account/controllers/account_controllers.dart';

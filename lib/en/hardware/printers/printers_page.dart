@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/en/hardware/printers/controllers/printers_controllers.dart';
 import 'package:technology_wall/en/hardware/printers/mobile/mobile_printers_body.dart';
-import '../../../config/themes/app_theme.dart';
-import '../../../global/controllers/metadata_controllers.dart';
-import '../../shared/mobile/mobile_footer.dart';
-import '../../shared/mobile/mobile_header.dart';
-import '../../shared/tablet/tablet_footer.dart';
-import '../../shared/tablet/tablet_header.dart';
-import '../../shared/web/web_footer.dart';
-import '../../shared/web/web_header/web_header.dart';
 import 'web/web_printers_body.dart';
+import '../../shared/web/direct_dependencies_index.dart';
 
 class PrintersPage extends StatefulWidget {
   final String? category;
@@ -49,8 +40,6 @@ class _PrintersPageState extends State<PrintersPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
@@ -94,11 +83,7 @@ class _PrintersPageState extends State<PrintersPage> {
                     child: sw >= 1080
                         ? const WebHeader()
                         : sw < 1080 && sw >= 568
-                            ? TabletHeader(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
+                            ? const TabletHeader()
                             : const MobileHeader(),
                   ),
                   Padding(
@@ -112,16 +97,8 @@ class _PrintersPageState extends State<PrintersPage> {
                   sw >= 1080
                       ? const WebFooter()
                       : sw < 1080 && sw >= 568
-                          ? TabletFooter(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            )
-                          : MobileFooter(
-                              sw: sw,
-                              sh: sh,
-                              ar: ar,
-                            ),
+                          ? const TabletFooter()
+                          : const MobileFooter(),
                 ],
               ),
             ],

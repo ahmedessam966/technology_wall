@@ -22,7 +22,7 @@ class _NotFoundPageState extends State<NotFoundPage> {
           children: [
             SvgPicture.asset(
               'assets/icons/404.svg',
-              height: 160.h,
+              height: 90.h,
             ),
             SizedBox(
               height: 1.h,

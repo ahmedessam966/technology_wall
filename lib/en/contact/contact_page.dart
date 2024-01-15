@@ -3,12 +3,6 @@ import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'package:technology_wall/en/contact/mobile/mobile_contact_body.dart';
 import 'package:technology_wall/en/contact/tablet/tablet_contact_body.dart';
 import 'package:technology_wall/en/contact/web/web_contact_body.dart';
-import '../shared/mobile/mobile_footer.dart';
-import '../shared/mobile/mobile_header.dart';
-import '../shared/tablet/tablet_footer.dart';
-import '../shared/tablet/tablet_header.dart';
-import '../shared/web/web_footer.dart';
-import '../shared/web/web_header/web_header.dart';
 import '../shared/web/direct_dependencies_index.dart';
 
 class ContactPage extends StatefulWidget {
@@ -38,8 +32,6 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
@@ -82,11 +74,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: sw >= 1080
                           ? const WebHeader()
                           : sw < 1080 && sw >= 568
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
+                              ? const TabletHeader()
                               : const MobileHeader(),
                     ),
                     Padding(
@@ -100,16 +88,8 @@ class _ContactPageState extends State<ContactPage> {
                     sw >= 1080
                         ? const WebFooter()
                         : sw < 1080 && sw >= 568
-                            ? TabletFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
+                            ? const TabletFooter()
+                            : const MobileFooter(),
                   ],
                 ),
               ],

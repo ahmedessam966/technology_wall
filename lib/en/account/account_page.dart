@@ -12,12 +12,22 @@ class AccountPage extends StatefulWidget {
   State<AccountPage> createState() => _AccountPageState();
 }
 
+bool _fetching = true;
+
 class _AccountPageState extends State<AccountPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        _fetching = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
-    final double sh = MediaQuery.of(context).size.height;
-    final double ar = MediaQuery.of(context).size.aspectRatio;
     final scroller = ScrollController();
     return PopScope(
       canPop: true,
@@ -34,65 +44,54 @@ class _AccountPageState extends State<AccountPage> {
         enableKeyboardScrolling: true,
         keyboardScrollConfig: const KeyboardScrollConfig(spaceScrollAmount: 0),
         child: Scaffold(
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: AppTheme.darkest,
-              onPressed: () {},
-              child: const Icon(
-                Icons.chat_rounded,
-                color: Colors.white70,
-              ),
+          backgroundColor: Colors.white70,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: AppTheme.darkest,
+            onPressed: () {},
+            child: const Icon(
+              Icons.chat_rounded,
+              color: Colors.white70,
             ),
-            body: Stack(
-              alignment: Alignment.center,
-              children: [
-                Opacity(
-                  opacity: 0.05,
-                  child: SvgPicture.asset(
-                    'assets/icons/ttten.svg',
-                    fit: BoxFit.cover,
+          ),
+          body: _fetching
+              ? Center(
+                  child: SpinKitCircle(
+                    size: 50.px,
+                    color: AppTheme.third.withOpacity(1),
                   ),
-                ),
-                ListView(
-                  controller: scroller,
-                  physics: const RangeMaintainingScrollPhysics(),
+                )
+              : Stack(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
-                      child: sw >= 1080
-                          ? const WebHeader()
-                          : sw < 1080 && sw >= 568
-                              ? TabletHeader(
-                                  sw: sw,
-                                  sh: sh,
-                                  ar: ar,
-                                )
-                              : const MobileHeader(),
+                    Container(
+                      height: 80.h,
+                      width: double.infinity,
+                      color: AppTheme.darkest.withOpacity(1),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
-                      child: sw >= 1080
-                          ? const WebAccountPageBody()
-                          : sw < 1080 && sw >= 568
-                              ? const TabletAccountPageBody()
-                              : const MobileAccountPageBody(),
+                    ListView(
+                      controller: scroller,
+                      physics: const RangeMaintainingScrollPhysics(),
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: sw <= 568 ? 3.w : 6.w, vertical: 2.h),
+                          child: sw >= 1080
+                              ? const WebHeader()
+                              : sw < 1080 && sw >= 568
+                                  ? const TabletHeader()
+                                  : const MobileHeader(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 1.h),
+                          child: sw >= 1080
+                              ? const WebAccountPageBody()
+                              : sw < 1080 && sw >= 568
+                                  ? const TabletAccountPageBody()
+                                  : const MobileAccountPageBody(),
+                        ),
+                      ],
                     ),
-                    sw >= 1080
-                        ? const WebFooter()
-                        : sw < 1080 && sw >= 568
-                            ? TabletFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              )
-                            : MobileFooter(
-                                sw: sw,
-                                sh: sh,
-                                ar: ar,
-                              ),
                   ],
                 ),
-              ],
-            )),
+        ),
       ),
     );
   }

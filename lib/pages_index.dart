@@ -14,7 +14,6 @@ export 'en/hardware/scanners/scanners_page.dart';
 export 'en/hardware/servers/servers_page.dart';
 export 'en/hardware/switches/switches_page.dart';
 export 'en/hardware/ups/ups_page.dart';
-export 'en/hardware/printers/components/printer_details_page.dart';
 export 'en/home/home_page.dart';
 export 'en/hardware/inventory/inventory_page.dart';
 export 'en/portal/customer_portal.dart';

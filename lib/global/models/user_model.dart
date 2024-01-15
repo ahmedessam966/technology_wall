@@ -2,6 +2,7 @@ class UserModel {
   final String id;
   final String email;
   final String name;
+  final String phone;
   final String dateCreated;
   final Map? cart;
   final String? location;
@@ -11,6 +12,7 @@ class UserModel {
       {required this.id,
       required this.email,
       required this.name,
+      required this.phone,
       required this.dateCreated,
       this.cart,
       this.location,

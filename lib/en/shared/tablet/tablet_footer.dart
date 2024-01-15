@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:technology_wall/config/themes/text_varaiants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/themes/app_theme.dart';
 
 class TabletFooter extends StatelessWidget {
-  final double sw;
-  final double sh;
-  final double ar;
-  const TabletFooter({super.key, required this.sw, required this.sh, required this.ar});
+  const TabletFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class TabletFooter extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: sw * 0.05, vertical: sh * 0.02),
+            padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
             child: Flex(
               direction: Axis.horizontal,
               children: [
@@ -30,24 +28,24 @@ class TabletFooter extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/images/logo1.png',
-                        height: sh * 0.2,
+                        height: 20.h,
                       ),
                       SizedBox(
-                        height: sh * 0.025,
+                        height: 0.25.h,
                       ),
                       Text(
                         'Technology Wall Subsidiaries',
                         style: context.bodyLarge?.copyWith(color: Colors.white70),
                       ),
                       SizedBox(
-                        height: sh * 0.01,
+                        height: 1.h,
                       ),
                       Text(
                         'Pro-Rays Co.',
                         style: context.bodyMedium?.copyWith(color: Colors.white54),
                       ),
                       SizedBox(
-                        height: sh * 0.01,
+                        height: 1.h,
                       ),
                       Row(
                         children: [
@@ -121,7 +119,7 @@ class TabletFooter extends StatelessWidget {
                 ),
                 const Spacer(),
                 SizedBox(
-                  height: sh * 0.5,
+                  height: 5.h,
                   child: const VerticalDivider(
                     color: Colors.white70,
                   ),
@@ -152,7 +150,7 @@ class TabletFooter extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: sh * 0.01,
+                              height: 1.h,
                             ),
                             TextButton(
                               onPressed: () {
@@ -200,14 +198,14 @@ class TabletFooter extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: sh * 0.04,
+                              height: 4.h,
                             ),
                             Text(
                               'Contact Us',
                               style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                             SizedBox(
-                              height: sh * 0.01,
+                              height: 1.h,
                             ),
                             Text(
                               '+966542575808',
@@ -314,7 +312,7 @@ class TabletFooter extends StatelessWidget {
                               style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                             SizedBox(
-                              height: sh * 0.01,
+                              height: 1.h,
                             ),
                             TextButton(
                               onPressed: () {},
@@ -338,14 +336,14 @@ class TabletFooter extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: sh * 0.02,
+                              height: 2.h,
                             ),
                             Text(
                               'Legal',
                               style: context.bodyLarge?.copyWith(color: Colors.white70),
                             ),
                             SizedBox(
-                              height: sh * 0.01,
+                              height: 1.h,
                             ),
                             TextButton(
                               onPressed: () {},
@@ -369,7 +367,7 @@ class TabletFooter extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: sh * 0.02,
+                              height: 2.h,
                             ),
                           ],
                         ),
