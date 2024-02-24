@@ -32,6 +32,7 @@ dependencies:
   firebase_auth: ^4.16.0
   firebase_core: ^2.24.2
   firebase_storage: ^11.5.5
+  floating_action_bubble: ^1.1.4
   flutter:
     sdk: flutter
   flutter_carousel_widget: ^2.1.2
